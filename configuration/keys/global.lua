@@ -99,50 +99,42 @@ local global_keys =
 	),
 	-- Notification menus
 	-- awful.key(
-	-- 	{modkey},
-	-- 	"F2",
+	-- 	{modkey}, 
+	-- 	'F2',
 	-- 	function()
 	-- 		local focused = awful.screen.focused()
 
-	-- 		if focused.left_panel and focused.left_panel.opened then
-	-- 			focused.left_panel:toggle()
-	-- 		end
-
-	-- 		if focused.right_panel then
-	-- 			if _G.right_panel_mode == "today_mode" or not focused.right_panel.visible then
-	-- 				focused.right_panel:toggle()
-	-- 				switch_rdb_pane("today_mode")
+	-- 		if focused.central_panel then
+	-- 			if _G.central_panel_mode == 'today_mode' or not focused.central_panel.visible then
+	-- 				focused.central_panel:toggle()
+	-- 				switch_rdb_pane('today_mode')
 	-- 			else
-	-- 				switch_rdb_pane("today_mode")
+	-- 				switch_rdb_pane('today_mode')
 	-- 			end
 
-	-- 			_G.right_panel_mode = "today_mode"
+	-- 			_G.central_panel_mode = 'today_mode'
 	-- 		end
 	-- 	end,
-	-- 	{description = "فتح اشعارات اليوم", group = "المشغل"}
+	-- 	{description = 'open today panel', group = 'launcher'}
 	-- ),
 	-- awful.key(
-	-- 	{modkey},
-	-- 	"F3",
+	-- 	{modkey}, 
+	-- 	'F3',
 	-- 	function()
 	-- 		local focused = awful.screen.focused()
 
-	-- 		if focused.left_panel and focused.left_panel.opened then
-	-- 			focused.left_panel:toggle()
-	-- 		end
-
-	-- 		if focused.right_panel then
-	-- 			if _G.right_panel_mode == "notif_mode" or not focused.right_panel.visible then
-	-- 				focused.right_panel:toggle()
-	-- 				switch_rdb_pane("notif_mode")
+	-- 		if focused.central_panel then
+	-- 			if _G.central_panel_mode == 'settings_mode' or not focused.central_panel.visible then
+	-- 				focused.central_panel:toggle()
+	-- 				switch_rdb_pane('settings_mode')
 	-- 			else
-	-- 				switch_rdb_pane("notif_mode")
+	-- 				switch_rdb_pane('settings_mode')
 	-- 			end
 
-	-- 			_G.right_panel_mode = "notif_mode"
+	-- 			_G.central_panel_mode = 'settings_mode'
 	-- 		end
 	-- 	end,
-	-- 	{description = "فتح مركز الاشعارات", group = "المشغل"}
+	-- 	{description = 'open settings panel', group = 'launcher'}
 	-- ),
 	-- Applicatopn menu
 	-- Power menu
@@ -438,6 +430,14 @@ local global_keys =
 			awful.spawn("sh .config/awesome/sh/redshift.sh", false)
 		end,
 		{description = "وضع القراءة", group = "تطبيقات"}
+	),
+	awful.key(
+		{modkey, "Shift"},
+		"k",
+		function()
+			awful.spawn("gnome-system-monitor", false)
+		end,
+		{description = "مدير المهام", group = "تطبيقات"}
 	),
 	awful.key(
 		{altkey},

@@ -8,8 +8,7 @@ require("init")
 beautiful.init("~/.config/awesome/themes/theme.lua")
 
 require("layout.init")
--- require("layout.menu")
-require("layout.top-bar")
+
 
 require('configuration.client')
 require('configuration.root')
@@ -21,17 +20,16 @@ root.keys(require('configuration.keys.global'))
 -- ░█░█░█░█░█░█░█░█░█░░░█▀▀░▀▀█
 -- ░▀░▀░▀▀▀░▀▀░░▀▀▀░▀▀▀░▀▀▀░▀▀▀
 
--- require('module.notifications')
+require('module.notifications')
 require('module.auto-start')
 require('module.dynamic-wallpaper')
 require('module.exit-screen')
 require('module.brightness-osd')
 require('module.volume-osd')
 
--- require('module.notifications')
+-- require('module.menu')
 -- require('module.quake-terminal')
 -- require('module.titlebar')
--- require('module.menu')
 -- require("autustart")
 
 

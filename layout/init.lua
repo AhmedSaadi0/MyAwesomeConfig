@@ -1,12 +1,13 @@
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
+require("layout.top-bar")
 require ("layout.menu")
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-    -- awful.layout.suit.tile.right,
-    awful.layout.suit.tile,
+    awful.layout.suit.tile.left,
+    -- awful.layout.suit.tile,
     awful.layout.suit.floating,
     -- awful.layout.suit.tile.bottom,
     -- awful.layout.suit.tile.top,
@@ -22,7 +23,6 @@ awful.layout.layouts = {
     -- awful.layout.suit.corner.se,
 }
 -- }}}
-
 
 -- {{{ Mouse bindings
 root.buttons(

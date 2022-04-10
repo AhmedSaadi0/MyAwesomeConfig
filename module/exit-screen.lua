@@ -48,7 +48,7 @@ local msg_table = {
 
 local greeter_message = wibox.widget {
 	markup = 'اختر بعناية!',
-	font = 'JF Flat 45',
+	font = 'Font Awesome 5 Free Solid 45',
 	align = 'center',
 	margins = dpi(10),
 	padding = dpi(10),
@@ -58,7 +58,7 @@ local greeter_message = wibox.widget {
 
 local profile_name = wibox.widget {
 	markup = 'احمد',
-	font = 'JF Flat 12',
+	font = 'Font Awesome 5 Free Solid 12',
 	align = 'center',
 	valign = 'center',
 	widget = wibox.widget.textbox
@@ -67,7 +67,7 @@ local profile_name = wibox.widget {
 local profile_imagebox = wibox.widget {
 	image = widget_icon_dir .. 'default.svg',
 	resize = true,
-	forced_height = dpi(140),
+	forced_height = dpi(150),
 	clip_shape = gears.shape.circle,
 	widget = wibox.widget.imagebox
 }
@@ -139,7 +139,7 @@ local build_power_button = function(name, icon, callback)
 					margins = dpi(16),
 					widget = wibox.container.margin
 				},
-				bg = beautiful.groups_bg,
+				bg = beautiful.lock_bg,
 				widget = wibox.container.background
 			},
 			shape = gears.shape.rounded_rect,
@@ -205,7 +205,7 @@ local create_exit_screen = function(s)
 		type = 'splash',
 		visible = false,
 		ontop = true,
-		bg = beautiful.background,
+		bg = beautiful.lock_bg,
 		fg = beautiful.fg_normal,
 		height = s.geometry.height,
 		width = s.geometry.width,
@@ -268,7 +268,7 @@ local create_exit_screen = function(s)
 				nil,
 				{
 					widget = wibox.container.margin,
-					margins = dpi(30),
+					margins = dpi(10),
 					greeter_message
 				},
 				nil

@@ -84,6 +84,22 @@ local taglist_square_size = dpi(4)
 -- notification_[bg|fg]
 -- notification_[width|height|margin]
 -- notification_[border_color|border_width|shape|opacity]
+theme.notification_title_margin = dpi(6)
+
+theme.notification_body_left_margin = dpi(14)
+theme.notification_body_right_margin = dpi(14)
+theme.notification_body_top_margin = dpi(8)
+theme.notification_body_bottom_margin = dpi(6)
+theme.notification_body_margins = dpi(6)
+theme.notification_margins = dpi(6)
+
+theme.notification_icon_margin = dpi(2)
+theme.notification_title_color = "#272d37"
+theme.notification_bg = "#21222c"
+theme.notification_border_focus = theme.border_focus
+
+
+theme.lock_bg = "#21222c" .. "77"
 
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]

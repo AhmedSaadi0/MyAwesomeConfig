@@ -18,39 +18,41 @@ local tags = {
 		-- icon = icons.social,
 		default_app = apps.default.social,
 		gap = beautiful.useless_gap,
-		layout = awful.layout.suit.tile
+		layout = awful.layout.suit.tile.left
 	},
 	{
 		type = "development",
 		-- icon = icons.development,
 		default_app = apps.default.development,
 		gap = beautiful.useless_gap,
-		layout = awful.layout.suit.tile
+		layout = awful.layout.suit.tile.left
 	},
 	{
 		type = "files",
 		-- icon = icons.file_manager,
 		default_app = apps.default.file_manager,
 		gap = beautiful.useless_gap,
-		layout = awful.layout.suit.tile
+		layout = awful.layout.suit.tile.left
 	},
 	{
 		type = "code",
 		-- icon = icons.text_editor,
 		default_app = apps.default.text_editor,
 		gap = beautiful.useless_gap,
-		layout = awful.layout.suit.tile
+		layout = awful.layout.suit.tile.left
 	},
 	{
 		type = "internet",
 		-- icon = icons.web_browser,
 		default_app = apps.default.web_browser,
-		gap = beautiful.useless_gap
+		gap = beautiful.useless_gap,
+		layout = awful.layout.suit.tile.left
 	},
 	{
 		type = "terminal",
 		-- icon = icons.terminal,
 		default_app = apps.default.terminal,
+		layout = awful.layout.suit.tile.left,
 		gap = beautiful.useless_gap
 	}
 }
@@ -62,7 +64,7 @@ tag.connect_signal(
 		awful.layout.append_default_layouts(
 			{
 				awful.layout.suit.spiral.dwindle,
-				awful.layout.suit.tile,
+				awful.layout.suit.tile.left,
 				awful.layout.suit.floating,
 				awful.layout.suit.max
 			}
