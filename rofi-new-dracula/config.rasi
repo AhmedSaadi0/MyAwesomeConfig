@@ -1,0 +1,134 @@
+configuration
+{
+	display-drun:					"Activate";
+	// display-run:					"Execute";
+	show-icons:						true;
+    icon-theme: 					"Papirus";
+    drun-display-format:            "{name}";
+    
+}
+
+@import "~/.config/qtile/rofi-new-dracula/config-colors.rais"
+
+window
+{
+	location:						center;
+	anchor:							center;
+	height:							100%;
+	width:							100%;
+	padding:						25% 25% 28% 25%;
+	background-color:				@background-alt;
+	text-color:						@foreground-alt;
+	children:						[ mainbox ];
+}
+
+mainbox
+{
+	background-color:				@background-alt;
+	text-color:						@foreground-alt;
+	expand:							true;
+	children:						[ inputbar, listview ];
+}
+
+listview
+{
+	background-color:				@background-alt;
+	text-color:						@foreground-alt;
+    layout:							vertical;
+	dynamic:						false;
+	cycle:							false;
+	padding:						10px 10px 10px 10px;
+    spacing:						10;
+    columns:						4;
+	scrollbar:    					false;
+    
+}
+
+inputbar
+{
+	background-color:				@background;
+	text-color:						@foreground;
+	children:						[ entry ];
+}
+
+entry
+{
+	background-color:				@background;
+	text-color:						@foreground;
+	padding:						10px;
+}
+
+element
+{
+	// border:       					1px;
+	// border-color: 					@selected-background;
+	background-color:				@background;
+	text-color:						@foreground;
+    orientation:					vertical;
+	padding:						25px 25px 25px 25px;
+}
+
+element-icon
+{
+    size:							32px;
+}
+
+message {
+    border:       2px 0px 0px ;
+    border-color: @foreground-alt;
+    padding:      100px ;
+}
+
+element.normal.normal
+{
+	background-color:				@background;
+	text-color:						@foreground;
+}
+
+element.normal.urgent
+{
+	background-color:				@urgent-background;
+	text-color:						@urgent-foreground;
+}
+
+element.normal.active
+{
+	background-color:				@active-background;
+	text-color:						@foreground;
+}
+
+element.selected.normal
+{
+	background-color:				@selected-background;
+	text-color:						@foreground;
+}
+
+element.selected.urgent
+{
+	background-color:				@selected-urgent-background;
+	text-color:						@foreground;
+}
+
+element.selected.active
+{
+	background-color:				@selected-active-background;
+	text-color:						@foreground;
+}
+
+element.alternate.normal
+{
+	background-color:				@background;
+	text-color:						@foreground;
+}
+
+element.alternate.urgent
+{
+	background-color:				@urgent-background;
+	text-color:						@foreground;
+}
+
+element.alternate.active
+{
+	background-color:				@active-background;
+	text-color:						@foreground;
+}

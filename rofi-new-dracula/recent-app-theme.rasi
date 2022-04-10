@@ -1,0 +1,151 @@
+/************************************************
+ * ROFI Color theme
+ * User: leofa
+ * Copyright: 2017 leofa
+ ***********************************************/
+
+@import "~/.config/qtile/rofi-new-dracula/power-menu-colors.rasi"
+
+window {
+    background-color: @background;
+    border:           1;
+    padding:          5;
+    height:           271;
+    width:            520;
+    // location:		  center;
+    y-offset:         32;
+    x-offset:         -10;
+    font: "JF Flat 14";
+}
+mainbox {
+    border:       0;
+    padding:      0;
+    padding:      10px 10px 0px 10px ;
+
+}
+message {
+    border:       2px 0px 0px ;
+    border-color: @separatorcolor;
+    padding:      1px ;
+}
+textbox {
+    text-color: @foreground;
+}
+listview {
+    fixed-height: 0;
+    border:       2px 0px 0px ;
+    border-color: @separatorcolor;
+    spacing:      2px ;
+    scrollbar:    true;
+    padding:      10px 0px 0px 0px ;
+}
+element {
+    border:  0;
+    padding: 5px ;
+}
+element-text {
+    background-color: inherit;
+    text-color:       inherit;
+}
+element.normal.normal {
+    background-color: @normal-background;
+    text-color:       @normal-foreground;
+}
+element.normal.urgent {
+    background-color: @urgent-background;
+    text-color:       @urgent-foreground;
+}
+element.normal.active {
+    background-color: @active-background;
+    text-color:       @active-foreground;
+}
+element.selected.normal {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
+}
+element.selected.urgent {
+    background-color: @selected-urgent-background;
+    text-color:       @selected-urgent-foreground;
+}
+element.selected.active {
+    background-color: @selected-active-background;
+    text-color:       @selected-active-foreground;
+}
+element.alternate.normal {
+    background-color: @alternate-normal-background;
+    text-color:       @alternate-normal-foreground;
+}
+element.alternate.urgent {
+    background-color: @alternate-urgent-background;
+    text-color:       @alternate-urgent-foreground;
+}
+element.alternate.active {
+    background-color: @alternate-active-background;
+    text-color:       @alternate-active-foreground;
+}
+scrollbar {
+    width:        0px ;
+    border:       0;
+    handle-color: @normal-foreground;
+    handle-width: 0px ;
+    padding:      0;
+}
+mode-switcher {
+    border:       2px 0px 0px ;
+    border-color: @separatorcolor;
+}
+button {
+    spacing:    0;
+    text-color: @normal-foreground;
+}
+button.selected {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
+}
+inputbar {
+    text:"";
+    spacing:    0;
+    text-color: @normal-foreground;
+    padding:    1px ;
+    // margin:     0px 0.3px 0px 200px ;
+}
+case-indicator {
+    spacing:    0;
+    text-color: @normal-foreground;
+
+}
+entry {
+    spacing:    0;
+    text-color: @normal-foreground;
+}
+prompt {
+    spacing:    0;
+    text-color: @normal-foreground;
+    
+}
+inputbar {
+    children: 						[ textbox-prompt-colon, prompt ];
+    background-color:               @al;
+    text-color:                     @fg;
+    expand:                         false;
+	border:							0px 0px 1px 0px;
+    border-radius:                  0px;
+	border-color:					@ac;
+    spacing:                        0px;
+    
+}
+textbox-prompt-colon {
+    expand:     true;
+    content:    "التطبيقات قيد التشغيل";
+    // str:        "";
+	padding:    0px 0px 10px 0px;
+    text-color: @normal-foreground;
+	// font:		"Iosevka Nerd Font 10";
+}
+
+prompt {
+    enabled: 						false;
+    padding:                        0px 0px 10px -22px;
+	background-color: 				@background;
+	text-color: 					@foreground;
+}
