@@ -3,6 +3,7 @@ local wibox = require('wibox')
 local awful = require('awful')
 local gears = require('gears')
 local naughty = require('naughty')
+local beautiful = require('beautiful')
 local watch = awful.widget.watch
 -- local apps = require('configuration.apps')
 local clickable_container = require('widget.clickable-container')
@@ -28,7 +29,7 @@ local return_button = function()
 	local battery_percentage_text = wibox.widget {
 		id = 'percent_text',
 		text = '100%',
-		font = 'Inter Bold 11',
+		font = beautiful.iconfont,
 		align = 'center',
 		valign = 'center',
 		visible = false,
@@ -47,7 +48,7 @@ local return_button = function()
 	local battery_button = wibox.widget {
 		{
 			battery_widget,
-			margins = dpi(7),
+			margins = dpi(3),
 			widget = wibox.container.margin
 		},
 		widget = clickable_container
@@ -60,7 +61,7 @@ local return_button = function()
 				1,
 				nil,
 				function()
-					awful.spawn("xfce4-power-manager" , false)
+					awful.spawn("xfce4-power-manager-settings" , false)
 				end
 			)
 		)

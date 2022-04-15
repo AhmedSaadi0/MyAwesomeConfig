@@ -1,25 +1,28 @@
-local awful = require('awful')
-local wibox = require('wibox')
-local gears = require('gears')
+local awful = require("awful")
+local wibox = require("wibox")
+local gears = require("gears")
 local watch = awful.widget.watch
-local dpi = require('beautiful').xresources.apply_dpi
-local clickable_container = require('widget.airplane-mode.clickable-container')
+local dpi = require("beautiful").xresources.apply_dpi
+local beautiful = require("beautiful")
+local clickable_container = require("widget.airplane-mode.clickable-container")
 local config_dir = gears.filesystem.get_configuration_dir()
-local widget_dir = config_dir .. 'widget/airplane-mode/'
-local widget_icon_dir = widget_dir .. 'icons/'
-local icons = require('theme.icons')
+local widget_dir = config_dir .. "widget/airplane-mode/"
+local widget_icon_dir = widget_dir .. "icons/"
+local icons = require("themes.icons")
 local ap_state = false
 
-local action_name = wibox.widget {
-	text = 'Airplane Mode',
-	font = 'Inter Regular 11',
-	align = 'left',
+local action_name =
+	wibox.widget {
+	text = "وضع الطيران",
+	font = beautiful.uifont,
+	align = "right",
 	widget = wibox.widget.textbox
 }
 
-local button_widget = wibox.widget {
+local button_widget =
+	wibox.widget {
 	{
-		id = 'icon',
+		id = "icon",
 		image = icons.toggled_off,
 		widget = wibox.widget.imagebox,
 		resize = true
@@ -27,7 +30,8 @@ local button_widget = wibox.widget {
 	layout = wibox.layout.align.horizontal
 }
 
-local widget_button = wibox.widget {
+local widget_button =
+	wibox.widget {
 	{
 		button_widget,
 		top = dpi(7),
@@ -46,14 +50,13 @@ local update_imagebox = function()
 end
 
 local check_airplane_mode_state = function()
-
-	local cmd = 'cat ' .. widget_dir .. 'airplane_mode'
+	local cmd = "cat " .. widget_dir .. "airplane_mode"
 
 	awful.spawn.easy_async_with_shell(
-		cmd, 
+		cmd,
 		function(stdout)
 			local status = stdout
-			
+
 			if status:match("true") then
 				ap_state = true
 			elseif status:match("false") then
@@ -61,12 +64,12 @@ local check_airplane_mode_state = function()
 			else
 				ap_state = false
 				awful.spawn.easy_async_with_shell(
-					'echo "false" > ' .. widget_dir .. 'airplane_mode', 
+					'echo "false" > ' .. widget_dir .. "airplane_mode",
 					function(stdout)
 					end
 				)
 			end
-			
+
 			update_imagebox()
 		end
 	)
@@ -74,7 +77,8 @@ end
 
 check_airplane_mode_state()
 
-local ap_off_cmd = [[
+local ap_off_cmd =
+	[[
 	
 	rfkill unblock wlan
 
@@ -85,13 +89,16 @@ local ap_off_cmd = [[
 		app_name = 'Network Manager',
 		title = '<b>Airplane mode disabled!</b>',
 		message = 'Initializing network devices',
-		icon = ']] .. widget_icon_dir .. 'airplane-mode-off' .. '.svg' .. [['
+		icon = ']] ..
+	widget_icon_dir ..
+		"airplane-mode-off" .. ".svg" .. [['
 	})
 	"
 	]] .. "echo false > " .. widget_dir .. "airplane_mode" .. [[
 ]]
 
-local ap_on_cmd = [[
+local ap_on_cmd =
+	[[
 
 	rfkill block wlan
 
@@ -102,18 +109,19 @@ local ap_on_cmd = [[
 		app_name = 'Network Manager',
 		title = '<b>Airplane mode enabled!</b>',
 		message = 'Disabling radio devices',
-		icon = ']] .. widget_icon_dir .. 'airplane-mode' .. '.svg' .. [['
+		icon = ']] ..
+	widget_icon_dir ..
+		"airplane-mode" .. ".svg" .. [['
 	})
 	"
 	]] .. "echo true > " .. widget_dir .. "airplane_mode" .. [[
 ]]
 
-
 local toggle_action = function()
 	if ap_state then
 		awful.spawn.easy_async_with_shell(
-			ap_off_cmd, 
-			function(stdout) 
+			ap_off_cmd,
+			function(stdout)
 				ap_state = false
 				update_imagebox()
 			end
@@ -145,20 +153,21 @@ widget_button:buttons(
 gears.timer {
 	timeout = 5,
 	autostart = true,
-	callback  = function()
+	callback = function()
 		check_airplane_mode_state()
 	end
 }
 
-local action_widget =  wibox.widget {
+local action_widget =
+	wibox.widget {
 	{
-		action_name,
-		nil,
 		{
 			widget_button,
-			layout = wibox.layout.fixed.horizontal,
+			layout = wibox.layout.fixed.horizontal
 		},
-		layout = wibox.layout.align.horizontal,	
+		nil,
+		action_name,
+		layout = wibox.layout.align.horizontal
 	},
 	left = dpi(24),
 	right = dpi(24),

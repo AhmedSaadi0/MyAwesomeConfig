@@ -1,15 +1,16 @@
-local wibox = require('wibox')
-local gears = require('gears')
-local awful = require('awful')
-local beautiful = require('beautiful')
+local wibox = require("wibox")
+local gears = require("gears")
+local awful = require("awful")
+local beautiful = require("beautiful")
 local spawn = awful.spawn
 local dpi = beautiful.xresources.apply_dpi
-local icons = require('theme.icons')
-local clickable_container = require('widget.clickable-container')
+local icons = require("themes.icons")
+local clickable_container = require("widget.clickable-container")
 
-local icon = wibox.widget {
+local icon =
+	wibox.widget {
 	layout = wibox.layout.align.vertical,
-	expand = 'none',
+	expand = "none",
 	nil,
 	{
 		image = icons.volume,
@@ -19,56 +20,51 @@ local icon = wibox.widget {
 	nil
 }
 
-local action_level = wibox.widget {
+local action_level =
+	wibox.widget {
 	{
 		icon,
-		widget = clickable_container,
+		widget = clickable_container
 	},
 	bg = beautiful.transparent,
 	shape = gears.shape.circle,
 	widget = wibox.container.background
 }
 
-local slider = wibox.widget {
+local slider =
+	wibox.widget {
 	nil,
 	{
-		id 					= 'volume_slider',
-		bar_shape           = gears.shape.rounded_rect,
-		bar_height          = dpi(2),
-		bar_color           = '#ffffff20',
-		bar_active_color	= '#f2f2f2EE',
-		handle_color        = '#ffffff',
-		handle_shape        = gears.shape.circle,
-		handle_width        = dpi(15),
-		handle_border_color = '#00000012',
-		handle_border_width = dpi(1),
-		maximum				= 100,
-		widget              = wibox.widget.slider,
+		id = "volume_slider",
+		bar_shape = gears.shape.rounded_rect,
+		bar_height = beautiful.bar_height,
+		bar_color = beautiful.bar_color,
+		bar_active_color = beautiful.bar_active_color,
+		handle_color = beautiful.bar_handle_color,
+		handle_shape = gears.shape.circle,
+		handle_border_color = beautiful.handle_border_color,
+		handle_width = beautiful.bar_handle_width,
+		handle_border_width = beautiful.handle_border_width,
+		maximum = 100,
+		widget = wibox.widget.slider
 	},
 	nil,
 	forced_height = dpi(24),
-	expand = 'none',
+	expand = "none",
 	layout = wibox.layout.align.vertical
 }
-
 
 local volume_slider = slider.volume_slider
 
 volume_slider:connect_signal(
-	'property::value',
+	"property::value",
 	function()
 		local volume_level = volume_slider:get_value()
-		
-		spawn('amixer -D pulse sset Master ' .. 
-			volume_level .. '%',
-			false
-		)
+
+		spawn("amixer -D pulse sset Master " .. volume_level .. "%", false)
 
 		-- Update volume osd
-		awesome.emit_signal(
-			'module::volume_osd',
-			volume_level
-		)
+		awesome.emit_signal("module::volume_osd", volume_level)
 	end
 )
 
@@ -101,12 +97,11 @@ volume_slider:buttons(
 	)
 )
 
-
 local update_slider = function()
 	awful.spawn.easy_async_with_shell(
 		[[bash -c "amixer -D pulse sget Master"]],
 		function(stdout)
-			local volume = string.match(stdout, '(%d?%d?%d)%%')
+			local volume = string.match(stdout, "(%d?%d?%d)%%")
 			volume_slider:set_value(tonumber(volume))
 		end
 	)
@@ -144,7 +139,7 @@ action_level:buttons(
 
 -- The emit will come from the global keybind
 awesome.connect_signal(
-	'widget::volume',
+	"widget::volume",
 	function()
 		update_slider()
 	end
@@ -152,24 +147,35 @@ awesome.connect_signal(
 
 -- The emit will come from the OSD
 awesome.connect_signal(
-	'widget::volume:update',
+	"widget::volume:update",
 	function(value)
 		volume_slider:set_value(tonumber(value))
 	end
 )
 
-local volume_setting = wibox.widget {
+local volume_setting =
+	wibox.widget {
 	{
 		{
+			point = function(geo, args)
+				return {
+					x = args.parent.width - geo.width,
+					y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
+				}
+			end,
 			action_level,
 			top = dpi(12),
 			bottom = dpi(12),
 			widget = wibox.container.margin
 		},
-		slider,
-		spacing = dpi(24),
-		layout = wibox.layout.fixed.horizontal
-
+		{
+			slider,
+			top = dpi(12),
+			bottom = dpi(12),
+			right = dpi(40),
+			widget = wibox.container.margin
+		},
+		layout = wibox.layout.manual
 	},
 	left = dpi(24),
 	right = dpi(24),

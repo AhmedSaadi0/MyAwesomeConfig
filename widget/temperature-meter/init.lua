@@ -1,25 +1,26 @@
-local wibox = require('wibox')
-local awful = require('awful')
-local gears = require('gears')
-local beautiful = require('beautiful')
+local wibox = require("wibox")
+local awful = require("awful")
+local gears = require("gears")
+local beautiful = require("beautiful")
 local watch = awful.widget.watch
 local dpi = beautiful.xresources.apply_dpi
-local icons = require('theme.icons')
+local icons = require("themes.icons")
 
-local slider = wibox.widget {
+local slider =
+	wibox.widget {
 	nil,
 	{
-		id 				 = 'temp_status',
-		max_value     	 = 100,
-		value         	 = 29,
-		forced_height 	 = dpi(2),
-		color 			 = beautiful.fg_normal,
-		background_color = beautiful.groups_bg,
-		shape 			 = gears.shape.rounded_rect,
-		widget        	 = wibox.widget.progressbar
+		id = "temp_status",
+		max_value = 200,
+		value = 29,
+		forced_height = beautiful.slider_forced_height,
+		color = beautiful.slider_color,
+		background_color = beautiful.slider_background_color,
+		shape = gears.shape.rounded_rect,
+		widget = wibox.widget.progressbar
 	},
 	nil,
-	expand = 'none',
+	expand = "none",
 	layout = wibox.layout.align.vertical
 }
 
@@ -43,9 +44,9 @@ awful.spawn.easy_async_with_shell(
 	done
 	]],
 	function(stdout)
-		local temp_path = stdout:gsub('%\n', '')
-		if temp_path == '' or not temp_path then
-			temp_path = '/sys/class/thermal/thermal_zone0/temp'
+		local temp_path = stdout:gsub("%\n", "")
+		if temp_path == "" or not temp_path then
+			temp_path = "/sys/class/thermal/thermal_zone0/temp"
 		end
 
 		watch(
@@ -54,15 +55,16 @@ awful.spawn.easy_async_with_shell(
 			]],
 			10,
 			function(_, stdout)
-				local temp = stdout:match('(%d+)')
+				local temp = stdout:match("(%d+)")
 				slider.temp_status:set_value((temp / 1000) / max_temp * 100)
-				collectgarbage('collect')
+				collectgarbage("collect")
 			end
 		)
 	end
 )
 
-local temperature_meter = wibox.widget {
+local temperature_meter =
+	wibox.widget {
 	{
 		{
 			{
@@ -70,14 +72,24 @@ local temperature_meter = wibox.widget {
 				resize = true,
 				widget = wibox.widget.imagebox
 			},
+			point = function(geo, args)
+				return {
+					x = args.parent.width - geo.width,
+					y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
+				}
+			end,
 			top = dpi(12),
 			bottom = dpi(12),
 			widget = wibox.container.margin
 		},
-		slider,
-		spacing = dpi(24),
-		layout = wibox.layout.fixed.horizontal
-
+		{
+			slider,
+			top = dpi(20),
+			bottom = dpi(12),
+			right = dpi(40),
+			widget = wibox.container.margin
+		},
+		layout = wibox.layout.manual
 	},
 	left = dpi(24),
 	right = dpi(24),

@@ -20,7 +20,7 @@ local net_speed_widget =
     wibox.widget {
     {
         id = "rx_speed",
-        forced_width = 65,
+        forced_width = 70,
         font = beautiful.iconfont,
         align = "right",
         widget = wibox.widget.textbox
@@ -28,7 +28,7 @@ local net_speed_widget =
     {
         id = "tx_speed",
         font = beautiful.iconfont,
-        forced_width = 65,
+        forced_width = 70,
         align = "left",
         widget = wibox.widget.textbox
     },

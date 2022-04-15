@@ -33,7 +33,7 @@ return {
 		package_manager = "pacman",
 		-- Default locker
 		-- lock = 'awesome-client "awesome.emit_signal(\'module::lockscreen_show\')"',
-		lock = 'i3lock-fancy',
+		lock = "/usr/lib/kscreenlocker_greet",
 		-- Default quake terminal
 		quake = "konsole --name QuakeTerminal",
 		-- Default rofi global menu
@@ -51,17 +51,20 @@ return {
 	},
 	-- List of apps to start once on start-up
 	run_on_start_up = {
+		-- "kded5",
 		"nm-applet -sm-disable",
 		"blueman-applet",
 		"xrandr --output eDP-1",
+		-- "/usr/lib/org_kde_powerdevil",
 		"xfce4-power-manager",
 		[[
-		xidlehook --not-when-fullscreen --not-when-audio --timer 600 \
-		"i3lock-fancy" ""
+			xidlehook --not-when-fullscreen --not-when-audio --timer 600 \
+			"/usr/lib/kscreenlocker_greet" ""
 		]],
 		'setxkbmap -layout "us,ar" -option "grp:win_space_toggle"',
 		"/usr/lib/polkit-kde-authentication-agent-1",
-		"xrandr --output HDMI-1-0 --mode 1440x900 --rate 61 --noprimary --left-of eDP-1",
+		"/usr/lib/kactivitymanagerd",
+		-- 		"xrandr --output HDMI-1-0 --mode 1440x900 --rate 61 --noprimary --left-of eDP-1",
 		"picom -b --experimental-backends --dbus --config " .. config_dir .. "/picom/sharp_shado.conf"
 	},
 	-- List of binaries/shell scripts that will execute for a certain task

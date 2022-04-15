@@ -99,43 +99,51 @@ local global_keys =
 	),
 	-- Notification menus
 	-- awful.key(
-	-- 	{modkey}, 
-	-- 	'F2',
+	-- 	{modkey},
+	-- 	"F2",
 	-- 	function()
-	-- 		local focused = awful.screen.focused()
-
-	-- 		if focused.central_panel then
-	-- 			if _G.central_panel_mode == 'today_mode' or not focused.central_panel.visible then
-	-- 				focused.central_panel:toggle()
-	-- 				switch_rdb_pane('today_mode')
-	-- 			else
-	-- 				switch_rdb_pane('today_mode')
-	-- 			end
-
-	-- 			_G.central_panel_mode = 'today_mode'
-	-- 		end
+	-- 		awful.spawn("sh /home/ahmed/.config/awesome/sh/open_notification_center.sh", false)
 	-- 	end,
-	-- 	{description = 'open today panel', group = 'launcher'}
+	-- 	{description = "open today panel", group = "launcher"}
 	-- ),
-	-- awful.key(
-	-- 	{modkey}, 
-	-- 	'F3',
-	-- 	function()
-	-- 		local focused = awful.screen.focused()
+	awful.key(
+		{modkey},
+		"F2",
+		function()
+			local focused = awful.screen.focused()
 
-	-- 		if focused.central_panel then
-	-- 			if _G.central_panel_mode == 'settings_mode' or not focused.central_panel.visible then
-	-- 				focused.central_panel:toggle()
-	-- 				switch_rdb_pane('settings_mode')
-	-- 			else
-	-- 				switch_rdb_pane('settings_mode')
-	-- 			end
+			if focused.central_panel then
+				if _G.central_panel_mode == "today_mode" or not focused.central_panel.visible then
+					focused.central_panel:toggle()
+					switch_rdb_pane("today_mode")
+				else
+					switch_rdb_pane("today_mode")
+				end
 
-	-- 			_G.central_panel_mode = 'settings_mode'
-	-- 		end
-	-- 	end,
-	-- 	{description = 'open settings panel', group = 'launcher'}
-	-- ),
+				_G.central_panel_mode = "today_mode"
+			end
+		end,
+		{description = "open today panel", group = "launcher"}
+	),
+	awful.key(
+		{modkey},
+		"F3",
+		function()
+			local focused = awful.screen.focused()
+
+			if focused.central_panel then
+				if _G.central_panel_mode == "settings_mode" or not focused.central_panel.visible then
+					focused.central_panel:toggle()
+					switch_rdb_pane("settings_mode")
+				else
+					switch_rdb_pane("settings_mode")
+				end
+
+				_G.central_panel_mode = "settings_mode"
+			end
+		end,
+		{description = "open settings panel", group = "launcher"}
+	),
 	-- Applicatopn menu
 	-- Power menu
 	awful.key(
@@ -225,7 +233,7 @@ local global_keys =
 	),
 	awful.key(
 		{modkey, altkey},
-		"Right",
+		"Left",
 		function()
 			awful.tag.incmwfact(0.05)
 		end,
@@ -233,7 +241,7 @@ local global_keys =
 	),
 	awful.key(
 		{modkey, altkey},
-		"Left",
+		"Right",
 		function()
 			awful.tag.incmwfact(-0.05)
 		end,
@@ -423,14 +431,14 @@ local global_keys =
 		end,
 		{description = "افتح VS Code", group = "تطبيقات"}
 	),
-	awful.key(
-		{modkey},
-		"t",
-		function()
-			awful.spawn("sh .config/awesome/sh/redshift.sh", false)
-		end,
-		{description = "وضع القراءة", group = "تطبيقات"}
-	),
+	-- awful.key(
+	-- 	{modkey},
+	-- 	"t",
+	-- 	function()
+	-- 		awful.spawn("sh .config/awesome/sh/redshift.sh", false)
+	-- 	end,
+	-- 	{description = "وضع القراءة", group = "تطبيقات"}
+	-- ),
 	awful.key(
 		{modkey, "Shift"},
 		"k",

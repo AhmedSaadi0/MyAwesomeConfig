@@ -152,8 +152,7 @@ naughty.connect_signal(
 		naughty.layout.box {
 			notification = n,
 			type = "notification",
-			x = 200,
-			y = 200,
+			margins=30,
 			screen = awful.screen.preferred(),
 			shape = gears.shape.rectangle,
 			widget_template = {

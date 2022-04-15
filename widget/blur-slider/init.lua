@@ -1,22 +1,24 @@
-local wibox = require('wibox')
-local gears = require('gears')
-local awful = require('awful')
-local beautiful = require('beautiful')
+local wibox = require("wibox")
+local gears = require("gears")
+local awful = require("awful")
+local beautiful = require("beautiful")
 local spawn = awful.spawn
 local dpi = beautiful.xresources.apply_dpi
-local icons = require('theme.icons')
-local clickable_container = require('widget.clickable-container')
+local icons = require("themes.icons")
+local clickable_container = require("widget.clickable-container")
 
-local action_name = wibox.widget {
-	text = 'Blur Strength',
-	font = 'Inter Bold 10',
-	align = 'left',
+local action_name =
+	wibox.widget {
+	text = "Blur Strength",
+	font = "Inter Bold 10",
+	align = "left",
 	widget = wibox.widget.textbox
 }
 
-local icon = wibox.widget {
+local icon =
+	wibox.widget {
 	layout = wibox.layout.align.vertical,
-	expand = 'none',
+	expand = "none",
 	nil,
 	{
 		image = icons.effects,
@@ -26,34 +28,36 @@ local icon = wibox.widget {
 	nil
 }
 
-local action_level = wibox.widget {
+local action_level =
+	wibox.widget {
 	{
 		icon,
-		widget = clickable_container,
+		widget = clickable_container
 	},
 	bg = beautiful.transparent,
 	shape = gears.shape.circle,
 	widget = wibox.container.background
 }
 
-local slider = wibox.widget {
+local slider =
+	wibox.widget {
 	nil,
 	{
-		id 					= 'blur_strength_slider',
-		bar_shape           = gears.shape.rounded_rect,
-		bar_height          = dpi(2),
-		bar_color           = '#ffffff20',
-		bar_active_color	= '#f2f2f2EE',
-		handle_color        = '#ffffff',
-		handle_shape        = gears.shape.circle,
-		handle_width        = dpi(15),
-		handle_border_color = '#00000012',
-		handle_border_width = dpi(1),
-		maximum				= 100,
-		widget              = wibox.widget.slider,
+		id = "blur_strength_slider",
+		bar_shape = gears.shape.rounded_rect,
+		bar_height = beautiful.bar_height,
+		bar_color = beautiful.bar_color,
+		bar_active_color = beautiful.bar_active_color,
+		handle_color = beautiful.bar_handle_color,
+		handle_shape = gears.shape.circle,
+		handle_border_color = beautiful.handle_border_color,
+		handle_width = beautiful.bar_handle_width,
+		handle_border_width = beautiful.handle_border_width,
+		maximum = 100,
+		widget = wibox.widget.slider
 	},
 	nil,
-	expand = 'none',
+	expand = "none",
 	forced_height = dpi(24),
 	layout = wibox.layout.align.vertical
 }
@@ -61,14 +65,13 @@ local slider = wibox.widget {
 local blur_slider = slider.blur_strength_slider
 
 local update_slider_value = function()
-
 	awful.spawn.easy_async_with_shell(
 		[[bash -c "
 		grep -F 'strength =' $HOME/.config/awesome/configuration/picom.conf | 
 		awk 'NR==1 {print $3}' | tr -d ';'
 		"]],
 		function(stdout, stderr)
-			local strength = stdout:match('%d+')
+			local strength = stdout:match("%d+")
 			blur_strength = tonumber(strength) / 20 * 100
 			blur_slider:set_value(tonumber(blur_strength))
 			start_up = false
@@ -109,17 +112,17 @@ action_level:buttons(
 )
 
 local adjust_blur = function(power)
-
 	awful.spawn.with_shell(
 		[[bash -c "
-		sed -i 's/.*strength = .*/    strength = ]] .. power .. [[;/g' \
+		sed -i 's/.*strength = .*/    strength = ]] ..
+			power .. [[;/g' \
 		$HOME/.config/awesome/configuration/picom.conf
 		"]]
 	)
 end
 
 blur_slider:connect_signal(
-	'property::value',
+	"property::value",
 	function()
 		if not start_up then
 			strength = blur_slider:get_value() / 50 * 10
@@ -130,14 +133,13 @@ blur_slider:connect_signal(
 
 -- Adjust slider value to change blur strength
 awesome.connect_signal(
-	'widget::blur:increase',
-	function() 
-
+	"widget::blur:increase",
+	function()
 		-- On startup, the slider.value returns nil so...
 		if blur_slider:get_value() == nil then
 			return
 		end
-	 
+
 		local blur_value = blur_slider:get_value() + 10
 
 		-- No more than 100!
@@ -152,9 +154,8 @@ awesome.connect_signal(
 
 -- Decrease blur
 awesome.connect_signal(
-	'widget::blur:decrease',
-	function() 
-	
+	"widget::blur:decrease",
+	function()
 		-- On startup, the slider.value returns nil so...
 		if blur_slider:get_value() == nil then
 			return
@@ -172,18 +173,29 @@ awesome.connect_signal(
 	end
 )
 
-local volume_setting = wibox.widget {
+local volume_setting =
+	wibox.widget {
 	{
 		{
 			action_level,
 			top = dpi(12),
+			point = function(geo, args)
+				return {
+					x = args.parent.width - geo.width,
+					y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
+				}
+			end,
 			bottom = dpi(12),
 			widget = wibox.container.margin
 		},
-		slider,
-		spacing = dpi(24),
-		layout = wibox.layout.fixed.horizontal
-
+		{
+			slider,
+			top = dpi(12),
+			bottom = dpi(12),
+			right = dpi(40),
+			widget = wibox.container.margin
+		},
+		layout = wibox.layout.manual
 	},
 	left = dpi(24),
 	right = dpi(24),

@@ -3,7 +3,7 @@ local wibox = require('wibox')
 local dpi = require('beautiful').xresources.apply_dpi
 local gears = require('gears')
 local clickable_container = require('widget.clickable-container')
-local icons = require('theme.icons')
+local icons = require('themes.icons')
 
 --- Common method to create buttons.
 -- @tab buttons

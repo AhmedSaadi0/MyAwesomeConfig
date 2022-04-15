@@ -15,11 +15,11 @@ local theme = {}
 theme.font = "JF Flat 11"
 theme.uifont = "JF Flat 11"
 theme.widget_font = "Font Awesome 5 Free Solid 11"
-theme.iconfont = "Font Awesome 5 Free Solid 11"
+theme.iconfont = "Font Awesome 5 Free Solid"
 
 theme.bg_normal = "#21222c"
-theme.widget_bg = "#272d37"
-theme.bg_focus = "#272d37"
+theme.widget_bg = "#282a36"
+theme.bg_focus = "#282a36"
 theme.bg_urgent = "#ff0000"
 theme.bg_minimize = "#444444"
 theme.bg_systray = theme.bg_normal
@@ -55,8 +55,42 @@ theme.systray_icon_spacing = 5
 theme.systray_max_rows  = 1
 
 -- Panal
-theme.panal_hight = 22
-theme.panal_border_width = 6
+theme.panal_hight = 23
+theme.panal_border_width = 4
+theme.groups_radius = 12
+
+-- Control Panal
+theme.control_panal_hight = 550
+
+theme.groups_title_bg = theme.widget_bg
+theme.groups_bg = theme.widget_bg
+theme.background = theme.bg_normal
+
+theme.header_bg = "#23252f"
+theme.inner_bg = "#282a36"
+
+theme.notification_center_header_bg = "#23252f"
+theme.notification_center_inner_bg = "#282a36"
+
+theme.transparent = "#00000000"
+
+-- theme.accent = "#282a36"
+
+theme.bar_color = "#ffffff20"
+theme.bar_active_color = "#ff79c6"
+theme.bar_handle_color = "#bd93f9"
+theme.bar_handle_border_color = "#00000012"
+theme.bar_height = dpi(1)
+
+theme.bar_handle_width = dpi(15)
+theme.bar_handle_border_width = dpi(0)
+
+theme.slider_color = "#ff79c6"
+theme.slider_background_color = "#ffffff20"
+-- theme.slider_forced_height = dpi(1)
+
+theme.slider_inner_border_color = "#458588"
+theme.slider_inner_border_width = dpi(0)
 
 -- Widget
 theme.widget_height = 25
@@ -94,7 +128,7 @@ theme.notification_body_margins = dpi(6)
 theme.notification_margins = dpi(6)
 
 theme.notification_icon_margin = dpi(2)
-theme.notification_title_color = "#272d37"
+theme.notification_title_color = "#282a36"
 theme.notification_bg = "#21222c"
 theme.notification_border_focus = theme.border_focus
 

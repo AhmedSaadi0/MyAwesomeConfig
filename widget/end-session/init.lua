@@ -4,7 +4,7 @@ local gears = require('gears')
 local beautiful = require('beautiful')
 local dpi = beautiful.xresources.apply_dpi
 local clickable_container = require('widget.clickable-container')
-local icons = require('theme.icons')
+local icons = require('themes.icons')
 
 local create_widget = function()
 	local exit_widget = {

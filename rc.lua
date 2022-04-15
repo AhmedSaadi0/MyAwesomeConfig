@@ -1,6 +1,6 @@
 local beautiful = require("beautiful")
-local awful = require('awful')
-local gears = require('gears')
+local awful = require("awful")
+local gears = require("gears")
 
 require("init")
 
@@ -9,48 +9,44 @@ beautiful.init("~/.config/awesome/themes/theme.lua")
 
 require("layout.init")
 
+-- require("ui.control-center")
 
-require('configuration.client')
-require('configuration.root')
-require('configuration.tags')
-root.keys(require('configuration.keys.global'))
-
+require("configuration.client")
+require("configuration.root")
+require("configuration.tags")
+root.keys(require("configuration.keys.global"))
 
 -- ░█▄█░█▀█░█▀▄░█░█░█░░░█▀▀░█▀▀
 -- ░█░█░█░█░█░█░█░█░█░░░█▀▀░▀▀█
 -- ░▀░▀░▀▀▀░▀▀░░▀▀▀░▀▀▀░▀▀▀░▀▀▀
 
-require('module.notifications')
-require('module.auto-start')
-require('module.dynamic-wallpaper')
-require('module.exit-screen')
-require('module.brightness-osd')
-require('module.volume-osd')
+-- require("module.notifications")
+require("module.auto-start")
+require("module.dynamic-wallpaper")
+require("module.exit-screen")
+require("module.brightness-osd")
+require("module.volume-osd")
 
 -- require('module.menu')
 -- require('module.quake-terminal')
 -- require('module.titlebar')
 -- require("autustart")
 
-
-
 -- ░█░█░█▀█░█░░░█░░░█▀█░█▀█░█▀█░█▀▀░█▀▄
 -- ░█▄█░█▀█░█░░░█░░░█▀▀░█▀█░█▀▀░█▀▀░█▀▄
 -- ░▀░▀░▀░▀░▀▀▀░▀▀▀░▀░░░▀░▀░▀░░░▀▀▀░▀░▀
 
 screen.connect_signal(
-	'request::wallpaper',
+	"request::wallpaper",
 	function(s)
 		-- If wallpaper is a function, call it with the screen
 		if beautiful.wallpaper then
-			if type(beautiful.wallpaper) == 'string' then
-
+			if type(beautiful.wallpaper) == "string" then
 				-- Check if beautiful.wallpaper is color/image
-				if beautiful.wallpaper:sub(1, #'#') == '#' then
+				if beautiful.wallpaper:sub(1, #"#") == "#" then
 					-- If beautiful.wallpaper is color
 					gears.wallpaper.set(beautiful.wallpaper)
-
-				elseif beautiful.wallpaper:sub(1, #'/') == '/' then
+				elseif beautiful.wallpaper:sub(1, #"/") == "/" then
 					-- If beautiful.wallpaper is path/image
 					gears.wallpaper.maximized(beautiful.wallpaper, s)
 				end

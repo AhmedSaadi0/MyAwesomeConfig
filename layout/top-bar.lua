@@ -5,70 +5,39 @@ local wibox = require("wibox")
 -- Theme handling library
 local beautiful = require("beautiful")
 local common = require("awful.widget.common")
+local helpers = require("helpers")
 
 -- Keyboard map indicator and switcher
 mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock =
+local mytextclock =
     wibox.widget {
-    format = "   (%I:%M) - %A, %d %B     ",
+    format = "(%I:%M) - %A, %d %B  ",
     valign = "center",
     align = "center",
     forced_height = 22,
     widget = wibox.widget.textclock
 }
 
-function set_space(space_size)
-    local space =
-        wibox.widget {
-        forced_width = space_size,
-        -- spacing = space_size,
-        spacing_widget = wibox.widget.separator,
-        layout = wibox.layout.flex.horizontal
-    }
-    return space
-end
+mytextclock:connect_signal(
+    "button::press",
+    function()
+        local focused = awful.screen.focused()
 
-function set_widget_block(widget, fg, shape, left, right, top, bottom)
-    if not left then
-        left = 0
-    end
-    if not right then
-        right = 0
-    end
-    if not top then
-        top = 0
-    end
-    if not bottom then
-        bottom = 0
-    end
-    if not shape then
-        shape = gears.shape.rectangle
-    end
-    if not fg then
-        fg = beautiful.fg_normal
-    end
+        if focused.central_panel then
+            if _G.central_panel_mode == "today_mode" or not focused.central_panel.visible then
+                focused.central_panel:toggle()
+                switch_rdb_pane("today_mode")
+            else
+                switch_rdb_pane("today_mode")
+            end
 
-    local block = {
-        {
-            widget,
-            left = left,
-            right = right,
-            top = top,
-            bottom = bottom,
-            widget = wibox.container.margin
-        },
-        forced_height = beautiful.widget_height,
-        shape = shape,
-        fg = fg,
-        font = beautiful.iconfont,
-        bg = beautiful.widget_bg,
-        widget = wibox.container.background
-    }
-    return block
-end
+            _G.central_panel_mode = "today_mode"
+        end
+    end
+)
 
 -- Create a wibox for each screen and add it
 local taglist_buttons =
@@ -306,6 +275,7 @@ awful.screen.connect_for_each_screen(
             {
                 position = "top",
                 screen = s,
+                type = "normal",
                 height = beautiful.panal_hight,
                 border_width = beautiful.panal_border_width,
                 border_color = beautiful.bg_normal
@@ -334,15 +304,17 @@ awful.screen.connect_for_each_screen(
                 step_width = 2,
                 step_spacing = 0,
                 color = "#ff79c6",
-                enable_kill_button=true,
+                enable_kill_button = true
             }
         )
+        -- s.ns = require("widget.net-speed-widget")()
         s.ns = require("widget.net-speed-widget")()
         -- s.volume_cr = require("widget.volumearc-widget")()
         -- s.volume_bar = require("widget.volumebar-widget")()
         s.brightness_cr = require("widget.brightness-widget")()
         -- s.ram = require("widget.ram-widget")()
-        s.bat = require("widgets.battery")
+        -- s.bat = require("widgets.battery")
+        s.bat = require("widget.battery.init")()
 
         s.power_button =
             wibox.widget {
@@ -370,51 +342,48 @@ awful.screen.connect_for_each_screen(
                 point = {x = 0, y = 0},
                 layout = wibox.layout.fixed.horizontal,
                 s.power_button,
-                -- set_space(7),
-                -- set_space(10),
-                set_space(6),
+                -- helpers.set_space(7),
+                -- helpers.set_space(10),
+                helpers.set_space(6),
                 s.systray,
                 s.tray_toggler,
-                set_space(6),
-                set_widget_block(mykeyboardlayout, "#bd93f9", nil, 2, 2),
-                set_space(7),
-                set_widget_block(s.cpu),
-                set_space(7),
-                set_widget_block(s.ns, "#bc93f9"),
-                set_space(7),
-                set_widget_block(s.brightness_cr, "#00b19f"),
-                set_space(7),
-                set_widget_block(s.bat, "#ffaf5f", nill, 6, 0, 0, 0)
+                helpers.set_space(6),
+                helpers.set_widget_block(mykeyboardlayout, "#bd93f9", nil, 2, 2),
+                helpers.set_space(7),
+                helpers.set_widget_block(s.cpu),
+                helpers.set_space(7),
+                helpers.set_widget_block(s.ns, "#bc93f9"),
+                helpers.set_space(7),
+                helpers.set_widget_block(s.brightness_cr, "#00b19f"),
+                helpers.set_space(7),
+                helpers.set_widget_block(s.bat, "#ffaf5f", nill, 3, 3, 0, 0)
             },
             -- Middle widget,
-
             {
-                set_widget_block(mytextclock, "#e9d65f"),
+                helpers.set_widget_block(mytextclock, "#e9d65f", nil, 10, 10),
                 widget = wibox.container.background,
                 point = function(geo, args)
-                    -- Bottom right
                     return {
                         x = (args.parent.width / 2 + (geo.width / 2)) - geo.width,
-                        y = 0
+						y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
                     }
                 end
             },
             -- Right widgets
             {
                 point = function(geo, args)
-                    -- Bottom right
                     return {
                         x = args.parent.width - geo.width,
-                        y = 0
+						y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
                     }
                 end,
                 layout = wibox.layout.fixed.horizontal,
                 -- s.mytasklist,
-                set_space(7),
+                helpers.set_space(7),
                 -- mylauncher,
-                set_widget_block(s.mytaglist),
+                helpers.set_widget_block(s.mytaglist),
                 s.mypromptbox,
-                set_space(7),
+                helpers.set_space(7),
                 s.mylayoutbox
             }
         }

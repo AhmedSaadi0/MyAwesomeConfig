@@ -1,27 +1,28 @@
-local wibox = require('wibox')
-local gears = require('gears')
-local beautiful = require('beautiful')
-local watch = require('awful.widget.watch')
+local wibox = require("wibox")
+local gears = require("gears")
+local beautiful = require("beautiful")
+local watch = require("awful.widget.watch")
 local dpi = beautiful.xresources.apply_dpi
-local icons = require('theme.icons')
+local icons = require("themes.icons")
 
 local total_prev = 0
 local idle_prev = 0
 
-local slider = wibox.widget {
+local slider =
+	wibox.widget {
 	nil,
 	{
-		id 				 = 'cpu_usage',
-		max_value     	 = 100,
-		value         	 = 29,
-		forced_height 	 = dpi(2),
-		color 			 = beautiful.fg_normal,
-		background_color = beautiful.groups_bg,
-		shape 			 = gears.shape.rounded_rect,
-		widget        	 = wibox.widget.progressbar
+		id = "cpu_usage",
+		max_value = 100,
+		value = 29,
+		forced_height = beautiful.slider_forced_height,
+		color = beautiful.slider_color,
+		background_color = beautiful.slider_background_color,
+		shape = gears.shape.rounded_rect,
+		widget = wibox.widget.progressbar
 	},
 	nil,
-	expand = 'none',
+	expand = "none",
 	layout = wibox.layout.align.vertical
 }
 
@@ -32,7 +33,7 @@ watch(
 	10,
 	function(_, stdout)
 		local user, nice, system, idle, iowait, irq, softirq, steal, guest, guest_nice =
-			stdout:match('(%d+)%s(%d+)%s(%d+)%s(%d+)%s(%d+)%s(%d+)%s(%d+)%s(%d+)%s(%d+)%s(%d+)%s')
+			stdout:match("(%d+)%s(%d+)%s(%d+)%s(%d+)%s(%d+)%s(%d+)%s(%d+)%s(%d+)%s(%d+)%s(%d+)%s")
 
 		local total = user + nice + system + idle + iowait + irq + softirq + steal
 
@@ -44,11 +45,12 @@ watch(
 
 		total_prev = total
 		idle_prev = idle
-		collectgarbage('collect')
+		collectgarbage("collect")
 	end
 )
 
-local cpu_meter = wibox.widget {
+local cpu_meter =
+	wibox.widget {
 	{
 		{
 			{
@@ -56,14 +58,24 @@ local cpu_meter = wibox.widget {
 				resize = true,
 				widget = wibox.widget.imagebox
 			},
+			point = function(geo, args)
+				return {
+					x = args.parent.width - geo.width,
+					y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
+				}
+			end,
 			top = dpi(12),
 			bottom = dpi(12),
 			widget = wibox.container.margin
 		},
-		slider,
-		spacing = dpi(24),
-		layout = wibox.layout.fixed.horizontal
-
+		{
+			slider,
+			top = dpi(20),
+			bottom = dpi(12),
+			right = dpi(40),
+			widget = wibox.container.margin
+		},
+		layout = wibox.layout.manual
 	},
 	left = dpi(24),
 	right = dpi(24),
