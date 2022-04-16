@@ -52,7 +52,7 @@ theme.taglist_shape = shape.rectangle
 -- Sys tray
 theme.bg_systray = theme.bg_normal
 theme.systray_icon_spacing = 5
-theme.systray_max_rows  = 1
+theme.systray_max_rows = 1
 
 -- Panal
 theme.panal_hight = 23
@@ -131,7 +131,6 @@ theme.notification_icon_margin = dpi(2)
 theme.notification_title_color = "#282a36"
 theme.notification_bg = "#21222c"
 theme.notification_border_focus = theme.border_focus
-
 
 theme.lock_bg = "#21222c" .. "77"
 

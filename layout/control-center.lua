@@ -1,10 +1,10 @@
-local gears = require("gears")
+-- local gears = require("gears")
 local awful = require("awful")
 -- Widget and layout library
-local wibox = require("wibox")
+-- local wibox = require("wibox")
 -- Theme handling library
-local beautiful = require("beautiful")
-local common = require("awful.widget.common")
+-- local beautiful = require("beautiful")
+-- local common = require("awful.widget.common")
 local central_panel = require("layout.central-panel")
 
 screen.connect_signal(
