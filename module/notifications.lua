@@ -13,12 +13,12 @@ naughty.config.defaults.ontop = true
 naughty.config.defaults.icon_size = dpi(32)
 naughty.config.defaults.timeout = 5
 naughty.config.defaults.title = "اشعارات النظام"
--- naughty.config.defaults.margin = dpi(160)
-naughty.config.defaults.border_width = 1
+naughty.config.defaults.margin = 50
+naughty.config.defaults.border_width = dpi(1)
 naughty.config.defaults.border_color = beautiful.notification_border_focus
 naughty.config.defaults.position = "bottom_left"
 naughty.config.defaults.shape = function(cr, w, h)
-	gears.shape.rectangle(cr, w, h, dpi(6))
+	gears.shape.rounded_rect(cr, w, h, beautiful.groups_radius)
 end
 
 -- Apply theme variables
@@ -137,7 +137,10 @@ naughty.connect_signal(
 						widget = clickable_container
 					},
 					bg = beautiful.groups_bg,
-					shape = gears.shape.rectangle,
+					-- shape = gears.shape.rectangle,
+					shape = function(cr, w, h)
+						gears.shape.rounded_rect(cr, w, h, beautiful.groups_radius)
+					end,
 					forced_height = dpi(30),
 					widget = wibox.container.background
 				},
@@ -152,9 +155,12 @@ naughty.connect_signal(
 		naughty.layout.box {
 			notification = n,
 			type = "notification",
-			margins=30,
+			-- margins = 30,
 			screen = awful.screen.preferred(),
-			shape = gears.shape.rectangle,
+			-- shape = gears.shape.rectangle,
+			shape = function(cr, w, h)
+				gears.shape.rounded_rect(cr, w, h, beautiful.groups_radius)
+			end,
 			widget_template = {
 				{
 					{
@@ -249,15 +255,17 @@ naughty.connect_signal(
 					widget = wibox.container.constraint
 				},
 				bg = beautiful.bg_normal,
-				shape = gears.shape.rectangle,
+				-- shape = gears.shape.rectangle,
+				shape = function(cr, w, h)
+					gears.shape.rounded_rect(cr, w, h, beautiful.groups_radius)
+				end,
 				widget = wibox.container.background
 			}
 		}
 
 		-- Destroy popups if dont_disturb mode is on
 		-- Or if the right_panel is visible
-		local focused = awful.screen.focused()
-		if _G.dont_disturb or (focused.right_panel and focused.right_panel.visible) then
+		if _G.dont_disturb then
 			naughty.destroy_all_notifications(nil, 1)
 		end
 	end

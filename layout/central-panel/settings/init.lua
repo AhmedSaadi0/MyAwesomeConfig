@@ -15,5 +15,13 @@ return function()
 		spacing = dpi(7),
 		quick_setting,
 		hardware_monitor
+
+		-- maximum_height = beautiful.control_panal_hight,
+		-- height = beautiful.control_panal_hight,
+		-- bg = beautiful.transparent,
+		-- fg = beautiful.fg_normal,
+		-- border_width = beautiful.border_width,
+		-- border_color = beautiful.border_focus,
+		-- shape = gears.shape.rounded_rect
 	}
 end

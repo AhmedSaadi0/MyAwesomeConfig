@@ -1,8 +1,7 @@
-local awful = require('awful')
-local gears = require('gears')
+local awful = require("awful")
+local gears = require("gears")
 
 local add_button_event = function(widget)
-
 	widget:buttons(
 		gears.table.join(
 			awful.button(
@@ -31,7 +30,6 @@ local add_button_event = function(widget)
 			)
 		)
 	)
-
 end
 
 return add_button_event

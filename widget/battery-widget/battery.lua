@@ -20,14 +20,14 @@ local dpi = require('beautiful').xresources.apply_dpi
 -- Battery 0: Charging, 53%, 00:57:43 until charged
 
 local HOME = os.getenv("HOME")
-local WIDGET_DIR = HOME .. '/.config/awesome/widget/battery-widget'
+local WIDGET_DIR = HOME .. '/.config/awesome/awesome-wm-widgets/battery-widget'
 
 local battery_widget = {}
 local function worker(user_args)
     local args = user_args or {}
 
     local font = args.font or 'Play 8'
-    local path_to_icons = args.path_to_icons or "/usr/share/icons/Arc-X-D/status/symbolic"
+    local path_to_icons = args.path_to_icons or "/usr/share/icons/Arc/status/symbolic/"
     local show_current_level = args.show_current_level or false
     local margin_left = args.margin_left or 0
     local margin_right = args.margin_right or 0
@@ -60,8 +60,8 @@ local function worker(user_args)
             widget = wibox.widget.imagebox,
             resize = false
         },
-        bottom = 3,
-        layout = wibox.container.margin
+        valign = 'center',
+        layout = wibox.container.place,
     }
     local level_widget = wibox.widget {
         font = font,
@@ -125,7 +125,7 @@ local function worker(user_args)
         local battery_info = {}
         local capacities = {}
         for s in stdout:gmatch("[^\r\n]+") do
-            local status, charge_str, _ = string.match(s, '.+: (%a+), (%d?%d?%d)%%,?(.*)')
+            local status, charge_str, _ = string.match(s, '.+: ([%a%s]+), (%d?%d?%d)%%,?(.*)')
             if status ~= nil then
                 table.insert(battery_info, {status = status, charge = tonumber(charge_str)})
             else
@@ -142,12 +142,14 @@ local function worker(user_args)
         local charge = 0
         local status
         for i, batt in ipairs(battery_info) do
-            if batt.charge >= charge then
-                status = batt.status -- use most charged battery status
-                -- this is arbitrary, and maybe another metric should be used
-            end
+            if capacities[i] ~= nil then
+                if batt.charge >= charge then
+                    status = batt.status -- use most charged battery status
+                    -- this is arbitrary, and maybe another metric should be used
+                end
 
-            charge = charge + batt.charge * capacities[i]
+                charge = charge + batt.charge * capacities[i]
+            end
         end
         charge = charge / capacity
 
@@ -155,7 +157,7 @@ local function worker(user_args)
             level_widget.text = string.format('%d%%', charge)
         end
 
-        if (charge >= 0 and charge < 15) then
+        if (charge >= 1 and charge < 15) then
             batteryType = "battery-empty%s-symbolic"
             if enable_battery_warning and status ~= 'Charging' and os.difftime(os.time(), last_battery_check) > 300 then
                 -- if 5 minutes have elapsed since the last warning

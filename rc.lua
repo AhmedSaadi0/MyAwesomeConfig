@@ -5,7 +5,7 @@ local gears = require("gears")
 require("init")
 
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init("~/.config/awesome/themes/theme.lua")
+beautiful.init("~/.config/awesome/themes/theme_circles.lua")
 
 require("layout.init")
 
@@ -20,7 +20,7 @@ root.keys(require("configuration.keys.global"))
 -- ░█░█░█░█░█░█░█░█░█░░░█▀▀░▀▀█
 -- ░▀░▀░▀▀▀░▀▀░░▀▀▀░▀▀▀░▀▀▀░▀▀▀
 
--- require("module.notifications")
+require("module.notifications")
 require("module.auto-start")
 require("module.dynamic-wallpaper")
 require("module.exit-screen")

@@ -264,6 +264,7 @@ local global_keys =
 		{},
 		"XF86AudioRaiseVolume",
 		function()
+			-- awful.spawn("amixer -q sset Master 5%+", false)
 			awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%", false)
 			awesome.emit_signal("widget::volume")
 			awesome.emit_signal("module::volume_osd:show", true)

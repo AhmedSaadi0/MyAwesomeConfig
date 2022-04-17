@@ -17,22 +17,27 @@ local notif_center = function(s)
 	s.notifbox_layout = require("widget.notif-center.build-notifbox").notifbox_layout
 
 	return wibox.widget {
-		expand = "none",
-		layout = wibox.layout.fixed.vertical,
-		spacing = dpi(10),
 		{
 			expand = "none",
-			layout = wibox.layout.align.horizontal,
+			layout = wibox.layout.fixed.vertical,
+			spacing = dpi(10),
 			{
-				layout = wibox.layout.fixed.horizontal,
-				spacing = dpi(5),
-				s.dont_disturb,
-				s.clear_all
+				expand = "none",
+				layout = wibox.layout.align.horizontal,
+				{
+					layout = wibox.layout.fixed.horizontal,
+					spacing = dpi(5),
+					s.dont_disturb,
+					s.clear_all
+				},
+				nil,
+				notif_header
 			},
-			nil,
-			notif_header
+			s.notifbox_layout
 		},
-		s.notifbox_layout
+		left = dpi(0),
+		right = dpi(8),
+		widget = wibox.container.margin
 	}
 end
 

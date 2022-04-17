@@ -29,15 +29,18 @@ local slider_osd =
 	nil,
 	{
 		id = "bri_osd_slider",
-		bar_shape = gears.shape.rounded_rect,
-		bar_height = dpi(2),
-		bar_color = "#ffffff20",
-		bar_active_color = "#f2f2f2EE",
-		handle_color = "#ffffff",
+		-- bar_shape = gears.shape.rounded_rect,
+		bar_shape = function(cr, w, h)
+			gears.shape.rounded_rect(cr, w, h, 30)
+		end,
+		bar_height = beautiful.vol_bar_height,
+		bar_color = beautiful.vol_bar_color,
+		bar_active_color = beautiful.vol_bar_active_color,
+		handle_color = beautiful.vol_bar_handle_color,
+		handle_border_color = beautiful.vol_handle_border_color,
+		handle_width = beautiful.vol_handle_width,
+		handle_border_width = beautiful.vol_handle_border_width,
 		handle_shape = gears.shape.circle,
-		handle_width = dpi(15),
-		handle_border_color = "#00000012",
-		handle_border_width = dpi(1),
 		maximum = 100,
 		widget = wibox.widget.slider
 	},
@@ -131,7 +134,9 @@ screen.connect_signal(
 			maximum_height = osd_height,
 			maximum_width = osd_width,
 			offset = dpi(5),
-			shape = gears.shape.rectangle,
+			shape = function(cr, w, h)
+				gears.shape.rounded_rect(cr, w, h, beautiful.groups_radius)
+			end,
 			bg = beautiful.transparent,
 			preferred_anchors = "middle",
 			preferred_positions = {"left", "right", "top", "bottom"}
@@ -144,9 +149,9 @@ screen.connect_signal(
 						layout = wibox.layout.align.horizontal,
 						expand = "none",
 						forced_height = dpi(48),
-						osd_header,
+						osd_value,
 						nil,
-						osd_value
+						osd_header
 					},
 					brightness_slider_osd,
 					layout = wibox.layout.fixed.vertical
@@ -156,7 +161,11 @@ screen.connect_signal(
 				widget = wibox.container.margin
 			},
 			bg = beautiful.background,
-			shape = gears.shape.rounded_rect,
+			border_color = beautiful.notification_border_focus,
+			border_width = beautiful.notification_border_width,
+			shape = function(cr, w, h)
+				gears.shape.rounded_rect(cr, w, h, beautiful.groups_radius)
+			end,
 			widget = wibox.container.background()
 		}
 

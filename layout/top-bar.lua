@@ -275,7 +275,7 @@ awful.screen.connect_for_each_screen(
             {
                 position = "top",
                 screen = s,
-                type = "normal",
+                type = "panel",
                 height = beautiful.panal_hight,
                 border_width = beautiful.panal_border_width,
                 border_color = beautiful.bg_normal
@@ -311,8 +311,15 @@ awful.screen.connect_for_each_screen(
         s.ns = require("widget.net-speed-widget")()
         -- s.volume_cr = require("widget.volumearc-widget")()
         -- s.volume_bar = require("widget.volumebar-widget")()
+        -- s.volume_bar =
+        --     require("widget.volume-widget.volume") {
+        --     widget_type = "icon_and_text",
+        --     font = beautiful.uifont,
+        --     size = 22,
+        --     margins = 0
+        -- }
         s.brightness_cr = require("widget.brightness-widget")()
-        -- s.ram = require("widget.ram-widget")()
+        s.ram = require("widget.ram-widget")()
         -- s.bat = require("widgets.battery")
         s.bat = require("widget.battery.init")()
 
@@ -354,9 +361,11 @@ awful.screen.connect_for_each_screen(
                 helpers.set_space(7),
                 helpers.set_widget_block(s.ns, "#bc93f9"),
                 helpers.set_space(7),
+                -- helpers.set_widget_block(s.volume_bar, "#bc93f9", nil, 10, 10, 0, 0),
+                -- helpers.set_space(7),
                 helpers.set_widget_block(s.brightness_cr, "#00b19f"),
                 helpers.set_space(7),
-                helpers.set_widget_block(s.bat, "#ffaf5f", nill, 3, 3, 0, 0)
+                helpers.set_widget_block(s.bat, "#ffaf5f", nil, 3, 3, 0, 0)
             },
             -- Middle widget,
             {
@@ -365,7 +374,7 @@ awful.screen.connect_for_each_screen(
                 point = function(geo, args)
                     return {
                         x = (args.parent.width / 2 + (geo.width / 2)) - geo.width,
-						y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
+                        y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
                     }
                 end
             },
@@ -374,7 +383,7 @@ awful.screen.connect_for_each_screen(
                 point = function(geo, args)
                     return {
                         x = args.parent.width - geo.width,
-						y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
+                        y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
                     }
                 end,
                 layout = wibox.layout.fixed.horizontal,

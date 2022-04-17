@@ -31,9 +31,9 @@ theme.fg_minimize = "#ffffff"
 
 theme.useless_gap = dpi(5)
 theme.border_width = dpi(1)
-theme.border_normal = "#458588"
-theme.border_focus = "#ff79c6"
-theme.border_marked = "#50fa7b"
+theme.border_normal = "#e06c75"
+theme.border_focus = "#61afef"
+theme.border_marked = "#7ec7a2"
 
 -- TAG List
 theme.taglist_fg_focus = "#86e6fc"
@@ -60,7 +60,7 @@ theme.panal_border_width = 4
 theme.groups_radius = 12
 
 -- Control Panal
-theme.control_panal_hight = 550
+theme.control_panal_hight = 650
 
 theme.groups_title_bg = theme.widget_bg
 theme.groups_bg = theme.widget_bg
@@ -77,20 +77,20 @@ theme.transparent = "#00000000"
 -- theme.accent = "#282a36"
 
 theme.bar_color = "#ffffff20"
-theme.bar_active_color = "#ff79c6"
-theme.bar_handle_color = "#bd93f9"
+theme.bar_active_color = "#7ec7a2"
+theme.bar_handle_color = "#7ec7a2"
 theme.bar_handle_border_color = "#00000012"
 theme.bar_height = dpi(1)
 
 theme.bar_handle_width = dpi(15)
 theme.bar_handle_border_width = dpi(0)
 
-theme.slider_color = "#ff79c6"
+theme.slider_color = "#61afef"
 theme.slider_background_color = "#ffffff20"
--- theme.slider_forced_height = dpi(1)
+theme.slider_forced_height = dpi(1)
 
 theme.slider_inner_border_color = "#458588"
-theme.slider_inner_border_width = dpi(0)
+theme.slider_inner_border_width = dpi(1)
 
 -- Widget
 theme.widget_height = 25
@@ -120,17 +120,28 @@ local taglist_square_size = dpi(4)
 -- notification_[border_color|border_width|shape|opacity]
 theme.notification_title_margin = dpi(6)
 
+
 theme.notification_body_left_margin = dpi(14)
 theme.notification_body_right_margin = dpi(14)
 theme.notification_body_top_margin = dpi(8)
 theme.notification_body_bottom_margin = dpi(6)
 theme.notification_body_margins = dpi(6)
-theme.notification_margins = dpi(6)
+-- theme.notification_margins = dpi(60)
 
 theme.notification_icon_margin = dpi(2)
 theme.notification_title_color = "#282a36"
 theme.notification_bg = "#21222c"
 theme.notification_border_focus = theme.border_focus
+theme.notification_border_width = dpi(1)
+
+-- Volume & Brightness widget
+theme.vol_bar_active_color = "#61afef"
+theme.vol_bar_handle_color = "#61afef"
+theme.vol_bar_height = dpi(30)
+theme.vol_handle_width = dpi(0)
+theme.vol_handle_border_width = dpi(5)
+theme.vol_bar_color = theme.bar_color
+theme.vol_handle_border_color = "#61afef"
 
 theme.lock_bg = "#21222c" .. "77"
 
