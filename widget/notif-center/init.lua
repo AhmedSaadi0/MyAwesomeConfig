@@ -6,8 +6,8 @@ local notif_header =
 	wibox.widget {
 	text = "مركز الاشعارات",
 	font = beautiful.uifont,
-	align = "right",
-	valign = "bottom",
+	align = "center",
+	valign = "center",
 	widget = wibox.widget.textbox
 }
 

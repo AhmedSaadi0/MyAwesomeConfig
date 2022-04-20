@@ -90,9 +90,9 @@ local power_on_cmd =
 	awesome-client "
 	naughty = require('naughty')
 	naughty.notification({
-		app_name = 'Bluetooth Manager',
-		title = 'System Notification',
-		message = 'Initializing bluetooth device...',
+		app_name = 'مدير البلوتوث',
+		title = 'اشعارات النظام',
+		message = 'تشغيل البلوتوث...',
 		icon = ']] ..
 	widget_icon_dir ..
 		"loading" ..
@@ -115,9 +115,9 @@ local power_off_cmd =
 	awesome-client "
 	naughty = require('naughty')
 	naughty.notification({
-		app_name = 'Bluetooth Manager',
-		title = 'System Notification',
-		message = 'The bluetooth device has been disabled.',
+		app_name = 'مدير البلوتوث',
+		title = 'اشعارات النظام',
+		message = 'تم تعطيل البلوتوث.',
 		icon = ']] ..
 	widget_icon_dir .. "bluetooth-off" .. ".svg" .. [['
 	})

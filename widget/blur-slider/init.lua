@@ -44,7 +44,7 @@ local slider =
 	nil,
 	{
 		id = "blur_strength_slider",
-		bar_shape = gears.shape.rounded_rect,
+		bar_shape = beautiful.bar_shape,
 		bar_height = beautiful.bar_height,
 		bar_color = beautiful.bar_color,
 		bar_active_color = beautiful.bar_active_color,
@@ -58,7 +58,7 @@ local slider =
 	},
 	nil,
 	expand = "none",
-	forced_height = dpi(24),
+	-- forced_height = dpi(24),
 	layout = wibox.layout.align.vertical
 }
 
@@ -192,14 +192,14 @@ local volume_setting =
 			slider,
 			top = dpi(12),
 			bottom = dpi(12),
-			right = dpi(40),
+			right = dpi(60),
 			widget = wibox.container.margin
 		},
 		layout = wibox.layout.manual
 	},
 	left = dpi(24),
 	right = dpi(24),
-	forced_height = dpi(48),
+	forced_height = dpi(60),
 	widget = wibox.container.margin
 }
 

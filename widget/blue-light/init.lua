@@ -9,7 +9,7 @@ local blue_light_state = nil
 
 local action_name =
 	wibox.widget {
-	text = "الضوء الازرق",
+	text = "تقليل الضوء الازرق",
 	font = beautiful.uifont,
 	align = "right",
 	widget = wibox.widget.textbox

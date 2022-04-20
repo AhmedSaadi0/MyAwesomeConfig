@@ -53,10 +53,10 @@ notifbox_box = function(notif, icon, title, message, app, bgcolor)
 			time_difference = tonumber(time_difference)
 
 			if time_difference < 60 then
-				notifbox_timepop:set_markup("now")
+				notifbox_timepop:set_markup("الان")
 			elseif time_difference >= 60 and time_difference < 3600 then
 				local time_in_minutes = math.floor(time_difference / 60)
-				notifbox_timepop:set_markup(time_in_minutes .. "m ago")
+				notifbox_timepop:set_markup(time_in_minutes .. "د مضت ")
 			elseif time_difference >= 3600 and time_difference < 86400 then
 				notifbox_timepop:set_markup(exact_time)
 			elseif time_difference >= 86400 then
@@ -107,8 +107,9 @@ notifbox_box = function(notif, icon, title, message, app, bgcolor)
 			widget = wibox.container.margin
 		},
 		bg = bgcolor,
-		border_width = beautiful.notification_border_width,
-		border_color = beautiful.notification_border_focus,
+		forced_width = dpi(350),
+		border_width = beautiful.center_notification_border_width,
+		border_color = beautiful.center_notification_border_focus,
 		shape = function(cr, width, height)
 			gears.shape.partially_rounded_rect(cr, width, height, true, true, true, true, beautiful.groups_radius)
 		end,

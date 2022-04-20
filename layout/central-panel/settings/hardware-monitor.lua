@@ -4,8 +4,14 @@ local beautiful = require("beautiful")
 local dpi = beautiful.xresources.apply_dpi
 
 local cpu_meter = require("widget.cpu-meter")
+-- local cpu_meter = require("widget.arc.cpu_arc")
+
 local ram_meter = require("widget.ram-meter")
+-- local ram_meter = require("widget.arc.ram_arc")
+
 local temperature_meter = require("widget.temperature-meter")
+-- local temperature_meter = require("widget.arc.temp_arc")
+
 local harddrive_meter = require("widget.harddrive-meter")
 
 local hardware_header =

@@ -113,7 +113,7 @@ local brightness_slider_osd =
 }
 
 local osd_height = dpi(130)
-local osd_width = dpi(300)
+local osd_width = dpi(270)
 local osd_margin = dpi(90)
 
 screen.connect_signal(

@@ -188,33 +188,33 @@ local default_app_menu = {
 }
 
 -- Screenshot menu
-local screenshot_menu = {
-	{
-		'ملء الشاشة',
-		function()
-			gears.timer.start_new(
-				0.1,
-				function()
-					awful.spawn.easy_async_with_shell(apps.utils.full_screenshot)
-				end
-			)
-		end,
-		menubar.utils.lookup_icon('accessories-screenshot')
-	},
-	{
-		'منطقة محددة',
-		function() 
-			gears.timer.start_new(
-				0.1,
-				function()
-					awful.spawn.easy_async_with_shell(apps.utils.area_screenshot)
-				end,
-				menubar.utils.lookup_icon('accessories-screenshot')
-			)
-		end,
-		menubar.utils.lookup_icon('accessories-screenshot')
-	}
-}
+-- local screenshot_menu = {
+-- 	{
+-- 		'ملء الشاشة',
+-- 		function()
+-- 			gears.timer.start_new(
+-- 				0.1,
+-- 				function()
+-- 					awful.spawn.easy_async_with_shell(apps.utils.full_screenshot)
+-- 				end
+-- 			)
+-- 		end,
+-- 		menubar.utils.lookup_icon('accessories-screenshot')
+-- 	},
+-- 	{
+-- 		'منطقة محددة',
+-- 		function() 
+-- 			gears.timer.start_new(
+-- 				0.1,
+-- 				function()
+-- 					awful.spawn.easy_async_with_shell(apps.utils.area_screenshot)
+-- 				end,
+-- 				menubar.utils.lookup_icon('accessories-screenshot')
+-- 			)
+-- 		end,
+-- 		menubar.utils.lookup_icon('accessories-screenshot')
+-- 	}
+-- }
 
 local tools_menu = {
 	{
@@ -222,11 +222,11 @@ local tools_menu = {
 		awesome_menu,
 		beautiful.awesome_icon
 	},
-	{
-		'اخذ لقطة من الشاشة',
-		screenshot_menu,
-		menubar.utils.lookup_icon('accessories-screenshot')
-	},
+	-- {
+	-- 	'اخذ لقطة من الشاشة',
+	-- 	screenshot_menu,
+	-- 	menubar.utils.lookup_icon('accessories-screenshot')
+	-- },
 	{
 		'انهاء الجلسة',
 		function()

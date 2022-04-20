@@ -86,9 +86,9 @@ local ap_off_cmd =
 	awesome-client "
 	naughty = require('naughty')
 	naughty.notification({
-		app_name = 'Network Manager',
-		title = '<b>Airplane mode disabled!</b>',
-		message = 'Initializing network devices',
+		app_name = 'مدير الشبكة',
+		title = '<b>تم ايقاف وضع الطيران!</b>',
+		message = 'تهيئة اجهزة الاتصال',
 		icon = ']] ..
 	widget_icon_dir ..
 		"airplane-mode-off" .. ".svg" .. [['
@@ -106,9 +106,9 @@ local ap_on_cmd =
 	awesome-client "
 	naughty = require('naughty')
 	naughty.notification({
-		app_name = 'Network Manager',
-		title = '<b>Airplane mode enabled!</b>',
-		message = 'Disabling radio devices',
+		app_name = 'مدير الشبكة',
+		title = '<b>تم تفعيل وضع الطيران!</b>',
+		message = 'ايقاف اجهزة الاتصال',
 		icon = ']] ..
 	widget_icon_dir ..
 		"airplane-mode" .. ".svg" .. [['

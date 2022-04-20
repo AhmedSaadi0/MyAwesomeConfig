@@ -14,7 +14,7 @@ local gears = require("gears")
 local beautiful = require("beautiful")
 
 local HOME_DIR = os.getenv("HOME")
-local WIDGET_DIR = HOME_DIR .. '/.config/awesome/awesome-wm-widgets/weather-widget'
+local WIDGET_DIR = HOME_DIR .. '/.config/awesome/widget/weather-widget'
 local GET_FORECAST_CMD = [[bash -c "curl -s --show-error -X GET '%s'"]]
 
 local function show_warning(message)

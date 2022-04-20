@@ -30,9 +30,7 @@ local slider_osd =
 	{
 		id = "vol_osd_slider",
 		-- bar_shape = gears.shape.rounded_rect,
-		bar_shape = function(cr, w, h)
-			gears.shape.rounded_rect(cr, w, h, 30)
-		end,
+		bar_shape = beautiful.vol_bar_shape,
 		bar_height = beautiful.vol_bar_height,
 		bar_color = beautiful.vol_bar_color,
 		bar_active_color = beautiful.vol_bar_active_color,
@@ -112,7 +110,7 @@ local volume_slider_osd =
 }
 
 local osd_height = dpi(130)
-local osd_width = dpi(300)
+local osd_width = dpi(270)
 local osd_margin = dpi(90)
 
 screen.connect_signal(

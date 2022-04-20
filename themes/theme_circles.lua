@@ -9,22 +9,24 @@ local shape = require("gears.shape")
 
 local gfs = require("gears.filesystem")
 local themes_path = gfs.get_themes_dir()
+local gears = require("gears")
 
 local theme = {}
 
 theme.font = "JF Flat 11"
 theme.uifont = "JF Flat 11"
-theme.widget_font = "Font Awesome 5 Free Solid 11"
-theme.iconfont = "Font Awesome 5 Free Solid"
+-- theme.widget_font = "Font Awesome 5 Free Solid 11"
+theme.widget_font = theme.uifont
+theme.iconfont = theme.uifont
 
-theme.bg_normal = "#21222c"
+theme.bg_normal = "#1e222a"
 theme.widget_bg = "#282a36"
 theme.bg_focus = "#282a36"
 theme.bg_urgent = "#ff0000"
 theme.bg_minimize = "#444444"
 theme.bg_systray = theme.bg_normal
 
-theme.fg_normal = "#aaaaaa"
+theme.fg_normal = "#92a0bd"
 theme.fg_focus = "#ffffff"
 theme.fg_urgent = "#ffffff"
 theme.fg_minimize = "#ffffff"
@@ -55,12 +57,24 @@ theme.systray_icon_spacing = 5
 theme.systray_max_rows = 1
 
 -- Panal
-theme.panal_hight = 23
-theme.panal_border_width = 4
-theme.groups_radius = 12
+theme.panal_hight = dpi(25)
+theme.panal_border_width = dpi(4)
+theme.groups_radius = dpi(12)
 
 -- Control Panal
-theme.control_panal_hight = 650
+theme.control_panal_hight = 830
+-- Control panal widgets
+theme.slider_color = "#61afef"
+theme.slider_background_color = "#ffffff20"
+theme.slider_forced_height = dpi(1)
+
+theme.dashboard_box_bg = theme.widget_bg
+theme.dashboard_box_fg = "#162026"
+theme.xcolor2 = "#162026"
+theme.xforeground = "#92a0bd"
+
+theme.slider_inner_border_color = "#458588"
+theme.slider_inner_border_width = dpi(0)
 
 theme.groups_title_bg = theme.widget_bg
 theme.groups_bg = theme.widget_bg
@@ -74,26 +88,33 @@ theme.notification_center_inner_bg = "#282a36"
 
 theme.transparent = "#00000000"
 
--- theme.accent = "#282a36"
+theme.accent = theme.border_focus
 
 theme.bar_color = "#ffffff20"
-theme.bar_active_color = "#7ec7a2"
+
+-- widgets
+theme.bar_active_color = "#61afef"
 theme.bar_handle_color = "#7ec7a2"
 theme.bar_handle_border_color = "#00000012"
 theme.bar_height = dpi(1)
-
 theme.bar_handle_width = dpi(15)
 theme.bar_handle_border_width = dpi(0)
+theme.bar_shape = function(cr, w, h)
+    gears.shape.rounded_rect(cr, w, h, 30)
+end
 
-theme.slider_color = "#61afef"
-theme.slider_background_color = "#ffffff20"
-theme.slider_forced_height = dpi(1)
-
-theme.slider_inner_border_color = "#458588"
-theme.slider_inner_border_width = dpi(1)
+-- Volume & Brightness widget
+theme.vol_bar_active_color = theme.bar_active_color
+theme.vol_bar_handle_color = theme.bar_handle_color
+theme.vol_handle_border_color = theme.bar_handle_border_color
+theme.vol_bar_height = dpi(35)
+theme.vol_handle_width = dpi(0)
+theme.vol_handle_border_width = dpi(0)
+theme.vol_bar_color = theme.bar_color
+theme.vol_bar_shape = theme.bar_shape
 
 -- Widget
-theme.widget_height = 25
+theme.widget_height = dpi(25)
 
 -- There are other variable sets
 -- overriding the default one when
@@ -120,9 +141,8 @@ local taglist_square_size = dpi(4)
 -- notification_[border_color|border_width|shape|opacity]
 theme.notification_title_margin = dpi(6)
 
-
-theme.notification_body_left_margin = dpi(14)
-theme.notification_body_right_margin = dpi(14)
+theme.notification_body_left_margin = dpi(7)
+theme.notification_body_right_margin = dpi(7)
 theme.notification_body_top_margin = dpi(8)
 theme.notification_body_bottom_margin = dpi(6)
 theme.notification_body_margins = dpi(6)
@@ -134,14 +154,8 @@ theme.notification_bg = "#21222c"
 theme.notification_border_focus = theme.border_focus
 theme.notification_border_width = dpi(1)
 
--- Volume & Brightness widget
-theme.vol_bar_active_color = "#61afef"
-theme.vol_bar_handle_color = "#61afef"
-theme.vol_bar_height = dpi(30)
-theme.vol_handle_width = dpi(0)
-theme.vol_handle_border_width = dpi(5)
-theme.vol_bar_color = theme.bar_color
-theme.vol_handle_border_color = "#61afef"
+theme.center_notification_border_focus = theme.border_focus
+theme.center_notification_border_width = dpi(0)
 
 theme.lock_bg = "#21222c" .. "77"
 
@@ -151,40 +165,6 @@ theme.lock_bg = "#21222c" .. "77"
 theme.menu_submenu_icon = themes_path .. "default/submenu.png"
 theme.menu_height = dpi(15)
 theme.menu_width = dpi(100)
-
--- You can add as many variables as
--- you wish and access them by using
--- beautiful.variable in your rc.lua
---theme.bg_widget = "#cc0000"
-
--- Define the image to load
-theme.titlebar_close_button_normal = themes_path .. "default/titlebar/close_normal.png"
-theme.titlebar_close_button_focus = themes_path .. "default/titlebar/close_focus.png"
-
-theme.titlebar_minimize_button_normal = themes_path .. "default/titlebar/minimize_normal.png"
-theme.titlebar_minimize_button_focus = themes_path .. "default/titlebar/minimize_focus.png"
-
-theme.titlebar_ontop_button_normal_inactive = themes_path .. "default/titlebar/ontop_normal_inactive.png"
-theme.titlebar_ontop_button_focus_inactive = themes_path .. "default/titlebar/ontop_focus_inactive.png"
-theme.titlebar_ontop_button_normal_active = themes_path .. "default/titlebar/ontop_normal_active.png"
-theme.titlebar_ontop_button_focus_active = themes_path .. "default/titlebar/ontop_focus_active.png"
-
-theme.titlebar_sticky_button_normal_inactive = themes_path .. "default/titlebar/sticky_normal_inactive.png"
-theme.titlebar_sticky_button_focus_inactive = themes_path .. "default/titlebar/sticky_focus_inactive.png"
-theme.titlebar_sticky_button_normal_active = themes_path .. "default/titlebar/sticky_normal_active.png"
-theme.titlebar_sticky_button_focus_active = themes_path .. "default/titlebar/sticky_focus_active.png"
-
-theme.titlebar_floating_button_normal_inactive = themes_path .. "default/titlebar/floating_normal_inactive.png"
-theme.titlebar_floating_button_focus_inactive = themes_path .. "default/titlebar/floating_focus_inactive.png"
-theme.titlebar_floating_button_normal_active = themes_path .. "default/titlebar/floating_normal_active.png"
-theme.titlebar_floating_button_focus_active = themes_path .. "default/titlebar/floating_focus_active.png"
-
-theme.titlebar_maximized_button_normal_inactive = themes_path .. "default/titlebar/maximized_normal_inactive.png"
-theme.titlebar_maximized_button_focus_inactive = themes_path .. "default/titlebar/maximized_focus_inactive.png"
-theme.titlebar_maximized_button_normal_active = themes_path .. "default/titlebar/maximized_normal_active.png"
-theme.titlebar_maximized_button_focus_active = themes_path .. "default/titlebar/maximized_focus_active.png"
-
-theme.wallpaper = "/media/shared/Pictures/fav/new/nordic-wallpapers/nord_buildings.png"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = "~/.config/awesome/themes/layouts/fairhw.png"

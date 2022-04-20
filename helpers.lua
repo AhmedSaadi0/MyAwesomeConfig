@@ -36,8 +36,8 @@ function helpers.set_widget_block(widget, fg, shape, left, right, top, bottom)
         forced_height = beautiful.widget_height,
         shape = gears.shape.rounded_bar,
         -- shape = function(cr, width, height)
-		-- 	gears.shape.rounded_rect(cr, width, height, beautiful.groups_radius)
-		-- end,
+        -- 	gears.shape.rounded_rect(cr, width, height, beautiful.groups_radius)
+        -- end,
         fg = fg,
         font = beautiful.iconfont,
         bg = beautiful.widget_bg,
@@ -57,5 +57,18 @@ function helpers.set_space(space_size)
     return space
 end
 
+-- Create rounded rectangle shape (in one line)
+
+helpers.rrect = function(radius)
+    return function(cr, width, height)
+        gears.shape.rounded_rect(cr, width, height, beautiful.groups_radius)
+    end
+end
+
+function helpers.colorize_text(txt, fg)
+    if fg == nil then fg= beautiful.fg_normal end
+
+    return "<span foreground='" .. fg .. "'>" .. txt .. "</span>"
+end
 
 return helpers

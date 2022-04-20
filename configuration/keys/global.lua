@@ -97,15 +97,6 @@ local global_keys =
 		end,
 		{description = "فتح قائمة روفي", group = "المشغل"}
 	),
-	-- Notification menus
-	-- awful.key(
-	-- 	{modkey},
-	-- 	"F2",
-	-- 	function()
-	-- 		awful.spawn("sh /home/ahmed/.config/awesome/sh/open_notification_center.sh", false)
-	-- 	end,
-	-- 	{description = "open today panel", group = "launcher"}
-	-- ),
 	awful.key(
 		{modkey},
 		"F2",
@@ -113,36 +104,12 @@ local global_keys =
 			local focused = awful.screen.focused()
 
 			if focused.central_panel then
-				if _G.central_panel_mode == "today_mode" or not focused.central_panel.visible then
-					focused.central_panel:toggle()
-					switch_rdb_pane("today_mode")
-				else
-					switch_rdb_pane("today_mode")
-				end
+				focused.central_panel:toggle()
 
 				_G.central_panel_mode = "today_mode"
 			end
 		end,
 		{description = "open today panel", group = "launcher"}
-	),
-	awful.key(
-		{modkey},
-		"F3",
-		function()
-			local focused = awful.screen.focused()
-
-			if focused.central_panel then
-				if _G.central_panel_mode == "settings_mode" or not focused.central_panel.visible then
-					focused.central_panel:toggle()
-					switch_rdb_pane("settings_mode")
-				else
-					switch_rdb_pane("settings_mode")
-				end
-
-				_G.central_panel_mode = "settings_mode"
-			end
-		end,
-		{description = "open settings panel", group = "launcher"}
 	),
 	-- Applicatopn menu
 	-- Power menu
@@ -432,14 +399,6 @@ local global_keys =
 		end,
 		{description = "افتح VS Code", group = "تطبيقات"}
 	),
-	-- awful.key(
-	-- 	{modkey},
-	-- 	"t",
-	-- 	function()
-	-- 		awful.spawn("sh .config/awesome/sh/redshift.sh", false)
-	-- 	end,
-	-- 	{description = "وضع القراءة", group = "تطبيقات"}
-	-- ),
 	awful.key(
 		{modkey, "Shift"},
 		"k",

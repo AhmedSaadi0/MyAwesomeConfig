@@ -6,17 +6,19 @@ local dpi = beautiful.xresources.apply_dpi
 
 panel_visible = false
 
-local central_panel_switch = require("widget.central-panel-switch")
+-- local central_panel_switch = require("widget.central-panel-switch")
+-- local user_profile = require("widget.user-profile")
+-- local weather = require("widget.weather")
+-- local email = require("widget.email")
 local notif_center = require("widget.notif-center")
-local user_profile = require("widget.user-profile")
-local weather = require("widget.weather")
-local email = require("widget.email")
 local settings = require("layout.central-panel.settings")
+local quick_setting = require("layout.central-panel.settings.quick-settings")
+local music = require("widget.music")
+local hardware_monitor = require("layout.central-panel.settings.hardware-monitor")
 
 local central_panel = function(s)
 	-- Set right panel geometry
 	local panel_width = dpi(700)
-	local panel_height = s.geometry.height - dpi(38)
 	local panel_margins = dpi(15)
 
 	local separator =
@@ -34,14 +36,14 @@ local central_panel = function(s)
 				{
 					expand = "none",
 					layout = wibox.layout.fixed.vertical,
-					{
-						layout = wibox.layout.align.horizontal,
-						expand = "none",
-						nil,
-						central_panel_switch,
-						nil
-					},
-					separator,
+					-- {
+					-- 	layout = wibox.layout.align.horizontal,
+					-- 	expand = "none",
+					-- 	nil,
+					-- 	central_panel_switch,
+					-- 	nil
+					-- },
+					-- separator,
 					{
 						layout = wibox.layout.stack,
 						-- Today Pane
@@ -56,10 +58,11 @@ local central_panel = function(s)
 								{
 									layout = wibox.layout.fixed.vertical,
 									spacing = dpi(7),
-									user_profile,
-									weather,
-									email
-									-- require('widget.calendar')
+									quick_setting,
+									music,
+									hardware_monitor,
+									-- weather,
+									-- email,
 								}
 							}
 						},
@@ -108,17 +111,6 @@ local central_panel = function(s)
 
 	panel.opened = false
 
-	s.backdrop_central =
-		wibox {
-		ontop = true,
-		screen = s,
-		bg = beautiful.transparent,
-		type = "utility",
-		x = s.geometry.x,
-		y = s.geometry.y,
-		width = s.geometry.width,
-		height = s.geometry.height
-	}
 
 	panel:struts {
 		top = 0
@@ -128,7 +120,6 @@ local central_panel = function(s)
 		local focused = awful.screen.focused()
 		panel_visible = true
 
-		-- focused.backdrop_central.visible = true
 		focused.central_panel.visible = true
 
 		panel:emit_signal("opened")
@@ -138,7 +129,6 @@ local central_panel = function(s)
 		local focused = awful.screen.focused()
 		panel_visible = false
 
-		-- focused.backdrop_central.visible = false
 		focused.central_panel.visible = false
 
 		panel:emit_signal("closed")
@@ -170,18 +160,6 @@ local central_panel = function(s)
 		end
 	end
 
-	s.backdrop_central:buttons(
-		awful.util.table.join(
-			awful.button(
-				{},
-				1,
-				nil,
-				function()
-					panel:toggle()
-				end
-			)
-		)
-	)
 	return panel
 end
 

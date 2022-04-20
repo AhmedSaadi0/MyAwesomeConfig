@@ -1,10 +1,7 @@
 local gears = require("gears")
 local awful = require("awful")
--- Widget and layout library
 local wibox = require("wibox")
--- Theme handling library
 local beautiful = require("beautiful")
-local common = require("awful.widget.common")
 local helpers = require("helpers")
 
 -- Keyboard map indicator and switcher
@@ -25,17 +22,7 @@ mytextclock:connect_signal(
     "button::press",
     function()
         local focused = awful.screen.focused()
-
-        if focused.central_panel then
-            if _G.central_panel_mode == "today_mode" or not focused.central_panel.visible then
-                focused.central_panel:toggle()
-                switch_rdb_pane("today_mode")
-            else
-                switch_rdb_pane("today_mode")
-            end
-
-            _G.central_panel_mode = "today_mode"
-        end
+        focused.central_panel:toggle()
     end
 )
 
@@ -139,9 +126,6 @@ awful.screen.connect_for_each_screen(
     function(s)
         -- Wallpaper
         set_wallpaper(s)
-
-        -- Each screen has its own tag table.
-        -- awful.tag({"", "", "", "", "", "", ""}, s, awful.layout.layouts[1])
 
         -- Create a promptbox for each screen
         s.mypromptbox = awful.widget.prompt()
@@ -309,6 +293,8 @@ awful.screen.connect_for_each_screen(
         )
         -- s.ns = require("widget.net-speed-widget")()
         s.ns = require("widget.net-speed-widget")()
+        -- s.wifi = require("widget.network")()
+
         -- s.volume_cr = require("widget.volumearc-widget")()
         -- s.volume_bar = require("widget.volumebar-widget")()
         -- s.volume_bar =
@@ -360,9 +346,9 @@ awful.screen.connect_for_each_screen(
                 helpers.set_widget_block(s.cpu),
                 helpers.set_space(7),
                 helpers.set_widget_block(s.ns, "#bc93f9"),
-                helpers.set_space(7),
-                -- helpers.set_widget_block(s.volume_bar, "#bc93f9", nil, 10, 10, 0, 0),
                 -- helpers.set_space(7),
+                -- helpers.set_widget_block(s.wifi, "#bc93f9", nil, 0, 0, 0, 0),
+                helpers.set_space(7),
                 helpers.set_widget_block(s.brightness_cr, "#00b19f"),
                 helpers.set_space(7),
                 helpers.set_widget_block(s.bat, "#ffaf5f", nil, 3, 3, 0, 0)
