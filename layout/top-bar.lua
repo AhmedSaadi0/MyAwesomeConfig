@@ -345,7 +345,7 @@ awful.screen.connect_for_each_screen(
                 helpers.set_space(7),
                 helpers.set_widget_block(s.cpu),
                 helpers.set_space(7),
-                helpers.set_widget_block(s.ns, "#bc93f9"),
+                helpers.set_widget_block(s.ns, "#00efd1"),
                 -- helpers.set_space(7),
                 -- helpers.set_widget_block(s.wifi, "#bc93f9", nil, 0, 0, 0, 0),
                 helpers.set_space(7),
@@ -355,7 +355,7 @@ awful.screen.connect_for_each_screen(
             },
             -- Middle widget,
             {
-                helpers.set_widget_block(mytextclock, "#e9d65f", nil, 10, 10),
+                helpers.set_widget_block(mytextclock, "#fedb41", nil, 10, 10),
                 widget = wibox.container.background,
                 point = function(geo, args)
                     return {

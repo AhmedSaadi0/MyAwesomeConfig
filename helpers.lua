@@ -71,4 +71,32 @@ function helpers.colorize_text(txt, fg)
     return "<span foreground='" .. fg .. "'>" .. txt .. "</span>"
 end
 
+function helpers.add_hover_cursor(w, hover_cursor)
+    local original_cursor = "left_ptr"
+
+    w:connect_signal("mouse::enter", function()
+        local w = _G.mouse.current_wibox
+        if w then w.cursor = hover_cursor end
+    end)
+
+    w:connect_signal("mouse::leave", function()
+        local w = _G.mouse.current_wibox
+        if w then w.cursor = original_cursor end
+    end)
+end
+
+helpers.rrect = function(radius)
+    return function(cr, width, height)
+        gears.shape.rounded_rect(cr, width, height, radius)
+    end
+end
+
+function helpers.vertical_pad(height)
+    return wibox.widget {
+        forced_height = height,
+        layout = wibox.layout.fixed.vertical
+    }
+end
+
+
 return helpers

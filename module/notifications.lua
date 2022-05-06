@@ -10,6 +10,8 @@ local clickable_container = require("widget.clickable-container")
 
 -- Defaults
 naughty.config.defaults.ontop = true
+naughty.config.defaults.screen = awful.screen.focused()
+
 naughty.config.defaults.icon_size = dpi(32)
 naughty.config.defaults.timeout = 5
 naughty.config.defaults.title = "اشعارات النظام"
@@ -22,8 +24,9 @@ naughty.config.defaults.shape = function(cr, w, h)
 end
 
 -- Apply theme variables
-naughty.config.padding = dpi(8)
-naughty.config.spacing = dpi(8)
+-- naughty.config.padding = dpi(80)
+-- naughty.config.spacing = dpi(80)
+
 naughty.config.icon_dirs = {
 	"/usr/share/icons/Tela",
 	"/usr/share/icons/Tela-blue-dark",
@@ -35,8 +38,8 @@ naughty.config.icon_dirs = {
 }
 naughty.config.icon_formats = {"svg", "png", "jpg", "gif"}
 
--- Presets / rules
 
+-- Presets / rules
 ruled.notification.connect_signal(
 	"request::rules",
 	function()
@@ -120,7 +123,7 @@ naughty.connect_signal(
 			wibox.widget {
 			notification = n,
 			base_layout = wibox.widget {
-				spacing = dpi(0),
+				spacing = dpi(80),
 				layout = wibox.layout.flex.horizontal
 			},
 			widget_template = {
