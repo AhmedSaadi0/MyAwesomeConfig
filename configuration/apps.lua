@@ -32,8 +32,8 @@ return {
 		-- Default GUI package manager
 		package_manager = "pacman",
 		-- Default locker
-		-- lock = 'awesome-client "awesome.emit_signal(\'module::lockscreen_show\')"',
-		lock = "/usr/lib/kscreenlocker_greet",
+		-- lock = "/usr/lib/kscreenlocker_greet",
+		lock = "xfce4-screensaver-command --lock",
 		-- Default quake terminal
 		quake = "konsole --name QuakeTerminal",
 		-- Default rofi global menu
@@ -47,27 +47,27 @@ return {
 		rofi_appmenu = "rofi -dpi " ..
 			screen.primary.dpi .. " -show drun -theme " .. config_dir .. "/configuration/rofi/appmenu/rofi.rasi"
 
-		-- You can add more default applications here
 	},
 	-- List of apps to start once on start-up
 	run_on_start_up = {
-		-- "kded5",
 		"nm-applet -sm-disable",
 		"blueman-applet",
 		"xrandr --output eDP-1",
+		-- "kded5",
 		-- "/usr/lib/org_kde_powerdevil",
 		"xfce4-power-manager",
-		-- 		"xfce4-screensaver",
+		"xfce4-screensaver",
 		[[
 			xidlehook --not-when-fullscreen --not-when-audio --timer 600 \
-			'/usr/lib/kscreenlocker_greet' ""
+			'xfce4-screensaver-command --lock' ""
 		]],
 		'setxkbmap -layout "us,ar" -option "grp:win_space_toggle"',
 		"/usr/lib/polkit-kde-authentication-agent-1",
 		-- "/usr/lib/kactivitymanagerd",
 		-- 		"xrandr --output HDMI-1-0 --mode 1440x900 --rate 61 --noprimary --left-of eDP-1",
 		"picom -b --experimental-backends --dbus --config " .. config_dir .. "/configuration/picom.conf",
-		config_dir .. "/configuration/conky.sh"
+		
+		-- config_dir .. "/configuration/conky.sh"
 	},
 	-- List of binaries/shell scripts that will execute for a certain task
 	utils = {

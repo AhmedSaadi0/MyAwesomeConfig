@@ -19,9 +19,9 @@ theme.uifont = "JF Flat 11"
 theme.widget_font = theme.uifont
 theme.iconfont = theme.uifont
 
-theme.bg_normal = "#1e222a"
-theme.widget_bg = "#282a36"
-theme.bg_focus = "#282a36"
+theme.bg_normal = "#1c1d29"
+theme.widget_bg = "#16161e"
+theme.bg_focus = "#16161e"
 theme.bg_urgent = "#ff0000"
 theme.bg_minimize = "#444444"
 
@@ -78,11 +78,11 @@ theme.groups_title_bg = theme.widget_bg
 theme.groups_bg = theme.widget_bg
 theme.background = theme.bg_normal
 
-theme.header_bg = "#23252f"
-theme.inner_bg = "#282a36"
+theme.header_bg = "#16161d"
+theme.inner_bg = "#16161d"
 
-theme.notification_center_header_bg = "#23252f"
-theme.notification_center_inner_bg = "#282a36"
+theme.notification_center_header_bg = "#16161d"
+theme.notification_center_inner_bg = "#16161d"
 
 theme.transparent = "#00000000"
 
@@ -135,7 +135,7 @@ theme.notification_body_margins = dpi(6)
 -- theme.notification_margins = dpi(60)
 
 theme.notification_icon_margin = dpi(2)
-theme.notification_title_color = "#282a36"
+theme.notification_title_color = "#16161d"
 theme.notification_bg = "#21222c"
 theme.notification_border_focus = theme.border_focus
 theme.notification_border_width = dpi(0)

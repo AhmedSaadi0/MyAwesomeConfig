@@ -82,9 +82,9 @@ local media_next_command = function()
     playerctl:next()
 end
 
-local media_play = create_media_button("", beautiful.xforeground, media_play_command, true)
-local media_prev = create_media_button("", beautiful.xforeground, media_prev_command, false)
-local media_next = create_media_button("", beautiful.xforeground, media_next_command, false)
+local media_play = create_media_button("", beautiful.media_button_color, media_play_command, true)
+local media_prev = create_media_button("", beautiful.media_button_color, media_prev_command, false)
+local media_next = create_media_button("", beautiful.media_button_color, media_next_command, false)
 
 local media =
     wibox.widget {
