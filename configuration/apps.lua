@@ -18,7 +18,7 @@ return {
 		-- Default game, can be a launcher like steam
 		game = "supertuxkart",
 		-- Default graphics editor
-		graphics = "gimp-2.10",
+		graphics = "gimp",
 		-- Default sandbox
 		social = "telegram-desktop",
 		-- Default IDE
