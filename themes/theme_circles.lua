@@ -14,6 +14,7 @@ local gears = require("gears")
 local theme = {}
 
 theme.font = "JF Flat 11"
+theme.font_n = "JF Flat"
 theme.uifont = "JF Flat 11"
 -- theme.widget_font = "Font Awesome 5 Free Solid 11"
 theme.widget_font = theme.uifont

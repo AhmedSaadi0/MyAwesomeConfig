@@ -16,7 +16,7 @@ naughty.config.defaults.icon_size = dpi(32)
 naughty.config.defaults.timeout = 5
 naughty.config.defaults.title = "اشعارات النظام"
 naughty.config.defaults.margin = 50
-naughty.config.defaults.border_width = dpi(1)
+naughty.config.defaults.border_width = dpi(0)
 naughty.config.defaults.border_color = beautiful.notification_border_focus
 naughty.config.defaults.position = "bottom_left"
 naughty.config.defaults.shape = function(cr, w, h)
@@ -37,7 +37,6 @@ naughty.config.icon_dirs = {
 	"/usr/share/pixmaps/"
 }
 naughty.config.icon_formats = {"svg", "png", "jpg", "gif"}
-
 
 -- Presets / rules
 ruled.notification.connect_signal(
@@ -118,6 +117,10 @@ naughty.connect_signal(
 naughty.connect_signal(
 	"request::display",
 	function(n)
+		local appicon = n.app_icon
+		if not appicon then appicon = gears.color.recolor_image(beautiful.notification_icon, beautiful.accent) end
+		local time = os.date("%H:%M")
+
 		-- Actions Blueprint
 		local actions_template =
 			wibox.widget {
@@ -173,32 +176,47 @@ naughty.connect_signal(
 									{
 										{
 											{
-												-- The title
 												{
 													{
-														markup = n.app_name or "اشعارات النظام",
-														font = beautiful.uifont,
-														align = "center",
-														valign = "center",
-														widget = wibox.widget.textbox
+														{
+															{
+																{
+																	-- image = appicon,
+																	resize = true,
+																	widget = naughty.widget.icon
+																},
+																strategy = "max",
+																height = dpi(20),
+																widget = wibox.container.constraint
+															},
+															right = dpi(10),
+															widget = wibox.container.margin
+														},
+														{
+															markup = "<span weight='bold'>" .. n.app_name .. "</span>",
+															align = "left",
+															font = beautiful.font_n .. "10",
+															widget = wibox.widget.textbox
+														},
+														{
+															markup = "<span weight='bold'>   " .. time .. "</span>",
+															align = "right",
+															font = beautiful.font,
+															widget = wibox.widget.textbox
+														},
+														layout = wibox.layout.align.horizontal
 													},
-													margins = beautiful.notification_title_margin,
+													top = dpi(10),
+													left = dpi(20),
+													right = dpi(20),
+													bottom = dpi(10),
 													widget = wibox.container.margin
 												},
-												bg = beautiful.notification_title_color,
+												bg = beautiful.header_bg,
 												widget = wibox.container.background
 											},
 											{
 												-- The body
-												{
-													-- The icon
-													{
-														resize_strategy = "center",
-														widget = naughty.widget.icon
-													},
-													margins = beautiful.notification_icon_margin,
-													widget = wibox.container.margin
-												},
 												{
 													-- The text body
 													{
@@ -226,15 +244,15 @@ naughty.connect_signal(
 													bottom = beautiful.notification_body_bottom_margin,
 													widget = wibox.container.margin
 												},
+												spacing = beautiful.notification_body_margin,
 												layout = wibox.layout.fixed.horizontal
 											},
 											fill_space = true,
-											-- spacing = beautiful.notification_body_margin,
 											layout = wibox.layout.fixed.vertical
 										},
 										-- Margin between the fake background
 										-- Set to 0 to preserve the 'titlebar' effect
-										margins = beautiful.notification_body_margins,
+										-- margins = beautiful.notification_body_margins,
 										widget = wibox.container.margin
 									},
 									bg = beautiful.notification_bg,

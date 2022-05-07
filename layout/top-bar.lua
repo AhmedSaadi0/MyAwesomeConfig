@@ -311,7 +311,7 @@ awful.screen.connect_for_each_screen(
 
         s.power_button =
             wibox.widget {
-            markup = "<span foreground='#fab86c'>    </span>",
+            markup = "<span foreground='#fedb41'>    </span>",
             align = "center",
             valign = "center",
             widget = wibox.widget.textbox
@@ -341,7 +341,7 @@ awful.screen.connect_for_each_screen(
                 s.systray,
                 s.tray_toggler,
                 helpers.set_space(6),
-                helpers.set_widget_block(mykeyboardlayout, "#bd93f9", nil, 2, 2),
+                helpers.set_widget_block(mykeyboardlayout, "#aaaaff", nil, 2, 2),
                 helpers.set_space(7),
                 helpers.set_widget_block(s.cpu),
                 helpers.set_space(7),
@@ -349,7 +349,7 @@ awful.screen.connect_for_each_screen(
                 -- helpers.set_space(7),
                 -- helpers.set_widget_block(s.wifi, "#bc93f9", nil, 0, 0, 0, 0),
                 helpers.set_space(7),
-                helpers.set_widget_block(s.brightness_cr, "#00b19f"),
+                helpers.set_widget_block(s.brightness_cr, "#ffaaff"),
                 helpers.set_space(7),
                 helpers.set_widget_block(s.bat, "#ffaf5f", nil, 3, 3, 0, 0)
             },

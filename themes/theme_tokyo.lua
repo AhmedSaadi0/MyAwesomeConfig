@@ -15,6 +15,8 @@ local theme = {}
 
 theme.font = "JF Flat 11"
 theme.uifont = "JF Flat 11"
+theme.font_n = "Google Sana "
+
 -- theme.widget_font = "Font Awesome 5 Free Solid 11"
 theme.widget_font = theme.uifont
 theme.iconfont = theme.uifont
@@ -78,12 +80,6 @@ theme.groups_title_bg = theme.widget_bg
 theme.groups_bg = theme.widget_bg
 theme.background = theme.bg_normal
 
-theme.header_bg = "#16161d"
-theme.inner_bg = "#16161d"
-
-theme.notification_center_header_bg = "#16161d"
-theme.notification_center_inner_bg = "#16161d"
-
 theme.transparent = "#00000000"
 
 theme.accent = theme.border_focus
@@ -135,7 +131,6 @@ theme.notification_body_margins = dpi(6)
 -- theme.notification_margins = dpi(60)
 
 theme.notification_icon_margin = dpi(2)
-theme.notification_title_color = "#16161d"
 theme.notification_bg = theme.bg_normal
 theme.notification_border_focus = theme.border_focus
 theme.notification_border_width = dpi(0)
@@ -145,6 +140,12 @@ theme.center_notification_border_focus = theme.border_focus
 theme.center_notification_border_width = dpi(0)
 
 theme.lock_bg = theme.bg_normal .. "77"
+
+theme.header_bg = "#16161d"
+theme.inner_bg = "#16161d"
+
+theme.notification_center_header_bg = "#16161d"
+theme.notification_center_inner_bg = "#16161d"
 
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
