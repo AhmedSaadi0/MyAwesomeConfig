@@ -40,8 +40,8 @@ default_shade_color 000000
 default_outline_color 000000
 minimum_size 650 0
 maximum_width 650
-gap_x -0
-gap_y 0
+gap_x 50
+gap_y -150
 alignment middle_middle
 no_buffers yes
 uppercase no
