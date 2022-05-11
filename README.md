@@ -49,3 +49,6 @@ This config is the same as [`the-glorious-dotfiles`](https://github.com/manilaro
 <p align='center'>
 	<img alt='screenshot 5' src='https://github.com/AhmedSaadi0/MyAwesomeConfig/blob/master/screenshots/5.png'/>
 </p>
+<p align='center'>
+	<img alt='screenshot 6' src='https://github.com/AhmedSaadi0/MyAwesomeConfig/blob/master/screenshots/6.png'/>
+</p>
