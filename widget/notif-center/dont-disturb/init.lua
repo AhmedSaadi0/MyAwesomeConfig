@@ -10,7 +10,8 @@ local clickable_container = require("widget.clickable-container")
 local config_dir = gears.filesystem.get_configuration_dir()
 
 local widget_dir = config_dir .. "widget/notif-center/dont-disturb/"
-local widget_icon_dir = config_dir .. "widget/notif-center/icons/"
+
+local icons = beautiful.icons
 
 _G.dont_disturb = false
 
@@ -18,7 +19,7 @@ local dont_disturb_imagebox =
 	wibox.widget {
 	{
 		id = "icon",
-		image = widget_icon_dir .. "dont-disturb-mode.svg",
+		image = icons.dont_disturb_mode,
 		resize = true,
 		forced_height = dpi(20),
 		forced_width = dpi(20),
@@ -33,10 +34,10 @@ local function update_icon()
 
 	if dont_disturb then
 		widget_icon_name = "toggled-on"
-		dd_icon:set_image(widget_icon_dir .. "dont-disturb-mode.svg")
+		dd_icon:set_image(icons.dont_disturb_mode)
 	else
 		widget_icon_name = "toggled-off"
-		dd_icon:set_image(widget_icon_dir .. "notify-mode.svg")
+		dd_icon:set_image(icons.notify_mode)
 	end
 end
 

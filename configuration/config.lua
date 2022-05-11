@@ -49,8 +49,6 @@ return {
 			debug_mode = false
 		},
 		dynamic_wallpaper = {
-			-- Will look for wallpapers here
-			wall_dir = "themes/wallpapers/",
 			-- Image formats
 			valid_picture_formats = {"jpg", "png", "jpeg"},
 			-- Leave this table empty for full auto scheduling

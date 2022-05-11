@@ -37,6 +37,14 @@ return {
 	batt_charging 		= dir .. 'battery-charge.svg',
 	batt_discharging	= dir .. 'battery-discharge.svg',
 	toggled_on 			= dir .. 'toggled-on.svg',
-	toggled_off			= dir .. 'toggled-off.svg'
+	toggled_off			= dir .. 'toggled-off.svg',
+
+	-- Notifications
+	empty_notification	= dir .. 'notification-icons/empty-notification.svg',
+	delete				= dir .. 'notification-icons/delete.svg',
+	clear_all			= dir .. 'notification-icons/clear_all.svg',
+	dont_disturb_mode	= dir .. 'notification-icons/dont-disturb-mode.svg',
+	notify_mode			= dir .. 'notification-icons/notify-mode.svg',
+	new_notif			= dir .. 'notification-icons/new-notif.svg'
 
 }

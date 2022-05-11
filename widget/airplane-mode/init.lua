@@ -8,7 +8,7 @@ local clickable_container = require("widget.airplane-mode.clickable-container")
 local config_dir = gears.filesystem.get_configuration_dir()
 local widget_dir = config_dir .. "widget/airplane-mode/"
 local widget_icon_dir = widget_dir .. "icons/"
-local icons = require("themes.icons")
+local icons = beautiful.icons
 local ap_state = false
 
 local action_name =

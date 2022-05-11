@@ -91,6 +91,16 @@ theme.bar_color = theme.bar_active_color .. "30"
 theme.bar_handle_color = theme.bar_active_color
 theme.bar_handle_border_color = theme.bar_active_color
 
+-- colors
+theme.taglist_color = "#dddddd"
+theme.cpu_color = "#ff79c6"
+theme.power_button_color = "#fedb41"
+theme.keyboard_layout_color = "#aaaaff"
+theme.net_speed_color = "#00efd1"
+theme.brightness_cr_color = "#ffaaff"
+theme.battery_color = "#ffaf5f"
+theme.clock_color = "#fedb41"
+
 theme.slider_color = "#00efd1"
 theme.slider_background_color = theme.slider_color .. "30"
 theme.slider_forced_height = dpi(1)
@@ -178,6 +188,8 @@ theme.awesome_icon = theme_assets.awesome_icon(theme.menu_height, theme.bg_focus
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 theme.icon_theme = nil
+theme.icons = require("themes.icons")
+theme.dynamic_wallpaper_dir = "themes/wallpapers//"
 
 return theme
 

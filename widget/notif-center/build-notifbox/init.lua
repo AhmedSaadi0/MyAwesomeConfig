@@ -5,8 +5,7 @@ local naughty = require("naughty")
 local beautiful = require("beautiful")
 local dpi = beautiful.xresources.apply_dpi
 
-local config_dir = gears.filesystem.get_configuration_dir()
-local widget_icon_dir = config_dir .. "widget/notif-center/icons/"
+local icons = beautiful.icons
 
 local empty_notifbox = require("widget.notif-center.build-notifbox.empty-notifbox")
 local notifbox_scroller = require("widget.notif-center.build-notifbox.notifbox-scroller")
@@ -61,7 +60,7 @@ naughty.connect_signal(
 
 		local notif_icon = n.icon or n.app_icon
 		if not notif_icon then
-			notif_icon = widget_icon_dir .. "new-notif" .. ".svg"
+			notif_icon = icons.new_notif
 		end
 
 		notifbox_add_expired(n, notif_icon, notifbox_color)

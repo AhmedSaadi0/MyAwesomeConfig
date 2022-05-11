@@ -4,7 +4,7 @@ local gears = require("gears")
 local beautiful = require("beautiful")
 local dpi = require("beautiful").xresources.apply_dpi
 local clickable_container = require("widget.blue-light.clickable-container")
-local icons = require("themes.icons")
+local icons = beautiful.icons
 local blue_light_state = nil
 
 local action_name =

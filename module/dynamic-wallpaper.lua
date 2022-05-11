@@ -28,7 +28,7 @@ local config = require("configuration.config")
 local wall_config = {
 	-- Wallpaper directory. The default is:
 	-- local wall_config.wall_dir = os.getenv('HOME') .. 'Pictures/Wallpapers/'
-	wall_dir = filesystem.get_configuration_dir() .. (config.module.dynamic_wallpaper.wall_dir or "/themes/wallpapers//"),
+	wall_dir = filesystem.get_configuration_dir() .. (beautiful.dynamic_wallpaper_dir),
 	-- If there's a picture format that awesome accepts and i missed
 	-- (which i probably did) feel free to add it right here
 	valid_picture_formats = config.module.dynamic_wallpaper.valid_picture_formats or {"jpg", "png", "jpeg"},

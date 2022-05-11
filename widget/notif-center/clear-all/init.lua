@@ -6,8 +6,7 @@ local beautiful = require("beautiful")
 local dpi = beautiful.xresources.apply_dpi
 local clickable_container = require("widget.clickable-container")
 
-local config_dir = gears.filesystem.get_configuration_dir()
-local widget_icon_dir = config_dir .. "widget/notif-center/icons/"
+local icons = beautiful.icons
 
 local notifbox_core = require("widget.notif-center.build-notifbox")
 local reset_notifbox_layout = notifbox_core.reset_notifbox_layout
@@ -15,7 +14,7 @@ local reset_notifbox_layout = notifbox_core.reset_notifbox_layout
 local clear_all_imagebox =
 	wibox.widget {
 	{
-		image = widget_icon_dir .. "clear_all.svg",
+		image = icons.clear_all,
 		resize = true,
 		forced_height = dpi(20),
 		forced_width = dpi(20),

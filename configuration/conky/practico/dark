@@ -1,0 +1,74 @@
+# By Jesse_Avalos see me on Eye Candy linux google plus !!!!!
+background yes
+use_xft yes
+xftfont ITC Avant Garde Gothic Pro:size=9
+xftalpha 0.8
+update_interval 1
+total_run_times 0
+own_window yes
+own_window_transparent yes
+##############################################
+# Compositing tips:
+# Conky can play strangely when used with
+# different compositors. I have found the
+# following to work well, but your mileage
+# may vary. Comment/uncomment to suit.
+##############################################
+## no compositor
+#own_window_type override
+#own_window_argb_visual no
+
+## xcompmgr
+#own_window_type override
+#own_window_argb_visual yes
+
+## cairo-compmgr
+own_window_type override
+own_window_argb_visual yes
+##############################################
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+stippled_borders 0
+border_margin 5
+border_width 1
+default_color 000000
+default_shade_color 000000
+default_outline_color 000000
+minimum_size 650 0
+maximum_width 650
+gap_x -0
+gap_y 0
+alignment middle_middle
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+net_avg_samples 2
+short_units yes
+text_buffer_size 2048
+use_spacer none
+override_utf8_locale yes
+default_color CACCCB
+color1 F2F2F2
+color2 121111
+color3 3BD8ED
+own_window_argb_value 0
+own_window_colour 000000
+TEXT
+${offset 200}${color1} ${font Calamity Jane NF:size=90}${time %l:%M} 
+${offset 425}${voffset -185}${font Raleway:bold:size=18}${time %P}
+${offset 180}${voffset 60}${font Raleway:bold:size=35}${time %b}
+${offset 290}${voffset -55}${font Calamity Jane NF:bold:size=25}${time %d}
+${offset 338}${voffset -35}${font Raleway:bold:size=30}${time %A}
+${offset 205}${font Raleway:size=15}${color1}Discharging ${battery_percent BAT0}% 
+${offset 217}${voffset 25}Wifi ${color1}  ${wireless_link_qual wlp0s20f3}%${color1}
+${offset 217}${voffset 25} Cpu  ${cpu cpu0}%
+#weather
+${texeci 1300 curl -s "http://weather.yahooapis.com/forecastrss?w=1103816&u=c" -o ~/.cache/weather.xml}
+${voffset -124}${offset 420}${font Raleway:bold:size=22}${execi 1300 grep "yweather:condition" ~/.cache/weather.xml | grep -o "temp=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}${font ITC Avant Garde Gothic Pro:bold:size=8}${voffset -16}o${voffset 14}${font}${color1}
+${execi 1300 cp -f .weather-icon/$(grep "yweather:condition" ~/.cache/weather.xml | grep -o "code=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*").png ~/.cache/weather.png}${image ~/.cache/weather.png -p 365,178 -s 35x35}${font Raleway:size=18}
+
+#${image 4.png -p 135,-48 -s 435x250}

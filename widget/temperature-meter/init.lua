@@ -4,7 +4,7 @@ local gears = require("gears")
 local beautiful = require("beautiful")
 local watch = awful.widget.watch
 local dpi = beautiful.xresources.apply_dpi
-local icons = require("themes.icons")
+local icons = beautiful.icons
 
 local slider =
 	wibox.widget {

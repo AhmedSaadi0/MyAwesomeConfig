@@ -5,10 +5,9 @@ local gears = require('gears')
 
 local dpi = beautiful.xresources.apply_dpi
 
-local config_dir = gears.filesystem.get_configuration_dir()
-local widget_icon_dir = config_dir .. 'widget/notif-center/icons/'
-
 local clickable_container = require('widget.clickable-container')
+
+local icons = beautiful.icons
 
 local ui_noti_builder = {}
 
@@ -104,7 +103,7 @@ ui_noti_builder.notifbox_dismiss = function()
     local dismiss_imagebox = wibox.widget {
         {
             id = 'dismiss_icon',
-            image = widget_icon_dir .. 'delete.svg',
+            image = icons.delete,
             resize = true,
             forced_height = dpi(5),
             widget = wibox.widget.imagebox

@@ -11,7 +11,7 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- Create a textclock widget
 local mytextclock =
     wibox.widget {
-    format = "(%I:%M) - %A, %d %B  ",
+    format = "(%I:%M) - %A, %d %B",
     valign = "center",
     align = "center",
     forced_height = 22,
@@ -172,7 +172,7 @@ awful.screen.connect_for_each_screen(
             layout = {
                 spacing = 0,
                 spacing_widget = {
-                    color = "#dddddd"
+                    color = beautiful.taglist_color
                     -- shape  = gears.shape.powerline,
                     -- widget = wibox.widget.separator,
                 },
@@ -287,7 +287,7 @@ awful.screen.connect_for_each_screen(
                 width = 90,
                 step_width = 2,
                 step_spacing = 0,
-                color = "#ff79c6",
+                color = beautiful.cpu_color,
                 enable_kill_button = true
             }
         )
@@ -311,7 +311,7 @@ awful.screen.connect_for_each_screen(
 
         s.power_button =
             wibox.widget {
-            markup = "<span foreground='#fedb41'>    </span>",
+            markup = "<span foreground='" .. beautiful.power_button_color .. "'>    </span>",
             align = "center",
             valign = "center",
             widget = wibox.widget.textbox
@@ -341,21 +341,19 @@ awful.screen.connect_for_each_screen(
                 s.systray,
                 s.tray_toggler,
                 helpers.set_space(6),
-                helpers.set_widget_block(mykeyboardlayout, "#aaaaff", nil, 2, 2),
+                helpers.set_widget_block(mykeyboardlayout, beautiful.keyboard_layout_color, nil, 2, 2),
                 helpers.set_space(7),
                 helpers.set_widget_block(s.cpu),
                 helpers.set_space(7),
-                helpers.set_widget_block(s.ns, "#00efd1"),
-                -- helpers.set_space(7),
-                -- helpers.set_widget_block(s.wifi, "#bc93f9", nil, 0, 0, 0, 0),
+                helpers.set_widget_block(s.ns, beautiful.net_speed_color),
                 helpers.set_space(7),
-                helpers.set_widget_block(s.brightness_cr, "#ffaaff"),
+                helpers.set_widget_block(s.brightness_cr, beautiful.brightness_cr_color),
                 helpers.set_space(7),
-                helpers.set_widget_block(s.bat, "#ffaf5f", nil, 3, 3, 0, 0)
+                helpers.set_widget_block(s.bat, beautiful.battery_color, nil, 3, 3, 0, 0)
             },
             -- Middle widget,
             {
-                helpers.set_widget_block(mytextclock, "#fedb41", nil, 10, 10),
+                helpers.set_widget_block(mytextclock, beautiful.clock_color, nil, 10, 10),
                 widget = wibox.container.background,
                 point = function(geo, args)
                     return {

@@ -1,4 +1,4 @@
-# My Awesome Wm
+# My Awesome config
 
 Sorry for the mess, I'm new to lua.
 
@@ -42,10 +42,4 @@ This config is the same as [`the-glorious-dotfiles`](https://github.com/manilaro
 </p>
 <p align='center'>
 	<img alt='screenshot 3' src='https://github.com/AhmedSaadi0/MyAwesomeConfig/blob/master/screenshots/3.png'/>
-</p>
-<p align='center'>
-	<img alt='screenshot 4' src='https://github.com/AhmedSaadi0/MyAwesomeConfig/blob/master/screenshots/4.png'/>
-</p>
-<p align='center'>
-	<img alt='screenshot 5' src='https://github.com/AhmedSaadi0/MyAwesomeConfig/blob/master/screenshots/5.png'/>
 </p>

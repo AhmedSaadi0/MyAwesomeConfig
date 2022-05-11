@@ -4,7 +4,7 @@ local gears = require("gears")
 local beautiful = require("beautiful")
 local dpi = beautiful.xresources.apply_dpi
 local clickable_container = require("widget.clickable-container")
-local icons = require("themes.icons")
+local icons = beautiful.icons
 
 local quick_setting = require("layout.central-panel.settings.quick-settings")
 local hardware_monitor = require("layout.central-panel.settings.hardware-monitor")

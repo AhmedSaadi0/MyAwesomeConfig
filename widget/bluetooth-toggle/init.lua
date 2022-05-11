@@ -8,7 +8,7 @@ local dpi = require("beautiful").xresources.apply_dpi
 local clickable_container = require("widget.bluetooth-toggle.clickable-container")
 local config_dir = gears.filesystem.get_configuration_dir()
 local widget_icon_dir = config_dir .. "widget/bluetooth-toggle/icons/"
-local icons = require("themes.icons")
+local icons = beautiful.icons
 local device_state = false
 
 local action_name =

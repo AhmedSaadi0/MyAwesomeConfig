@@ -2,7 +2,7 @@ local wibox = require("wibox")
 local gears = require("gears")
 local beautiful = require("beautiful")
 local watch = require("awful.widget.watch")
-local icons = require("themes.icons")
+local icons = beautiful.icons
 
 local dpi = beautiful.xresources.apply_dpi
 

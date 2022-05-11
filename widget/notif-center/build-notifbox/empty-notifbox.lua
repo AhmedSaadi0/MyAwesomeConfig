@@ -5,8 +5,7 @@ local wibox = require("wibox")
 local dpi = require("beautiful").xresources.apply_dpi
 local beautiful = require("beautiful")
 
-local config_dir = require("gears").filesystem.get_configuration_dir()
-local widget_icon_dir = config_dir .. "widget/notif-center/icons/"
+local icons = beautiful.icons
 
 local empty_notifbox =
 	wibox.widget {
@@ -18,7 +17,7 @@ local empty_notifbox =
 			layout = wibox.layout.align.horizontal,
 			nil,
 			{
-				image = widget_icon_dir .. "empty-notification" .. ".svg",
+				image = icons.empty_notification,
 				resize = true,
 				forced_height = dpi(35),
 				forced_width = dpi(35),

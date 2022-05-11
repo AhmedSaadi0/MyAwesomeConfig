@@ -5,10 +5,10 @@ local clickable_container = require("widget.blur-toggle.clickable-container")
 local dpi = require("beautiful").xresources.apply_dpi
 local filesystem = gears.filesystem
 local config_dir = filesystem.get_configuration_dir()
-local icons = require("themes.icons")
 local apps = require("configuration.apps")
 local frame_status = nil
 local beautiful = require("beautiful")
+local icons = beautiful.icons
 
 local action_name =
 	wibox.widget {
