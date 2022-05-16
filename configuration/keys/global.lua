@@ -22,6 +22,17 @@ local global_keys =
 		}
 	),
 	awful.key(
+		{modkey, "Shift"},
+		"s",
+		function()
+			awful.spawn("systemsettings5")
+		end,
+		{
+			description = "الاعدادات",
+			group = "تطبيقات"
+		}
+	),
+	awful.key(
 		{modkey},
 		"Escape",
 		awful.tag.history.restore,

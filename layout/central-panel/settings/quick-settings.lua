@@ -10,7 +10,7 @@ local blur_slider = require("widget.blur-slider")
 local blue_light = require("widget.blue-light")
 local airplane_mode = require("widget.airplane-mode")
 local bluetooth_toggle = require("widget.bluetooth-toggle")
-local blur_toggle = require("widget.blur-toggle")
+local blur_toggle = require("widget.night-mode")
 
 local quick_header =
 	wibox.widget {

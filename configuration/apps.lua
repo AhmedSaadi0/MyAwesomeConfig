@@ -1,6 +1,7 @@
 local filesystem = require("gears.filesystem")
 local config_dir = filesystem.get_configuration_dir()
 local utils_dir = config_dir .. "utilities/"
+local beautiful = require("beautiful")
 
 return {
 	-- The default applications that we will use in keybindings and widgets
@@ -67,7 +68,7 @@ return {
 		-- 		"xrandr --output HDMI-1-0 --mode 1440x900 --rate 61 --noprimary --left-of eDP-1",
 		"picom -b --experimental-backends --dbus --config " .. config_dir .. "/configuration/picom.conf",
 		
-		-- config_dir .. "/configuration/conky.sh"
+		config_dir .. beautiful.conky_script
 	},
 	-- List of binaries/shell scripts that will execute for a certain task
 	utils = {

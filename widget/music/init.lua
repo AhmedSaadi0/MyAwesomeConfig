@@ -180,7 +180,7 @@ local music =
             layout = wibox.layout.align.horizontal
         },
         bg = beautiful.notification_center_inner_bg,
-        shape = helpers.rrect(dpi(5)),
+        shape = helpers.rrect(beautiful.groups_radius),
         -- forced_width = dpi(350),
         forced_height = dpi(120),
         widget = wibox.container.background

@@ -33,7 +33,7 @@ theme.fg_urgent = "#ffffff"
 theme.fg_minimize = "#ffffff"
 
 theme.useless_gap = dpi(5)
-theme.border_width = dpi(0)
+theme.border_width = dpi(1)
 theme.border_normal = "#ff61d1"
 theme.border_focus = "#0082ba"
 theme.border_marked = "#7ec7a2"
@@ -191,7 +191,7 @@ theme.icon_theme = nil
 theme.icons = require("themes.icons-light")
 
 theme.dynamic_wallpaper_dir = "themes/light-wallpapers//"
-
+theme.conky_script = "/configuration/conky-light.sh"
 return theme
 
 -- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80

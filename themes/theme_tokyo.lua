@@ -190,6 +190,7 @@ theme.awesome_icon = theme_assets.awesome_icon(theme.menu_height, theme.bg_focus
 theme.icon_theme = nil
 theme.icons = require("themes.icons")
 theme.dynamic_wallpaper_dir = "themes/wallpapers//"
+theme.conky_script = "/configuration/conky-dark.sh"
 
 return theme
 

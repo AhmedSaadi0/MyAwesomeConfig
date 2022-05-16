@@ -303,6 +303,8 @@ ruled.client.connect_signal(
 				class = {
 					"scrcpy",
 					"Mugshot",
+					"krunner",
+					"easyeffects",
 					"Pulseeffects"
 				},
 				role = {
