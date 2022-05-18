@@ -345,9 +345,9 @@ awful.screen.connect_for_each_screen(
                 helpers.set_space(7),
                 helpers.set_widget_block(s.cpu),
                 helpers.set_space(7),
-                helpers.set_widget_block(s.ns, beautiful.net_speed_color),
+                helpers.set_widget_block(s.ns, beautiful.net_speed_color, nil, 10, 0, 0, 0),
                 helpers.set_space(7),
-                helpers.set_widget_block(s.brightness_cr, beautiful.brightness_cr_color),
+                helpers.set_widget_block(s.brightness_cr, beautiful.brightness_cr_color, nil, 3, 3, 0, 0),
                 helpers.set_space(7),
                 helpers.set_widget_block(s.bat, beautiful.battery_color, nil, 3, 3, 0, 0)
             },

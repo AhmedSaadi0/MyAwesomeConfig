@@ -13,7 +13,7 @@ local watch = require("awful.widget.watch")
 local spawn = require("awful.spawn")
 local beautiful = require("beautiful")
 
-local PATH_TO_ICON = "/usr/share/icons/Arc/status/symbolic/display-brightness-symbolic.svg"
+local PATH_TO_ICON = "/home/ahmed/.config/awesome/widget/brightness-widget/brightness.svg"
 local GET_BRIGHTNESS_CMD = "light -G"   -- "xbacklight -get"
 local INC_BRIGHTNESS_CMD = "light -A 5" -- "xbacklight -inc 5"
 local DEC_BRIGHTNESS_CMD = "light -U 5" -- "xbacklight -dec 5"
@@ -52,7 +52,7 @@ local function worker(user_args)
 
     local update_widget = function(widget, stdout, _, _, _)
         local brightness_level = tonumber(string.format("%.0f", stdout))
-        widget:set_text("   " .. brightness_level .. "%   ")
+        widget:set_text(" " .. brightness_level .. "%")
     end
 
     brightness_widget:connect_signal("button::press", function(_, _, _, button)

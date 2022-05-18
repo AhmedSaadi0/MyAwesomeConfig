@@ -19,7 +19,7 @@ theme.font_n = "Google Sana "
 
 -- theme.widget_font = "Font Awesome 5 Free Solid 11"
 theme.widget_font = theme.uifont
-theme.iconfont = theme.uifont
+theme.iconfont = "Font Awesome 5 Free Solid 11"
 
 theme.bg_normal = "#1c1d29"
 theme.widget_bg = "#16161e"

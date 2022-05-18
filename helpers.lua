@@ -34,6 +34,7 @@ function helpers.set_widget_block(widget, fg, shape, left, right, top, bottom)
             widget = wibox.container.margin
         },
         forced_height = beautiful.widget_height,
+        -- shape = shape,
         shape = gears.shape.rounded_bar,
         -- shape = function(cr, width, height)
         -- 	gears.shape.rounded_rect(cr, width, height, beautiful.groups_radius)
