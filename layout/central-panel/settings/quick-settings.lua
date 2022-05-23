@@ -10,7 +10,8 @@ local blur_slider = require("widget.blur-slider")
 local blue_light = require("widget.blue-light")
 local airplane_mode = require("widget.airplane-mode")
 local bluetooth_toggle = require("widget.bluetooth-toggle")
-local blur_toggle = require("widget.night-mode")
+local nightmode_toggle = require("widget.night-mode")
+-- local blur_toggle = require("widget.blur-toggle")
 
 local quick_header =
 	wibox.widget {
@@ -62,7 +63,7 @@ return wibox.widget {
 					airplane_mode,
 					bluetooth_toggle,
 					blue_light,
-					blur_toggle
+					nightmode_toggle
 				},
 				bg = beautiful.groups_bg,
 				shape = function(cr, width, height)

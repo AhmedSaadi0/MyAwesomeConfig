@@ -234,6 +234,7 @@ ruled.client.connect_signal(
 					"Unity",
 					"UnityHub",
 					"jetbrains-studio",
+					"DBeaver",
 					"Ettercap",
 					"scrcpy"
 				}

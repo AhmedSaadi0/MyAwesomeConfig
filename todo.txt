@@ -1,0 +1,2 @@
+اضافة DBeaver في واجهة 5
+balooctl enable

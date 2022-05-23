@@ -19,7 +19,16 @@
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:dc="http://purl.org/dc/elements/1.1/">
   <defs
-     id="defs4" />
+     id="defs4">
+    <linearGradient
+       id="linearGradient1279"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#c9a3d8;stop-opacity:1;"
+         offset="0"
+         id="stop1277" />
+    </linearGradient>
+  </defs>
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -27,19 +36,19 @@
      borderopacity="1"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="44.218752"
-     inkscape:cx="12.166784"
-     inkscape:cy="7.6212011"
+     inkscape:zoom="11.054688"
+     inkscape:cx="8.6840985"
+     inkscape:cy="10.855123"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
      inkscape:showpageshadow="false"
      showguides="false"
      inkscape:guide-bbox="true"
-     inkscape:window-width="1110"
-     inkscape:window-height="1024"
-     inkscape:window-x="10"
-     inkscape:window-y="44"
+     inkscape:window-width="1920"
+     inkscape:window-height="1080"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
      inkscape:window-maximized="0"
      inkscape:snap-global="true"
      inkscape:pagecheckerboard="0">
@@ -89,8 +98,8 @@
      style="display:inline"
      transform="translate(0,-6)">
     <path
-       style="color:#000000;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       d="m -12,6 -1,3 2,0 -1,-3 z m -5.65625,2.34375 1.40625,2.8125 1.40625,-1.40625 -2.8125,-1.40625 z m 11.3125,0 L -9.15625,9.75 -7.75,11.15625 -6.34375,8.34375 z M -12,10 c -2.209139,0 -4,1.790861 -4,4 0,2.209139 1.790861,4 4,4 2.209139,0 4,-1.790861 4,-4 0,-2.209139 -1.790861,-4 -4,-4 z m 0,1.5 c 1.380712,0 2.5,1.119288 2.5,2.5 0,1.380712 -1.119288,2.5 -2.5,2.5 -1.380712,0 -2.5,-1.119288 -2.5,-2.5 0,-1.380712 1.119288,-2.5 2.5,-2.5 z m -5,1.5 -3,1 3,1 0,-2 z m 10,0 0,2 3,-1 -3,-1 z m -9.25,3.84375 -1.40625,2.8125 2.8125,-1.40625 -1.40625,-1.40625 z m 8.5,0 -1.40625,1.40625 2.8125,1.40625 L -7.75,16.84375 z M -13,19 l 1,3 1,-3 -2,0 z"
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.49999;marker:none;enable-background:accumulate"
+       d="m -12,6 -1,3 h 2 z m -5.65625,2.34375 1.40625,2.8125 1.40625,-1.40625 z m 11.3125,0 L -9.15625,9.75 -7.75,11.15625 Z M -12,10 c -2.209139,0 -4,1.790861 -4,4 0,2.209139 1.790861,4 4,4 2.209139,0 4,-1.790861 4,-4 0,-2.209139 -1.790861,-4 -4,-4 z m 0,1.5 c 1.380712,0 2.5,1.119289 2.5,2.5 0,1.380711 -1.119288,2.5 -2.5,2.5 -1.380712,0 -2.5,-1.119289 -2.5,-2.5 0,-1.380711 1.119288,-2.5 2.5,-2.5 z m -5,1.5 -3,1 3,1 z m 10,0 v 2 l 3,-1 z m -9.25,3.84375 -1.40625,2.8125 2.8125,-1.40625 z m 8.5,0 -1.40625,1.40625 2.8125,1.40625 z M -13,19 l 1,3 1,-3 z"
        id="path3085"
        inkscape:connector-curvature="0" />
     <path
@@ -145,7 +154,7 @@
        sodipodi:nodetypes="cccc"
        inkscape:transform-center-x="5.129165" />
     <path
-       style="color:#000000;fill:#c9a3d8;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       style="color:#000000;fill:#c9a3d8;fill-opacity:0.99662054;fill-rule:nonzero;stroke:none;stroke-width:1.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
        d="M 5.84375 0 L 5.09375 2.96875 L 2.15625 2.15625 L 2.96875 5.09375 L 0 5.84375 L 2.1875 8 L 0 10.15625 L 2.96875 10.90625 L 2.15625 13.84375 L 5.09375 13.03125 L 5.84375 16 L 8 13.8125 L 10.15625 16 L 10.90625 13.03125 L 13.84375 13.84375 L 13.03125 10.90625 L 16 10.15625 L 13.8125 8 L 16 5.84375 L 13.03125 5.09375 L 13.84375 2.15625 L 10.90625 2.96875 L 10.15625 0 L 8 2.1875 L 5.84375 0 z M 8 3 C 10.761424 3 13 5.2385763 13 8 C 13 10.761424 10.761424 13 8 13 L 8 3 z "
        transform="translate(0,6)"
        id="path3075" />

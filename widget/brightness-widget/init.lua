@@ -13,7 +13,7 @@ local watch = require("awful.widget.watch")
 local spawn = require("awful.spawn")
 local beautiful = require("beautiful")
 
-local PATH_TO_ICON = "/home/ahmed/.config/awesome/widget/brightness-widget/brightness.svg"
+local PATH_TO_ICON = "~/.config/awesome/widget/brightness-widget/brightness.svg"
 local GET_BRIGHTNESS_CMD = "light -G"   -- "xbacklight -get"
 local INC_BRIGHTNESS_CMD = "light -A 5" -- "xbacklight -inc 5"
 local DEC_BRIGHTNESS_CMD = "light -U 5" -- "xbacklight -dec 5"

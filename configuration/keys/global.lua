@@ -410,7 +410,7 @@ local global_keys =
 		{modkey, "Shift"},
 		"k",
 		function()
-			awful.spawn("gnome-system-monitor", false)
+			awful.spawn("plasma-systemmonitor", false)
 		end,
 		{description = "مدير المهام", group = "تطبيقات"}
 	),
