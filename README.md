@@ -30,7 +30,6 @@ This config is the same as [`the-glorious-dotfiles`](https://github.com/manilaro
 - conky
 - lightly-qt
 - kvantum
--
 
 ### Installation and usage
 
@@ -41,8 +40,7 @@ This config is the same as [`the-glorious-dotfiles`](https://github.com/manilaro
 #### Setup
 
     mkdir ~/.config/rofi/
-
-    cp ~/.config/awesome/config.rasi ~/.config/rofi/config.rasi
+    cp ~/.config/awesome/rofi/* ~/.config/rofi/
 
     cp -R ~/.config/awesome/.fonts ~/
 

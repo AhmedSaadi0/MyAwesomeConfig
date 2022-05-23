@@ -8,7 +8,7 @@ configuration
     
 }
 
-@import "~/.config/qtile/rofi-new-dracula/config-colors.rasi"
+@import "~/.config/rofi/config-colors.rasi"
 
 window
 {

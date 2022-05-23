@@ -90,7 +90,7 @@ naughty.connect_signal(
 			urgency = "critical",
 			title = "عذرا. حدث خطأ" .. (startup and " اثناء بدء التشغيل!" or "!"),
 			message = message,
-			app_name = "System Notification",
+			app_name = "اعدادت النظام",
 			icon = beautiful.awesome_icon
 		}
 	end
