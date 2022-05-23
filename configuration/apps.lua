@@ -62,6 +62,7 @@ return {
 			xidlehook --not-when-fullscreen --not-when-audio --timer 600 \
 			'xfce4-screensaver-command --lock' ""
 		]],
+		"balooctl enable",
 		'setxkbmap -layout "us,ar" -option "grp:win_space_toggle"',
 		"/usr/lib/polkit-kde-authentication-agent-1",
 		-- "/usr/lib/kactivitymanagerd",

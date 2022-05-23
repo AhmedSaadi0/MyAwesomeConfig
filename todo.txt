@@ -1,2 +1,2 @@
-اضافة DBeaver في واجهة 5
-balooctl enable
+Fix win+s not showing shortcuts
+removing unused stuff
