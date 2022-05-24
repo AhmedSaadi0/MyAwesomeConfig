@@ -5,8 +5,6 @@ local clickable_container = require("widget.blur-toggle.clickable-container")
 local dpi = require("beautiful").xresources.apply_dpi
 local filesystem = gears.filesystem
 local config_dir = filesystem.get_configuration_dir()
-local apps = require("configuration.apps")
-local frame_status = nil
 local beautiful = require("beautiful")
 local icons = beautiful.icons
 
@@ -135,7 +133,7 @@ local action_widget =
 }
 
 awesome.connect_signal(
-	"widget::blur:toggle",
+	"widget::night:toggle",
 	function()
 		toggle_mode_fx()
 	end
