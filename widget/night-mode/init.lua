@@ -49,10 +49,10 @@ end
 local check_mode_status = function()
 	awful.spawn.easy_async_with_shell(
 		[[bash -c "
-			grep -F 'theme_light' ]] .. config_dir .. [[rc.lua | tr -d '[\"\;\=\ ]'
+			grep -F 'light_theme' ]] .. config_dir .. [[rc.lua | tr -d '[\"\;\=\ ]'
 		"]],
 		function(stdout, stderr)
-			if string.find(stdout, "theme_light") then
+			if string.find(stdout, "light_theme") then
 				action_status = false
 			else
 				action_status = true
@@ -72,12 +72,12 @@ local toggle_night_mode = function(togglemode)
 		togglemode ..
 			[[ in
 				'enable')
-				sed -i -e 's/theme_light/theme_tokyo/g' \"]] ..
+				sed -i -e 's/light_theme/dark_theme/g' \"]] ..
 				config_dir ..
 					[[rc.lua\"
 				;;
 				'disable')
-				sed -i -e 's/theme_tokyo/theme_light/g' \"]] ..
+				sed -i -e 's/dark_theme/light_theme/g' \"]] ..
 						config_dir .. [[rc.lua\"
 				;;
 			esac

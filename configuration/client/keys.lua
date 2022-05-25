@@ -67,17 +67,17 @@ local client_keys =
 			c.minimized = true
 		end,
 		{description = "تصغير الى شريط المهام", group = "عميل"}
-	)
+	),
 
-	-- awful.key(
-	-- 	{modkey},
-	-- 	"m",
-	-- 	function(c)
-	-- 		c.maximized = not c.maximized
-	-- 		c:raise()
-	-- 	end,
-	-- 	{description = "تكبير - تصغير", group = "عميل"}
-	-- ),
+	awful.key(
+		{modkey, "Shift"},
+		"m",
+		function(c)
+			c.maximized = not c.maximized
+			c:raise()
+		end,
+		{description = "تكبير - تصغير", group = "عميل"}
+	)
 	-- awful.key(
 	-- 	{modkey, "Control"},
 	-- 	"m",

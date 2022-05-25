@@ -57,7 +57,7 @@ return {
 		-- "kded5",
 		-- "/usr/lib/org_kde_powerdevil",
 		"xfce4-power-manager",
-		"xfce4-screensaver",
+		"xfce4-screensaver &> x.log",
 		[[
 			xidlehook --not-when-fullscreen --not-when-audio --timer 600 \
 			'xfce4-screensaver-command --lock' ""

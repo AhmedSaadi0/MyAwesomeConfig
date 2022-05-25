@@ -92,10 +92,10 @@ theme.bar_handle_color = theme.bar_active_color
 theme.bar_handle_border_color = theme.bar_active_color
 
 -- colors
-theme.taglist_color = "#dddddd"
-theme.cpu_color = "#ff79c6"
 theme.power_button_color = "#fedb41"
-theme.keyboard_layout_color = "#aaaaff"
+theme.taglist_color = "#a4dfff"
+theme.keyboard_layout_color = "#a4dfff"
+theme.cpu_color = "#ff79c6"
 theme.net_speed_color = "#00efd1"
 theme.brightness_cr_color = "#ffaaff"
 theme.battery_color = "#ffaf5f"

@@ -213,6 +213,7 @@ ruled.client.connect_signal(
 					"pragha",
 					"Clementine",
 					"Pulseeffects",
+					"easyeffects",
 					"mpv",
 					"Genymotion",
 					"systemsettings"

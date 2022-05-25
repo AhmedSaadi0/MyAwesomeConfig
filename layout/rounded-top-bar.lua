@@ -341,19 +341,50 @@ awful.screen.connect_for_each_screen(
                 s.systray,
                 s.tray_toggler,
                 helpers.set_space(6),
-                helpers.set_widget_block(mykeyboardlayout, beautiful.keyboard_layout_color, nil, 2, 2),
+                helpers.set_widget_block {
+                    widget = mykeyboardlayout,
+                    fg = beautiful.keyboard_layout_color,
+                    left = 2,
+                    shape = gears.rounded_bar,
+                    right = 2
+                },
                 helpers.set_space(7),
-                helpers.set_widget_block(s.cpu),
+                helpers.set_widget_block {
+                    shape = gears.rounded_bar,
+                    widget = s.cpu
+                },
                 helpers.set_space(7),
-                helpers.set_widget_block(s.ns, beautiful.net_speed_color, nil, 10, 0, 0, 0),
+                helpers.set_widget_block {
+                    shape = gears.rounded_bar,
+                    widget = s.ns,
+                    fg = beautiful.net_speed_color
+                },
                 helpers.set_space(7),
-                helpers.set_widget_block(s.brightness_cr, beautiful.brightness_cr_color, nil, 3, 3, 0, 0),
+                helpers.set_widget_block {
+                    shape = gears.rounded_bar,
+                    widget = s.brightness_cr,
+                    fg = beautiful.brightness_cr_color,
+                    left = 3,
+                    right = 3
+                },
                 helpers.set_space(7),
-                helpers.set_widget_block(s.bat, beautiful.battery_color, nil, 3, 3, 0, 0)
+                helpers.set_widget_block {
+                    widget = s.bat,
+                    shape = gears.rounded_bar,
+                    fg = beautiful.battery_color,
+                    left = 3,
+                    right = 3
+                }
             },
             -- Middle widget,
             {
-                helpers.set_widget_block(mytextclock, beautiful.clock_color, nil, 10, 10),
+                helpers.set_widget_block {
+                    widget = mytextclock,
+                    shape = gears.rounded_bar,
+                    fg = beautiful.clock_color,
+                    left = 10,
+                    right = 10
+                },
                 widget = wibox.container.background,
                 point = function(geo, args)
                     return {
@@ -374,7 +405,10 @@ awful.screen.connect_for_each_screen(
                 -- s.mytasklist,
                 helpers.set_space(7),
                 -- mylauncher,
-                helpers.set_widget_block(s.mytaglist),
+                helpers.set_widget_block {
+                    shape = gears.rounded_bar,
+                    widget = s.mytaglist
+                },
                 s.mypromptbox,
                 helpers.set_space(7),
                 s.mylayoutbox

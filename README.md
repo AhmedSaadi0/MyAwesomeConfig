@@ -18,6 +18,7 @@ This config is the same as [`the-glorious-dotfiles`](https://github.com/manilaro
 - playerctl
 - xidlehook
 - polkit-kde-agent
+- ttf-font-awesome-5
 
 ### Optional dependencies
 
@@ -35,7 +36,7 @@ This config is the same as [`the-glorious-dotfiles`](https://github.com/manilaro
 
 <b>Arch users</b>
 
-    yay -S awesome-git rofi xbacklight xorg-xrandr redshift qt5-gsettings lxappearance konsole xfce4-power-manager xfce4-screensaver blueman xorg-setxkbmap picom-git ark dolphin ffmpegthumbs playerctl lightly-qt kvantum xidlehook polkit-kde-agent
+    yay -S awesome-git rofi xbacklight xorg-xrandr redshift qt5-gsettings lxappearance konsole xfce4-power-manager xfce4-screensaver blueman xorg-setxkbmap picom-git ark dolphin ffmpegthumbs playerctl lightly-qt kvantum xidlehook polkit-kde-agent ttf-font-awesome-5
 
 #### Setup
 

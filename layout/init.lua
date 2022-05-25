@@ -1,7 +1,7 @@
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
-require("layout.top-bar")
+require("layout.sharp-top-bar")
 require ("layout.control-center")
 -- require ("layout.menu")
 
