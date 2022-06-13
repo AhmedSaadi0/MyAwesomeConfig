@@ -277,7 +277,6 @@ awful.screen.connect_for_each_screen(
             }
         )
 
-        s.ram = require("widget.ram-widget")()
         s.systray =
             wibox.widget {
             visible = false,
@@ -305,6 +304,7 @@ awful.screen.connect_for_each_screen(
         -- s.ns = require("widget.net-speed-widget")()
         s.ns = require("widget.net-speed-widget")()
         -- s.wifi = require("widget.network")()
+        s.ram = require("signal.ram")
 
         -- s.volume_cr = require("widget.volumearc-widget")()
         -- s.volume_bar = require("widget.volumebar-widget")()
@@ -316,7 +316,6 @@ awful.screen.connect_for_each_screen(
         --     margins = 0
         -- }
         s.brightness_cr = require("widget.brightness-widget")()
-        s.ram = require("widget.ram-widget")()
         -- s.bat = require("widgets.battery")
         s.bat = require("widget.battery.init")()
 

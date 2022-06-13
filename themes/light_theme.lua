@@ -67,7 +67,7 @@ theme.brightness_icon_color = "#859b72" -- "#ffaaff"
 theme.battery_color = "#b48ead" -- "#ffaf5f"
 theme.battery_icon_color = "#93748d" -- "#ffaf5f"
 
-theme.clock_color = "#3b4252" -- "#fedb41"
+theme.clock_color = theme.accent -- "#3b4252" -- "#fedb41"
 theme.clock_icon_color = "#4c566a"
 
 theme.dashboard_box_bg = theme.widget_bg
