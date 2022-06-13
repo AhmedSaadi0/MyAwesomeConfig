@@ -65,3 +65,6 @@ This config is the same as [`the-glorious-dotfiles`](https://github.com/manilaro
 <p align='center'>
 	<img alt='screenshot 6' src='https://github.com/AhmedSaadi0/MyAwesomeConfig/blob/master/screenshots/6.png'/>
 </p>
+<p align='center'>
+	<img alt='screenshot 7' src='https://github.com/AhmedSaadi0/MyAwesomeConfig/blob/master/screenshots/7.png'/>
+</p>

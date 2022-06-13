@@ -7,7 +7,7 @@ return {
 	-- The default applications that we will use in keybindings and widgets
 	default = {
 		-- Default terminal emulator
-		terminal = "konsole",
+		terminal = "konsole " .. beautiful.konsole_profile,
 		-- Default web browser
 		web_browser = "firefox",
 		-- Default text editor
@@ -47,7 +47,6 @@ return {
 		-- Default app menu
 		rofi_appmenu = "rofi -dpi " ..
 			screen.primary.dpi .. " -show drun -theme " .. config_dir .. "/configuration/rofi/appmenu/rofi.rasi"
-
 	},
 	-- List of apps to start once on start-up
 	run_on_start_up = {
@@ -68,7 +67,8 @@ return {
 		-- "/usr/lib/kactivitymanagerd",
 		-- 		"xrandr --output HDMI-1-0 --mode 1440x900 --rate 61 --noprimary --left-of eDP-1",
 		"picom -b --experimental-backends --dbus --config " .. config_dir .. "/configuration/picom.conf",
-		
+		-- kvantum theme
+		"kvantummanager --set " .. beautiful.kvantum_theme,
 		config_dir .. beautiful.conky_script
 	},
 	-- List of binaries/shell scripts that will execute for a certain task

@@ -300,14 +300,13 @@ ruled.client.connect_signal(
 				instance = {
 					"file_progress",
 					"Popup",
+					"Gcr-prompter",
 					"nm-connection-editor"
 				},
 				class = {
 					"scrcpy",
 					"Mugshot",
 					"krunner",
-					"easyeffects",
-					"Pulseeffects"
 				},
 				role = {
 					"AlarmWindow",

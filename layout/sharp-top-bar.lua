@@ -9,16 +9,26 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
-local mytextclock =
+local my_text_clock =
     wibox.widget {
-    format = "(%I:%M) - %A, %d %B",
+    format = "(%I:%M) %A, %d %B",
     valign = "center",
     align = "center",
     forced_height = 22,
     widget = wibox.widget.textclock
 }
 
-mytextclock:connect_signal(
+local clock_icon = helpers.add_text("", beautiful.widget_bg)
+
+my_text_clock:connect_signal(
+    "button::press",
+    function()
+        local focused = awful.screen.focused()
+        focused.central_panel:toggle()
+    end
+)
+
+clock_icon:connect_signal(
     "button::press",
     function()
         local focused = awful.screen.focused()
@@ -191,6 +201,7 @@ awful.screen.connect_for_each_screen(
                         },
                         {
                             id = "text_role",
+                            -- font = "Font Awesome 5 Free Solid 11",
                             widget = wibox.widget.textbox
                         },
                         layout = wibox.layout.fixed.horizontal
@@ -349,13 +360,14 @@ awful.screen.connect_for_each_screen(
                 ---------------------
                 helpers.set_widget_block {
                     widget = mykeyboardlayout,
-                    fg = beautiful.keyboard_layout_color,
+                    bg = beautiful.keyboard_layout_color,
+                    fg = beautiful.widget_bg,
                     left = 2,
                     right = 2
                 },
                 helpers.set_widget_block {
                     widget = helpers.add_text("", beautiful.widget_bg),
-                    bg = beautiful.keyboard_layout_color,
+                    bg = beautiful.keyboard_icon_color,
                     right = 5,
                     font = "Font Awesome 5 Free Solid 11",
                     left = 5
@@ -368,8 +380,8 @@ awful.screen.connect_for_each_screen(
                     widget = s.cpu
                 },
                 helpers.set_widget_block {
-                    widget = helpers.add_text("", beautiful.widget_bg),
-                    bg = beautiful.cpu_color,
+                    widget = helpers.add_text("", beautiful.cpu_color),
+                    bg = beautiful.widget_bg,
                     right = 5,
                     font = "Font Awesome 5 Free Solid 11",
                     left = 5
@@ -380,11 +392,13 @@ awful.screen.connect_for_each_screen(
                 ---------------
                 helpers.set_widget_block {
                     widget = s.ns,
-                    fg = beautiful.net_speed_color
+                    bg = beautiful.net_speed_color,
+                    fg = beautiful.widget_bg,
+                    left = 10
                 },
                 helpers.set_widget_block {
                     widget = helpers.add_text("", beautiful.widget_bg),
-                    bg = beautiful.net_speed_color,
+                    bg = beautiful.net_speed_icon_color,
                     right = 5,
                     left = 5
                 },
@@ -394,13 +408,15 @@ awful.screen.connect_for_each_screen(
                 ----------------
                 helpers.set_widget_block {
                     widget = s.brightness_cr,
-                    fg = beautiful.brightness_cr_color,
+                    bg = beautiful.brightness_cr_color,
+                    fg = beautiful.widget_bg,
+                    
                     left = 5,
                     right = 5
                 },
                 helpers.set_widget_block {
                     widget = helpers.add_text("", beautiful.widget_bg),
-                    bg = beautiful.brightness_cr_color,
+                    bg = beautiful.brightness_icon_color,
                     right = 5,
                     font = "Font Awesome 5 Free Solid 11",
                     left = 5
@@ -411,15 +427,16 @@ awful.screen.connect_for_each_screen(
                 -------------
                 helpers.set_widget_block {
                     widget = s.bat,
-                    fg = beautiful.battery_color,
+                    bg = beautiful.battery_color,
+                    fg = beautiful.widget_bg,    
                     left = 3,
                     right = 3
                 },
                 helpers.set_widget_block {
                     widget = helpers.add_text("", beautiful.widget_bg, "Font Awesome 5 Free Solid 11"),
-                    bg = beautiful.battery_color,
-                    right = 5,
-                    left = 5
+                    bg = beautiful.battery_icon_color,
+                    right = 8,
+                    left = 8
                 }
             },
             ---------------------------------
@@ -427,25 +444,20 @@ awful.screen.connect_for_each_screen(
             ---------------------------------
             {
                 {
-                    -- helpers.set_widget_block {
-                    --     widget = helpers.add_text("", beautiful.widget_bg),
-                    --     bg = beautiful.clock_color,
-                    --     right = 5,
-                    --     font = "Font Awesome 5 Free Solid 11",
-                    --     left = 5
-                    -- },
+                    -- Clock widget
                     helpers.set_widget_block {
-                        widget = mytextclock,
-                        fg = beautiful.clock_color,
+                        widget = my_text_clock,
+                        fg = beautiful.widget_bg,
+                        bg = beautiful.clock_color,
                         left = 10,
                         right = 10
                     },
                     helpers.set_widget_block {
-                        widget = helpers.add_text("", beautiful.widget_bg),
-                        bg = beautiful.clock_color,
+                        widget = clock_icon,
+                        bg = beautiful.clock_icon_color,
                         font = "Font Awesome 5 Free Solid 11",
                         right = 7,
-                        left = 5
+                        left = 7
                     },
                     layout = wibox.layout.fixed.horizontal
                 },

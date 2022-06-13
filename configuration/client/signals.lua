@@ -113,3 +113,13 @@ client.connect_signal(
 		end
 	end
 )
+
+
+-- client.connect_signal(
+--     "manage",
+--     function(c)
+--         c.shape = function(cr, w, h)
+--             gears.shape.rounded_rect(cr, w, h, beautiful.groups_radius)
+--         end
+--     end
+-- )

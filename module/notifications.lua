@@ -90,8 +90,9 @@ naughty.connect_signal(
 		naughty.notification {
 			urgency = "critical",
 			title = "عذرا. حدث خطأ" .. (startup and " اثناء بدء التشغيل!" or "!"),
+			font = beautiful.title_font,
 			message = message,
-			app_name = "اعدادت النظام",
+			app_name = "اعدادات النظام",
 			icon = beautiful.awesome_icon
 		}
 	end
@@ -118,7 +119,9 @@ naughty.connect_signal(
 	"request::display",
 	function(n)
 		local appicon = n.app_icon
-		if not appicon then appicon = gears.color.recolor_image(beautiful.notification_icon, beautiful.accent) end
+		if not appicon then
+			appicon = gears.color.recolor_image(beautiful.notification_icon, beautiful.accent)
+		end
 		local time = os.date("%H:%M")
 
 		-- Actions Blueprint
@@ -195,7 +198,7 @@ naughty.connect_signal(
 														{
 															markup = "<span weight='bold'>" .. n.app_name .. "</span>",
 															align = "left",
-															font = beautiful.font_n .. "10",
+															font = beautiful.font,
 															widget = wibox.widget.textbox
 														},
 														{

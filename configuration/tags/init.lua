@@ -10,7 +10,7 @@ local tags = {
 		-- icon = icons.multimedia,
 		default_app = apps.default.multimedia,
 		gap = beautiful.useless_gap,
-		layout = awful.layout.suit.floating
+		layout = awful.layout.suit.tile.left
 		-- gap = 0
 	},
 	{

@@ -13,21 +13,31 @@ local gears = require("gears")
 
 local theme = {}
 
+-------------------------------
+------------ Fonts ------------
+-------------------------------
 theme.font = "JF Flat 11"
 theme.uifont = "JF Flat 11"
 theme.font_n = "Google Sana "
+-- notifications
+theme.appname_font = "Google Sana 10"
+theme.title_font = "Google Sana 11"
+theme.message_font = theme.uifont
 
 -- theme.widget_font = "Font Awesome 5 Free Solid 11"
 theme.widget_font = theme.uifont
 theme.iconfont = "Font Awesome 5 Free Solid 11"
 
+-------------------------------
+------------ Colors -----------
+-------------------------------
 theme.bg_normal = "#f2f2f2"
 theme.widget_bg = "#dddddd"
 theme.bg_focus = "#dddddd"
 theme.bg_urgent = "#ff0000"
 theme.bg_minimize = "#444444"
 
-theme.fg_normal = "#6a6a6a"
+theme.fg_normal = "#4c566a"
 theme.fg_focus = "#ffffff"
 theme.fg_urgent = "#ffffff"
 theme.fg_minimize = "#ffffff"
@@ -35,9 +45,42 @@ theme.fg_minimize = "#ffffff"
 theme.useless_gap = dpi(5)
 theme.border_width = dpi(1)
 theme.border_normal = "#ff61d1"
-theme.border_focus = "#0082ba"
+theme.border_focus = "#174277"
 theme.border_marked = "#7ec7a2"
 
+-- bar widgets colors
+theme.taglist_color = "#4c566a" -- "#dddddd"
+theme.power_button_color = "#4c566a" -- "#fedb41"
+
+theme.keyboard_layout_color = "#4c566a" -- "#aaaaff"
+theme.keyboard_icon_color = "#3b4252" -- "#aaaaff"
+
+theme.cpu_color = "#5e81ac" --"#ff79c6"
+theme.cpu_icon_color = "#5e81ac" --"#ff79c6"
+
+theme.net_speed_color = "#e06c75" -- "#00efd1"
+theme.net_speed_icon_color = "#8e484f" -- "#00efd1"
+
+theme.brightness_cr_color = "#a3be8c" -- "#ffaaff"
+theme.brightness_icon_color = "#859b72" -- "#ffaaff"
+
+theme.battery_color = "#b48ead" -- "#ffaf5f"
+theme.battery_icon_color = "#93748d" -- "#ffaf5f"
+
+theme.clock_color = "#3b4252" -- "#fedb41"
+theme.clock_icon_color = "#4c566a"
+
+theme.dashboard_box_bg = theme.widget_bg
+theme.dashboard_box_fg = theme.fg_normal
+theme.xcolor2 = theme.fg_normal
+theme.xforeground = theme.fg_normal
+theme.accent = theme.border_focus
+
+--------------------------------
+------------ Taglist -----------
+--------------------------------
+-- Tag list shape
+theme.taglist_shape = shape.rectangle -- rounded_bar
 -- TAG List
 theme.taglist_fg_focus = "#86e6fc"
 theme.taglist_bg_focus = "#2e3440"
@@ -45,35 +88,29 @@ theme.taglist_fg_occupied = "#ff79c6"
 theme.taglist_bg_occupied = theme.widget_bg
 theme.taglist_bg_empty = theme.widget_bg
 
--- theme.taglist_shape = shape.rounded_bar
-theme.taglist_shape = shape.rectangle
--- theme.taglist_shape_border_width = 0
-
--- theme.taglist_fg_volatile = ""
--- theme.taglist_fg_empty = "#214f8b"
-
--- Sys tray
+----------------------------------
+------------ Sys tray ------------
+----------------------------------
 theme.bg_systray = theme.bg_normal
 theme.systray_icon_spacing = dpi(5)
 theme.systray_max_rows = dpi(1)
 
--- Panal
+-------------------------------
+------------ Panal ------------
+-------------------------------
 theme.panal_hight = dpi(22)
-theme.panal_border_width = dpi(6)
+theme.panal_border_width = dpi(4)
 theme.groups_radius = dpi(12)
 
--- Control Panal
+----------------------------------------------------------------
+-------------- Control Panal and notification panal ------------
+----------------------------------------------------------------
 theme.control_panal_hight = dpi(870)
 theme.control_border_width = dpi(0)
 theme.control_border_color = dpi(0)
--- Control panal widgets
 
-theme.dashboard_box_bg = theme.widget_bg
-theme.dashboard_box_fg = theme.fg_normal
-theme.xcolor2 = theme.fg_normal
-theme.xforeground = theme.fg_normal
-
-theme.slider_inner_border_color = "#458588"
+-- Control panal widgets - الاعدادت السريعة واستخدام الاجهزة وغيرها 
+theme.slider_inner_border_color = theme.border_focus
 theme.slider_inner_border_width = dpi(0)
 
 theme.groups_title_bg = theme.widget_bg
@@ -82,7 +119,6 @@ theme.background = theme.bg_normal
 
 theme.transparent = "#00000000"
 
-theme.accent = theme.border_focus
 theme.media_button_color = theme.fg_normal
 
 -- widgets
@@ -92,16 +128,6 @@ theme.bar_handle_color = theme.bar_active_color
 theme.bar_handle_border_color = theme.bar_active_color
 
 theme.widget_height = dpi(25)
-
--- bar widgets colors
-theme.taglist_color = theme.fg_normal -- "#dddddd"
-theme.cpu_color = theme.fg_normal --"#ff79c6"
-theme.power_button_color = theme.fg_normal -- "#fedb41"
-theme.keyboard_layout_color = theme.fg_normal -- "#aaaaff"
-theme.net_speed_color = theme.fg_normal -- "#00efd1"
-theme.brightness_cr_color = theme.fg_normal -- "#ffaaff"
-theme.battery_color = theme.fg_normal -- "#ffaf5f"
-theme.clock_color = "#0082ba" -- "#fedb41"
 
 theme.slider_color = "#0082ba"
 theme.slider_background_color = theme.slider_color .. "30"
@@ -192,6 +218,6 @@ theme.icons = require("themes.icons-light")
 
 theme.dynamic_wallpaper_dir = "themes/light-wallpapers//"
 theme.conky_script = "/configuration/conky-light.sh"
+theme.kvantum_theme = "Future"
+theme.konsole_profile = "--profile light"
 return theme
-
--- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80

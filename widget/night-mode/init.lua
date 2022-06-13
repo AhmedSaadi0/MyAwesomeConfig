@@ -72,12 +72,12 @@ local toggle_night_mode = function(togglemode)
 		togglemode ..
 			[[ in
 				'enable')
-				sed -i -e 's/light_theme/dark_theme/g' \"]] ..
+				sed -i -e 's/light_theme/islamic_theme/g' \"]] ..
 				config_dir ..
 					[[rc.lua\"
 				;;
 				'disable')
-				sed -i -e 's/dark_theme/light_theme/g' \"]] ..
+				sed -i -e 's/islamic_theme/light_theme/g' \"]] ..
 						config_dir .. [[rc.lua\"
 				;;
 			esac

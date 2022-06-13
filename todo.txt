@@ -1,2 +1,0 @@
-Fix win+s not showing shortcuts
-removing unused stuff

@@ -69,12 +69,12 @@ local function worker(user_args)
             widget = wibox.widget.textbox
         },
         {
-            image = ICONS_DIR .. 'down.svg',
-            widget = wibox.widget.imagebox
+            text = "  ",
+            widget = wibox.widget.textbox
         },
         {
-            image =  ICONS_DIR .. 'up.svg',
-            widget = wibox.widget.imagebox
+            text =  "  ",
+            widget = wibox.widget.textbox
         },
         {
             id = 'tx_speed',

@@ -38,17 +38,17 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1898"
-     inkscape:window-height="1024"
+     inkscape:window-width="1918"
+     inkscape:window-height="1044"
      id="namedview13"
      showgrid="false"
      inkscape:pagecheckerboard="true"
      inkscape:zoom="1.84375"
-     inkscape:cx="20.61017"
-     inkscape:cy="156.20339"
-     inkscape:window-x="10"
-     inkscape:window-y="44"
-     inkscape:window-maximized="0"
+     inkscape:cx="67.79661"
+     inkscape:cy="66.169492"
+     inkscape:window-x="0"
+     inkscape:window-y="34"
+     inkscape:window-maximized="1"
      inkscape:current-layer="g10"
      scale-x="1" />
   <g
@@ -61,7 +61,7 @@
        data-old_color="#000000"
        id="path2"
        inkscape:connector-curvature="0"
-       style="fill:#fedb41;fill-opacity:1" />
+       style="fill:#258eff;fill-opacity:1" />
     <path
        d="m 442.677,183.176 c 0,25.291 -20.503,45.794 -45.794,45.794 25.292,0 45.794,20.503 45.794,45.794 0,-25.292 20.503,-45.794 45.794,-45.794 -25.292,0.001 -45.794,-20.502 -45.794,-45.794 z"
        data-original="#000000"
@@ -69,7 +69,7 @@
        data-old_color="#000000"
        id="path4"
        inkscape:connector-curvature="0"
-       style="fill:#fedb41;fill-opacity:1" />
+       style="fill:#258eff;fill-opacity:1" />
     <path
        d="m 213.706,183.176 c 0,-50.583 41.005,-91.588 91.588,-91.588 -50.583,0 -91.588,-41.005 -91.588,-91.588 0,50.583 -41.005,91.588 -91.588,91.588 50.583,0 91.588,41.006 91.588,91.588 z"
        data-original="#000000"
@@ -77,7 +77,7 @@
        data-old_color="#000000"
        id="path6"
        inkscape:connector-curvature="0"
-       style="fill:#fedb41;fill-opacity:1" />
+       style="fill:#258eff;fill-opacity:1" />
     <path
        d="M 335.824,91.588 0,427.412 61.059,488.471 396.883,152.647 Z m -52.115,97.909 43.17,-43.17 15.265,15.265 -43.17,43.17 c 0,0 -15.265,-15.265 -15.265,-15.265 z"
        data-original="#000000"
@@ -85,6 +85,6 @@
        data-old_color="#000000"
        id="path8"
        inkscape:connector-curvature="0"
-       style="fill:#00efd1;fill-opacity:1" />
+       style="fill:#f2d13f;fill-opacity:1" />
   </g>
 </svg>
