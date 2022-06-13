@@ -447,7 +447,7 @@ awful.screen.connect_for_each_screen(
                     -- Clock widget
                     helpers.set_widget_block {
                         widget = my_text_clock,
-                        fg = beautiful.widget_bg,
+                        fg = beautiful.clock_icon_color,
                         bg = beautiful.clock_color,
                         left = 10,
                         right = 10
