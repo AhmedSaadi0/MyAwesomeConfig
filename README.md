@@ -1,9 +1,11 @@
 # My Awesome config
 
 Sorry for the mess, I'm new to lua, and don't have enough time to restructure the files.
+
 اسف اذا في لخبطة في الملفات, انا جديد على لغة برمجة لوا وليس لدي الوقت الكافي لترتيبة بشكل افضل
 
 This config is the same as [`the-glorious-dotfiles`](https://github.com/manilarome/the-glorious-dotfiles)
+
 الكونفيج مبني على هذا [`the-glorious-dotfiles`](https://github.com/manilarome/the-glorious-dotfiles)
 ## Install and use - التثبيت والاستخدام
 
@@ -42,6 +44,7 @@ This config is the same as [`the-glorious-dotfiles`](https://github.com/manilaro
 #### Setup - التثبيت
 
 انسخ الملفات الى مجلد .config/awesome
+
 Copy files into .config/awesome
 
     mkdir ~/.config/rofi/
