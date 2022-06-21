@@ -83,7 +83,7 @@ local return_button = function()
 			'upower -i $(upower -e | grep BAT)',
 			function(stdout)
 				if stdout == nil or stdout == '' then
-					battery_tooltip:set_text('No battery detected!')
+					battery_tooltip:set_text('لم يتم العثور على البطارية!')
 					return
 				end
 
@@ -195,7 +195,7 @@ local return_button = function()
 			if status == nil or status == '' then
 				battery_widget.spacing = dpi(0)
 				battery_percentage_text.visible = false
-				battery_tooltip:set_text('No battery detected!')
+				battery_tooltip:set_text('لم يتم العثور على البطارية!')
 				battery_imagebox.icon:set_image(gears.surface.load_uncached(widget_icon_dir .. 'battery-unknown' .. '.svg'))
 				return
 			end

@@ -75,6 +75,10 @@ theme.dashboard_box_fg = theme.fg_normal
 theme.xcolor2 = theme.fg_normal
 theme.xforeground = theme.fg_normal
 
+theme.tooltip_fg = theme.fg_normal
+theme.tooltip_bg = theme.bg_normal
+theme.battery_hover_color = "#67a383" -- "#ffaf5f"
+
 --------------------------------
 ------------ Taglist -----------
 --------------------------------

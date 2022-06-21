@@ -52,8 +52,8 @@ theme.border_marked = "#7ec7a2"
 theme.taglist_color = "#4c566a" -- "#dddddd"
 theme.power_button_color = "#4c566a" -- "#fedb41"
 
-theme.keyboard_layout_color = "#4c566a" -- "#aaaaff"
-theme.keyboard_icon_color = "#3b4252" -- "#aaaaff"
+theme.keyboard_layout_color = "#8e7088" -- "#aaaaff"
+theme.keyboard_icon_color = "#755c70" -- "#aaaaff"
 
 theme.cpu_color = "#5e81ac" --"#ff79c6"
 theme.cpu_icon_color = "#5e81ac" --"#ff79c6"
@@ -61,11 +61,12 @@ theme.cpu_icon_color = "#5e81ac" --"#ff79c6"
 theme.net_speed_color = "#e06c75" -- "#00efd1"
 theme.net_speed_icon_color = "#8e484f" -- "#00efd1"
 
-theme.brightness_cr_color = "#a3be8c" -- "#ffaaff"
-theme.brightness_icon_color = "#859b72" -- "#ffaaff"
+theme.brightness_cr_color = "#5e81ac" -- "#ffaaff"
+theme.brightness_icon_color = "#506d92" -- "#ffaaff"
 
-theme.battery_color = "#b48ead" -- "#ffaf5f"
-theme.battery_icon_color = "#93748d" -- "#ffaf5f"
+theme.battery_color = "#4c566a" -- "#ffaf5f"
+theme.battery_icon_color = "#3b4252" -- "#ffaf5f"
+theme.battery_hover_color = "#3b4252" -- "#ffaf5f"
 
 theme.clock_color = theme.accent -- "#3b4252" -- "#fedb41"
 theme.clock_icon_color = "#4c566a"
@@ -76,6 +77,9 @@ theme.xcolor2 = theme.fg_normal
 theme.xforeground = theme.fg_normal
 theme.accent = theme.border_focus
 
+theme.tooltip_fg = theme.fg_normal
+theme.tooltip_bg = theme.bg_normal
+theme.tooltip_font = theme.font
 --------------------------------
 ------------ Taglist -----------
 --------------------------------

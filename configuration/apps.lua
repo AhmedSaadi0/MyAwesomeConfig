@@ -13,7 +13,7 @@ return {
 		-- Default text editor
 		text_editor = "code",
 		-- Default file manager
-		file_manager = "dolphin",
+		file_manager = "dolphin -reverse",
 		-- Default media player
 		multimedia = "clementine",
 		-- Default game, can be a launcher like steam

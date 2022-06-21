@@ -15,7 +15,7 @@ local create_click_events = function(widget)
 	container:connect_signal(
 		'mouse::enter',
 		function()
-			container.bg = beautiful.groups_bg
+			container.bg = beautiful.battery_hover_color
 			-- Hm, no idea how to get the wibox from this signal's arguments...
 			local w = mouse.current_wibox
 			if w then
