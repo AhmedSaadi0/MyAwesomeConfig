@@ -18,7 +18,7 @@ local my_text_clock =
     widget = wibox.widget.textclock
 }
 
-local clock_icon = helpers.add_text("", beautiful.widget_bg)
+local clock_icon = helpers.add_text("", beautiful.clock_icon_fg_color)
 
 my_text_clock:connect_signal(
     "button::press",
@@ -201,7 +201,6 @@ awful.screen.connect_for_each_screen(
                         },
                         {
                             id = "text_role",
-                            -- font = "Font Awesome 5 Free Solid 11",
                             widget = wibox.widget.textbox
                         },
                         layout = wibox.layout.fixed.horizontal
@@ -273,10 +272,11 @@ awful.screen.connect_for_each_screen(
                 type = "panel",
                 height = beautiful.panal_hight,
                 border_width = beautiful.panal_border_width,
-                border_color = beautiful.bg_normal
+                border_color = beautiful.panal_border_color
             }
         )
 
+        s.ram = require("widget.ram-widget")()
         s.systray =
             wibox.widget {
             visible = false,
@@ -304,7 +304,6 @@ awful.screen.connect_for_each_screen(
         -- s.ns = require("widget.net-speed-widget")()
         s.ns = require("widget.net-speed-widget")()
         -- s.wifi = require("widget.network")()
-        s.ram = require("signal.ram")
 
         -- s.volume_cr = require("widget.volumearc-widget")()
         -- s.volume_bar = require("widget.volumebar-widget")()
@@ -316,6 +315,7 @@ awful.screen.connect_for_each_screen(
         --     margins = 0
         -- }
         s.brightness_cr = require("widget.brightness-widget")()
+        s.ram = require("widget.ram-widget")()
         -- s.bat = require("widgets.battery")
         s.bat = require("widget.battery.init")()
 
@@ -330,6 +330,9 @@ awful.screen.connect_for_each_screen(
         s.power_button:connect_signal(
             "button::press",
             function()
+                -- awful.util.spawn(
+                --     "rofi -show p -modi p:~/.config/rofi/rofi-power-menu -theme ~/.config/awesome/rofi-new-dracula/power-menu-theme-right"
+                -- )
                 awesome.emit_signal("module::exit_screen:show")
             end
         )
@@ -339,7 +342,6 @@ awful.screen.connect_for_each_screen(
             --------------------------------
             --------- Left widgets ---------
             --------------------------------
-
             {
                 point = {x = 0, y = 0},
                 layout = wibox.layout.fixed.horizontal,
@@ -360,14 +362,16 @@ awful.screen.connect_for_each_screen(
                 helpers.set_widget_block {
                     widget = mykeyboardlayout,
                     bg = beautiful.keyboard_layout_color,
-                    fg = beautiful.widget_bg,
+                    fg = beautiful.keyboard_text_color,
                     left = 2,
+                    
                     right = 2
                 },
                 helpers.set_widget_block {
-                    widget = helpers.add_text("", beautiful.widget_bg),
-                    bg = beautiful.keyboard_icon_color,
+                    widget = helpers.add_text("", beautiful.keyboard_icon_fg_color),
+                    bg = beautiful.keyboard_icon_bg_color,
                     right = 5,
+                    
                     font = "Font Awesome 5 Free Solid 11",
                     left = 5
                 },
@@ -376,13 +380,15 @@ awful.screen.connect_for_each_screen(
                 -- CPU --
                 ---------
                 helpers.set_widget_block {
-                    widget = s.cpu
+                    widget = s.cpu,
+                    
                 },
                 helpers.set_widget_block {
                     widget = helpers.add_text("", beautiful.cpu_color),
                     bg = beautiful.widget_bg,
-                    right = 5,
+                    
                     font = "Font Awesome 5 Free Solid 11",
+                    right = 10,
                     left = 5
                 },
                 helpers.set_space(7),
@@ -392,12 +398,12 @@ awful.screen.connect_for_each_screen(
                 helpers.set_widget_block {
                     widget = s.ns,
                     bg = beautiful.net_speed_color,
-                    fg = beautiful.widget_bg,
+                    fg = beautiful.net_speed_text_color,
                     left = 10
                 },
                 helpers.set_widget_block {
-                    widget = helpers.add_text("", beautiful.widget_bg),
-                    bg = beautiful.net_speed_icon_color,
+                    widget = helpers.add_text("", beautiful.net_speed_icon_fg_color),
+                    bg = beautiful.net_speed_icon_bg_color,
                     right = 5,
                     left = 5
                 },
@@ -408,15 +414,16 @@ awful.screen.connect_for_each_screen(
                 helpers.set_widget_block {
                     widget = s.brightness_cr,
                     bg = beautiful.brightness_cr_color,
-                    fg = beautiful.widget_bg,
+                    fg = beautiful.brightness_cr_text_color,
                     
                     left = 5,
                     right = 5
                 },
                 helpers.set_widget_block {
-                    widget = helpers.add_text("", beautiful.widget_bg),
-                    bg = beautiful.brightness_icon_color,
+                    widget = helpers.add_text("", beautiful.brightness_icon_fg_color),
+                    bg = beautiful.brightness_icon_bg_color,
                     right = 5,
+                    
                     font = "Font Awesome 5 Free Solid 11",
                     left = 5
                 },
@@ -427,14 +434,16 @@ awful.screen.connect_for_each_screen(
                 helpers.set_widget_block {
                     widget = s.bat,
                     bg = beautiful.battery_color,
-                    fg = beautiful.widget_bg,    
+                    fg = beautiful.battery_text_color,
                     left = 3,
+                    
                     right = 3
                 },
                 helpers.set_widget_block {
-                    widget = helpers.add_text("", beautiful.widget_bg, "Font Awesome 5 Free Solid 11"),
-                    bg = beautiful.battery_icon_color,
+                    widget = helpers.add_text("", beautiful.battery_icon_fg_color, "Font Awesome 5 Free Solid 11"),
+                    bg = beautiful.battery_icon_bg_color,
                     right = 8,
+                    
                     left = 8
                 }
             },
@@ -446,16 +455,18 @@ awful.screen.connect_for_each_screen(
                     -- Clock widget
                     helpers.set_widget_block {
                         widget = my_text_clock,
-                        fg = beautiful.clock_icon_color,
                         bg = beautiful.clock_color,
+                        fg = beautiful.clock_text_color,
                         left = 10,
+                        
                         right = 10
                     },
                     helpers.set_widget_block {
                         widget = clock_icon,
-                        bg = beautiful.clock_icon_color,
+                        bg = beautiful.clock_icon_bg_color,
+                        
                         font = "Font Awesome 5 Free Solid 11",
-                        right = 7,
+                        right = 10,
                         left = 7
                     },
                     layout = wibox.layout.fixed.horizontal
@@ -481,7 +492,8 @@ awful.screen.connect_for_each_screen(
                 layout = wibox.layout.fixed.horizontal,
                 helpers.set_space(7),
                 helpers.set_widget_block {
-                    widget = s.mytaglist
+                    widget = s.mytaglist,
+                    shape = helpers.rrect(20)
                 },
                 s.mypromptbox,
                 helpers.set_space(7),

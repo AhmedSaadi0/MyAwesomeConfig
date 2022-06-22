@@ -1,5 +1,5 @@
 -- Icons directory
-local dir = os.getenv('HOME') .. '/.config/awesome/themes/icons/'
+local dir = os.getenv('HOME') .. '/.config/awesome/themes/icons-pinky/'
 
 
 return {

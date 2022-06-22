@@ -39,6 +39,18 @@ function helpers.set_widget_block(args)
     return block
 end
 
+function helpers.right_rounded_rect(radius)
+    return function(cr, w, h)
+        gears.shape.partially_rounded_rect(cr, w, h, false, true, true, false, radius)
+    end
+end
+
+function helpers.left_rounded_rect(radius)
+    return function(cr, w, h)
+        gears.shape.partially_rounded_rect(cr, w, h, true, false, false, true, radius)
+    end
+end
+
 function helpers.set_space(space_size)
     local space =
         wibox.widget {

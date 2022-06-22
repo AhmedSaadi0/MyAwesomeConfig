@@ -53,23 +53,33 @@ theme.taglist_color = "#4c566a" -- "#dddddd"
 theme.power_button_color = "#4c566a" -- "#fedb41"
 
 theme.keyboard_layout_color = "#8e7088" -- "#aaaaff"
-theme.keyboard_icon_color = "#755c70" -- "#aaaaff"
+theme.keyboard_icon_bg_color = "#755c70" -- "#aaaaff"
+theme.keyboard_icon_fg_color = theme.widget_bg -- "#aaaaff"
+theme.keyboard_text_color = theme.widget_bg -- "#aaaaff"
 
 theme.cpu_color = "#5e81ac" --"#ff79c6"
 theme.cpu_icon_color = "#5e81ac" --"#ff79c6"
 
 theme.net_speed_color = "#e06c75" -- "#00efd1"
-theme.net_speed_icon_color = "#8e484f" -- "#00efd1"
+theme.net_speed_icon_bg_color = "#8e484f" -- "#00efd1"
+theme.net_speed_icon_fg_color = theme.widget_bg
+theme.net_speed_text_color = theme.net_speed_icon_fg_color
 
 theme.brightness_cr_color = "#5e81ac" -- "#ffaaff"
-theme.brightness_icon_color = "#506d92" -- "#ffaaff"
+theme.brightness_icon_bg_color = "#506d92" -- "#ffaaff"
+theme.brightness_icon_fg_color = theme.widget_bg
+theme.brightness_cr_text_color = theme.brightness_icon_fg_color
 
 theme.battery_color = "#4c566a" -- "#ffaf5f"
-theme.battery_icon_color = "#3b4252" -- "#ffaf5f"
+theme.battery_icon_bg_color = "#3b4252" -- "#ffaf5f"
+theme.battery_icon_fg_color = theme.widget_bg
+theme.battery_text_color = theme.battery_icon_fg_color
 theme.battery_hover_color = "#3b4252" -- "#ffaf5f"
 
 theme.clock_color = theme.accent -- "#3b4252" -- "#fedb41"
-theme.clock_icon_color = "#4c566a"
+theme.clock_icon_bg_color = "#4c566a"
+theme.clock_icon_fg_color = theme.widget_bg
+theme.clock_text_color = theme.clock_icon_bg_color --"#f1dc6e"
 
 theme.dashboard_box_bg = theme.widget_bg
 theme.dashboard_box_fg = theme.fg_normal

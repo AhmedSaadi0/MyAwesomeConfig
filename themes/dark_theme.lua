@@ -13,6 +13,9 @@ local gears = require("gears")
 
 local theme = {}
 
+-------------------------------
+------------ Fonts ------------
+-------------------------------
 theme.font = "JF Flat 11"
 theme.uifont = "JF Flat 11"
 theme.font_n = "Google Sana "
@@ -21,6 +24,9 @@ theme.font_n = "Google Sana "
 theme.widget_font = theme.uifont
 theme.iconfont = "Font Awesome 5 Free Solid 11"
 
+-------------------------------
+------------ Colors -----------
+-------------------------------
 theme.bg_normal = "#1c1d29"
 theme.widget_bg = "#16161e"
 theme.bg_focus = "#16161e"
@@ -38,19 +44,58 @@ theme.border_normal = "#e06c75"
 theme.border_focus = "#00efd1"
 theme.border_marked = "#7ec7a2"
 
--- TAG List
+-- colors
+theme.power_button_color = "#fedb41"
+theme.taglist_color = "#a4dfff"
+
+theme.keyboard_layout_color = theme.widget_bg
+theme.keyboard_icon_bg_color = theme.widget_bg -- "#aaaaff"
+theme.keyboard_text_color = "#a4dfff" -- "#aaaaff"
+theme.keyboard_icon_fg_color = "#a4dfff" -- "#aaaaff"
+
+theme.cpu_color = "#ff79c6"
+theme.cpu_icon_bg_color = "#ff79c6"
+
+theme.net_speed_color = theme.widget_bg
+theme.net_speed_icon_bg_color = theme.widget_bg
+theme.net_speed_icon_fg_color = "#00efd1"
+theme.net_speed_text_color = theme.net_speed_icon_fg_color
+
+theme.brightness_cr_color = theme.widget_bg
+theme.brightness_icon_bg_color = theme.widget_bg
+theme.brightness_icon_fg_color = "#ffaaff"
+theme.brightness_cr_text_color = theme.brightness_icon_fg_color
+
+theme.battery_color = theme.widget_bg
+theme.battery_icon_bg_color = theme.widget_bg
+theme.battery_icon_fg_color = "#ffaf5f"
+theme.battery_text_color = theme.battery_icon_fg_color
+theme.battery_hover_color = theme.battery_color
+
+theme.clock_color = theme.accent --"#f1dc6e"
+theme.clock_icon_bg_color = theme.widget_bg
+theme.clock_icon_fg_color = "#fedb41"
+theme.clock_text_color = theme.clock_icon_fg_color --"#f1dc6e"
+
+theme.dashboard_box_bg = theme.widget_bg
+theme.dashboard_box_fg = theme.fg_normal
+theme.xcolor2 = theme.fg_normal
+theme.xforeground = theme.fg_normal
+
+theme.tooltip_fg = theme.fg_normal
+theme.tooltip_bg = theme.bg_normal
+
+--------------------------------
+------------ Taglist -----------
+--------------------------------
+theme.taglist_shape = shape.rectangle
 theme.taglist_fg_focus = "#86e6fc"
 theme.taglist_bg_focus = "#2e3440"
+theme.taglist_bg_urgent = "#e06c75"
 theme.taglist_fg_occupied = "#ff79c6"
 theme.taglist_bg_occupied = theme.widget_bg
 theme.taglist_bg_empty = theme.widget_bg
-
--- theme.taglist_shape = shape.rounded_bar
-theme.taglist_shape = shape.rectangle
--- theme.taglist_shape_border_width = 0
-
--- theme.taglist_fg_volatile = ""
--- theme.taglist_fg_empty = "#214f8b"
+theme.taglist_font = "JF Flat"
 
 -- Sys tray
 theme.bg_systray = theme.bg_normal
@@ -67,11 +112,6 @@ theme.control_panal_hight = dpi(870)
 theme.control_border_width = dpi(0)
 theme.control_border_color = dpi(0)
 -- Control panal widgets
-
-theme.dashboard_box_bg = theme.widget_bg
-theme.dashboard_box_fg = theme.fg_normal
-theme.xcolor2 = theme.fg_normal
-theme.xforeground = theme.fg_normal
 
 theme.slider_inner_border_color = "#458588"
 theme.slider_inner_border_width = dpi(0)
@@ -90,16 +130,6 @@ theme.bar_active_color = "#00efd1"
 theme.bar_color = theme.bar_active_color .. "30"
 theme.bar_handle_color = theme.bar_active_color
 theme.bar_handle_border_color = theme.bar_active_color
-
--- colors
-theme.power_button_color = "#fedb41"
-theme.taglist_color = "#a4dfff"
-theme.keyboard_layout_color = "#a4dfff"
-theme.cpu_color = "#ff79c6"
-theme.net_speed_color = "#00efd1"
-theme.brightness_cr_color = "#ffaaff"
-theme.battery_color = "#ffaf5f"
-theme.clock_color = "#fedb41"
 
 theme.slider_color = "#00efd1"
 theme.slider_background_color = theme.slider_color .. "30"
@@ -188,9 +218,12 @@ theme.awesome_icon = theme_assets.awesome_icon(theme.menu_height, theme.bg_focus
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 theme.icon_theme = nil
-theme.icons = require("themes.icons")
+theme.icons = require("themes.icons-dark")
 theme.dynamic_wallpaper_dir = "themes/wallpapers//"
 theme.conky_script = "/configuration/conky-dark.sh"
+
+theme.kvantum_theme = "Islamic"
+theme.konsole_profile = "--profile islamic"
 
 return theme
 

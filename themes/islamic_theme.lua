@@ -53,22 +53,33 @@ theme.power_button_color = "#fedb41"
 theme.taglist_color = "#a4dfff"
 
 theme.keyboard_layout_color = "#aa55ff"
-theme.keyboard_icon_color = "#8744cb" -- "#aaaaff"
+theme.keyboard_icon_bg_color = "#8744cb" -- "#aaaaff"
+theme.keyboard_icon_fg_color = theme.widget_bg -- "#aaaaff"
+theme.keyboard_text_color = theme.widget_bg -- "#aaaaff"
 
 theme.cpu_color = "#ff79c6"
 theme.cpu_icon_color = "#5e81ac" --"#ff79c6"
 
 theme.net_speed_color = "#ff5558"
-theme.net_speed_icon_color = "#b83d3f" -- "#00efd1"
+theme.net_speed_icon_bg_color = "#b83d3f" -- "#00efd1"
+theme.net_speed_icon_fg_color = theme.widget_bg
+theme.net_speed_text_color = theme.net_speed_icon_fg_color
 
 theme.brightness_cr_color = "#7aa2f7"
-theme.brightness_icon_color = "#668ee3" -- "#ffaaff"
+theme.brightness_icon_bg_color = "#668ee3" -- "#ffaaff"
+theme.brightness_icon_fg_color = theme.widget_bg
+theme.brightness_cr_text_color = theme.brightness_icon_fg_color
 
 theme.battery_color = "#7ec7a1"
-theme.battery_icon_color = "#6dac8a" -- "#ffaf5f"
+theme.battery_icon_bg_color = "#6dac8a" -- "#ffaf5f"
+theme.battery_icon_fg_color = theme.widget_bg
+theme.battery_text_color = theme.battery_icon_fg_color
+theme.battery_hover_color = "#67a383" -- "#ffaf5f"
 
 theme.clock_color = theme.accent --"#f1dc6e"
-theme.clock_icon_color = "#f1dc6e" -- "#b1a151"
+theme.clock_icon_bg_color = "#f1dc6e" -- "#b1a151"
+theme.clock_icon_fg_color = theme.widget_bg
+theme.clock_text_color = theme.clock_icon_bg_color --"#f1dc6e"
 
 theme.dashboard_box_bg = theme.widget_bg
 theme.dashboard_box_fg = theme.fg_normal
@@ -77,7 +88,6 @@ theme.xforeground = theme.fg_normal
 
 theme.tooltip_fg = theme.fg_normal
 theme.tooltip_bg = theme.bg_normal
-theme.battery_hover_color = "#67a383" -- "#ffaf5f"
 
 --------------------------------
 ------------ Taglist -----------
@@ -213,7 +223,7 @@ theme.awesome_icon = theme_assets.awesome_icon(theme.menu_height, theme.bg_focus
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 theme.icon_theme = nil
-theme.icons = require("themes.icons")
+theme.icons = require("themes.icons-islamic")
 theme.dynamic_wallpaper_dir = "themes/wallpapers//"
 theme.conky_script = "/configuration/conky-dark.sh"
 theme.kvantum_theme = "Islamic"
