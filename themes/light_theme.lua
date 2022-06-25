@@ -112,8 +112,8 @@ theme.systray_max_rows = dpi(1)
 -------------------------------
 ------------ Panal ------------
 -------------------------------
-theme.panal_hight = dpi(22)
-theme.panal_border_width = dpi(4)
+theme.panal_hight = dpi(32)
+theme.panal_border_width = dpi(0)
 theme.groups_radius = dpi(12)
 
 ----------------------------------------------------------------
@@ -232,6 +232,10 @@ theme.icons = require("themes.icons-light")
 
 theme.dynamic_wallpaper_dir = "themes/light-wallpapers//"
 theme.conky_script = "/configuration/conky-light.sh"
-theme.kvantum_theme = "Future"
+theme.kvantum_theme = "gColor-blue"
 theme.konsole_profile = "--profile light"
+
+theme.light_theme = "light_theme"
+theme.dark_theme = "pinky_theme"
+
 return theme

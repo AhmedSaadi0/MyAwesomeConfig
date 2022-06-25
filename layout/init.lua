@@ -2,10 +2,8 @@
 local gears = require("gears")
 local awful = require("awful")
 require("layout.rounded-top-bar")
--- require("layout.sharp-top-bar")
 
 require ("layout.control-center")
--- require ("layout.menu")
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {

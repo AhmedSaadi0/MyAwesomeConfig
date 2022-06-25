@@ -47,8 +47,8 @@ ruled.notification.connect_signal(
 			rule = {urgency = "critical"},
 			properties = {
 				-- font        		= 'JF Flat 10',
-				bg = beautiful.notification_bg,
-				fg = beautiful.fg_normal,
+				-- bg = beautiful.notification_bg,
+				-- fg = beautiful.fg_normal,
 				-- margin = dpi(16),
 				position = "bottom_left",
 				implicit_timeout = 0
@@ -60,8 +60,8 @@ ruled.notification.connect_signal(
 			rule = {urgency = "normal"},
 			properties = {
 				-- font        		= 'JF Flat 10',
-				bg = beautiful.notification_bg,
-				fg = beautiful.fg_normal,
+				-- bg = beautiful.notification_bg,
+				-- fg = beautiful.fg_normal,
 				-- margin = dpi(16),
 				position = "bottom_left",
 				implicit_timeout = 5
@@ -73,8 +73,8 @@ ruled.notification.connect_signal(
 			rule = {urgency = "low"},
 			properties = {
 				-- font        		= 'JF Flat 10',
-				bg = beautiful.notification_bg,
-				fg = beautiful.fg_normal,
+				-- bg = beautiful.notification_bg,
+				-- fg = beautiful.fg_normal,
 				-- margin = dpi(16),
 				position = "bottom_left",
 				implicit_timeout = 5
@@ -145,7 +145,7 @@ naughty.connect_signal(
 						},
 						widget = clickable_container
 					},
-					bg = beautiful.groups_bg,
+					-- bg = beautiful.groups_bg,
 					-- shape = gears.shape.rectangle,
 					shape = function(cr, w, h)
 						gears.shape.rounded_rect(cr, w, h, beautiful.groups_radius)
@@ -258,7 +258,7 @@ naughty.connect_signal(
 										-- margins = beautiful.notification_body_margins,
 										widget = wibox.container.margin
 									},
-									bg = beautiful.notification_bg,
+									-- bg = beautiful.notification_bg,
 									widget = wibox.container.background
 								},
 								-- Actions
@@ -266,7 +266,7 @@ naughty.connect_signal(
 								spacing = dpi(4),
 								layout = wibox.layout.fixed.vertical
 							},
-							bg = beautiful.notification_bg,
+							-- bg = beautiful.notification_bg,
 							id = "background_role",
 							widget = naughty.container.background
 						},
@@ -278,7 +278,7 @@ naughty.connect_signal(
 					width = beautiful.notification_max_width or dpi(500),
 					widget = wibox.container.constraint
 				},
-				bg = beautiful.bg_normal,
+				-- bg = beautiful.bg_normal,
 				-- shape = gears.shape.rectangle,
 				shape = function(cr, w, h)
 					gears.shape.rounded_rect(cr, w, h, beautiful.groups_radius)

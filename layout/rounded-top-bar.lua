@@ -3,6 +3,7 @@ local awful = require("awful")
 local wibox = require("wibox")
 local beautiful = require("beautiful")
 local helpers = require("helpers")
+local dpi = require("beautiful").xresources.apply_dpi
 
 -- Keyboard map indicator and switcher
 mykeyboardlayout = awful.widget.keyboardlayout()
@@ -14,7 +15,6 @@ local my_text_clock =
     format = "(%I:%M) %A, %d %B",
     valign = "center",
     align = "center",
-    forced_height = 22,
     widget = wibox.widget.textclock
 }
 
@@ -302,7 +302,10 @@ awful.screen.connect_for_each_screen(
             }
         )
         -- s.ns = require("widget.net-speed-widget")()
-        s.ns = require("widget.net-speed-widget")()
+        s.ns = require("widget.net-speed-widget"){
+            timeout=0.1,
+            width=60,
+        }
         -- s.wifi = require("widget.network")()
 
         -- s.volume_cr = require("widget.volumearc-widget")()
@@ -353,100 +356,162 @@ awful.screen.connect_for_each_screen(
                 -------------
                 -- Systray --
                 -------------
-                s.systray,
+                helpers.set_widget_block {
+                    widget = helpers.set_widget_block {
+                        widget = s.systray,
+                        bg = beautiful.transparent,
+                        left = 2,
+                        right = 2
+                    },
+                    bg = beautiful.transparent,
+                    top = 5,
+                    bottom = 5
+                },
                 s.tray_toggler,
                 helpers.set_space(6),
                 ---------------------
                 -- keyboard layout --
                 ---------------------
                 helpers.set_widget_block {
-                    widget = mykeyboardlayout,
-                    bg = beautiful.keyboard_layout_color,
-                    fg = beautiful.keyboard_text_color,
-                    left = 2,
-                    shape = helpers.left_rounded_rect(20),
-                    right = 2
+                    widget = helpers.set_widget_block {
+                        widget = mykeyboardlayout,
+                        bg = beautiful.keyboard_layout_color,
+                        fg = beautiful.keyboard_text_color,
+                        shape = helpers.left_rounded_rect(beautiful.widgets_corner_radius),
+                        left = 2,
+                        right = 2
+                    },
+                    bg = beautiful.transparent,
+                    top = 5,
+                    bottom = 5
                 },
                 helpers.set_widget_block {
-                    widget = helpers.add_text("", beautiful.keyboard_icon_fg_color),
-                    bg = beautiful.keyboard_icon_bg_color,
-                    right = 5,
-                    shape = helpers.right_rounded_rect(20),
-                    font = "Font Awesome 5 Free Solid 11",
-                    left = 5
+                    widget = helpers.set_widget_block {
+                        widget = helpers.add_text("", beautiful.keyboard_icon_fg_color),
+                        bg = beautiful.keyboard_icon_bg_color,
+                        font = beautiful.iconfont,
+                        shape = helpers.right_rounded_rect(beautiful.widgets_corner_radius),
+                        right = 5,
+                        left = 5
+                    },
+                    bg = beautiful.transparent,
+                    font = beautiful.iconfont,
+                    top = 5,
+                    bottom = 5
                 },
                 helpers.set_space(7),
                 ---------
                 -- CPU --
                 ---------
                 helpers.set_widget_block {
-                    widget = s.cpu,
-                    shape = helpers.left_rounded_rect(20),
+                    widget = helpers.set_widget_block {
+                        widget = s.cpu,
+                        shape = helpers.left_rounded_rect(beautiful.widgets_corner_radius)
+                    },
+                    top = 5,
+                    bottom = 5,
+                    bg = beautiful.transparent,
                 },
                 helpers.set_widget_block {
-                    widget = helpers.add_text("", beautiful.cpu_color),
-                    bg = beautiful.widget_bg,
-                    shape = helpers.right_rounded_rect(20),
-                    font = "Font Awesome 5 Free Solid 11",
-                    right = 10,
-                    left = 5
+                    widget = helpers.set_widget_block {
+                        widget = helpers.add_text("", beautiful.cpu_color),
+                        bg = beautiful.widget_bg,
+                        shape = helpers.right_rounded_rect(beautiful.widgets_corner_radius),
+                        font = "Font Awesome 5 Free Solid 11",
+                        right = 10,
+                        left = 5
+                    },
+                    bg = beautiful.transparent,
+                    top = 5,
+                    bottom = 5
                 },
                 helpers.set_space(7),
                 ---------------
                 -- Net speed --
                 ---------------
                 helpers.set_widget_block {
-                    widget = s.ns,
-                    shape = helpers.left_rounded_rect(20),
-                    bg = beautiful.net_speed_color,
-                    fg = beautiful.net_speed_text_color,
-                    left = 10
+                    widget = helpers.set_widget_block {
+                        widget = s.ns,
+                        shape = helpers.left_rounded_rect(beautiful.widgets_corner_radius),
+                        bg = beautiful.net_speed_color,
+                        fg = beautiful.net_speed_text_color,
+                        left = 5,
+                        right = 5
+                    },
+                    bg = beautiful.transparent,
+                    top = 5,
+                    bottom = 5
                 },
                 helpers.set_widget_block {
-                    widget = helpers.add_text("", beautiful.net_speed_icon_fg_color),
-                    bg = beautiful.net_speed_icon_bg_color,
-                    shape = helpers.right_rounded_rect(20),
-                    right = 7,
-                    left = 5
+                    widget = helpers.set_widget_block {
+                        widget = helpers.add_text("", beautiful.net_speed_icon_fg_color),
+                        bg = beautiful.net_speed_icon_bg_color,
+                        shape = helpers.right_rounded_rect(beautiful.widgets_corner_radius),
+                        right = 7,
+                        left = 5
+                    },
+                    bg = beautiful.transparent,
+                    top = 5,
+                    bottom = 5
                 },
                 helpers.set_space(7),
                 ----------------
                 -- Brightness --
                 ----------------
                 helpers.set_widget_block {
-                    widget = s.brightness_cr,
-                    bg = beautiful.brightness_cr_color,
-                    fg = beautiful.brightness_cr_text_color,
-                    shape = helpers.left_rounded_rect(20),
-                    left = 5,
-                    right = 5
+                    widget = helpers.set_widget_block {
+                        widget = s.brightness_cr,
+                        bg = beautiful.brightness_cr_color,
+                        fg = beautiful.brightness_cr_text_color,
+                        shape = helpers.left_rounded_rect(beautiful.widgets_corner_radius),
+                        left = 5,
+                        right = 5
+                    },
+                    bg = beautiful.transparent,
+                    top = 5,
+                    bottom = 5
                 },
                 helpers.set_widget_block {
-                    widget = helpers.add_text("", beautiful.brightness_icon_fg_color),
-                    bg = beautiful.brightness_icon_bg_color,
-                    right = 5,
-                    shape = helpers.right_rounded_rect(20),
-                    font = "Font Awesome 5 Free Solid 11",
-                    left = 5
+                    widget = helpers.set_widget_block {
+                        widget = helpers.add_text("", beautiful.brightness_icon_fg_color),
+                        bg = beautiful.brightness_icon_bg_color,
+                        right = 5,
+                        shape = helpers.right_rounded_rect(beautiful.widgets_corner_radius),
+                        font = "Font Awesome 5 Free Solid 11",
+                        left = 5
+                    },
+                    bg = beautiful.transparent,
+                    top = 5,
+                    bottom = 5
                 },
                 helpers.set_space(7),
                 -------------
                 -- Battery --
                 -------------
                 helpers.set_widget_block {
-                    widget = s.bat,
-                    bg = beautiful.battery_color,
-                    fg = beautiful.battery_text_color,
-                    left = 3,
-                    shape = helpers.left_rounded_rect(20),
-                    right = 3
+                    widget = helpers.set_widget_block {
+                        widget = s.bat,
+                        bg = beautiful.battery_color,
+                        fg = beautiful.battery_text_color,
+                        shape = helpers.left_rounded_rect(beautiful.widgets_corner_radius),
+                        left = 3,
+                        right = 3
+                    },
+                    bg = beautiful.transparent,
+                    top = 5,
+                    bottom = 5
                 },
                 helpers.set_widget_block {
-                    widget = helpers.add_text("", beautiful.battery_icon_fg_color, "Font Awesome 5 Free Solid 11"),
-                    bg = beautiful.battery_icon_bg_color,
-                    right = 8,
-                    shape = helpers.right_rounded_rect(20),
-                    left = 8
+                    widget = helpers.set_widget_block {
+                        widget = helpers.add_text("", beautiful.battery_icon_fg_color, "Font Awesome 5 Free Solid 11"),
+                        bg = beautiful.battery_icon_bg_color,
+                        right = 8,
+                        shape = helpers.right_rounded_rect(beautiful.widgets_corner_radius),
+                        left = 8
+                    },
+                    bg = beautiful.transparent,
+                    top = 5,
+                    bottom = 5
                 }
             },
             ---------------------------------
@@ -456,20 +521,30 @@ awful.screen.connect_for_each_screen(
                 {
                     -- Clock widget
                     helpers.set_widget_block {
-                        widget = my_text_clock,
-                        bg = beautiful.clock_color,
-                        fg = beautiful.clock_text_color,
-                        left = 10,
-                        shape = helpers.left_rounded_rect(20),
-                        right = 10
+                        widget = helpers.set_widget_block {
+                            widget = my_text_clock,
+                            bg = beautiful.clock_color,
+                            fg = beautiful.clock_text_color,
+                            shape = helpers.left_rounded_rect(beautiful.widgets_corner_radius),
+                            left = 10,
+                            right = 10
+                        },
+                        bg = beautiful.transparent,
+                        top = 1,
+                        bottom = 1
                     },
                     helpers.set_widget_block {
-                        widget = clock_icon,
-                        bg = beautiful.clock_icon_bg_color,
-                        shape = helpers.right_rounded_rect(20),
-                        font = "Font Awesome 5 Free Solid 11",
-                        right = 10,
-                        left = 7
+                        widget = helpers.set_widget_block {
+                            widget = clock_icon,
+                            bg = beautiful.clock_icon_bg_color,
+                            shape = helpers.right_rounded_rect(beautiful.widgets_corner_radius),
+                            font = "Font Awesome 5 Free Solid 11",
+                            right = 10,
+                            left = 7
+                        },
+                        bg = beautiful.transparent,
+                        top = 2,
+                        bottom = 2
                     },
                     layout = wibox.layout.fixed.horizontal
                 },
@@ -494,12 +569,19 @@ awful.screen.connect_for_each_screen(
                 layout = wibox.layout.fixed.horizontal,
                 helpers.set_space(7),
                 helpers.set_widget_block {
-                    widget = s.mytaglist,
-                    shape = helpers.rrect(20)
+                    widget = helpers.set_widget_block {
+                        widget = s.mytaglist,
+                        shape = helpers.rrect(beautiful.widgets_corner_radius)
+                    },
+                    -- top = 5,
+                    -- bottom = 5,
+                    bg = beautiful.transparent
                 },
-                s.mypromptbox,
+                -- s.mypromptbox,
                 helpers.set_space(7),
-                s.mylayoutbox
+                helpers.set_widget_block {
+                    widget = s.mylayoutbox,
+                }
             }
         }
     end

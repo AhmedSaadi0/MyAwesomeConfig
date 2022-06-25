@@ -100,7 +100,7 @@ local media =
             margins = dpi(9),
             widget = wibox.container.margin
         },
-        bg = beautiful.dashboard_box_bg,
+        -- bg = beautiful.dashboard_box_bg,
         shape = helpers.rrect(5),
         forced_width = dpi(40),
         -- forced_height = dpi(120),

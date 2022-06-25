@@ -74,7 +74,7 @@ theme.battery_color = "#7ec7a1"
 theme.battery_icon_bg_color = "#6dac8a" -- "#ffaf5f"
 theme.battery_icon_fg_color = theme.widget_bg
 theme.battery_text_color = theme.battery_icon_fg_color
-theme.battery_hover_color = "#67a383" -- "#ffaf5f"
+theme.battery_hover_color = "#92a0bd" -- "#ffaf5f"
 
 theme.clock_color = theme.accent --"#f1dc6e"
 theme.clock_icon_bg_color = "#f1dc6e" -- "#b1a151"
@@ -92,35 +92,42 @@ theme.tooltip_bg = theme.bg_normal
 --------------------------------
 ------------ Taglist -----------
 --------------------------------
-theme.taglist_shape = shape.rectangle -- rounded_bar
 -- TAG List
 theme.taglist_fg_focus = "#f1dc6e"
-theme.taglist_bg_focus = "#2e3440"
-theme.taglist_bg_urgent = "#e06c75"
-theme.taglist_fg_occupied = "#ffaa7f"
-theme.taglist_bg_occupied = theme.widget_bg
-theme.taglist_bg_empty = theme.widget_bg
-theme.taglist_font = "JF Flat"
+theme.taglist_bg_focus = theme.widget_bg
 
--- Sys tray
+theme.taglist_fg_urgent = "#e06c75"
+theme.taglist_bg_urgent = theme.widget_bg
+
+theme.taglist_fg_occupied = "#60c29f"
+theme.taglist_bg_occupied = theme.widget_bg
+
+theme.taglist_fg_empty = "#545862"
+theme.taglist_bg_empty = theme.widget_bg
+
+-- theme.taglist_shape = shape.rectangle -- rounded_bar
+theme.taglist_font = theme.iconfont
+
+-- Sys tray --
 theme.bg_systray = theme.bg_normal
 theme.systray_icon_spacing = dpi(5)
 theme.systray_max_rows = dpi(1)
 
--- Panal
-theme.panal_hight = dpi(22)
-theme.panal_border_width = dpi(6)
+-- Panal --
+theme.panal_hight = dpi(32)
+theme.panal_border_width = dpi(0)
 theme.groups_radius = dpi(12)
 
 -- Control Panal and notification panal
 theme.control_panal_hight = dpi(870)
 theme.control_border_width = dpi(0)
 theme.control_border_color = dpi(0)
--- Control panal widgets
 
+-- حواف حول اضافات الاشعارات
 theme.slider_inner_border_color = "#458588"
 theme.slider_inner_border_width = dpi(0)
 
+-- خلفية ولون اضافات الاشعارات
 theme.groups_title_bg = theme.widget_bg
 theme.groups_bg = theme.widget_bg
 theme.background = theme.bg_normal
@@ -130,22 +137,26 @@ theme.transparent = "#00000000"
 theme.accent = theme.border_focus
 theme.media_button_color = "#f1dc6e"
 
--- widgets
+-- widgets --
+-- لعمل حواف مستديرة في الاضافات على الشريط العلوي
+theme.widgets_corner_radius = dpi(15)
+
+-- لون وخصائص شريط تعديل الاضاءة والصوت في الاشعارات
 theme.bar_active_color = "#f1dc6e"
 theme.bar_color = theme.bar_active_color .. "30"
 theme.bar_handle_color = theme.bar_active_color
 theme.bar_handle_border_color = theme.bar_active_color
-
-theme.slider_color = "#f1dc6e"
-theme.slider_background_color = theme.slider_color .. "30"
-theme.slider_forced_height = dpi(1)
-
 theme.bar_height = dpi(1)
 theme.bar_handle_width = dpi(10)
 theme.bar_handle_border_width = dpi(0)
 theme.bar_shape = function(cr, w, h)
     gears.shape.rounded_rect(cr, w, h, 30)
 end
+
+-- لون وخصائص شريط عرض المعالج والرام في الاشعارات
+theme.slider_color = "#f1dc6e"
+theme.slider_background_color = theme.slider_color .. "30"
+theme.slider_forced_height = dpi(1)
 
 -- Volume & Brightness widget
 theme.vol_bar_active_color = "#f1dc6e"
@@ -167,7 +178,6 @@ local taglist_square_size = dpi(4)
 
 -- Variables set for theming notifications:
 theme.notification_title_margin = dpi(6)
-
 theme.notification_body_left_margin = dpi(7)
 theme.notification_body_right_margin = dpi(7)
 theme.notification_body_top_margin = dpi(8)
@@ -179,7 +189,7 @@ theme.notification_icon_margin = dpi(2)
 theme.notification_bg = theme.bg_normal
 theme.notification_border_focus = theme.border_focus
 theme.notification_border_width = dpi(0)
-theme.notification_spacing = dpi(25)
+theme.notification_spacing = dpi(30)
 
 theme.center_notification_border_focus = theme.border_focus
 theme.center_notification_border_width = dpi(0)
@@ -228,5 +238,8 @@ theme.dynamic_wallpaper_dir = "themes/wallpapers//"
 theme.conky_script = "/configuration/conky-dark.sh"
 theme.kvantum_theme = "Islamic"
 theme.konsole_profile = "--profile islamic"
+
+theme.light_theme = "light_theme"
+theme.dark_theme = "islamic_theme"
 
 return theme

@@ -33,8 +33,8 @@ theme.accent = "#f882b2"
 -------------------------------
 ------------ Colors -----------
 -------------------------------
-theme.bg_normal = "#1b2a53" .. "99"
-theme.widget_bg = "#111b34" .. "99"
+theme.bg_normal = "#211040" .. "99"
+theme.widget_bg = "#1a0d33" .. "99"
 theme.bg_focus = "#16161e"
 theme.bg_urgent = "#ff0000"
 theme.bg_minimize = "#444444"
@@ -111,8 +111,8 @@ theme.systray_icon_spacing = dpi(5)
 theme.systray_max_rows = dpi(1)
 
 -- Panal
-theme.panal_hight = dpi(22)
-theme.panal_border_width = dpi(6)
+theme.panal_hight = dpi(32)
+theme.panal_border_width = dpi(0)
 theme.groups_radius = dpi(12)
 
 -- Control Panal and notification panal
@@ -188,8 +188,8 @@ theme.center_notification_border_width = dpi(0)
 
 theme.lock_bg = theme.widget_bg
 
--- theme.header_bg = theme.widget_bg
--- theme.inner_bg = theme.widget_bg
+theme.header_bg = theme.widget_bg
+theme.inner_bg = theme.widget_bg
 
 theme.notification_center_header_bg = theme.widget_bg
 theme.notification_center_inner_bg = theme.widget_bg
@@ -228,7 +228,10 @@ theme.icon_theme = nil
 theme.icons = require("themes.icons-pinky")
 theme.dynamic_wallpaper_dir = "themes/wallpapers//"
 theme.conky_script = "/configuration/conky-dark.sh"
-theme.kvantum_theme = "Islamic"
-theme.konsole_profile = "--profile islamic"
+theme.kvantum_theme = "ArcMidnight-dark"
+theme.konsole_profile = "--profile pinky"
+
+theme.light_theme = "light_theme"
+theme.dark_theme = "pinky_theme"
 
 return theme

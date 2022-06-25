@@ -103,8 +103,8 @@ theme.systray_icon_spacing = dpi(5)
 theme.systray_max_rows = dpi(1)
 
 -- Panal
-theme.panal_hight = dpi(22)
-theme.panal_border_width = dpi(6)
+theme.panal_hight = dpi(32)
+theme.panal_border_width = dpi(0)
 theme.groups_radius = dpi(12)
 
 -- Control Panal
@@ -224,6 +224,9 @@ theme.conky_script = "/configuration/conky-dark.sh"
 
 theme.kvantum_theme = "Islamic"
 theme.konsole_profile = "--profile islamic"
+
+theme.light_theme = "light_theme"
+theme.dark_theme = "dark_theme"
 
 return theme
 
