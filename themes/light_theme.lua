@@ -101,6 +101,7 @@ theme.taglist_bg_focus = "#2e3440"
 theme.taglist_fg_occupied = "#ff79c6"
 theme.taglist_bg_occupied = theme.widget_bg
 theme.taglist_bg_empty = theme.widget_bg
+theme.taglist_font = theme.iconfont
 
 ----------------------------------
 ------------ Sys tray ------------
@@ -236,6 +237,6 @@ theme.kvantum_theme = "gColor-blue"
 theme.konsole_profile = "--profile light"
 
 theme.light_theme = "light_theme"
-theme.dark_theme = "pinky_theme"
+theme.dark_theme = "islamic_theme"
 
 return theme

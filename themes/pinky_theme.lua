@@ -103,7 +103,7 @@ theme.taglist_bg_urgent = "#e06c75"
 theme.taglist_fg_occupied = "#ffaa7f"
 theme.taglist_bg_occupied = theme.widget_bg
 theme.taglist_bg_empty = theme.widget_bg
-theme.taglist_font = "JF Flat"
+theme.taglist_font = theme.iconfont
 
 -- Sys tray
 theme.bg_systray = theme.bg_normal
