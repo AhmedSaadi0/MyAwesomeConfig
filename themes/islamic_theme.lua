@@ -76,10 +76,10 @@ theme.battery_icon_fg_color = theme.widget_bg
 theme.battery_text_color = theme.battery_icon_fg_color
 theme.battery_hover_color = "#92a0bd" -- "#ffaf5f"
 
-theme.clock_color = theme.accent --"#f1dc6e"
-theme.clock_icon_bg_color = "#f1dc6e" -- "#b1a151"
+theme.clock_color = "#f1dc6e"
+theme.clock_icon_bg_color = "#b1a151"
 theme.clock_icon_fg_color = theme.widget_bg
-theme.clock_text_color = theme.clock_icon_bg_color --"#f1dc6e"
+theme.clock_text_color =theme.widget_bg --"#f1dc6e"
 
 theme.dashboard_box_bg = theme.widget_bg
 theme.dashboard_box_fg = theme.fg_normal
@@ -241,5 +241,9 @@ theme.konsole_profile = "--profile islamic"
 
 theme.light_theme = "light_theme"
 theme.dark_theme = "islamic_theme"
+
+theme.plasma_cursors = "ArcStarry-cursors"
+theme.plasma_color = "Tellgo.colors"
+
 
 return theme

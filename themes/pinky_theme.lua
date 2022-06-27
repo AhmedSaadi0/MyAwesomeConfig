@@ -95,15 +95,32 @@ theme.tooltip_bg = theme.bg_normal
 --------------------------------
 ------------ Taglist -----------
 --------------------------------
-theme.taglist_shape = shape.rectangle -- rounded_bar
 -- TAG List
 theme.taglist_fg_focus = theme.accent
-theme.taglist_bg_focus = "#2e3440"
-theme.taglist_bg_urgent = "#e06c75"
-theme.taglist_fg_occupied = "#ffaa7f"
+theme.taglist_bg_focus = theme.widget_bg
+
+theme.taglist_fg_urgent = "#e06c75"
+theme.taglist_bg_urgent = theme.widget_bg
+
+theme.taglist_fg_occupied = "#6dab89"
 theme.taglist_bg_occupied = theme.widget_bg
+
+theme.taglist_fg_empty = "#545862"
 theme.taglist_bg_empty = theme.widget_bg
+
+-- theme.taglist_shape = shape.rectangle -- rounded_bar
 theme.taglist_font = theme.iconfont
+
+
+-- theme.taglist_shape = shape.rectangle -- rounded_bar
+-- TAG List
+-- theme.taglist_fg_focus = theme.accent
+-- theme.taglist_bg_focus = "#2e3440"
+-- theme.taglist_bg_urgent = "#e06c75"
+-- theme.taglist_fg_occupied = "#ffaa7f"
+-- theme.taglist_bg_occupied = theme.widget_bg
+-- theme.taglist_bg_empty = theme.widget_bg
+-- theme.taglist_font = theme.iconfont
 
 -- Sys tray
 theme.bg_systray = theme.bg_normal
@@ -131,6 +148,10 @@ theme.background = theme.bg_normal
 theme.transparent = "#00000000"
 
 theme.media_button_color = theme.accent
+
+-- widgets --
+-- لعمل حواف مستديرة في الاضافات على الشريط العلوي
+theme.widgets_corner_radius = dpi(15)
 
 -- الاعدادت السريعة
 theme.bar_active_color = theme.accent
@@ -233,5 +254,8 @@ theme.konsole_profile = "--profile pinky"
 
 theme.light_theme = "light_theme"
 theme.dark_theme = "pinky_theme"
+
+theme.plasma_cursors = "ArcStarry-cursors"
+theme.plasma_color = "ArcAuroraDark.colors"
 
 return theme

@@ -69,6 +69,9 @@ return {
 		"picom -b --experimental-backends --dbus --config " .. config_dir .. "/configuration/picom.conf",
 		-- kvantum theme
 		"kvantummanager --set " .. beautiful.kvantum_theme,
+		config_dir .. "./bin/plasma-theme -c " .. config_dir .. "/themes/plasma-colors/" .. beautiful.plasma_color,
+		"kwriteconfig5 --file ~/.config/kcminputrc --group Mouse --key cursorTheme " .. beautiful.plasma_cursors,
+		"kcminit",
 		config_dir .. beautiful.conky_script
 	},
 	-- List of binaries/shell scripts that will execute for a certain task

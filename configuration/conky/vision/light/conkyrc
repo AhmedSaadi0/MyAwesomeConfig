@@ -15,7 +15,7 @@ conky.config = {
     -------------------------------------
     gap_x = 0,
     gap_y = -10,
-    alignment = "middle_middle",
+    alignment = "middle_left",
     minimum_height = 400,
     minimum_width = 600,
     own_window = true,
@@ -36,13 +36,13 @@ conky.config = {
     -------------------------------------
     --  Color Scheme
     -------------------------------------
-    default_color = "6a6a6a",
-    color0 = "6a6a6a", -- clock
-    color1 = "6a6a6a", -- date
-    color2 = "6a6a6a", -- current temperature
-    color3 = "6a6a6a", -- high tempratures
-    color4 = "6a6a6a", -- low tempratures
-    color5 = "6a6a6a", -- days
+    default_color = "4b5263",
+    color0 = "4b5263", -- clock
+    color1 = "4b5263", -- date
+    color2 = "4b5263", -- current temperature
+    color3 = "4b5263", -- high tempratures
+    color4 = "4b5263", -- low tempratures
+    color5 = "4b5263", -- days
     -------------------------------------
     --  Icon Sources
     -------------------------------------

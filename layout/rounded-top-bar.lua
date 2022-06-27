@@ -302,9 +302,10 @@ awful.screen.connect_for_each_screen(
             }
         )
         -- s.ns = require("widget.net-speed-widget")()
-        s.ns = require("widget.net-speed-widget"){
-            timeout=0.1,
-            width=60,
+        s.ns =
+            require("widget.net-speed-widget") {
+            timeout = 0.1,
+            width = 60
         }
         -- s.wifi = require("widget.network")()
 
@@ -410,7 +411,7 @@ awful.screen.connect_for_each_screen(
                     },
                     top = 5,
                     bottom = 5,
-                    bg = beautiful.transparent,
+                    bg = beautiful.transparent
                 },
                 helpers.set_widget_block {
                     widget = helpers.set_widget_block {
@@ -518,35 +519,39 @@ awful.screen.connect_for_each_screen(
             --------- Middle widgets ---------
             ---------------------------------
             {
-                {
-                    -- Clock widget
-                    helpers.set_widget_block {
-                        widget = helpers.set_widget_block {
-                            widget = my_text_clock,
-                            bg = beautiful.clock_color,
-                            fg = beautiful.clock_text_color,
-                            shape = helpers.left_rounded_rect(beautiful.widgets_corner_radius),
-                            left = 10,
-                            right = 10
+                -- Clock widget
+                helpers.set_widget_block {
+                    widget = helpers.set_widget_block {
+                        widget = {
+                            helpers.set_widget_block {
+                                widget = helpers.set_widget_block {
+                                    widget = my_text_clock,
+                                    bg = beautiful.clock_color,
+                                    fg = beautiful.clock_text_color,
+                                    shape = helpers.left_rounded_rect(beautiful.widgets_corner_radius),
+                                    left = 10,
+                                    right = 10
+                                },
+                                bg = beautiful.transparent,
+                                top = 1,
+                                bottom = 1
+                            },
+                            helpers.set_widget_block {
+                                widget = clock_icon,
+                                bg = beautiful.clock_icon_bg_color,
+                                shape = helpers.right_rounded_rect(beautiful.widgets_corner_radius),
+                                font = "Font Awesome 5 Free Solid 11",
+                                right = 10,
+                                left = 7
+                            },
+                            layout = wibox.layout.fixed.horizontal
                         },
-                        bg = beautiful.transparent,
-                        top = 1,
-                        bottom = 1
+                        bg = beautiful.clock_color,
+                        shape = helpers.rrect(beautiful.widgets_corner_radius)
                     },
-                    helpers.set_widget_block {
-                        widget = helpers.set_widget_block {
-                            widget = clock_icon,
-                            bg = beautiful.clock_icon_bg_color,
-                            shape = helpers.right_rounded_rect(beautiful.widgets_corner_radius),
-                            font = "Font Awesome 5 Free Solid 11",
-                            right = 10,
-                            left = 7
-                        },
-                        bg = beautiful.transparent,
-                        top = 2,
-                        bottom = 2
-                    },
-                    layout = wibox.layout.fixed.horizontal
+                    bg = beautiful.transparent,
+                    top = 1,
+                    bottom = 1
                 },
                 widget = wibox.container.background,
                 point = function(geo, args)
@@ -580,7 +585,7 @@ awful.screen.connect_for_each_screen(
                 -- s.mypromptbox,
                 helpers.set_space(7),
                 helpers.set_widget_block {
-                    widget = s.mylayoutbox,
+                    widget = s.mylayoutbox
                 }
             }
         }

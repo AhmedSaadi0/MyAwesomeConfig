@@ -60,13 +60,13 @@ theme.keyboard_text_color = theme.widget_bg -- "#aaaaff"
 theme.cpu_color = "#5e81ac" --"#ff79c6"
 theme.cpu_icon_color = "#5e81ac" --"#ff79c6"
 
-theme.net_speed_color = "#e06c75" -- "#00efd1"
-theme.net_speed_icon_bg_color = "#8e484f" -- "#00efd1"
-theme.net_speed_icon_fg_color = theme.widget_bg
-theme.net_speed_text_color = theme.net_speed_icon_fg_color
+theme.net_speed_color = "#83c1a6" -- "#00efd1"
+theme.net_speed_icon_bg_color = "#74ab92" -- "#00efd1"
+theme.net_speed_icon_fg_color = "#282c34"
+theme.net_speed_text_color = "#282c34"
 
-theme.brightness_cr_color = "#5e81ac" -- "#ffaaff"
-theme.brightness_icon_bg_color = "#506d92" -- "#ffaaff"
+theme.brightness_cr_color = "#087e8b" -- "#ffaaff"
+theme.brightness_icon_bg_color = "#07747e" -- "#ffaaff"
 theme.brightness_icon_fg_color = theme.widget_bg
 theme.brightness_cr_text_color = theme.brightness_icon_fg_color
 
@@ -76,10 +76,10 @@ theme.battery_icon_fg_color = theme.widget_bg
 theme.battery_text_color = theme.battery_icon_fg_color
 theme.battery_hover_color = "#3b4252" -- "#ffaf5f"
 
-theme.clock_color = theme.accent -- "#3b4252" -- "#fedb41"
-theme.clock_icon_bg_color = "#4c566a"
-theme.clock_icon_fg_color = theme.widget_bg
-theme.clock_text_color = theme.clock_icon_bg_color --"#f1dc6e"
+theme.clock_color = "#ff5a5f" -- "#fedb41"
+theme.clock_icon_bg_color = "#cc484c"
+theme.clock_icon_fg_color = "#282c34"
+theme.clock_text_color = "#282c34"
 
 theme.dashboard_box_bg = theme.widget_bg
 theme.dashboard_box_fg = theme.fg_normal
@@ -93,14 +93,19 @@ theme.tooltip_font = theme.font
 --------------------------------
 ------------ Taglist -----------
 --------------------------------
--- Tag list shape
-theme.taglist_shape = shape.rectangle -- rounded_bar
--- TAG List
-theme.taglist_fg_focus = "#86e6fc"
-theme.taglist_bg_focus = "#2e3440"
-theme.taglist_fg_occupied = "#ff79c6"
+theme.taglist_fg_focus = "#ff5a5f"
+theme.taglist_bg_focus = theme.widget_bg
+
+theme.taglist_fg_urgent = "#e06c75"
+theme.taglist_bg_urgent = theme.widget_bg
+
+theme.taglist_fg_occupied = "#087e8b"
 theme.taglist_bg_occupied = theme.widget_bg
+
+theme.taglist_fg_empty = "#545862"
 theme.taglist_bg_empty = theme.widget_bg
+
+-- theme.taglist_shape = shape.rectangle -- rounded_bar
 theme.taglist_font = theme.iconfont
 
 ----------------------------------
@@ -136,7 +141,10 @@ theme.transparent = "#00000000"
 
 theme.media_button_color = theme.fg_normal
 
--- widgets
+-- widgets --
+-- لعمل حواف مستديرة في الاضافات على الشريط العلوي
+theme.widgets_corner_radius = dpi(15)
+
 theme.bar_active_color = "#0082ba"
 theme.bar_color = theme.bar_active_color .. "30"
 theme.bar_handle_color = theme.bar_active_color
@@ -233,10 +241,13 @@ theme.icons = require("themes.icons-light")
 
 theme.dynamic_wallpaper_dir = "themes/light-wallpapers//"
 theme.conky_script = "/configuration/conky-light.sh"
-theme.kvantum_theme = "gColor-blue"
+theme.kvantum_theme = "Orchis"
 theme.konsole_profile = "--profile light"
 
 theme.light_theme = "light_theme"
 theme.dark_theme = "islamic_theme"
+
+theme.plasma_cursors = "ArcDusk-cursors"
+theme.plasma_color = "NovaAmare.colors"
 
 return theme
