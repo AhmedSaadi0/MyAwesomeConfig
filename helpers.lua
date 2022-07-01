@@ -1,6 +1,9 @@
 local beautiful = require("beautiful")
 local wibox = require("wibox")
 local gears = require("gears")
+local awful = require("awful")
+local timer = require("gears.timer")
+local dpi = beautiful.xresources.apply_dpi
 
 local helpers = {}
 
@@ -125,6 +128,95 @@ function helpers.vertical_pad(height)
         forced_height = height,
         layout = wibox.layout.fixed.vertical
     }
+end
+
+function helpers.trim(str)
+    return str:gsub("%s+", "")
+end
+
+function helpers.create_slider_meter_widget(args)
+    local image = args.image
+    local text = args.text
+
+    local slider = args.slider
+    local hight = args.hight
+
+    local left = args.left or dpi(24)
+    local right = args.right or dpi(24)
+
+    local slider_top = args.slider_top or dpi(20)
+    local slider_bottom = args.slider_bottom or dpi(12)
+    local slider_left = args.slider_left or dpi(0)
+    local slider_right = args.slider_right or dpi(40)
+
+    local text_top = args.text_top or dpi(12)
+    local text_bottom = args.text_bottom or dpi(12)
+    local text_left = args.text_left or dpi(0)
+    local text_right = args.text_right or dpi(0)
+
+    local image_top = args.image_top or dpi(12)
+    local image_bottom = args.image_bottom or dpi(12)
+    local image_left = args.image_left or dpi(0)
+    local image_right = args.image_right or dpi(0)
+
+    local cpu_meter =
+        wibox.widget {
+        {
+            {
+                {
+                    image = image,
+                    resize = true,
+                    widget = wibox.widget.imagebox
+                },
+                point = function(geo, args)
+                    return {
+                        x = args.parent.width - geo.width,
+                        y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
+                    }
+                end,
+                top = image_top,
+                bottom = image_bottom,
+                left = image_left,
+                right = image_right,
+                widget = wibox.container.margin
+            },
+            {
+                {
+                    text = text,
+                    font = beautiful.uifont,
+                    align = "center",
+                    valign = "center",
+                    widget = wibox.widget.textbox
+                },
+                point = function(geo, args)
+                    return {
+                        x = args.parent.width - geo.width,
+                        y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
+                    }
+                end,
+                top = text_top,
+                bottom = text_bottom,
+                left = text_left,
+                right = text_right,
+                widget = wibox.container.margin
+            },
+            {
+                slider,
+                top = slider_top,
+                bottom = slider_bottom,
+                left = slider_left,
+                right = slider_right,
+                widget = wibox.container.margin
+            },
+            layout = wibox.layout.manual
+        },
+        left = left,
+        right = right,
+        forced_height = hight or dpi(48),
+        widget = wibox.container.margin
+    }
+
+    return cpu_meter
 end
 
 return helpers

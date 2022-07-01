@@ -8,3 +8,5 @@ removing unused stuff
 Thunderbird -> تشغيل تلقائي وفي الرسائل
 Evolution
 تغيير ثيم gtk عند التحويل الى الوضعع الاسود او الابيض
+
+QT_QPA_PLATFORMTHEME=qt5ct

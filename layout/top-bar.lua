@@ -320,8 +320,13 @@ awful.screen.connect_for_each_screen(
         -- }
         s.brightness_cr = require("widget.brightness-widget")()
         s.ram = require("widget.ram-widget")()
-        -- s.bat = require("widgets.battery")
         s.bat = require("widget.battery.init")()
+
+        s.temp = require("widget.temp") {
+            tooltip_border_color = beautiful.cpu_temp_color,
+            -- tooltip_bg = beautiful.cpu_temp_color,
+            -- tooltip_fg = beautiful.cpu_temp_icon_fg_color,
+        }
 
         s.power_button =
             wibox.widget {
@@ -334,9 +339,6 @@ awful.screen.connect_for_each_screen(
         s.power_button:connect_signal(
             "button::press",
             function()
-                -- awful.util.spawn(
-                --     "rofi -show p -modi p:~/.config/rofi/rofi-power-menu -theme ~/.config/awesome/rofi-new-dracula/power-menu-theme-right"
-                -- )
                 awesome.emit_signal("module::exit_screen:show")
             end
         )
@@ -365,8 +367,8 @@ awful.screen.connect_for_each_screen(
                         right = 2
                     },
                     bg = beautiful.transparent,
-                    top = 5,
-                    bottom = 5
+                    top = 5
+                    -- bottom = 5
                 },
                 s.tray_toggler,
                 helpers.set_space(6),
@@ -397,32 +399,6 @@ awful.screen.connect_for_each_screen(
                     },
                     bg = beautiful.transparent,
                     font = beautiful.iconfont,
-                    top = 5,
-                    bottom = 5
-                },
-                helpers.set_space(7),
-                ---------
-                -- CPU --
-                ---------
-                helpers.set_widget_block {
-                    widget = helpers.set_widget_block {
-                        widget = s.cpu,
-                        shape = helpers.left_rounded_rect(beautiful.widgets_corner_radius)
-                    },
-                    top = 5,
-                    bottom = 5,
-                    bg = beautiful.transparent
-                },
-                helpers.set_widget_block {
-                    widget = helpers.set_widget_block {
-                        widget = helpers.add_text("", beautiful.cpu_color),
-                        bg = beautiful.widget_bg,
-                        shape = helpers.right_rounded_rect(beautiful.widgets_corner_radius),
-                        font = "Font Awesome 5 Free Solid 11",
-                        right = 10,
-                        left = 5
-                    },
-                    bg = beautiful.transparent,
                     top = 5,
                     bottom = 5
                 },
@@ -572,6 +548,60 @@ awful.screen.connect_for_each_screen(
                     }
                 end,
                 layout = wibox.layout.fixed.horizontal,
+                --------------
+                -- CPU TEMP --
+                --------------
+                helpers.set_widget_block {
+                    widget = helpers.set_widget_block {
+                        widget = s.temp,
+                        shape = helpers.left_rounded_rect(beautiful.widgets_corner_radius),
+                        bg = beautiful.cpu_temp_color,
+                        fg = beautiful.cpu_temp_text_color,
+                        left = 5,
+                        right = 5
+                    },
+                    top = 0,
+                    bottom = 0,
+                    bg = beautiful.transparent
+                },
+                helpers.set_widget_block {
+                    widget = helpers.set_widget_block {
+                        widget = helpers.add_text("", beautiful.cpu_temp_icon_fg_color),
+                        bg = beautiful.cpu_temp_icon_bg_color,
+                        shape = helpers.right_rounded_rect(beautiful.widgets_corner_radius),
+                        right = 7,
+                        left = 5
+                    },
+                    bg = beautiful.transparent,
+                    top = 0,
+                    bottom = 0
+                },
+                helpers.set_space(7),
+                ---------
+                -- CPU --
+                ---------
+                helpers.set_widget_block {
+                    widget = helpers.set_widget_block {
+                        widget = s.cpu,
+                        shape = helpers.left_rounded_rect(beautiful.widgets_corner_radius)
+                    },
+                    top = 0,
+                    bottom = 0,
+                    bg = beautiful.transparent
+                },
+                helpers.set_widget_block {
+                    widget = helpers.set_widget_block {
+                        widget = helpers.add_text("", beautiful.cpu_color),
+                        bg = beautiful.widget_bg,
+                        shape = helpers.right_rounded_rect(beautiful.widgets_corner_radius),
+                        font = "Font Awesome 5 Free Solid 11",
+                        right = 10,
+                        left = 5
+                    },
+                    bg = beautiful.transparent,
+                    top = 0,
+                    bottom = 0
+                },
                 helpers.set_space(7),
                 helpers.set_widget_block {
                     widget = helpers.set_widget_block {

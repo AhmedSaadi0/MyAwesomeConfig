@@ -31,6 +31,8 @@ theme.iconfont = "Font Awesome 5 Free Solid 11"
 -------------------------------
 ------------ Colors -----------
 -------------------------------
+theme.accent = "#ff5a5f"
+
 theme.bg_normal = "#f2f2f2"
 theme.widget_bg = "#dddddd"
 theme.bg_focus = "#dddddd"
@@ -44,8 +46,8 @@ theme.fg_minimize = "#ffffff"
 
 theme.useless_gap = dpi(5)
 theme.border_width = dpi(1)
-theme.border_normal = "#ff61d1"
-theme.border_focus = "#174277"
+theme.border_normal = "#272b33"
+theme.border_focus = "#fc595e"
 theme.border_marked = "#7ec7a2"
 
 -- bar widgets colors
@@ -85,7 +87,6 @@ theme.dashboard_box_bg = theme.widget_bg
 theme.dashboard_box_fg = theme.fg_normal
 theme.xcolor2 = theme.fg_normal
 theme.xforeground = theme.fg_normal
-theme.accent = theme.border_focus
 
 theme.tooltip_fg = theme.fg_normal
 theme.tooltip_bg = theme.bg_normal
@@ -96,7 +97,7 @@ theme.tooltip_font = theme.font
 theme.taglist_fg_focus = "#ff5a5f"
 theme.taglist_bg_focus = theme.widget_bg
 
-theme.taglist_fg_urgent = "#e06c75"
+theme.taglist_fg_urgent = "#cc484c"
 theme.taglist_bg_urgent = theme.widget_bg
 
 theme.taglist_fg_occupied = "#087e8b"
@@ -143,16 +144,16 @@ theme.media_button_color = theme.fg_normal
 
 -- widgets --
 -- لعمل حواف مستديرة في الاضافات على الشريط العلوي
-theme.widgets_corner_radius = dpi(15)
+theme.widgets_corner_radius = dpi(0)
 
-theme.bar_active_color = "#0082ba"
+theme.bar_active_color = theme.accent
 theme.bar_color = theme.bar_active_color .. "30"
 theme.bar_handle_color = theme.bar_active_color
 theme.bar_handle_border_color = theme.bar_active_color
 
 theme.widget_height = dpi(25)
 
-theme.slider_color = "#0082ba"
+theme.slider_color = theme.accent
 theme.slider_background_color = theme.slider_color .. "30"
 theme.slider_forced_height = dpi(1)
 
@@ -164,7 +165,7 @@ theme.bar_shape = function(cr, w, h)
 end
 
 -- Volume & Brightness widget
-theme.vol_bar_active_color = "#0082ba"
+theme.vol_bar_active_color = theme.accent
 theme.vol_bar_handle_color = theme.vol_bar_active_color
 theme.vol_handle_border_color = theme.vol_bar_active_color
 theme.vol_bar_height = dpi(35)
@@ -237,7 +238,7 @@ theme.awesome_icon = theme_assets.awesome_icon(theme.menu_height, theme.bg_focus
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 theme.icon_theme = nil
 -- panal icons
-theme.icons = require("themes.icons-light")
+theme.icons = require("themes.icons-light-red")
 
 theme.dynamic_wallpaper_dir = "themes/light-wallpapers//"
 theme.conky_script = "/configuration/conky-light.sh"

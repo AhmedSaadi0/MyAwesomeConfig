@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   style="clip-rule:evenodd;fill-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2"
+   version="1.1"
+   viewBox="0 0 48 48"
+   id="svg1042"
+   sodipodi:docname="new-notif.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1044"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="8.65625"
+     inkscape:cx="26.801444"
+     inkscape:cy="24.028881"
+     inkscape:window-width="1898"
+     inkscape:window-height="1024"
+     inkscape:window-x="10"
+     inkscape:window-y="44"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg1042" />
+  <path
+     d="m17.387 45.391l3.91-5.484h17.453s4.968 0.082 4.968-7.006v-22.292c-0.313-4.851-4.714-5.223-4.714-5.223h-29.298s-5.424 0.318-5.502 5.605v21.91c9e-3 6.902 5.502 7.006 5.502 7.006h2.578l3.523 5.463c0.767 0.894 0.778 0.777 1.58 0.021z"
+     style="fill-opacity:.67"
+     id="path1024" />
+  <path
+     d="m17.387 44.002l3.91-5.484h17.453s4.968 0.081 4.968-7.006v-22.293c-0.313-4.851-4.714-5.223-4.714-5.223h-29.298s-5.424 0.318-5.502 5.606v21.91c9e-3 6.902 5.502 7.006 5.502 7.006h2.578l3.523 5.462c0.767 0.895 0.778 0.778 1.58 0.022z"
+     style="fill:url(#_Linear1);opacity:1;filter:url(#filter1879)"
+     id="path1026" />
+  <circle
+     cx="32.84"
+     cy="6.821"
+     r="5.728"
+     style="fill:url(#_Linear2)"
+     id="circle1028" />
+  <defs
+     id="defs1040">
+    <linearGradient
+       id="_Linear1"
+       x2="1"
+       gradientTransform="matrix(.799284 -39.6049 39.6049 .799284 498.134 53.5618)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         style="stop-color:#888"
+         offset="0"
+         id="stop1030" />
+      <stop
+         style="stop-color:#fefeff"
+         offset="1"
+         id="stop1032" />
+    </linearGradient>
+    <linearGradient
+       id="_Linear2"
+       x2="1"
+       gradientTransform="matrix(7.01453e-16,-11.4556,11.4556,7.01453e-16,87.5702,12.5494)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         style="stop-color:#05f"
+         offset="0"
+         id="stop1035" />
+      <stop
+         style="stop-color:#00a0ff"
+         offset="1"
+         id="stop1037" />
+    </linearGradient>
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter1879"
+       x="-0.9378313"
+       y="-0.91241654"
+       width="2.8756626"
+       height="2.8248331">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="15.440611"
+         id="feGaussianBlur1881" />
+    </filter>
+  </defs>
+</svg>

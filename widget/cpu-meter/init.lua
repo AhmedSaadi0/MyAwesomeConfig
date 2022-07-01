@@ -4,6 +4,7 @@ local beautiful = require("beautiful")
 local watch = require("awful.widget.watch")
 local dpi = beautiful.xresources.apply_dpi
 local icons = beautiful.icons
+local helpers = require("helpers")
 
 local total_prev = 0
 local idle_prev = 0
@@ -49,38 +50,43 @@ watch(
 	end
 )
 
-local cpu_meter =
-	wibox.widget {
-	{
-		{
-			{
-				image = icons.chart,
-				resize = true,
-				widget = wibox.widget.imagebox
-			},
-			point = function(geo, args)
-				return {
-					x = args.parent.width - geo.width,
-					y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
-				}
-			end,
-			top = dpi(12),
-			bottom = dpi(12),
-			widget = wibox.container.margin
-		},
-		{
-			slider,
-			top = dpi(20),
-			bottom = dpi(12),
-			right = dpi(40),
-			widget = wibox.container.margin
-		},
-		layout = wibox.layout.manual
-	},
-	left = dpi(24),
-	right = dpi(24),
-	forced_height = dpi(48),
-	widget = wibox.container.margin
+-- local cpu_meter =
+-- 	wibox.widget {
+-- 	{
+-- 		{
+-- 			{
+-- 				image = icons.chart,
+-- 				resize = true,
+-- 				widget = wibox.widget.imagebox
+-- 			},
+-- 			point = function(geo, args)
+-- 				return {
+-- 					x = args.parent.width - geo.width,
+-- 					y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
+-- 				}
+-- 			end,
+-- 			top = dpi(12),
+-- 			bottom = dpi(12),
+-- 			widget = wibox.container.margin
+-- 		},
+-- 		{
+-- 			slider,
+-- 			top = dpi(20),
+-- 			bottom = dpi(12),
+-- 			right = dpi(40),
+-- 			widget = wibox.container.margin
+-- 		},
+-- 		layout = wibox.layout.manual
+-- 	},
+-- 	left = dpi(24),
+-- 	right = dpi(24),
+-- 	forced_height = dpi(48),
+-- 	widget = wibox.container.margin
+-- }
+
+local cpu_meter = helpers.create_slider_meter_widget {
+	image = icons.chart,
+	slider = slider,
 }
 
 return cpu_meter

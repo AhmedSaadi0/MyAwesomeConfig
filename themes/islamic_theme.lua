@@ -31,6 +31,9 @@ theme.iconfont = "Font Awesome 5 Free Solid 11"
 -------------------------------
 ------------ Colors -----------
 -------------------------------
+theme.accent = "#f1dc6e"
+
+
 theme.bg_normal = "#012549"
 theme.widget_bg = "#011426"
 theme.bg_focus = "#16161e"
@@ -57,13 +60,18 @@ theme.keyboard_icon_bg_color = "#8744cb" -- "#aaaaff"
 theme.keyboard_icon_fg_color = theme.widget_bg -- "#aaaaff"
 theme.keyboard_text_color = theme.widget_bg -- "#aaaaff"
 
-theme.cpu_color = "#ff79c6"
-theme.cpu_icon_color = "#5e81ac" --"#ff79c6"
+theme.cpu_color = "#e2ad57"
+theme.cpu_icon_color = "#e2ad57" --"#ff79c6"
 
 theme.net_speed_color = "#ff5558"
 theme.net_speed_icon_bg_color = "#b83d3f" -- "#00efd1"
 theme.net_speed_icon_fg_color = theme.widget_bg
 theme.net_speed_text_color = theme.net_speed_icon_fg_color
+
+theme.cpu_temp_color = "#e2ad57"
+theme.cpu_temp_icon_bg_color = "#c8994d" -- "#00efd1"
+theme.cpu_temp_icon_fg_color = theme.widget_bg
+theme.cpu_temp_text_color = theme.net_speed_icon_fg_color
 
 theme.brightness_cr_color = "#7aa2f7"
 theme.brightness_icon_bg_color = "#668ee3" -- "#ffaaff"
@@ -79,7 +87,7 @@ theme.battery_hover_color = "#92a0bd" -- "#ffaf5f"
 theme.clock_color = "#f1dc6e"
 theme.clock_icon_bg_color = "#b1a151"
 theme.clock_icon_fg_color = theme.widget_bg
-theme.clock_text_color =theme.widget_bg --"#f1dc6e"
+theme.clock_text_color =theme.widget_bg 
 
 theme.dashboard_box_bg = theme.widget_bg
 theme.dashboard_box_fg = theme.fg_normal
@@ -93,7 +101,7 @@ theme.tooltip_bg = theme.bg_normal
 ------------ Taglist -----------
 --------------------------------
 -- TAG List
-theme.taglist_fg_focus = "#f1dc6e"
+theme.taglist_fg_focus = theme.accent
 theme.taglist_bg_focus = theme.widget_bg
 
 theme.taglist_fg_urgent = "#e06c75"
@@ -116,7 +124,8 @@ theme.systray_max_rows = dpi(1)
 -- Panal --
 theme.panal_hight = dpi(32)
 theme.panal_border_width = dpi(0)
-theme.groups_radius = dpi(12)
+-- درجة دوران حواف بعض الاشياء مثل الاشعارات واشعار الصوت والسطوع
+theme.groups_radius = dpi(10)
 
 -- Control Panal and notification panal
 theme.control_panal_hight = dpi(870)
@@ -134,15 +143,14 @@ theme.background = theme.bg_normal
 
 theme.transparent = "#00000000"
 
-theme.accent = theme.border_focus
-theme.media_button_color = "#f1dc6e"
+theme.media_button_color = theme.accent
 
 -- widgets --
 -- لعمل حواف مستديرة في الاضافات على الشريط العلوي
-theme.widgets_corner_radius = dpi(15)
+theme.widgets_corner_radius = dpi(0)
 
 -- لون وخصائص شريط تعديل الاضاءة والصوت في الاشعارات
-theme.bar_active_color = "#f1dc6e"
+theme.bar_active_color = theme.accent
 theme.bar_color = theme.bar_active_color .. "30"
 theme.bar_handle_color = theme.bar_active_color
 theme.bar_handle_border_color = theme.bar_active_color
@@ -154,12 +162,12 @@ theme.bar_shape = function(cr, w, h)
 end
 
 -- لون وخصائص شريط عرض المعالج والرام في الاشعارات
-theme.slider_color = "#f1dc6e"
+theme.slider_color = theme.accent
 theme.slider_background_color = theme.slider_color .. "30"
 theme.slider_forced_height = dpi(1)
 
 -- Volume & Brightness widget
-theme.vol_bar_active_color = "#f1dc6e"
+theme.vol_bar_active_color = theme.accent
 theme.vol_bar_handle_color = theme.vol_bar_active_color
 theme.vol_handle_border_color = theme.vol_bar_active_color
 theme.vol_bar_height = dpi(35)
@@ -190,6 +198,7 @@ theme.notification_bg = theme.bg_normal
 theme.notification_border_focus = theme.border_focus
 theme.notification_border_width = dpi(0)
 theme.notification_spacing = dpi(30)
+
 
 theme.center_notification_border_focus = theme.border_focus
 theme.center_notification_border_width = dpi(0)
