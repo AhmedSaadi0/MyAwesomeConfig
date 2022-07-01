@@ -6,12 +6,13 @@ local watch = require("awful.widget.watch")
 local icons = beautiful.icons
 
 local dpi = beautiful.xresources.apply_dpi
+local helpers = require("helpers")
 
 local slider =
 	wibox.widget {
 	nil,
 	{
-		id = "hdd_usage",
+		id = "core",
 		max_value = 100,
 		value = 29,
 		forced_height = beautiful.slider_forced_height,
@@ -30,43 +31,49 @@ watch(
 	10,
 	function(_, stdout)
 		local space_consumed = stdout:match("(%d+)")
-		slider.hdd_usage:set_value(tonumber(space_consumed))
+		slider.core:set_value(tonumber(space_consumed))
 		collectgarbage("collect")
 	end
 )
 
-local harddrive_meter =
-	wibox.widget {
-	{
-		{
-			{
-				image = icons.harddisk,
-				resize = true,
-				widget = wibox.widget.imagebox
-			},
-			point = function(geo, args)
-				return {
-					x = args.parent.width - geo.width,
-					y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
-				}
-			end,
-			top = dpi(12),
-			bottom = dpi(12),
-			widget = wibox.container.margin
-		},
-		{
-			slider,
-			top = dpi(20),
-			bottom = dpi(12),
-			right = dpi(40),
-			widget = wibox.container.margin
-		},
-		layout = wibox.layout.manual
-	},
-	left = dpi(24),
-	right = dpi(24),
-	forced_height = dpi(48),
-	widget = wibox.container.margin
+-- local harddrive_meter =
+-- 	wibox.widget {
+-- 	{
+-- 		{
+-- 			{
+-- 				image = icons.harddisk,
+-- 				resize = true,
+-- 				widget = wibox.widget.imagebox
+-- 			},
+-- 			point = function(geo, args)
+-- 				return {
+-- 					x = args.parent.width - geo.width,
+-- 					y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
+-- 				}
+-- 			end,
+-- 			top = dpi(12),
+-- 			bottom = dpi(12),
+-- 			widget = wibox.container.margin
+-- 		},
+-- 		{
+-- 			slider,
+-- 			top = dpi(20),
+-- 			bottom = dpi(12),
+-- 			right = dpi(40),
+-- 			widget = wibox.container.margin
+-- 		},
+-- 		layout = wibox.layout.manual
+-- 	},
+-- 	left = dpi(24),
+-- 	right = dpi(24),
+-- 	forced_height = dpi(48),
+-- 	widget = wibox.container.margin
+-- }
+
+local harddrive_meter = helpers.create_slider_meter_widget {
+	image = icons.harddisk,
+	slider = slider,
 }
+
 
 return harddrive_meter

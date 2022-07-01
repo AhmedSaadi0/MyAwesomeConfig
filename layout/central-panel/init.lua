@@ -95,7 +95,9 @@ local central_panel = function(s)
 		fg = beautiful.fg_normal,
 		border_width = beautiful.control_border_width,
 		border_color = beautiful.control_border_color,
-		shape = gears.shape.rounded_rect
+		shape = function(cr, width, height)
+            gears.shape.rounded_rect(cr, width, height, beautiful.groups_radius)
+        end
 	}
 
 	awful.placement.centered(

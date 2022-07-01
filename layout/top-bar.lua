@@ -295,6 +295,7 @@ awful.screen.connect_for_each_screen(
             require("widget.cpu")(
             {
                 width = 90,
+                border_width = 1,
                 step_width = 2,
                 step_spacing = 0,
                 color = beautiful.cpu_color,
@@ -323,6 +324,7 @@ awful.screen.connect_for_each_screen(
         s.bat = require("widget.battery.init")()
 
         s.temp = require("widget.temp") {
+            border_width = dpi(1),
             tooltip_border_color = beautiful.cpu_temp_color,
             -- tooltip_bg = beautiful.cpu_temp_color,
             -- tooltip_fg = beautiful.cpu_temp_icon_fg_color,
@@ -367,8 +369,8 @@ awful.screen.connect_for_each_screen(
                         right = 2
                     },
                     bg = beautiful.transparent,
-                    top = 5
-                    -- bottom = 5
+                    top = 4
+                    -- bottom = 4
                 },
                 s.tray_toggler,
                 helpers.set_space(6),
@@ -385,8 +387,8 @@ awful.screen.connect_for_each_screen(
                         right = 2
                     },
                     bg = beautiful.transparent,
-                    top = 5,
-                    bottom = 5
+                    top = 4,
+                    bottom = 4
                 },
                 helpers.set_widget_block {
                     widget = helpers.set_widget_block {
@@ -399,8 +401,8 @@ awful.screen.connect_for_each_screen(
                     },
                     bg = beautiful.transparent,
                     font = beautiful.iconfont,
-                    top = 5,
-                    bottom = 5
+                    top = 4,
+                    bottom = 4
                 },
                 helpers.set_space(7),
                 ---------------
@@ -416,8 +418,8 @@ awful.screen.connect_for_each_screen(
                         right = 5
                     },
                     bg = beautiful.transparent,
-                    top = 5,
-                    bottom = 5
+                    top = 4,
+                    bottom = 4
                 },
                 helpers.set_widget_block {
                     widget = helpers.set_widget_block {
@@ -428,8 +430,8 @@ awful.screen.connect_for_each_screen(
                         left = 5
                     },
                     bg = beautiful.transparent,
-                    top = 5,
-                    bottom = 5
+                    top = 4,
+                    bottom = 4
                 },
                 helpers.set_space(7),
                 ----------------
@@ -445,8 +447,8 @@ awful.screen.connect_for_each_screen(
                         right = 5
                     },
                     bg = beautiful.transparent,
-                    top = 5,
-                    bottom = 5
+                    top = 4,
+                    bottom = 4
                 },
                 helpers.set_widget_block {
                     widget = helpers.set_widget_block {
@@ -458,8 +460,8 @@ awful.screen.connect_for_each_screen(
                         left = 5
                     },
                     bg = beautiful.transparent,
-                    top = 5,
-                    bottom = 5
+                    top = 4,
+                    bottom = 4
                 },
                 helpers.set_space(7),
                 -------------
@@ -475,8 +477,8 @@ awful.screen.connect_for_each_screen(
                         right = 3
                     },
                     bg = beautiful.transparent,
-                    top = 5,
-                    bottom = 5
+                    top = 4,
+                    bottom = 4
                 },
                 helpers.set_widget_block {
                     widget = helpers.set_widget_block {
@@ -487,8 +489,8 @@ awful.screen.connect_for_each_screen(
                         left = 8
                     },
                     bg = beautiful.transparent,
-                    top = 5,
-                    bottom = 5
+                    top = 4,
+                    bottom = 4
                 }
             },
             ---------------------------------
@@ -526,8 +528,8 @@ awful.screen.connect_for_each_screen(
                         shape = helpers.rrect(beautiful.widgets_corner_radius)
                     },
                     bg = beautiful.transparent,
-                    top = 1,
-                    bottom = 1
+                    top = 0,
+                    bottom = 0
                 },
                 widget = wibox.container.background,
                 point = function(geo, args)
@@ -608,8 +610,8 @@ awful.screen.connect_for_each_screen(
                         widget = s.mytaglist,
                         shape = helpers.rrect(beautiful.widgets_corner_radius)
                     },
-                    -- top = 5,
-                    -- bottom = 5,
+                    -- top = 4,
+                    -- bottom = 4,
                     bg = beautiful.transparent
                 },
                 -- s.mypromptbox,

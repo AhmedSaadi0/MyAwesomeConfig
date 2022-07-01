@@ -33,7 +33,6 @@ theme.iconfont = "Font Awesome 5 Free Solid 11"
 -------------------------------
 theme.accent = "#f1dc6e"
 
-
 theme.bg_normal = "#012549"
 theme.widget_bg = "#011426"
 theme.bg_focus = "#16161e"
@@ -48,7 +47,7 @@ theme.fg_minimize = "#ffffff"
 theme.useless_gap = dpi(5)
 theme.border_width = dpi(1)
 theme.border_normal = "#e06c75"
-theme.border_focus = "#258eff"
+theme.border_focus = "#f1dc6e"
 theme.border_marked = "#7ec7a2"
 
 -- colors
@@ -63,15 +62,15 @@ theme.keyboard_text_color = theme.widget_bg -- "#aaaaff"
 theme.cpu_color = "#e2ad57"
 theme.cpu_icon_color = "#e2ad57" --"#ff79c6"
 
+theme.cpu_temp_color = "#e2ad57"
+theme.cpu_temp_icon_bg_color = "#c8994d" -- "#00efd1"
+theme.cpu_temp_icon_fg_color = theme.widget_bg
+theme.cpu_temp_text_color = theme.cpu_temp_icon_fg_color
+
 theme.net_speed_color = "#ff5558"
 theme.net_speed_icon_bg_color = "#b83d3f" -- "#00efd1"
 theme.net_speed_icon_fg_color = theme.widget_bg
 theme.net_speed_text_color = theme.net_speed_icon_fg_color
-
-theme.cpu_temp_color = "#e2ad57"
-theme.cpu_temp_icon_bg_color = "#c8994d" -- "#00efd1"
-theme.cpu_temp_icon_fg_color = theme.widget_bg
-theme.cpu_temp_text_color = theme.net_speed_icon_fg_color
 
 theme.brightness_cr_color = "#7aa2f7"
 theme.brightness_icon_bg_color = "#668ee3" -- "#ffaaff"
@@ -87,7 +86,7 @@ theme.battery_hover_color = "#92a0bd" -- "#ffaf5f"
 theme.clock_color = "#f1dc6e"
 theme.clock_icon_bg_color = "#b1a151"
 theme.clock_icon_fg_color = theme.widget_bg
-theme.clock_text_color =theme.widget_bg 
+theme.clock_text_color = theme.widget_bg
 
 theme.dashboard_box_bg = theme.widget_bg
 theme.dashboard_box_fg = theme.fg_normal
@@ -129,8 +128,8 @@ theme.groups_radius = dpi(10)
 
 -- Control Panal and notification panal
 theme.control_panal_hight = dpi(870)
-theme.control_border_width = dpi(0)
-theme.control_border_color = dpi(0)
+theme.control_border_width = dpi(1)
+theme.control_border_color = theme.border_focus
 
 -- حواف حول اضافات الاشعارات
 theme.slider_inner_border_color = "#458588"
@@ -147,7 +146,7 @@ theme.media_button_color = theme.accent
 
 -- widgets --
 -- لعمل حواف مستديرة في الاضافات على الشريط العلوي
-theme.widgets_corner_radius = dpi(0)
+theme.widgets_corner_radius = dpi(10)
 
 -- لون وخصائص شريط تعديل الاضاءة والصوت في الاشعارات
 theme.bar_active_color = theme.accent
@@ -198,7 +197,6 @@ theme.notification_bg = theme.bg_normal
 theme.notification_border_focus = theme.border_focus
 theme.notification_border_width = dpi(0)
 theme.notification_spacing = dpi(30)
-
 
 theme.center_notification_border_focus = theme.border_focus
 theme.center_notification_border_width = dpi(0)
@@ -253,6 +251,5 @@ theme.dark_theme = "islamic_theme"
 
 theme.plasma_cursors = "ArcStarry-cursors"
 theme.plasma_color = "Tellgo.colors"
-
 
 return theme

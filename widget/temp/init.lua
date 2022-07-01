@@ -45,9 +45,9 @@ end
 local function factory(args)
     local font = args.font or beautiful.uifont
     local header_bg = args.header_bg or beautiful.header_bg
-    local bg = args.bg or beautiful.groups_bg
-    local border_width = args.border_width or beautiful.slider_inner_border_width
-    local border_color = args.border_color or beautiful.slider_inner_border_color
+    local bg = args.bg or beautiful.bg_normal
+    local border_width = args.border_width or beautiful.border_width
+    local border_color = args.border_color or beautiful.border_focus
 
     local shape = args.shape or function(cr, width, height)
             gears.shape.rounded_rect(cr, width, height, beautiful.groups_radius)
@@ -164,8 +164,6 @@ local function factory(args)
             },
             bg = bg,
             -- shape = shape,
-            border_width = border_width,
-            border_color = border_color,
             widget = wibox.container.background
         }
     }
@@ -174,9 +172,9 @@ local function factory(args)
         awful.popup {
         ontop = true,
         visible = false,
-        shape = gears.shape.squar,
+        shape = shape,
         border_width = 1,
-        border_color = beautiful.border_focus,
+        border_color = border_color,
         maximum_width = 300,
         offset = {y = 10},
         widget = detailed_widget

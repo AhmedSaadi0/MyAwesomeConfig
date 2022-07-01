@@ -13,6 +13,7 @@ local watch = require("awful.widget.watch")
 local wibox = require("wibox")
 local beautiful = require("beautiful")
 local gears = require("gears")
+local dpi = beautiful.xresources.apply_dpi
 
 local CMD =
     [[sh -c "grep '^cpu.' /proc/stat; ps -eo '%p|%c|%C|' -o "%mem" -o '|%a' --sort=-%cpu ]] ..
@@ -102,6 +103,25 @@ local function worker(user_args)
     local enable_kill_button = args.enable_kill_button or false
     local process_info_max_length = args.process_info_max_length or -1
     local timeout = args.timeout or 1
+    local header_bg = args.header_bg or beautiful.header_bg
+
+    local border_width = args.border_width or beautiful.border_width
+    local border_color = args.border_color or beautiful.border_focus
+
+    local font = args.font or beautiful.uifont
+
+    local shape = args.shape or function(cr, width, height)
+            gears.shape.rounded_rect(cr, width, height, beautiful.groups_radius)
+        end
+
+    local hardware_header =
+        wibox.widget {
+        text = "استخدام المعالج",
+        font = font,
+        align = "center",
+        valign = "center",
+        widget = wibox.widget.textbox
+    }
 
     local cpugraph_widget =
         wibox.widget {
@@ -118,9 +138,9 @@ local function worker(user_args)
         awful.popup {
         ontop = true,
         visible = false,
-        shape = gears.shape.squar,
-        border_width = 1,
-        border_color = beautiful.border_focus,
+        shape = shape,
+        border_width = border_width,
+        border_color = border_color,
         maximum_width = 300,
         offset = {y = 10},
         widget = {}
@@ -320,20 +340,35 @@ local function worker(user_args)
                 end
             end
             popup:setup {
+                layout = wibox.layout.fixed.vertical,
                 {
-                    cpu_rows,
                     {
-                        orientation = "horizontal",
-                        forced_height = 15,
-                        color = beautiful.bg_focus,
-                        widget = wibox.widget.separator
+                        hardware_header,
+                        left = dpi(24),
+                        top = dpi(15),
+                        bottom = dpi(15),
+                        right = dpi(24),
+                        widget = wibox.container.margin
                     },
-                    create_process_header {with_action_column = enable_kill_button},
-                    process_rows,
-                    layout = wibox.layout.fixed.vertical
+                    bg = header_bg,
+                    widget = wibox.container.background
                 },
-                margins = 8,
-                widget = wibox.container.margin
+                {
+                    {
+                        cpu_rows,
+                        {
+                            orientation = "horizontal",
+                            forced_height = 15,
+                            color = beautiful.bg_focus,
+                            widget = wibox.widget.separator
+                        },
+                        create_process_header {with_action_column = enable_kill_button},
+                        process_rows,
+                        layout = wibox.layout.fixed.vertical
+                    },
+                    margins = 8,
+                    widget = wibox.container.margin
+                }
             }
         end,
         cpugraph_widget

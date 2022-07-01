@@ -13,7 +13,7 @@ local slider =
 	wibox.widget {
 	nil,
 	{
-		id = "cpu_usage",
+		id = "core",
 		max_value = 100,
 		value = 29,
 		forced_height = beautiful.slider_forced_height,
@@ -42,7 +42,7 @@ watch(
 		local diff_total = total - total_prev
 		local diff_usage = (1000 * (diff_total - diff_idle) / diff_total + 5) / 10
 
-		slider.cpu_usage:set_value(diff_usage)
+		slider.core:set_value(math.floor(diff_usage))
 
 		total_prev = total
 		idle_prev = idle

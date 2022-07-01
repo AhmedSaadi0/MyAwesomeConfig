@@ -5,13 +5,14 @@ local beautiful = require("beautiful")
 local watch = awful.widget.watch
 local dpi = beautiful.xresources.apply_dpi
 local icons = beautiful.icons
+local helpers = require("helpers")
 
 local slider =
 	wibox.widget {
 	nil,
 	{
-		id = "temp_status",
-		max_value = 200,
+		id = "core",
+		max_value = 100,
 		value = 29,
 		forced_height = beautiful.slider_forced_height,
 		color = beautiful.slider_color,
@@ -56,45 +57,51 @@ awful.spawn.easy_async_with_shell(
 			10,
 			function(_, stdout)
 				local temp = stdout:match("(%d+)")
-				slider.temp_status:set_value((temp / 1000) / max_temp * 100)
+				slider.core:set_value((temp / 1000) / max_temp * 100)
 				collectgarbage("collect")
 			end
 		)
 	end
 )
 
+-- local temperature_meter =
+-- 	wibox.widget {
+-- 	{
+-- 		{
+-- 			{
+-- 				image = icons.thermometer,
+-- 				resize = true,
+-- 				widget = wibox.widget.imagebox
+-- 			},
+-- 			point = function(geo, args)
+-- 				return {
+-- 					x = args.parent.width - geo.width,
+-- 					y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
+-- 				}
+-- 			end,
+-- 			top = dpi(12),
+-- 			bottom = dpi(12),
+-- 			widget = wibox.container.margin
+-- 		},
+-- 		{
+-- 			slider,
+-- 			top = dpi(20),
+-- 			bottom = dpi(12),
+-- 			right = dpi(40),
+-- 			widget = wibox.container.margin
+-- 		},
+-- 		layout = wibox.layout.manual
+-- 	},
+-- 	left = dpi(24),
+-- 	right = dpi(24),
+-- 	forced_height = dpi(48),
+-- 	widget = wibox.container.margin
+-- }
+
 local temperature_meter =
-	wibox.widget {
-	{
-		{
-			{
-				image = icons.thermometer,
-				resize = true,
-				widget = wibox.widget.imagebox
-			},
-			point = function(geo, args)
-				return {
-					x = args.parent.width - geo.width,
-					y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
-				}
-			end,
-			top = dpi(12),
-			bottom = dpi(12),
-			widget = wibox.container.margin
-		},
-		{
-			slider,
-			top = dpi(20),
-			bottom = dpi(12),
-			right = dpi(40),
-			widget = wibox.container.margin
-		},
-		layout = wibox.layout.manual
-	},
-	left = dpi(24),
-	right = dpi(24),
-	forced_height = dpi(48),
-	widget = wibox.container.margin
+	helpers.create_slider_meter_widget {
+	image = icons.thermometer,
+	slider = slider
 }
 
 return temperature_meter

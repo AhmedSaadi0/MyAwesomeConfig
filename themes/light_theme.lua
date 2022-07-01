@@ -62,6 +62,11 @@ theme.keyboard_text_color = theme.widget_bg -- "#aaaaff"
 theme.cpu_color = "#5e81ac" --"#ff79c6"
 theme.cpu_icon_color = "#5e81ac" --"#ff79c6"
 
+theme.cpu_temp_color = "#e2ad57"
+theme.cpu_temp_icon_bg_color = "#c8994d" -- "#00efd1"
+theme.cpu_temp_icon_fg_color = "#282c34"
+theme.cpu_temp_text_color = theme.cpu_temp_icon_fg_color
+
 theme.net_speed_color = "#83c1a6" -- "#00efd1"
 theme.net_speed_icon_bg_color = "#74ab92" -- "#00efd1"
 theme.net_speed_icon_fg_color = "#282c34"
@@ -127,8 +132,8 @@ theme.groups_radius = dpi(12)
 -------------- Control Panal and notification panal ------------
 ----------------------------------------------------------------
 theme.control_panal_hight = dpi(870)
-theme.control_border_width = dpi(0)
-theme.control_border_color = dpi(0)
+theme.control_border_width = dpi(1)
+theme.control_border_color = theme.border_focus
 
 -- Control panal widgets - الاعدادت السريعة واستخدام الاجهزة وغيرها 
 theme.slider_inner_border_color = theme.border_focus
@@ -144,7 +149,7 @@ theme.media_button_color = theme.fg_normal
 
 -- widgets --
 -- لعمل حواف مستديرة في الاضافات على الشريط العلوي
-theme.widgets_corner_radius = dpi(0)
+theme.widgets_corner_radius = dpi(10)
 
 theme.bar_active_color = theme.accent
 theme.bar_color = theme.bar_active_color .. "30"

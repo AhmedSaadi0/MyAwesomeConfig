@@ -216,6 +216,17 @@ function helpers.create_slider_meter_widget(args)
         widget = wibox.container.margin
     }
 
+    local myclock_t = awful.tooltip {}
+
+    myclock_t:add_to_object(cpu_meter)
+
+    cpu_meter:connect_signal(
+        "mouse::enter",
+        function()
+            myclock_t.text = slider.core:get_value()
+        end
+    )
+
     return cpu_meter
 end
 
