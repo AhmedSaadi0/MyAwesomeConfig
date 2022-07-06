@@ -326,13 +326,15 @@ awful.screen.connect_for_each_screen(
         s.temp =
             require("widget.temp") {
             border_width = dpi(1),
-            tooltip_border_color = beautiful.cpu_temp_color
+            tooltip_border_color = beautiful.cpu_temp_color,
             -- tooltip_bg = beautiful.cpu_temp_color,
             -- tooltip_fg = beautiful.cpu_temp_icon_fg_color,
         }
-        s.weather = require("widget.wttr-weather") {
+        s.weather =
+            require("widget.wttr-weather") {
             widget_bg = beautiful.weather_color,
-            widget_fg = beautiful.weather_icon_fg_color
+            widget_fg = beautiful.weather_icon_fg_color,
+            -- city = "Cairo",
         }
 
         s.power_button =

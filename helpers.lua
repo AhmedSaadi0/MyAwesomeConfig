@@ -19,6 +19,8 @@ function helpers.set_widget_block(args)
     local bg = args.bg or beautiful.widget_bg
     local font = args.font or beautiful.iconfont
 
+    local visible = args.visible
+
     local bgimage = args.bgimage or nil
 
     local block = {
@@ -34,6 +36,7 @@ function helpers.set_widget_block(args)
         bgimage = bgimage,
         fg = fg,
         bg = bg,
+        visible = visible,
         font = font,
         widget = wibox.container.background
     }
@@ -254,12 +257,17 @@ function helpers.add_margin(args)
     local left = args.left or dpi(0)
     local right = args.right or dpi(0)
 
+    local visible = args.visible
+    local id = args.id
+
     local margin = {
         widget,
+        id = id,
         top = top,
         bottom = bottom,
         left = left,
         right = right,
+        visible = visible,
         widget = wibox.container.margin
     }
     return margin
@@ -268,6 +276,8 @@ end
 function helpers.create_weather_detailed(args)
     local text_font = args.font or beautiful.uifont
     local icon_font = args.font or beautiful.iconfont
+
+    local visible = args.visible
 
     local temperature_id = args.temperature_id or "temperature_id"
     local sky_status_id = args.sky_status_id or "sky_status_id"
@@ -282,6 +292,7 @@ function helpers.create_weather_detailed(args)
     local weather_details =
         wibox.widget {
         layout = wibox.layout.manual,
+        visible = visible,
         forced_height = dpi(110),
         forced_width = dpi(250),
         {
@@ -304,14 +315,14 @@ function helpers.create_weather_detailed(args)
                     end,
                     layout = wibox.layout.fixed.vertical,
                     {
-                        text = "02:43",
+                        text = "",
                         font = "JF Flat 20",
                         align = "left",
                         id = temperature_time_id,
                         widget = wibox.widget.textbox
                     },
                     {
-                        text = "الجمعة 8-7",
+                        text = "",
                         font = "JF Flat 11",
                         align = "left",
                         id = temperature_date_id,
@@ -324,7 +335,7 @@ function helpers.create_weather_detailed(args)
                             align = "left",
                             id = sunrise_id,
                             widget = wibox.widget.textbox
-                        },
+                        }
                         -- top = dpi(5)
                     },
                     helpers.add_margin {
@@ -334,7 +345,7 @@ function helpers.create_weather_detailed(args)
                             align = "left",
                             id = moonrise_id,
                             widget = wibox.widget.textbox
-                        },
+                        }
                         -- top = dpi(5)
                     }
                 },
@@ -347,7 +358,7 @@ function helpers.create_weather_detailed(args)
                     end,
                     layout = wibox.layout.fixed.vertical,
                     {
-                        text = "Sana'a",
+                        text = "",
                         font = "JF Flat 11",
                         align = "left",
                         id = temperature_city_id,
@@ -371,7 +382,7 @@ function helpers.create_weather_detailed(args)
                     layout = wibox.layout.fixed.horizontal,
                     helpers.add_margin {
                         widget = {
-                            text = "0",
+                            text = "",
                             id = weather_icon_id,
                             font = icon_font,
                             -- align = "left",
@@ -380,7 +391,7 @@ function helpers.create_weather_detailed(args)
                         right = dpi(5)
                     },
                     {
-                        text = "SKY",
+                        text = "",
                         id = sky_status_id,
                         font = text_font,
                         align = "left",
@@ -388,7 +399,7 @@ function helpers.create_weather_detailed(args)
                     }
                 },
                 {
-                    text = "°0",
+                    text = "",
                     font = "JF Flat 40",
                     align = "right",
                     id = temperature_id,
@@ -396,7 +407,7 @@ function helpers.create_weather_detailed(args)
                 },
                 helpers.add_margin {
                     widget = {
-                        text = "°0/°0",
+                        text = "",
                         font = text_font,
                         align = "right",
                         id = h_l_temperature_id,

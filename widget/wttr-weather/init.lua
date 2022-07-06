@@ -111,8 +111,12 @@ moon_icon_dic["116"] = ""
 moon_icon_dic["113"] = ""
 
 local function factory(args)
+    local city = args.city or beautiful.city or "Sanaa"
+    
     local text_font = args.font or beautiful.uifont
     local icon_font = args.font or beautiful.iconfont
+    
+
     local header_bg = args.header_bg or beautiful.header_bg
 
     local bg = args.bg or beautiful.bg_normal
@@ -123,9 +127,13 @@ local function factory(args)
     local border_width = args.border_width or beautiful.border_width
     local border_color = args.border_color or beautiful.border_focus
 
-    local shape = args.shape or function(cr, width, height)
-            gears.shape.rounded_rect(cr, width, height, beautiful.groups_radius)
-        end
+    local popup_shape = args.popup_shape or function(cr, width, height)
+        gears.shape.rounded_rect(cr, width, height, beautiful.groups_radius)
+    end
+
+    local widget_shape = args.widget_shape or function(cr, width, height)
+        gears.shape.rounded_rect(cr, width, height, beautiful.groups_radius)
+    end
 
     local number_text_widget =
         wibox.widget {
@@ -323,9 +331,200 @@ local function factory(args)
         h_l_temperature_id = "h_l_temperature_id"
     }
 
+    -- Today
+    local widget_1 = helpers.add_margin {
+        widget = helpers.set_widget_block {
+            widget = today_1,
+            shape = widget_shape,
+            bg = widget_bg,
+            fg = widget_fg,
+            top = dpi(10),
+            bottom = dpi(10),
+            left = dpi(10),
+            right = dpi(10)
+        },
+        right = dpi(24)
+    }
+
+    local widget_2 = helpers.add_margin {
+        visible = false,
+        id = "widget_2",
+        widget = helpers.set_widget_block {
+            widget = today_2,
+            shape = widget_shape,
+            bg = widget_bg,
+            fg = widget_fg,
+            top = dpi(10),
+            bottom = dpi(10),
+            left = dpi(10),
+            right = dpi(10)
+        },
+        right = dpi(24)
+    }
+
+    local widget_3 = helpers.add_margin {
+        visible = false,
+        id = "widget_3",
+        widget = helpers.set_widget_block {
+            widget = today_3,
+            shape = widget_shape,
+            bg = widget_bg,
+            fg = widget_fg,
+            top = dpi(10),
+            bottom = dpi(10),
+            left = dpi(10),
+            right = dpi(10)
+        },
+        right = dpi(24)
+    }
+
+    local widget_4 = helpers.add_margin {
+        visible = false,
+        id = "widget_4",
+        right = dpi(24),
+        widget = helpers.set_widget_block {
+            widget = today_4,
+            shape = widget_shape,
+            bg = widget_bg,
+            fg = widget_fg,
+            top = dpi(10),
+            bottom = dpi(10),
+            left = dpi(10),
+            right = dpi(10)
+        }
+    }
+
+    -- Tomorrow
+    local widget_5 = helpers.add_margin {
+        widget = helpers.set_widget_block {
+            widget = tomorrow_1,
+            shape = widget_shape,
+            bg = widget_bg,
+            fg = widget_fg,
+            top = dpi(10),
+            bottom = dpi(10),
+            left = dpi(10),
+            right = dpi(10)
+        },
+        right = dpi(24)
+    }
+
+    local widget_6 = helpers.add_margin {
+        visible = false,
+        id = "widget_6",
+        widget = helpers.set_widget_block {
+            widget = tomorrow_2,
+            shape = widget_shape,
+            bg = widget_bg,
+            fg = widget_fg,
+            top = dpi(10),
+            bottom = dpi(10),
+            left = dpi(10),
+            right = dpi(10)
+        },
+        right = dpi(24)
+    }
+
+    local widget_7 = helpers.add_margin {
+        visible = false,
+        id = "widget_7",
+        widget = helpers.set_widget_block {
+            widget = tomorrow_3,
+            shape = widget_shape,
+            bg = widget_bg,
+            fg = widget_fg,
+            top = dpi(10),
+            bottom = dpi(10),
+            left = dpi(10),
+            right = dpi(10)
+        },
+        right = dpi(24)
+    }
+
+    local widget_8 = helpers.add_margin {
+        visible = false,
+        id = "widget_8",
+        right = dpi(24),
+        widget = helpers.set_widget_block {
+            widget = tomorrow_4,
+            shape = widget_shape,
+            bg = widget_bg,
+            fg = widget_fg,
+            top = dpi(10),
+            bottom = dpi(10),
+            left = dpi(10),
+            right = dpi(10)
+        }
+    }
+
+    -- After Tomorrow
+    local widget_9 = helpers.add_margin {
+        widget = helpers.set_widget_block {
+            widget = after_tomorrow_1,
+            shape = widget_shape,
+            bg = widget_bg,
+            fg = widget_fg,
+            top = dpi(10),
+            bottom = dpi(10),
+            left = dpi(10),
+            right = dpi(10)
+        },
+        right = dpi(24)
+    }
+
+    local widget_10 = helpers.add_margin {
+        visible = false,
+        id = "widget_10",
+        widget = helpers.set_widget_block {
+            widget = after_tomorrow_2,
+            shape = widget_shape,
+            bg = widget_bg,
+            fg = widget_fg,
+            top = dpi(10),
+            bottom = dpi(10),
+            left = dpi(10),
+            right = dpi(10)
+        },
+        right = dpi(24)
+    }
+
+    local widget_11 = helpers.add_margin {
+        visible = false,
+        id = "widget_11",
+        widget = helpers.set_widget_block {
+            widget = after_tomorrow_3,
+            shape = widget_shape,
+            bg = widget_bg,
+            fg = widget_fg,
+            top = dpi(10),
+            bottom = dpi(10),
+            left = dpi(10),
+            right = dpi(10)
+        },
+        right = dpi(24)
+    }
+
+    local widget_12 = helpers.add_margin {
+        visible = false,
+        id = "widget_12",
+        right = dpi(24),
+        widget = helpers.set_widget_block {
+            widget = after_tomorrow_4,
+            shape = widget_shape,
+            bg = widget_bg,
+            fg = widget_fg,
+            top = dpi(10),
+            bottom = dpi(10),
+            left = dpi(10),
+            right = dpi(10)
+        }
+    }
+
+
     local detailed_widget =
         wibox.widget {
         layout = wibox.layout.fixed.vertical,
+        visible = false,
         {
             {
                 {
@@ -343,183 +542,42 @@ local function factory(args)
                 helpers.set_widget_block {
                     widget = {
                         layout = wibox.layout.fixed.horizontal,
-                        helpers.add_margin {
-                            widget = helpers.set_widget_block {
-                                widget = today_1,
-                                shape = helpers.rrect(20),
-                                bg = widget_bg,
-                                fg = widget_fg,
-                                top = dpi(10),
-                                bottom = dpi(10),
-                                left = dpi(10),
-                                right = dpi(10)
-                            },
-                            right = dpi(24)
-                        },
-                        helpers.add_margin {
-                            widget = helpers.set_widget_block {
-                                widget = today_2,
-                                shape = helpers.rrect(20),
-                                bg = widget_bg,
-                                fg = widget_fg,
-                                top = dpi(10),
-                                bottom = dpi(10),
-                                left = dpi(10),
-                                right = dpi(10)
-                            },
-                            right = dpi(24)
-                        },
-                        helpers.add_margin {
-                            widget = helpers.set_widget_block {
-                                widget = today_3,
-                                shape = helpers.rrect(20),
-                                bg = widget_bg,
-                                fg = widget_fg,
-                                top = dpi(10),
-                                bottom = dpi(10),
-                                left = dpi(10),
-                                right = dpi(10)
-                            },
-                            right = dpi(24)
-                        },
-                        helpers.add_margin {
-                            widget = helpers.set_widget_block {
-                                widget = today_4,
-                                shape = helpers.rrect(20),
-                                bg = widget_bg,
-                                fg = widget_fg,
-                                top = dpi(10),
-                                bottom = dpi(10),
-                                left = dpi(10),
-                                right = dpi(10)
-                            }
-                        }
+                        widget_1,
+                        widget_2,
+                        widget_3,
+                        widget_4
                     },
                     top = dpi(24),
                     bottom = dpi(24),
                     left = dpi(24),
-                    right = dpi(24),
+                    -- right = dpi(24),
                     bg = beautiful.transparent
                 },
                 helpers.set_widget_block {
                     widget = {
                         layout = wibox.layout.fixed.horizontal,
-                        helpers.add_margin {
-                            widget = helpers.set_widget_block {
-                                widget = tomorrow_1,
-                                shape = helpers.rrect(20),
-                                bg = widget_bg,
-                                fg = widget_fg,
-                                top = dpi(10),
-                                bottom = dpi(10),
-                                left = dpi(10),
-                                right = dpi(10)
-                            },
-                            right = dpi(24)
-                        },
-                        helpers.add_margin {
-                            widget = helpers.set_widget_block {
-                                widget = tomorrow_2,
-                                shape = helpers.rrect(20),
-                                bg = widget_bg,
-                                fg = widget_fg,
-                                top = dpi(10),
-                                bottom = dpi(10),
-                                left = dpi(10),
-                                right = dpi(10)
-                            },
-                            right = dpi(24)
-                        },
-                        helpers.add_margin {
-                            widget = helpers.set_widget_block {
-                                widget = tomorrow_3,
-                                shape = helpers.rrect(20),
-                                bg = widget_bg,
-                                fg = widget_fg,
-                                top = dpi(10),
-                                bottom = dpi(10),
-                                left = dpi(10),
-                                right = dpi(10)
-                            },
-                            right = dpi(24)
-                        },
-                        helpers.add_margin {
-                            widget = helpers.set_widget_block {
-                                widget = tomorrow_4,
-                                shape = helpers.rrect(20),
-                                bg = widget_bg,
-                                fg = widget_fg,
-                                top = dpi(10),
-                                bottom = dpi(10),
-                                left = dpi(10),
-                                right = dpi(10)
-                            }
-                        }
+                        widget_5,
+                        widget_6,
+                        widget_7,
+                        widget_8,
                     },
                     -- top = dpi(24),
                     bottom = dpi(24),
                     left = dpi(24),
-                    right = dpi(24),
+                    -- right = dpi(24),
                     bg = beautiful.transparent
                 },helpers.set_widget_block {
                     widget = {
                         layout = wibox.layout.fixed.horizontal,
-                        helpers.add_margin {
-                            widget = helpers.set_widget_block {
-                                widget = after_tomorrow_1,
-                                shape = helpers.rrect(20),
-                                bg = widget_bg,
-                                fg = widget_fg,
-                                top = dpi(10),
-                                bottom = dpi(10),
-                                left = dpi(10),
-                                right = dpi(10)
-                            },
-                            right = dpi(24)
-                        },
-                        helpers.add_margin {
-                            widget = helpers.set_widget_block {
-                                widget = after_tomorrow_2,
-                                shape = helpers.rrect(20),
-                                bg = widget_bg,
-                                fg = widget_fg,
-                                top = dpi(10),
-                                bottom = dpi(10),
-                                left = dpi(10),
-                                right = dpi(10)
-                            },
-                            right = dpi(24)
-                        },
-                        helpers.add_margin {
-                            widget = helpers.set_widget_block {
-                                widget = after_tomorrow_3,
-                                shape = helpers.rrect(20),
-                                bg = widget_bg,
-                                fg = widget_fg,
-                                top = dpi(10),
-                                bottom = dpi(10),
-                                left = dpi(10),
-                                right = dpi(10)
-                            },
-                            right = dpi(24)
-                        },
-                        helpers.add_margin {
-                            widget = helpers.set_widget_block {
-                                widget = after_tomorrow_4,
-                                shape = helpers.rrect(20),
-                                bg = widget_bg,
-                                fg = widget_fg,
-                                top = dpi(10),
-                                bottom = dpi(10),
-                                left = dpi(10),
-                                right = dpi(10)
-                            }
-                        }
+                        widget_9,
+                        widget_10,
+                        widget_11,
+                        widget_12,
                     },
                     -- top = dpi(24),
                     bottom = dpi(24),
                     left = dpi(24),
-                    right = dpi(24),
+                    -- right = dpi(24),
                     bg = beautiful.transparent
                 },
                 layout = wibox.layout.fixed.vertical
@@ -534,8 +592,9 @@ local function factory(args)
         awful.popup {
         ontop = true,
         visible = false,
-        shape = shape,
-        border_width = 1,
+        id = "widget_4",
+        shape = popup_shape,
+        border_width = border_width,
         border_color = border_color,
         -- maximum_width = 600,
         offset = {y = 10, x = 100},
@@ -543,7 +602,7 @@ local function factory(args)
     }
 
     watch(
-        "curl ar.wttr.in/'Sanaa?format=j1'",
+        "curl ar.wttr.in/'".. city .."?format=j1'",
         -- "cat w.txt",
         900,
         function(_, stdout)
@@ -552,6 +611,8 @@ local function factory(args)
             end
 
             weather_json = json.parse(stdout)
+            detailed_widget.visible = true
+
 
             local lang_ar = weather_json.current_condition[1].lang_ar[1].value
             local today_time = weather_json.current_condition[1].localObsDateTime
@@ -577,19 +638,38 @@ local function factory(args)
             -- Today Weather 4 defferent times --
             -------------------------------------
             local year, month, day = weather_json.weather[1].date:match("^(%d%d%d%d)-(%d%d)-(%d%d)$")
-            today_1:get_children_by_id("temperature_id")[1]:set_text("°" .. weather_json.weather[1].hourly[2].tempC)
-            today_1:get_children_by_id("sky_status_id")[1]:set_text(weather_json.weather[1].hourly[2].lang_ar[1].value)
-            today_1:get_children_by_id("weather_icon_id")[1]:set_text(moon_icon_dic[weather_json.weather[1].hourly[2].weatherCode])
-            today_1:get_children_by_id("temperature_time_id")[1]:set_text("03:00")
+            today_1:get_children_by_id("temperature_id")[1]:set_text("°" .. weather_json.current_condition[1].temp_C)
+            today_1:get_children_by_id("sky_status_id")[1]:set_text(weather_json.current_condition[1].lang_ar[1].value)
+            today_1:get_children_by_id("weather_icon_id")[1]:set_text(w_icon)
+            today_1:get_children_by_id("temperature_time_id")[1]:set_text(weather_json.current_condition[1].observation_time)
             today_1:get_children_by_id("moonrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].moonrise .. " - " .. weather_json.weather[1].astronomy[1].moonset)
             today_1:get_children_by_id("sunrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset)
             today_1:get_children_by_id("temperature_date_id")[1]:set_text(" " .. os.date("%A") .. " | " .. month .. "/" .. day)
             today_1:get_children_by_id("temperature_city_id")[1]:set_text(city)
             today_1:get_children_by_id("h_l_temperature_id")[1]:set_text("°" .. weather_json.weather[1].maxtempC .. "/°" .. weather_json.weather[1].mintempC)
 
-            today_2:get_children_by_id("temperature_id")[1]:set_text("°" .. weather_json.weather[1].hourly[6].tempC)
-            today_2:get_children_by_id("sky_status_id")[1]:set_text(weather_json.weather[1].hourly[6].lang_ar[1].value)
-            today_2:get_children_by_id("weather_icon_id")[1]:set_text(sun_icon_dic[weather_json.weather[1].hourly[6].weatherCode])
+            -- mouse::enter
+            today_1:connect_signal(
+                "mouse::enter",
+                function()
+                    detailed_widget:get_children_by_id("widget_2")[1].visible = true
+                    detailed_widget:get_children_by_id("widget_3")[1].visible = true
+                    detailed_widget:get_children_by_id("widget_4")[1].visible = true
+                end
+            )
+
+            -- mouse::leave
+            today_1:connect_signal(
+                "mouse::leave",
+                function()
+                    detailed_widget:get_children_by_id("widget_2")[1].visible = false
+                    detailed_widget:get_children_by_id("widget_3")[1].visible = false
+                    detailed_widget:get_children_by_id("widget_4")[1].visible = false
+                end
+            )
+            today_2:get_children_by_id("temperature_id")[1]:set_text("°" .. weather_json.weather[1].hourly[4].tempC)
+            today_2:get_children_by_id("sky_status_id")[1]:set_text(weather_json.weather[1].hourly[4].lang_ar[1].value)
+            today_2:get_children_by_id("weather_icon_id")[1]:set_text(sun_icon_dic[weather_json.weather[1].hourly[4].weatherCode])
             today_2:get_children_by_id("temperature_time_id")[1]:set_text("09:00")
             today_2:get_children_by_id("moonrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].moonrise .. " - " .. weather_json.weather[1].astronomy[1].moonset)
             today_2:get_children_by_id("sunrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset)
@@ -621,9 +701,9 @@ local function factory(args)
             -- Tomorrow Weather 4 defferent times --
             ----------------------------------------
             local year, month, day = weather_json.weather[2].date:match("^(%d%d%d%d)-(%d%d)-(%d%d)$")
-            tomorrow_1:get_children_by_id("temperature_id")[1]:set_text("°" .. weather_json.weather[2].hourly[1].tempC)
-            tomorrow_1:get_children_by_id("sky_status_id")[1]:set_text(weather_json.weather[2].hourly[1].lang_ar[1].value)
-            tomorrow_1:get_children_by_id("weather_icon_id")[1]:set_text(moon_icon_dic[weather_json.weather[2].hourly[1].weatherCode])
+            tomorrow_1:get_children_by_id("temperature_id")[1]:set_text("°" .. weather_json.weather[2].hourly[3].tempC)
+            tomorrow_1:get_children_by_id("sky_status_id")[1]:set_text(weather_json.weather[2].hourly[2].lang_ar[1].value)
+            tomorrow_1:get_children_by_id("weather_icon_id")[1]:set_text(moon_icon_dic[weather_json.weather[2].hourly[2].weatherCode])
             tomorrow_1:get_children_by_id("temperature_time_id")[1]:set_text("03:00")
             tomorrow_1:get_children_by_id("moonrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].moonrise .. " - " .. weather_json.weather[1].astronomy[1].moonset)
             tomorrow_1:get_children_by_id("sunrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset)
@@ -631,9 +711,29 @@ local function factory(args)
             tomorrow_1:get_children_by_id("temperature_city_id")[1]:set_text(city)
             tomorrow_1:get_children_by_id("h_l_temperature_id")[1]:set_text("°" .. weather_json.weather[2].maxtempC .. "/°" .. weather_json.weather[2].mintempC)
 
-            tomorrow_2:get_children_by_id("temperature_id")[1]:set_text("°" .. weather_json.weather[2].hourly[2].tempC)
-            tomorrow_2:get_children_by_id("sky_status_id")[1]:set_text(weather_json.weather[2].hourly[2].lang_ar[1].value)
-            tomorrow_2:get_children_by_id("weather_icon_id")[1]:set_text(sun_icon_dic[weather_json.weather[2].hourly[2].weatherCode])
+            -- mouse::enter
+            tomorrow_1:connect_signal(
+                "mouse::enter",
+                function()
+                    detailed_widget:get_children_by_id("widget_6")[1].visible = true
+                    detailed_widget:get_children_by_id("widget_7")[1].visible = true
+                    detailed_widget:get_children_by_id("widget_8")[1].visible = true
+                end
+            )
+
+            -- mouse::leave
+            tomorrow_1:connect_signal(
+                "mouse::leave",
+                function()
+                    detailed_widget:get_children_by_id("widget_6")[1].visible = false
+                    detailed_widget:get_children_by_id("widget_7")[1].visible = false
+                    detailed_widget:get_children_by_id("widget_8")[1].visible = false
+                end
+            )
+
+            tomorrow_2:get_children_by_id("temperature_id")[1]:set_text("°" .. weather_json.weather[2].hourly[4].tempC)
+            tomorrow_2:get_children_by_id("sky_status_id")[1]:set_text(weather_json.weather[2].hourly[4].lang_ar[1].value)
+            tomorrow_2:get_children_by_id("weather_icon_id")[1]:set_text(sun_icon_dic[weather_json.weather[2].hourly[4].weatherCode])
             tomorrow_2:get_children_by_id("temperature_time_id")[1]:set_text("09:00")
             tomorrow_2:get_children_by_id("moonrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].moonrise .. " - " .. weather_json.weather[1].astronomy[1].moonset)
             tomorrow_2:get_children_by_id("sunrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset)
@@ -675,6 +775,26 @@ local function factory(args)
             after_tomorrow_1:get_children_by_id("temperature_city_id")[1]:set_text(city)
             after_tomorrow_1:get_children_by_id("h_l_temperature_id")[1]:set_text("°" .. weather_json.weather[3].maxtempC .. "/°" .. weather_json.weather[3].mintempC)
 
+            -- mouse::enter
+            after_tomorrow_1:connect_signal(
+                "mouse::enter",
+                function()
+                    detailed_widget:get_children_by_id("widget_10")[1].visible = true
+                    detailed_widget:get_children_by_id("widget_11")[1].visible = true
+                    detailed_widget:get_children_by_id("widget_12")[1].visible = true
+                end
+            )
+
+            -- mouse::leave
+            after_tomorrow_1:connect_signal(
+                "mouse::leave",
+                function()
+                    detailed_widget:get_children_by_id("widget_10")[1].visible = false
+                    detailed_widget:get_children_by_id("widget_11")[1].visible = false
+                    detailed_widget:get_children_by_id("widget_12")[1].visible = false
+                end
+            )
+            
             after_tomorrow_2:get_children_by_id("temperature_id")[1]:set_text("°" .. weather_json.weather[3].hourly[4].tempC)
             after_tomorrow_2:get_children_by_id("sky_status_id")[1]:set_text(weather_json.weather[3].hourly[4].lang_ar[1].value)
             after_tomorrow_2:get_children_by_id("weather_icon_id")[1]:set_text(sun_icon_dic[weather_json.weather[3].hourly[4].weatherCode])

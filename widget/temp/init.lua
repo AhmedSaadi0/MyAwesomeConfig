@@ -173,7 +173,7 @@ local function factory(args)
         ontop = true,
         visible = false,
         shape = shape,
-        border_width = 1,
+        border_width = border_width,
         border_color = border_color,
         maximum_width = 300,
         offset = {y = 10},
