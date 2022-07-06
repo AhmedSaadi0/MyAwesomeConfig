@@ -77,11 +77,16 @@ theme.brightness_icon_bg_color = "#668ee3" -- "#ffaaff"
 theme.brightness_icon_fg_color = theme.widget_bg
 theme.brightness_cr_text_color = theme.brightness_icon_fg_color
 
-theme.battery_color = "#7ec7a1"
-theme.battery_icon_bg_color = "#6dac8a" -- "#ffaf5f"
+theme.battery_color = "#0781f4"
+theme.battery_icon_bg_color = "#0569c7" -- "#ffaf5f"
 theme.battery_icon_fg_color = theme.widget_bg
 theme.battery_text_color = theme.battery_icon_fg_color
 theme.battery_hover_color = "#92a0bd" -- "#ffaf5f"
+
+theme.weather_color = "#7ec7a1"
+theme.weather_icon_bg_color = "#6dac8a"
+theme.weather_icon_fg_color = theme.widget_bg
+theme.weather_text_color = theme.weather_icon_fg_color
 
 theme.clock_color = "#f1dc6e"
 theme.clock_icon_bg_color = "#b1a151"
@@ -171,7 +176,7 @@ theme.vol_bar_handle_color = theme.vol_bar_active_color
 theme.vol_handle_border_color = theme.vol_bar_active_color
 theme.vol_bar_height = dpi(35)
 theme.vol_handle_width = dpi(0)
-theme.vol_handle_border_width = dpi(0)
+theme.vol_handle_border_width = dpi(1)
 theme.vol_bar_color = theme.vol_bar_active_color .. "30"
 theme.vol_bar_shape = theme.bar_shape
 
@@ -195,7 +200,7 @@ theme.notification_body_margins = dpi(6)
 theme.notification_icon_margin = dpi(2)
 theme.notification_bg = theme.bg_normal
 theme.notification_border_focus = theme.border_focus
-theme.notification_border_width = dpi(0)
+theme.notification_border_width = dpi(1)
 theme.notification_spacing = dpi(30)
 
 theme.center_notification_border_focus = theme.border_focus

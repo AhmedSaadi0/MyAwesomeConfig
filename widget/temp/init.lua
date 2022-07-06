@@ -182,7 +182,7 @@ local function factory(args)
 
     watch(
         "sensors",
-        1,
+        5,
         function(_, stdout)
             for line in stdout:gmatch("[^\r\n]+") do
                 if line:match("temp1") then

@@ -1,10 +1,10 @@
 *{
 	font:							"JF Flat 11";
-	foreground:						#f1fa8c;
-	background:						#1e1f29;
+	foreground:						#f1dc6e;
+	background:						#011426;
 	foreground-alt:					#f8f8f255;
-	background-alt:					#272d3755;
-	active-background:				#282a36;
+	background-alt:					#01254955;
+	active-background:				#012549;
 	urgent-background:				#ff2222aa;
     
 	selected-background:			@active-background;

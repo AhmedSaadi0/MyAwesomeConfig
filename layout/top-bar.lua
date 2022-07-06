@@ -323,11 +323,16 @@ awful.screen.connect_for_each_screen(
         s.ram = require("widget.ram-widget")()
         s.bat = require("widget.battery.init")()
 
-        s.temp = require("widget.temp") {
+        s.temp =
+            require("widget.temp") {
             border_width = dpi(1),
-            tooltip_border_color = beautiful.cpu_temp_color,
+            tooltip_border_color = beautiful.cpu_temp_color
             -- tooltip_bg = beautiful.cpu_temp_color,
             -- tooltip_fg = beautiful.cpu_temp_icon_fg_color,
+        }
+        s.weather = require("widget.wttr-weather") {
+            widget_bg = beautiful.weather_color,
+            widget_fg = beautiful.weather_icon_fg_color
         }
 
         s.power_button =
@@ -351,7 +356,12 @@ awful.screen.connect_for_each_screen(
             --------- Left widgets ---------
             --------------------------------
             {
-                point = {x = 0, y = 0},
+                point = function(geo, args)
+                    return {
+                        x = 0,
+                        y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
+                    }
+                end,
                 layout = wibox.layout.fixed.horizontal,
                 -----------
                 -- Power --
@@ -491,6 +501,16 @@ awful.screen.connect_for_each_screen(
                     bg = beautiful.transparent,
                     top = 4,
                     bottom = 4
+                },
+                helpers.set_space(7),
+                -------------
+                -- Weather --
+                -------------
+                helpers.set_widget_block {
+                    widget = s.weather,
+                    bg = beautiful.transparent,
+                    top = 4,
+                    bottom = 4
                 }
             },
             ---------------------------------
@@ -507,6 +527,8 @@ awful.screen.connect_for_each_screen(
                                     bg = beautiful.clock_color,
                                     fg = beautiful.clock_text_color,
                                     shape = helpers.left_rounded_rect(beautiful.widgets_corner_radius),
+                                    top = 3,
+                                    bottom = 3,
                                     left = 10,
                                     right = 10
                                 },
@@ -562,8 +584,8 @@ awful.screen.connect_for_each_screen(
                         left = 5,
                         right = 5
                     },
-                    top = 0,
-                    bottom = 0,
+                    top = 4,
+                    bottom = 4,
                     bg = beautiful.transparent
                 },
                 helpers.set_widget_block {
@@ -575,8 +597,8 @@ awful.screen.connect_for_each_screen(
                         left = 5
                     },
                     bg = beautiful.transparent,
-                    top = 0,
-                    bottom = 0
+                    top = 4,
+                    bottom = 4
                 },
                 helpers.set_space(7),
                 ---------
@@ -587,8 +609,8 @@ awful.screen.connect_for_each_screen(
                         widget = s.cpu,
                         shape = helpers.left_rounded_rect(beautiful.widgets_corner_radius)
                     },
-                    top = 0,
-                    bottom = 0,
+                    top = 4,
+                    bottom = 4,
                     bg = beautiful.transparent
                 },
                 helpers.set_widget_block {
@@ -601,8 +623,8 @@ awful.screen.connect_for_each_screen(
                         left = 5
                     },
                     bg = beautiful.transparent,
-                    top = 0,
-                    bottom = 0
+                    top = 4,
+                    bottom = 4
                 },
                 helpers.set_space(7),
                 helpers.set_widget_block {
@@ -610,14 +632,17 @@ awful.screen.connect_for_each_screen(
                         widget = s.mytaglist,
                         shape = helpers.rrect(beautiful.widgets_corner_radius)
                     },
-                    -- top = 4,
-                    -- bottom = 4,
+                    top = 4,
+                    bottom = 4,
                     bg = beautiful.transparent
                 },
                 -- s.mypromptbox,
                 helpers.set_space(7),
                 helpers.set_widget_block {
-                    widget = s.mylayoutbox
+                    widget = s.mylayoutbox,
+                    top = 4,
+                    bottom = 4,
+                    bg = beautiful.transparent
                 }
             }
         }
