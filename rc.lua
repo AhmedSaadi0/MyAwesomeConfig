@@ -24,7 +24,7 @@ root.keys(require("configuration.keys.global"))
 
 require("module.auto-start")
 require("module.brightness-osd")
-require("module.dynamic-wallpaper")
+-- require("module.dynamic-wallpaper")
 require("module.exit-screen")
 require("module.notifications")
 require("module.volume-osd")

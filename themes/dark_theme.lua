@@ -27,6 +27,8 @@ theme.iconfont = "Font Awesome 5 Free Solid 11"
 -------------------------------
 ------------ Colors -----------
 -------------------------------
+theme.accent = "#00efd1"
+
 theme.bg_normal = "#1c1d29"
 theme.widget_bg = "#16161e"
 theme.bg_focus = "#16161e"
@@ -49,33 +51,43 @@ theme.power_button_color = "#fedb41"
 theme.taglist_color = "#a4dfff"
 
 theme.keyboard_layout_color = theme.widget_bg
-theme.keyboard_icon_bg_color = theme.widget_bg -- "#aaaaff"
-theme.keyboard_text_color = "#a4dfff" -- "#aaaaff"
-theme.keyboard_icon_fg_color = "#a4dfff" -- "#aaaaff"
+theme.keyboard_icon_bg_color = "#a4dfff"
+theme.keyboard_icon_fg_color = theme.keyboard_layout_color
+theme.keyboard_text_color = theme.keyboard_icon_bg_color
 
 theme.cpu_color = "#ff79c6"
 theme.cpu_icon_bg_color = "#ff79c6"
 
+theme.cpu_temp_color = theme.widget_bg
+theme.cpu_temp_icon_bg_color = "#e2ad57" -- theme.widget_bg
+theme.cpu_temp_icon_fg_color = theme.cpu_temp_color
+theme.cpu_temp_text_color = theme.cpu_temp_icon_bg_color
+
 theme.net_speed_color = theme.widget_bg
-theme.net_speed_icon_bg_color = theme.widget_bg
-theme.net_speed_icon_fg_color = "#00efd1"
-theme.net_speed_text_color = theme.net_speed_icon_fg_color
+theme.net_speed_icon_bg_color = "#00efd1" -- theme.widget_bg
+theme.net_speed_icon_fg_color = theme.net_speed_color
+theme.net_speed_text_color = theme.net_speed_icon_bg_color
 
 theme.brightness_cr_color = theme.widget_bg
-theme.brightness_icon_bg_color = theme.widget_bg
-theme.brightness_icon_fg_color = "#ffaaff"
-theme.brightness_cr_text_color = theme.brightness_icon_fg_color
+theme.brightness_icon_bg_color = "#ffaaff" -- theme.widget_bg
+theme.brightness_icon_fg_color = theme.brightness_cr_color
+theme.brightness_cr_text_color = theme.brightness_icon_bg_color
 
 theme.battery_color = theme.widget_bg
-theme.battery_icon_bg_color = theme.widget_bg
-theme.battery_icon_fg_color = "#ffaf5f"
-theme.battery_text_color = theme.battery_icon_fg_color
+theme.battery_icon_bg_color = "#ffaf5f" -- theme.widget_bg
+theme.battery_icon_fg_color = theme.battery_color
+theme.battery_text_color = theme.battery_icon_bg_color
 theme.battery_hover_color = theme.battery_color
 
-theme.clock_color = theme.accent --"#f1dc6e"
-theme.clock_icon_bg_color = theme.widget_bg
-theme.clock_icon_fg_color = "#fedb41"
-theme.clock_text_color = theme.clock_icon_fg_color --"#f1dc6e"
+theme.weather_color = theme.widget_bg
+theme.weather_icon_bg_color = "#00efd1" 
+theme.weather_icon_fg_color =  theme.weather_color
+theme.weather_text_color = theme.weather_icon_bg_color
+
+theme.clock_color = theme.widget_bg --"#f1dc6e"
+theme.clock_icon_bg_color = "#fedb41"
+theme.clock_icon_fg_color = theme.clock_color
+theme.clock_text_color = theme.clock_icon_bg_color --"#f1dc6e"
 
 theme.dashboard_box_bg = theme.widget_bg
 theme.dashboard_box_fg = theme.fg_normal
@@ -88,14 +100,20 @@ theme.tooltip_bg = theme.bg_normal
 --------------------------------
 ------------ Taglist -----------
 --------------------------------
-theme.taglist_shape = shape.rectangle
-theme.taglist_fg_focus = "#86e6fc"
-theme.taglist_bg_focus = "#2e3440"
-theme.taglist_bg_urgent = "#e06c75"
+theme.taglist_fg_focus = theme.accent
+theme.taglist_bg_focus = theme.widget_bg
+
+theme.taglist_fg_urgent = "#e06c75"
+theme.taglist_bg_urgent = theme.widget_bg
+
 theme.taglist_fg_occupied = "#ff79c6"
 theme.taglist_bg_occupied = theme.widget_bg
+
+theme.taglist_fg_empty = "#545862"
 theme.taglist_bg_empty = theme.widget_bg
-theme.taglist_font = "JF Flat"
+
+-- theme.taglist_shape = shape.rectangle -- rounded_bar
+theme.taglist_font = theme.iconfont
 
 -- Sys tray
 theme.bg_systray = theme.bg_normal
@@ -104,37 +122,37 @@ theme.systray_max_rows = dpi(1)
 
 -- Panal
 theme.panal_hight = dpi(32)
-theme.panal_border_width = dpi(0)
+theme.panal_border_width = dpi(1)
+-- درجة دوران حواف بعض الاشياء مثل الاشعارات واشعار الصوت والسطوع
 theme.groups_radius = dpi(12)
 
 -- Control Panal
 theme.control_panal_hight = dpi(870)
-theme.control_border_width = dpi(0)
-theme.control_border_color = dpi(0)
--- Control panal widgets
+theme.control_border_width = dpi(1)
+theme.control_border_color = theme.border_focus
 
+-- حواف حول اضافات الاشعارات
 theme.slider_inner_border_color = "#458588"
 theme.slider_inner_border_width = dpi(0)
 
+-- خلفية ولون اضافات الاشعارات
 theme.groups_title_bg = theme.widget_bg
 theme.groups_bg = theme.widget_bg
 theme.background = theme.bg_normal
 
 theme.transparent = "#00000000"
 
-theme.accent = theme.border_focus
-theme.media_button_color = "#00efd1"
+theme.media_button_color = theme.accent
 
 -- widgets
-theme.bar_active_color = "#00efd1"
+-- لعمل حواف مستديرة في الاضافات على الشريط العلوي
+theme.widgets_corner_radius = dpi(10)
+
+-- لون وخصائص شريط تعديل الاضاءة والصوت في الاشعارات
+theme.bar_active_color = theme.accent
 theme.bar_color = theme.bar_active_color .. "30"
 theme.bar_handle_color = theme.bar_active_color
 theme.bar_handle_border_color = theme.bar_active_color
-
-theme.slider_color = "#00efd1"
-theme.slider_background_color = theme.slider_color .. "30"
-theme.slider_forced_height = dpi(1)
-
 theme.bar_height = dpi(1)
 theme.bar_handle_width = dpi(10)
 theme.bar_handle_border_width = dpi(0)
@@ -142,13 +160,18 @@ theme.bar_shape = function(cr, w, h)
     gears.shape.rounded_rect(cr, w, h, 30)
 end
 
+-- لون وخصائص شريط عرض المعالج والرام في الاشعارات
+theme.slider_color = theme.accent
+theme.slider_background_color = theme.slider_color .. "30"
+theme.slider_forced_height = dpi(1)
+
 -- Volume & Brightness widget
-theme.vol_bar_active_color = "#00efd1"
+theme.vol_bar_active_color = theme.accent
 theme.vol_bar_handle_color = theme.vol_bar_active_color
 theme.vol_handle_border_color = theme.vol_bar_active_color
 theme.vol_bar_height = dpi(35)
 theme.vol_handle_width = dpi(0)
-theme.vol_handle_border_width = dpi(0)
+theme.vol_handle_border_width = dpi(1)
 theme.vol_bar_color = theme.vol_bar_active_color .. "30"
 theme.vol_bar_shape = theme.bar_shape
 
@@ -162,7 +185,6 @@ local taglist_square_size = dpi(4)
 
 -- Variables set for theming notifications:
 theme.notification_title_margin = dpi(6)
-
 theme.notification_body_left_margin = dpi(7)
 theme.notification_body_right_margin = dpi(7)
 theme.notification_body_top_margin = dpi(8)
@@ -173,8 +195,8 @@ theme.notification_body_margins = dpi(6)
 theme.notification_icon_margin = dpi(2)
 theme.notification_bg = theme.bg_normal
 theme.notification_border_focus = theme.border_focus
-theme.notification_border_width = dpi(0)
-theme.notification_spacing = dpi(25)
+theme.notification_border_width = dpi(1)
+theme.notification_spacing = dpi(30)
 
 theme.center_notification_border_focus = theme.border_focus
 theme.center_notification_border_width = dpi(0)
@@ -215,6 +237,8 @@ theme.layout_cornerse = "~/.config/awesome/themes/layouts/cornersew.png"
 -- Generate Awesome icon:
 theme.awesome_icon = theme_assets.awesome_icon(theme.menu_height, theme.bg_focus, theme.fg_focus)
 
+theme.wallpaper = "~/.config/awesome/themes/wallpapers/dark-wallpaper.png"
+
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 theme.icon_theme = nil
@@ -227,6 +251,9 @@ theme.konsole_profile = "--profile islamic"
 
 theme.light_theme = "light_theme"
 theme.dark_theme = "dark_theme"
+
+theme.plasma_cursors = "ArcStarry-cursors"
+theme.plasma_color = "Tellgo.colors"
 
 return theme
 

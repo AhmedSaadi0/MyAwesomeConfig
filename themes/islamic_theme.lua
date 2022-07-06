@@ -244,6 +244,8 @@ theme.awesome_icon = theme_assets.awesome_icon(theme.menu_height, theme.bg_focus
 
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
+theme.wallpaper = "~/.config/awesome/themes/wallpapers/islamic-wallpaper.jpg"
+
 theme.icon_theme = nil
 theme.icons = require("themes.icons-islamic")
 theme.dynamic_wallpaper_dir = "themes/wallpapers//"
