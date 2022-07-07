@@ -40,7 +40,7 @@ local slider_osd =
 		handle_border_color = beautiful.vol_handle_border_color,
 		handle_width = beautiful.vol_handle_width,
 		handle_border_width = beautiful.vol_handle_border_width,
-		handle_shape = gears.shape.circle,
+		handle_shape = beautiful.osd_handle_shape or gears.shape.circle,
 		maximum = 100,
 		widget = wibox.widget.slider
 	},
@@ -108,13 +108,14 @@ local brightness_slider_osd =
 	wibox.widget {
 	icon,
 	slider_osd,
-	spacing = dpi(24),
+	spacing = dpi(10),
 	layout = wibox.layout.fixed.horizontal
 }
 
-local osd_height = dpi(130)
-local osd_width = dpi(270)
-local osd_margin = dpi(90)
+local osd_height = beautiful.osd_height or dpi(130)
+local osd_width = beautiful.osd_width or dpi(270)
+local osd_margin = beautiful.osd_margin or dpi(90)
+local osd_preferred_anchors = beautiful.osd_preferred_anchors or "middle"
 
 screen.connect_signal(
 	"request::desktop_decoration",
@@ -138,26 +139,26 @@ screen.connect_signal(
 				gears.shape.rounded_rect(cr, w, h, beautiful.groups_radius)
 			end,
 			bg = beautiful.transparent,
-			preferred_anchors = "middle",
+			preferred_anchors = osd_preferred_anchors,
 			preferred_positions = {"left", "right", "top", "bottom"}
 		}
 
 		s.brightness_osd_overlay:setup {
 			{
 				{
-					{
-						layout = wibox.layout.align.horizontal,
-						expand = "none",
-						forced_height = dpi(48),
-						osd_value,
-						nil,
-						osd_header
-					},
+					-- {
+					-- 	layout = wibox.layout.align.horizontal,
+					-- 	expand = "none",
+					-- 	forced_height = dpi(48),
+					-- 	osd_value,
+					-- 	nil,
+					-- 	osd_header
+					-- },
 					brightness_slider_osd,
 					layout = wibox.layout.fixed.vertical
 				},
-				left = dpi(24),
-				right = dpi(24),
+				left = dpi(15),
+				right = dpi(20),
 				widget = wibox.container.margin
 			},
 			bg = beautiful.background,

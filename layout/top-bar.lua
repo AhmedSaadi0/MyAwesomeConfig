@@ -319,21 +319,26 @@ awful.screen.connect_for_each_screen(
         --     size = 22,
         --     margins = 0
         -- }
-        s.brightness_cr = require("widget.brightness-widget")()
+        s.brightness = require("widget.brightness-widget") {}
+        s.volum = require("widget.volume-widget.init") {
+            -- header_bg = beautiful.volume_icon_bg_color,
+            -- bg = beautiful.volume_widget_color,
+            -- widget_fg = beautiful.volume_widget_text_color,
+        }
         s.ram = require("widget.ram-widget")()
         s.bat = require("widget.battery.init")()
 
         s.temp =
             require("widget.temp") {
             border_width = dpi(1),
-            tooltip_border_color = beautiful.cpu_temp_color,
+            tooltip_border_color = beautiful.cpu_temp_color
             -- tooltip_bg = beautiful.cpu_temp_color,
             -- tooltip_fg = beautiful.cpu_temp_icon_fg_color,
         }
         s.weather =
             require("widget.wttr-weather") {
             widget_bg = beautiful.weather_color,
-            widget_fg = beautiful.weather_icon_fg_color,
+            widget_fg = beautiful.weather_icon_fg_color
             -- city = "Cairo",
         }
 
@@ -446,12 +451,42 @@ awful.screen.connect_for_each_screen(
                     bottom = 4
                 },
                 helpers.set_space(7),
+                ------------
+                -- Volume --
+                ------------
+                helpers.set_widget_block {
+                    widget = helpers.set_widget_block {
+                        widget = s.volum,
+                        bg = beautiful.volume_widget_color,
+                        fg = beautiful.volume_widget_text_color,
+                        shape = helpers.left_rounded_rect(beautiful.widgets_corner_radius),
+                        left = 5,
+                        right = 5
+                    },
+                    bg = beautiful.transparent,
+                    top = 4,
+                    bottom = 4
+                },
+                helpers.set_widget_block {
+                    widget = helpers.set_widget_block {
+                        widget = helpers.add_text("", beautiful.brightness_icon_fg_color),
+                        bg = beautiful.volume_icon_bg_color,
+                        right = 5,
+                        shape = helpers.right_rounded_rect(beautiful.widgets_corner_radius),
+                        font = beautiful.iconfont,
+                        left = 5
+                    },
+                    bg = beautiful.transparent,
+                    top = 4,
+                    bottom = 4
+                },
+                helpers.set_space(7),
                 ----------------
                 -- Brightness --
                 ----------------
                 helpers.set_widget_block {
                     widget = helpers.set_widget_block {
-                        widget = s.brightness_cr,
+                        widget = s.brightness,
                         bg = beautiful.brightness_cr_color,
                         fg = beautiful.brightness_cr_text_color,
                         shape = helpers.left_rounded_rect(beautiful.widgets_corner_radius),
@@ -468,37 +503,8 @@ awful.screen.connect_for_each_screen(
                         bg = beautiful.brightness_icon_bg_color,
                         right = 5,
                         shape = helpers.right_rounded_rect(beautiful.widgets_corner_radius),
-                        font = "Font Awesome 5 Free Solid 11",
+                        font = beautiful.iconfont,
                         left = 5
-                    },
-                    bg = beautiful.transparent,
-                    top = 4,
-                    bottom = 4
-                },
-                helpers.set_space(7),
-                -------------
-                -- Battery --
-                -------------
-                helpers.set_widget_block {
-                    widget = helpers.set_widget_block {
-                        widget = s.bat,
-                        bg = beautiful.battery_color,
-                        fg = beautiful.battery_text_color,
-                        shape = helpers.left_rounded_rect(beautiful.widgets_corner_radius),
-                        left = 3,
-                        right = 3
-                    },
-                    bg = beautiful.transparent,
-                    top = 4,
-                    bottom = 4
-                },
-                helpers.set_widget_block {
-                    widget = helpers.set_widget_block {
-                        widget = helpers.add_text("", beautiful.battery_icon_fg_color, "Font Awesome 5 Free Solid 11"),
-                        bg = beautiful.battery_icon_bg_color,
-                        right = 8,
-                        shape = helpers.right_rounded_rect(beautiful.widgets_corner_radius),
-                        left = 8
                     },
                     bg = beautiful.transparent,
                     top = 4,
@@ -574,6 +580,35 @@ awful.screen.connect_for_each_screen(
                     }
                 end,
                 layout = wibox.layout.fixed.horizontal,
+                -------------
+                -- Battery --
+                -------------
+                helpers.set_widget_block {
+                    widget = helpers.set_widget_block {
+                        widget = s.bat,
+                        bg = beautiful.battery_color,
+                        fg = beautiful.battery_text_color,
+                        shape = helpers.left_rounded_rect(beautiful.widgets_corner_radius),
+                        left = 3,
+                        right = 3
+                    },
+                    bg = beautiful.transparent,
+                    top = 4,
+                    bottom = 4
+                },
+                helpers.set_widget_block {
+                    widget = helpers.set_widget_block {
+                        widget = helpers.add_text("", beautiful.battery_icon_fg_color, "Font Awesome 5 Free Solid 11"),
+                        bg = beautiful.battery_icon_bg_color,
+                        right = 8,
+                        shape = helpers.right_rounded_rect(beautiful.widgets_corner_radius),
+                        left = 8
+                    },
+                    bg = beautiful.transparent,
+                    top = 4,
+                    bottom = 4
+                },
+                helpers.set_space(7),
                 --------------
                 -- CPU TEMP --
                 --------------

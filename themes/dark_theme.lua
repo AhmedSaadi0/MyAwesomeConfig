@@ -127,7 +127,7 @@ theme.panal_border_width = dpi(1)
 theme.groups_radius = dpi(12)
 
 -- Control Panal
-theme.control_panal_hight = dpi(870)
+theme.control_panal_hight = dpi(880)
 theme.control_border_width = dpi(1)
 theme.control_border_color = theme.border_focus
 

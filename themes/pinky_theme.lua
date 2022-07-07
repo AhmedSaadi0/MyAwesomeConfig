@@ -133,7 +133,7 @@ theme.panal_border_width = dpi(0)
 theme.groups_radius = dpi(12)
 
 -- Control Panal and notification panal
-theme.control_panal_hight = dpi(870)
+theme.control_panal_hight = dpi(880)
 theme.control_border_width = dpi(0)
 theme.control_border_color = "#ffffff"
 -- Control panal widgets

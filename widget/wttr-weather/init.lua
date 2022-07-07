@@ -115,7 +115,6 @@ local function factory(args)
     
     local text_font = args.font or beautiful.uifont
     local icon_font = args.font or beautiful.iconfont
-    
 
     local header_bg = args.header_bg or beautiful.header_bg
 

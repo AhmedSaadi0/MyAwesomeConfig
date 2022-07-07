@@ -64,6 +64,7 @@ volume_slider:connect_signal(
 
 		-- Update volume osd
 		awesome.emit_signal("module::volume_osd", volume_level)
+		awesome.emit_signal("widget::set_volume", volume_level)
 	end
 )
 

@@ -71,6 +71,7 @@ brightness_slider:connect_signal(
 
 		-- Update brightness osd
 		awesome.emit_signal("module::brightness_osd", brightness_level)
+		awesome.emit_signal("widget::set_brightness", brightness_level)
 	end
 )
 

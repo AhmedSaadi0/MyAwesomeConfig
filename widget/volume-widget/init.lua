@@ -40,7 +40,7 @@ local function worker(args)
     -- Popup
     local quick_header =
         wibox.widget {
-        text = "السطوع",
+        text = "الصوت",
         font = text_font,
         align = "center",
         valign = "center",
@@ -71,11 +71,12 @@ local function worker(args)
                             widget = wibox.container.background
                         },
                         layout = wibox.layout.fixed.vertical,
-                        brightness_slider,
-                        -- volusme_slider,
+                        -- brightness_slider,
+                        volume_slider
                         -- blur_slider
                     },
                     bg = bg,
+                    fg = widget_fg,
                     shape = shape,
                     widget = wibox.container.background
                 }
@@ -107,28 +108,28 @@ local function worker(args)
     )
 
     awesome.connect_signal(
-        "widget::brightness",
+        "widget::volume",
         function(c)
             spawn.easy_async_with_shell(
-                "light",
+                "amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print $2 }'",
                 function(stdout)
-                    number_text_widget.text = tonumber(string.format("%.0f", stdout)) .. "%"
+                    number_text_widget.text = stdout
                 end
             )
         end
     )
 
     awesome.connect_signal(
-        "widget::set_brightness",
+        "widget::set_volume",
         function(c)
             number_text_widget.text = tonumber(string.format("%.0f", c)) .. "%"
         end
     )
 
     spawn.easy_async_with_shell(
-        "light",
+        "amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print $2 }'",
         function(stdout)
-            number_text_widget.text = tonumber(string.format("%.0f", stdout)) .. "%"
+            number_text_widget.text = stdout
         end
     )
 

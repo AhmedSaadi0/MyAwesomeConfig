@@ -19,7 +19,8 @@ local slider =
 		forced_height = beautiful.slider_forced_height,
 		color = beautiful.slider_color,
 		background_color = beautiful.slider_background_color,
-		shape = gears.shape.rounded_rect,
+		shape = beautiful.slider_shape or gears.shape.rounded_rect,
+		bar_shape = beautiful.slider_bar_shape,
 		widget = wibox.widget.progressbar
 	},
 	nil,

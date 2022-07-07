@@ -58,9 +58,9 @@ local central_panel = function(s)
 								{
 									layout = wibox.layout.fixed.vertical,
 									spacing = dpi(7),
+									hardware_monitor,
 									quick_setting,
 									music,
-									hardware_monitor,
 									-- weather,
 									-- email,
 								}
