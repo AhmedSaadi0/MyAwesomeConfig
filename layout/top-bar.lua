@@ -460,7 +460,7 @@ awful.screen.connect_for_each_screen(
                         bg = beautiful.volume_widget_color,
                         fg = beautiful.volume_widget_text_color,
                         shape = helpers.left_rounded_rect(beautiful.widgets_corner_radius),
-                        left = 5,
+                        left = 10,
                         right = 5
                     },
                     bg = beautiful.transparent,
@@ -469,7 +469,7 @@ awful.screen.connect_for_each_screen(
                 },
                 helpers.set_widget_block {
                     widget = helpers.set_widget_block {
-                        widget = helpers.add_text("", beautiful.brightness_icon_fg_color),
+                        widget = helpers.add_text("", beautiful.volume_icon_fg_color),
                         bg = beautiful.volume_icon_bg_color,
                         right = 5,
                         shape = helpers.right_rounded_rect(beautiful.widgets_corner_radius),

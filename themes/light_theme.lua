@@ -80,7 +80,7 @@ theme.brightness_cr_text_color = theme.brightness_icon_fg_color
 
 theme.volume_widget_color = "#ff5a5f"
 theme.volume_icon_bg_color = "#cc484c" -- "#ffaaff"
-theme.volume_icon_fg_color = "#4a5468"
+theme.volume_icon_fg_color = "#282c34"
 theme.volume_widget_text_color = theme.volume_icon_fg_color
 
 theme.battery_color = "#4c566a" -- "#ffaf5f"
@@ -146,7 +146,7 @@ theme.control_panal_hight = dpi(750)
 theme.control_border_width = dpi(1)
 theme.control_border_color = theme.border_focus
 
--- Control panal widgets - الاعدادت السريعة واستخدام الاجهزة وغيرها 
+-- Control panal widgets - الاعدادت السريعة واستخدام الاجهزة وغيرها
 theme.slider_inner_border_color = theme.border_focus
 theme.slider_inner_border_width = dpi(0)
 
@@ -207,6 +207,12 @@ theme.widget_height = dpi(25)
 local taglist_square_size = dpi(4)
 -- theme.taglist_squares_sel = theme_assets.taglist_squares_sel(taglist_square_size, theme.fg_normal)
 -- theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(taglist_square_size, theme.fg_normal)
+
+-- Decorations
+theme.client_shape_rectangle = gears.shape.rectangle
+theme.client_shape_rounded = function(cr, width, height)
+    gears.shape.rounded_rect(cr, width, height, theme.groups_radius)
+end
 
 -- Variables set for theming notifications:
 theme.notification_title_margin = dpi(6)

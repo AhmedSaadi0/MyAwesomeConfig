@@ -89,9 +89,9 @@ theme.battery_icon_fg_color = theme.widget_bg
 theme.battery_text_color = theme.battery_icon_fg_color
 theme.battery_hover_color = "#92a0bd" -- "#ffaf5f"
 
-theme.weather_color = "#7ec7a1"
-theme.weather_icon_bg_color = "#6dac8a"
-theme.weather_icon_fg_color = theme.widget_bg
+theme.weather_color = "#033768"
+theme.weather_icon_bg_color = "#044583"
+theme.weather_icon_fg_color = "#92a0bd"
 theme.weather_text_color = theme.weather_icon_fg_color
 
 theme.clock_color = "#f1dc6e"
@@ -204,6 +204,12 @@ theme.widget_height = dpi(25)
 local taglist_square_size = dpi(4)
 -- theme.taglist_squares_sel = theme_assets.taglist_squares_sel(taglist_square_size, theme.fg_normal)
 -- theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(taglist_square_size, theme.fg_normal)
+
+-- Decorations
+theme.client_shape_rectangle = gears.shape.rectangle
+theme.client_shape_rounded = function(cr, width, height)
+    gears.shape.rounded_rect(cr, width, height, theme.groups_radius)
+end
 
 -- Variables set for theming notifications:
 theme.notification_title_margin = dpi(6)

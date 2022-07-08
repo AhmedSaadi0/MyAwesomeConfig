@@ -1,10 +1,10 @@
-local awful = require('awful')
-local gears = require('gears')
-local beautiful = require('beautiful')
+local awful = require("awful")
+local gears = require("gears")
+local beautiful = require("beautiful")
 
 local update_client = function(c)
 	-- Set client's shape based on its tag's layout and status (floating, maximized, etc.)
-	local current_layout = awful.tag.getproperty(c.first_tag, 'layout')
+	local current_layout = awful.tag.getproperty(c.first_tag, "layout")
 	if current_layout == awful.layout.suit.max and (not c.floating) then
 		c.shape = beautiful.client_shape_rectangle
 	elseif c.maximized or c.fullscreen then
@@ -18,12 +18,12 @@ end
 
 -- Signal function to execute when a new client appears.
 client.connect_signal(
-	'manage',
+	"manage",
 	function(c)
 		-- Focus, raise and activate
 		c:emit_signal(
-			'request::activate',
-			'mouse_enter',
+			"request::activate",
+			"mouse_enter",
 			{
 				raise = true
 			}
@@ -35,8 +35,7 @@ client.connect_signal(
 			awful.client.setslave(c)
 		end
 
-		if awesome.startup and not c.size_hints.user_position and
-			not c.size_hints.program_position then
+		if awesome.startup and not c.size_hints.user_position and not c.size_hints.program_position then
 			-- Prevent clients from being unreachable after screen count changes.
 			awful.placement.no_offscreen(c)
 		end
@@ -48,11 +47,11 @@ client.connect_signal(
 
 -- Enable sloppy focus, so that focus follows mouse then raises it.
 client.connect_signal(
-	'mouse::enter',
+	"mouse::enter",
 	function(c)
 		c:emit_signal(
-			'request::activate',
-			'mouse_enter',
+			"request::activate",
+			"mouse_enter",
 			{
 				raise = true
 			}
@@ -61,14 +60,14 @@ client.connect_signal(
 )
 
 client.connect_signal(
-	'focus',
+	"focus",
 	function(c)
 		c.border_color = beautiful.border_focus
 	end
 )
 
 client.connect_signal(
-	'unfocus',
+	"unfocus",
 	function(c)
 		c.border_color = beautiful.border_normal
 	end
@@ -76,7 +75,7 @@ client.connect_signal(
 
 -- Manipulate client shape on fullscreen/non-fullscreen
 client.connect_signal(
-	'property::fullscreen',
+	"property::fullscreen",
 	function(c)
 		if c.fullscreen then
 			c.shape = beautiful.client_shape_rectangle
@@ -88,9 +87,9 @@ client.connect_signal(
 
 -- Manipulate client shape on maximized
 client.connect_signal(
-	'property::maximized',
+	"property::maximized",
 	function(c)
-		local current_layout = awful.tag.getproperty(c.first_tag, 'layout')
+		local current_layout = awful.tag.getproperty(c.first_tag, "layout")
 		if c.maximized then
 			c.shape = beautiful.client_shape_rectangle
 		else
@@ -101,9 +100,9 @@ client.connect_signal(
 
 -- Manipulate client shape on floating
 client.connect_signal(
-	'property::floating',
+	"property::floating",
 	function(c)
-		local current_layout = awful.tag.getproperty(c.first_tag, 'layout')
+		local current_layout = awful.tag.getproperty(c.first_tag, "layout")
 		if c.floating and not c.maximized then
 			c.shape = beautiful.client_shape_rounded
 		else
@@ -114,6 +113,12 @@ client.connect_signal(
 	end
 )
 
+-- client.connect_signal(
+-- 	"manage",
+-- 	function(c)
+-- 		c.shape = gears.shape.rounded_rect
+-- 	end
+-- )
 
 -- client.connect_signal(
 --     "manage",
