@@ -137,34 +137,37 @@ local function factory(args)
     local detailed_widget =
         wibox.widget {
         layout = wibox.layout.fixed.vertical,
-        {
-            {
+        helpers.add_margin {
+            widget = {
                 {
                     {
-                        hardware_header,
-                        left = dpi(24),
-                        top = dpi(15),
-                        bottom = dpi(15),
-                        right = dpi(24),
-                        widget = wibox.container.margin
+                        {
+                            hardware_header,
+                            left = dpi(24),
+                            top = dpi(15),
+                            bottom = dpi(15),
+                            right = dpi(24),
+                            widget = wibox.container.margin
+                        },
+                        bg = header_bg,
+                        widget = wibox.container.background
                     },
-                    bg = header_bg,
-                    widget = wibox.container.background
+                    layout = wibox.layout.fixed.vertical,
+                    composite,
+                    sensor_1,
+                    sensor_2,
+                    core_0,
+                    core_1,
+                    core_2,
+                    core_3,
+                    core_4,
+                    core_5
                 },
-                layout = wibox.layout.fixed.vertical,
-                composite,
-                sensor_1,
-                sensor_2,
-                core_0,
-                core_1,
-                core_2,
-                core_3,
-                core_4,
-                core_5
+                bg = bg,
+                -- shape = shape,
+                widget = wibox.container.background
             },
-            bg = bg,
-            -- shape = shape,
-            widget = wibox.container.background
+            bottom = dpi(10)
         }
     }
 

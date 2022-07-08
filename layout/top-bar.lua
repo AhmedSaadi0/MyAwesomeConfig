@@ -276,7 +276,6 @@ awful.screen.connect_for_each_screen(
             }
         )
 
-        s.ram = require("widget.ram-widget")()
         s.systray =
             wibox.widget {
             visible = false,
@@ -325,7 +324,7 @@ awful.screen.connect_for_each_screen(
             -- bg = beautiful.volume_widget_color,
             -- widget_fg = beautiful.volume_widget_text_color,
         }
-        s.ram = require("widget.ram-widget")()
+        -- s.ram = require("widget.ram-widget")()
         s.bat = require("widget.battery.init")()
 
         s.temp =

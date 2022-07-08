@@ -274,11 +274,11 @@ theme.icons = require("themes.icons-islamic")
 theme.dynamic_wallpaper_dir = "themes/wallpapers//"
 theme.conky_script = "/configuration/conky-dark.sh"
 -- theme.kvantum_theme = "Islamic"
-theme.kvantum_theme = "Glorious-dark"
-theme.konsole_profile = "--profile islamic"
-
 theme.light_theme = "light_theme"
 theme.dark_theme = "islamic_theme"
+
+theme.kvantum_theme = "Glorious-dark"
+theme.konsole_profile = "--profile islamic"
 
 theme.plasma_cursors = "ArcStarry-cursors"
 theme.plasma_color = "Tellgo.colors"

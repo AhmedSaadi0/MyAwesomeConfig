@@ -38,6 +38,8 @@ local widget_button =
 	widget = clickable_container
 }
 
+local action_status
+
 local update_imagebox = function()
 	if action_status then
 		button_widget.icon:set_image(icons.toggled_on)

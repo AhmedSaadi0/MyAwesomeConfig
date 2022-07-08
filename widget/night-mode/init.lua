@@ -38,6 +38,8 @@ local widget_button =
 	widget = clickable_container
 }
 
+local action_status 
+
 local update_imagebox = function()
 	if action_status then
 		button_widget.icon:set_image(icons.toggled_on)
@@ -48,9 +50,7 @@ end
 
 local check_mode_status = function()
 	awful.spawn.easy_async_with_shell(
-		[[bash -c "
-			grep -F 'light_theme' ]] .. config_dir .. [[rc.lua | tr -d '[\"\;\=\ ]'
-		"]],
+		[[bash -c "grep -F 'light_theme' ]] .. config_dir .. [[rc.lua | tr -d '[\"\;\=\ ]'"]],
 		function(stdout, stderr)
 			if string.find(stdout, "light_theme") then
 				action_status = false
@@ -69,7 +69,7 @@ local toggle_night_mode = function(togglemode)
 	local toggle_n_m_script =
 		[[bash -c "
 			case ]] ..
-		togglemode ..
+				togglemode ..
 			[[ in
 				'enable')
 				sed -i -e 's/]] .. beautiful.light_theme .. [[/]] .. beautiful.dark_theme .. [[/g' \"]] .. config_dir .. [[rc.lua\";;'disable')
@@ -80,7 +80,7 @@ local toggle_night_mode = function(togglemode)
 	-- Run the script
 	awful.spawn.with_shell(toggle_n_m_script)
 	awful.spawn.with_shell("echo 'awesome.restart()' | awesome-client")
-	
+
 end
 
 local toggle_mode_fx = function()

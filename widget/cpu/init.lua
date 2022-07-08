@@ -224,16 +224,13 @@ local function worker(user_args)
                         {
                             max_value = 100,
                             value = diff_usage,
-                            forced_height = 20,
+                            -- forced_height = 20,
                             forced_width = 150,
-                            paddings = 1,
-                            margins = 4,
-                            border_width = 1,
-                            border_color = beautiful.border_focus,
-                            background_color = beautiful.bg_normal,
-                            bar_border_width = 1,
-                            bar_border_color = beautiful.border_focus,
-                            color = "linear:150,0:0,0:0,#D08770:0.3,#BF616A:0.6," .. beautiful.fg_normal,
+                            margins = dpi(3),
+                            forced_height = beautiful.slider_forced_height,
+                            color = beautiful.slider_color,
+                            background_color = beautiful.slider_background_color,
+                            shape = gears.shape.rounded_rect,
                             widget = wibox.widget.progressbar
                         },
                         layout = wibox.layout.ratio.horizontal
