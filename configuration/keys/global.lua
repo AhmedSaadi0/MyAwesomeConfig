@@ -293,7 +293,7 @@ local global_keys =
 		function()
 			awful.spawn("clementine -r", false)
 		end,
-		{description = "clementine -r", group = "النظام"}
+		{description = "clementine", group = "النظام"}
 	),
 	awful.key(
 		{},
@@ -301,7 +301,7 @@ local global_keys =
 		function()
 			awful.spawn("clementine -s", false)
 		end,
-		{description = "clementine -s", group = "النظام"}
+		{description = "clementine", group = "النظام"}
 	),
 	-- الاضاءة
 	awful.key(
@@ -312,7 +312,7 @@ local global_keys =
 			awesome.emit_signal("widget::brightness")
 			awesome.emit_signal("module::brightness_osd:show", true)
 		end,
-		{description = "رفع مستوى اضاءة الشاشة", group = "النظام"}
+		{description = "", group = "الشاشة"}
 	),
 	awful.key(
 		{},
@@ -322,7 +322,7 @@ local global_keys =
 			awesome.emit_signal("widget::brightness")
 			awesome.emit_signal("module::brightness_osd:show", true)
 		end,
-		{description = "خفض مستوى اضاءة الشاشة", group = "النظام"}
+		{description = "", group = "الشاشة"}
 	),
 	-- البرامج الاخرى
 	awful.key(

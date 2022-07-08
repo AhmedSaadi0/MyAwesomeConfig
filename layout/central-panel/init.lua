@@ -13,7 +13,7 @@ panel_visible = false
 local notif_center = require("widget.notif-center")
 local settings = require("layout.central-panel.settings")
 local quick_setting = require("layout.central-panel.settings.quick-settings")
-local music = require("widget.music")
+-- local music = require("widget.music")
 local hardware_monitor = require("layout.central-panel.settings.hardware-monitor")
 
 local central_panel = function(s)

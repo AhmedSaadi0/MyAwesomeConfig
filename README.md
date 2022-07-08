@@ -1,14 +1,6 @@
 # My Awesome config
 
-Sorry for the mess, I'm new to lua, and don't have enough time to restructure the files.
-
-اسف اذا في لخبطة في الملفات, انا جديد على لغة برمجة لوا وليس لدي الوقت الكافي لترتيبة بشكل افضل
-
-This config is the same as [`the-glorious-dotfiles`](https://github.com/manilarome/the-glorious-dotfiles)
-
-الكونفيج مبني على هذا [`the-glorious-dotfiles`](https://github.com/manilarome/the-glorious-dotfiles)
-
-## Install and use - التثبيت والاستخدام
+# Install and use - التثبيت والاستخدام
 
 ### Required dependencies - البرامج المطلوبة
 
@@ -48,7 +40,7 @@ This config is the same as [`the-glorious-dotfiles`](https://github.com/manilaro
 
 `<b>`Arch users - مستخدمي ارش `</b>`
 
-    yay -S base-devel clementine brightnessctl light gimp network-manager-applet telegram-desktop awesome-git rofi xorg-xbacklight xorg-xrandr redshift qt5-gsettings lxappearance konsole xfce4-power-manager xfce4-screensaver blueman xorg-setxkbmap picom-git ark dolphin ffmpegthumbs playerctl lightly-qt kvantum xidlehook polkit-kde-agent ttf-font-awesome-5 conky jq xcolor
+    yay -S base-devel clementine brightnessctl light gimp network-manager-applet telegram-desktop awesome-git rofi xorg-xbacklight xorg-xrandr redshift qt5-gsettings lxappearance konsole xfce4-power-manager xfce4-screensaver blueman xorg-setxkbmap picom-git ark dolphin ffmpegthumbs playerctl lightly-qt kvantum xidlehook polkit-kde-agent ttf-font-awesome-5 conky jq xcolor light-git
 
 #### Setup - التثبيت
 

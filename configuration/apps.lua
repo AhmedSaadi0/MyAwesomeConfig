@@ -25,28 +25,18 @@ return {
 		-- Default IDE
 		development = "prime-run studio",
 		-- Default network manager
-		network_manager = "konsole -e nmtui-connect",
+		-- network_manager = "konsole -e nmtui-connect",
 		-- Default bluetooth manager
-		bluetooth_manager = "blueman-manager",
+		-- bluetooth_manager = "blueman-manager",
 		-- Default power manager
-		power_manager = "xfce4-power-manager",
+		-- power_manager = "xfce4-power-manager",
 		-- Default GUI package manager
 		package_manager = "pacman",
 		-- Default locker
 		-- lock = "/usr/lib/kscreenlocker_greet",
 		lock = "xfce4-screensaver-command --lock",
-		-- Default quake terminal
-		quake = "konsole --name QuakeTerminal",
-		-- Default rofi global menu
-		rofi_global = "rofi -dpi " ..
-			screen.primary.dpi ..
-				' -show "Global Search" -modi "Global Search":' ..
-					config_dir ..
-						"/configuration/rofi/global/rofi-spotlight.sh" ..
-							" -theme " .. config_dir .. "/configuration/rofi/global/rofi.rasi",
 		-- Default app menu
-		rofi_appmenu = "rofi -dpi " ..
-			screen.primary.dpi .. " -show drun -theme " .. config_dir .. "/configuration/rofi/appmenu/rofi.rasi"
+		rofi_appmenu = "rofi -dpi " .. screen.primary.dpi .. " -show drun"
 	},
 	-- List of apps to start once on start-up
 	run_on_start_up = {

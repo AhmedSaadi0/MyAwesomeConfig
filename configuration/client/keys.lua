@@ -68,7 +68,6 @@ local client_keys =
 		end,
 		{description = "تصغير الى شريط المهام", group = "عميل"}
 	),
-
 	awful.key(
 		{modkey, "Shift"},
 		"m",

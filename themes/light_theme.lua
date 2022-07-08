@@ -27,6 +27,7 @@ theme.message_font = theme.uifont
 -- theme.widget_font = "Font Awesome 5 Free Solid 11"
 theme.widget_font = theme.uifont
 theme.iconfont = "Font Awesome 5 Free Solid 11"
+theme.hotkeys_font = theme.uifont
 
 -------------------------------
 ------------ Colors -----------
@@ -141,7 +142,7 @@ theme.groups_radius = dpi(15)
 ----------------------------------------------------------------
 -------------- Control Panal and notification panal ------------
 ----------------------------------------------------------------
-theme.control_panal_hight = dpi(880)
+theme.control_panal_hight = dpi(750)
 theme.control_border_width = dpi(1)
 theme.control_border_color = theme.border_focus
 
