@@ -8,7 +8,6 @@ local dpi = require("beautiful").xresources.apply_dpi
 -- Keyboard map indicator and switcher
 mykeyboardlayout = awful.widget.keyboardlayout()
 
--- {{{ Wibar
 -- Create a textclock widget
 local my_text_clock =
     wibox.widget {
@@ -77,42 +76,6 @@ local taglist_buttons =
         5,
         function(t)
             awful.tag.viewprev(t.screen)
-        end
-    )
-)
-
-local tasklist_buttons =
-    gears.table.join(
-    awful.button(
-        {},
-        1,
-        function(c)
-            if c == client.focus then
-                c.minimized = true
-            else
-                c:emit_signal("request::activate", "tasklist", {raise = true})
-            end
-        end
-    ),
-    awful.button(
-        {},
-        3,
-        function()
-            awful.menu.client_list({theme = {width = 250}})
-        end
-    ),
-    awful.button(
-        {},
-        4,
-        function()
-            awful.client.focus.byidx(1)
-        end
-    ),
-    awful.button(
-        {},
-        5,
-        function()
-            awful.client.focus.byidx(-1)
         end
     )
 )
@@ -214,56 +177,6 @@ awful.screen.connect_for_each_screen(
             }
         }
 
-        -- Create a tasklist widget
-        s.mytasklist =
-            awful.widget.tasklist {
-            screen = s,
-            filter = awful.widget.tasklist.filter.currenttags,
-            buttons = tasklist_buttons,
-            style = {},
-            layout = {
-                spacing_widget = {
-                    {
-                        forced_width = 5,
-                        widget = wibox.widget.separator
-                    },
-                    valign = "center",
-                    halign = "center",
-                    widget = wibox.container.place
-                },
-                spacing = 0,
-                layout = wibox.layout.fixed.horizontal
-            },
-            -- Notice that there is *NO* wibox.wibox prefix, it is a template,
-            -- not a widget instance.
-            widget_template = {
-                {
-                    {
-                        {
-                            {
-                                id = "icon_role",
-                                widget = wibox.widget.imagebox
-                            },
-                            margins = 2,
-                            widget = wibox.container.margin,
-                            right = 10,
-                            left = 0
-                        },
-                        {
-                            id = "text_role",
-                            widget = wibox.widget.textbox
-                        },
-                        layout = wibox.layout.fixed.horizontal
-                    },
-                    left = 10,
-                    right = 10,
-                    widget = wibox.container.margin
-                },
-                id = "background_role",
-                widget = wibox.container.background
-            }
-        }
-        -- Create the wibox
         s.mywibox =
             awful.wibar(
             {
@@ -286,10 +199,6 @@ awful.screen.connect_for_each_screen(
         }
         s.tray_toggler = require("widget.tray-toggle")
 
-        -- local systray_margin = wibox.layout.margin()
-        -- systray_margin:set_margins(0)
-        -- systray_margin:set_widget(s.systray)
-
         s.cpu =
             require("widget.cpu")(
             {
@@ -301,30 +210,13 @@ awful.screen.connect_for_each_screen(
                 enable_kill_button = true
             }
         )
-        -- s.ns = require("widget.net-speed-widget")()
         s.ns =
             require("widget.net-speed-widget") {
             timeout = 0.1,
             width = 60
         }
-        -- s.wifi = require("widget.network")()
-
-        -- s.volume_cr = require("widget.volumearc-widget")()
-        -- s.volume_bar = require("widget.volumebar-widget")()
-        -- s.volume_bar =
-        --     require("widget.volume-widget.volume") {
-        --     widget_type = "icon_and_text",
-        --     font = beautiful.uifont,
-        --     size = 22,
-        --     margins = 0
-        -- }
         s.brightness = require("widget.brightness-widget") {}
-        s.volum = require("widget.volume-widget.init") {
-            -- header_bg = beautiful.volume_icon_bg_color,
-            -- bg = beautiful.volume_widget_color,
-            -- widget_fg = beautiful.volume_widget_text_color,
-        }
-        -- s.ram = require("widget.ram-widget")()
+        s.volume = require("widget.volume-widget.init") {}
         s.bat = require("widget.battery.init")()
 
         s.temp =
@@ -455,7 +347,7 @@ awful.screen.connect_for_each_screen(
                 ------------
                 helpers.set_widget_block {
                     widget = helpers.set_widget_block {
-                        widget = s.volum,
+                        widget = s.volume,
                         bg = beautiful.volume_widget_color,
                         fg = beautiful.volume_widget_text_color,
                         shape = helpers.left_rounded_rect(beautiful.widgets_corner_radius),

@@ -1,12 +1,6 @@
-Fix win+s not showing shortcuts
 removing unused stuff
 اضافة ترجمه فورية
 
-الثيم الابيض تغيير الخلفية ولون الايقونات
-ايقونات اسطح المكتب (تغيير الخط) والالوان حسب الثيم
-شكل البطارية في الوضع الابيض
-Thunderbird -> تشغيل تلقائي وفي الرسائل
-Evolution
 تغيير ثيم gtk عند التحويل الى الوضعع الاسود او الابيض
 
 QT_QPA_PLATFORMTHEME=qt5ct

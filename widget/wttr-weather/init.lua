@@ -136,7 +136,7 @@ local function factory(args)
 
     local number_text_widget =
         wibox.widget {
-        text = "0",
+        text = "",
         font = text_font,
         align = "center",
         valign = "center",
@@ -606,6 +606,7 @@ local function factory(args)
         900,
         function(_, stdout)
             if stdout == "" then
+                number_text_widget.text = "خدمة الطقس غير متوفرة"
                 return
             end
 

@@ -8,7 +8,8 @@ local dpi = require("beautiful").xresources.apply_dpi
 
 local brightness_slider = require("widget.brightness-slider")
 local volume_slider = require("widget.volume-slider")
-local blur_slider = require("widget.blur-slider")
+
+local music_widget = require("widget.music"){}
 
 local function worker(args)
     local text_font = args.font or beautiful.uifont
@@ -27,6 +28,16 @@ local function worker(args)
     local shape = args.shape or function(cr, width, height)
             gears.shape.rounded_rect(cr, width, height, beautiful.groups_radius)
         end
+
+    -- Music Widget
+    -- local music = helpers.create_music_widget {}
+
+    -- local music_widget =
+    --     helpers.set_widget_block {
+    --     widget = music,
+    --     shape = shape,
+    --     forced_height = dpi(130)
+    -- }
 
     local number_text_widget =
         wibox.widget {
@@ -72,8 +83,14 @@ local function worker(args)
                         },
                         layout = wibox.layout.fixed.vertical,
                         -- brightness_slider,
+                        helpers.add_margin {
+                            widget = music_widget,
+                            top = dpi(10),
+                            -- bottom = dpi(10),
+                            right = dpi(10),
+                            left = dpi(10)
+                        },
                         volume_slider
-                        -- blur_slider
                     },
                     bg = bg,
                     fg = widget_fg,
@@ -91,7 +108,7 @@ local function worker(args)
         shape = shape,
         border_width = border_width,
         border_color = border_color,
-        maximum_width = 300,
+        maximum_width = 320,
         offset = {y = 10},
         widget = detailed_widget
     }
@@ -106,6 +123,7 @@ local function worker(args)
             end
         end
     )
+
 
     awesome.connect_signal(
         "widget::volume",

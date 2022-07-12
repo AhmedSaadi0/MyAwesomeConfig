@@ -211,6 +211,10 @@ theme.client_shape_rounded = function(cr, width, height)
     gears.shape.rounded_rect(cr, width, height, theme.groups_radius)
 end
 
+theme.power_button_shape = function(cr, width, height)
+    gears.shape.rounded_rect(cr, width, height, theme.groups_radius)
+end
+
 -- Variables set for theming notifications:
 theme.notification_title_margin = dpi(6)
 theme.notification_body_left_margin = dpi(7)
@@ -230,6 +234,7 @@ theme.center_notification_border_focus = theme.border_focus
 theme.center_notification_border_width = dpi(0)
 
 theme.lock_bg = theme.bg_normal .. "77"
+theme.power_button_bg = theme.widget_bg .. "aa"
 
 theme.header_bg = "#011426"
 theme.inner_bg = "#011426"
@@ -264,12 +269,12 @@ theme.layout_cornerse = "~/.config/awesome/themes/layouts/cornersew.png"
 
 -- Generate Awesome icon:
 theme.awesome_icon = theme_assets.awesome_icon(theme.menu_height, theme.bg_focus, theme.fg_focus)
-
--- Define the icon theme for application icons. If not set then the icons
--- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 theme.wallpaper = "~/.config/awesome/themes/wallpapers/islamic-wallpaper.jpg"
 
-theme.icon_theme = nil
+-- theme.icon_theme = nil
+
+theme.music_back = "~/.config/awesome/themes/assets/no_music.png"
+
 theme.icons = require("themes.icons-islamic")
 theme.dynamic_wallpaper_dir = "themes/wallpapers//"
 theme.conky_script = "/configuration/conky-dark.sh"

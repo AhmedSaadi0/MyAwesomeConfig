@@ -21,6 +21,9 @@ function helpers.set_widget_block(args)
 
     local visible = args.visible
 
+    local forced_height = args.forced_height
+    local forced_width = args.forced_width
+
     local bgimage = args.bgimage or nil
 
     local block = {
@@ -38,6 +41,8 @@ function helpers.set_widget_block(args)
         bg = bg,
         visible = visible,
         font = font,
+        forced_height = forced_height,
+        forced_width = forced_width,
         widget = wibox.container.background
     }
     return block
@@ -70,7 +75,7 @@ end
 
 function helpers.rrect(radius)
     return function(cr, width, height)
-        gears.shape.rounded_rect(cr, width, height, beautiful.groups_radius)
+        gears.shape.rounded_rect(cr, width, height, radius or beautiful.groups_radius)
     end
 end
 
@@ -133,6 +138,23 @@ end
 
 function helpers.trim(str)
     return str:gsub("%s+", "")
+end
+
+function helpers.split(source, sep)
+    local result, i = {}, 1
+    while true do
+        local a, b = source:find(sep)
+        if not a then break end
+        local candidat = source:sub(1, a - 1)
+        if candidat ~= "" then 
+            result[i] = candidat
+        end i=i+1
+        source = source:sub(b + 1)
+    end
+    if source ~= "" then 
+        result[i] = source
+    end
+    return result
 end
 
 function helpers.create_slider_meter_widget(args)
@@ -420,6 +442,208 @@ function helpers.create_weather_detailed(args)
     }
 
     return weather_details
+end
+
+function helpers.create_music_widget(args)
+    local text_font = args.font or beautiful.uifont
+    local icon_font = args.font or beautiful.iconfont
+
+    local widget_bg = args.widget_bg or beautiful.widget_bg
+    local widget_fg = args.widget_fg or beautiful.fg_normal
+
+    local icon_bg = args.icon_bg
+    local icon_fg = args.icon_fg
+
+    local inner_image_shape = args.shape or helpers.rrect(dpi(11))
+
+    local buttons_group_shape = args.shape or helpers.rrect(dpi(11))
+
+    local buttons_group_bg_color = args.buttons_group_bg_color or widget_bg
+    local buttons_group_fg_color = args.buttons_group_fg_color or widget_fg
+
+    local detailed_widget =
+        wibox.widget {
+        layout = wibox.layout.ratio.horizontal,
+        helpers.set_widget_block {
+            widget = helpers.set_widget_block {
+                widget = {
+                    id = "image_id",
+                    image = beautiful.music_back,
+                    horizontal_fit_policy = "fit",
+                    vertical_fit_policy = "fit",
+                    valign = "center",
+                    align = "center",
+                    resize = true,
+                    widget = wibox.widget.imagebox
+                },
+                shape = inner_image_shape
+                -- bg = "#2b337c"
+            },
+            right = dpi(0),
+            left = dpi(12),
+            top = dpi(12),
+            bottom = dpi(12),
+            bg = widget_bg,
+            fg = widget_fg
+        },
+        helpers.set_widget_block {
+            widget = {
+                layout = wibox.layout.fixed.vertical,
+                {
+                    layout = wibox.layout.manual,
+                    forced_height = dpi(40),
+                    {
+                        layout = wibox.layout.fixed.horizontal,
+                        point = function(geo, args)
+                            return {
+                                x = args.parent.width - geo.width - dpi(12),
+                                y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
+                            }
+                        end,
+                        {
+                            text = "🎝",
+                            font = icon_font,
+                            id = "music_icon_id",
+                            align = "center",
+                            valign = "center",
+                            widget = wibox.widget.textbox
+                        }
+                    }
+                },
+                helpers.add_margin {
+                    widget = {
+                        layout = wibox.container.scroll.horizontal,
+                        -- max_size = 100,
+                        -- fps = 60,
+                        step_function = wibox.container.scroll.step_functions.waiting_nonlinear_back_and_forth,
+                        speed = 100,
+                        {
+                            id = "title_id",
+                            text = "لا توجد موسيقى قيد التشغيل",
+                            font = text_font,
+                            align = "center",
+                            valign = "center",
+                            widget = wibox.widget.textbox
+                        }
+                    },
+                    right = dpi(12),
+                    left = dpi(12),
+                    top = -5
+                },
+                helpers.add_margin {
+                    widget = {
+                        layout = wibox.container.scroll.horizontal,
+                        -- max_size = 100,
+                        -- forced_height = dpi(5),
+                        -- fps = 60,
+                        step_function = wibox.container.scroll.step_functions.waiting_nonlinear_back_and_forth,
+                        speed = 100,
+                        {
+                            id = "artist_id",
+                            text = "لا يوجد فنان",
+                            font = text_font:sub(1, -3) .. " 9", --"JF Flat 9",
+                            align = "left",
+                            valign = "left",
+                            widget = wibox.widget.textbox
+                        }
+                    },
+                    right = dpi(12),
+                    top = dpi(8),
+                    bottom = dpi(8),
+                    left = dpi(12)
+                },
+                helpers.add_margin {
+                    widget = helpers.set_widget_block {
+                        widget = {
+                            layout = wibox.layout.manual,
+                            {
+                                point = function(geo, args)
+                                    return {
+                                        x = 10,
+                                        y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
+                                    }
+                                end,
+                                layout = wibox.layout.fixed.horizontal,
+                                {
+                                    id = "back_button_id",
+                                    text = "",
+                                    font = icon_font,
+                                    align = "center",
+                                    valign = "center",
+                                    widget = wibox.widget.textbox
+                                }
+                            },
+                            {
+                                point = function(geo, args)
+                                    return {
+                                        x = (args.parent.width / 3) - 2,
+                                        y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
+                                    }
+                                end,
+                                layout = wibox.layout.fixed.horizontal,
+                                {
+                                    id = "play_button_id",
+                                    text = "",
+                                    font = icon_font,
+                                    align = "center",
+                                    valign = "center",
+                                    widget = wibox.widget.textbox
+                                }
+                            },
+                            {
+                                point = function(geo, args)
+                                    return {
+                                        x = args.parent.width - (args.parent.width / 3) - geo.width,
+                                        y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
+                                    }
+                                end,
+                                layout = wibox.layout.fixed.horizontal,
+                                {
+                                    id = "stop_button_id",
+                                    text = "",
+                                    font = icon_font,
+                                    align = "center",
+                                    valign = "center",
+                                    widget = wibox.widget.textbox
+                                }
+                            },
+                            {
+                                point = function(geo, args)
+                                    return {
+                                        x = args.parent.width - geo.width - 10,
+                                        y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
+                                    }
+                                end,
+                                layout = wibox.layout.fixed.horizontal,
+                                {
+                                    id = "next_button_id",
+                                    text = "",
+                                    font = icon_font,
+                                    align = "center",
+                                    valign = "center",
+                                    widget = wibox.widget.textbox
+                                }
+                            }
+                        },
+                        bg = buttons_group_bg_color,
+                        fg = buttons_group_fg_color,
+                        forced_height = dpi(27),
+                        shape = buttons_group_shape
+                    },
+                    bottom = dpi(0),
+                    top = dpi(10),
+                    right = dpi(18),
+                    left = dpi(12)
+                }
+            },
+            bg = widget_bg,
+            fg = widget_fg
+        }
+    }
+
+    detailed_widget:adjust_ratio(2, 0.11, 0.33, 0.22)
+
+    return detailed_widget
 end
 
 return helpers
