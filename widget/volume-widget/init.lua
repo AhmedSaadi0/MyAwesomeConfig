@@ -116,6 +116,13 @@ local function worker(args)
     number_text_widget:connect_signal(
         "button::press",
         function()
+            awesome.emit_signal("widget::open_music")
+        end
+    )
+
+    awesome.connect_signal(
+        "widget::open_music",
+        function(c)
             if popup.visible then
                 popup.visible = not popup.visible
             else
@@ -123,7 +130,6 @@ local function worker(args)
             end
         end
     )
-
 
     awesome.connect_signal(
         "widget::volume",

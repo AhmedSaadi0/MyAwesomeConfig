@@ -118,6 +118,14 @@ local global_keys =
 		end,
 		{description = "قتح مركز الاشعارات", group = "عمليات الشاشة"}
 	),
+	awful.key(
+		{modkey},
+		"F1",
+		function()
+			awesome.emit_signal("widget::open_music")
+		end,
+		{description = "قتح اداة الموسيقى", group = "عمليات الشاشة"}
+	),
 	-- Applicatopn menu
 	-- Power menu
 	awful.key(
@@ -276,7 +284,6 @@ local global_keys =
 		"XF86AudioPlay",
 		function()
 			awful.spawn("clementine -t", false)
-			awesome.emit_signal("widget::music_widget")
 		end,
 		{description = "Play Clementine", group = "ميديا"}
 	),
@@ -285,7 +292,6 @@ local global_keys =
 		"XF86AudioNext",
 		function()
 			awful.spawn("clementine -f", false)
-			awesome.emit_signal("widget::music_widget")
 		end,
 		{description = "Next Song", group = "ميديا"}
 	),
@@ -294,7 +300,6 @@ local global_keys =
 		"XF86AudioPrev",
 		function()
 			awful.spawn("clementine -r", false)
-			awesome.emit_signal("widget::music_widget")
 		end,
 		{description = "Previous Song", group = "ميديا"}
 	),
@@ -303,7 +308,6 @@ local global_keys =
 		"XF86AudioStop",
 		function()
 			awful.spawn("clementine -s", false)
-			awesome.emit_signal("widget::music_widget")
 		end,
 		{description = "كليمنتاين توقف", group = "ميديا"}
 	),
