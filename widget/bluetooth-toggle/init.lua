@@ -24,6 +24,7 @@ local action_name =
 	helpers.add_text_icon_widget {
 	text = "البلوتوث",
 	icon = "",
+	ltr = true,
 	forced_width = dpi(81),
 	text_font = beautiful.uifont
 }

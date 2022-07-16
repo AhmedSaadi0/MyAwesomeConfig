@@ -60,28 +60,50 @@ function helpers.add_text_icon_widget(args)
     local forced_width = args.forced_width
     local forced_height = args.forced_height or dpi(50)
 
+    local ltr = args.ltr or false
+
+    local left = function(geo, args)
+        return {
+            x = args.parent.width - geo.width,
+            y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
+        }
+    end
+
+    local right = function(geo, args)
+        return {
+            x = 0,
+            y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
+        }
+    end
+
+    if ltr then
+        left = function(geo, args)
+            return {
+                x = 0,
+                y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
+            }
+        end
+
+        right = function(geo, args)
+            return {
+                x = args.parent.width - geo.width,
+                y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
+            }
+        end
+    end
+
     local widget =
         wibox.widget {
         layout = wibox.layout.manual,
         forced_height = forced_height,
         forced_width = forced_width,
         {
-            point = function(geo, args)
-                return {
-                    x = 0,
-                    y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
-                }
-            end,
+            point = left,
             helpers.add_text(text, text_bg, text_font),
             layout = wibox.layout.fixed.vertical
         },
         {
-            point = function(geo, args)
-                return {
-                    x = args.parent.width - geo.width,
-                    y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
-                }
-            end,
+            point = right,
             helpers.add_text(icon, icon_bg, icon_font),
             layout = wibox.layout.fixed.vertical
         }

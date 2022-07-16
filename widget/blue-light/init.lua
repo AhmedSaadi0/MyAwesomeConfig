@@ -20,6 +20,7 @@ local action_name =
 	helpers.add_text_icon_widget {
 	text = "تقليل الضوء الازرق",
 	icon = "",
+	ltr = true,
 	forced_width = dpi(135),
 	text_font = beautiful.uifont
 }

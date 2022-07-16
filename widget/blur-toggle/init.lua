@@ -21,6 +21,7 @@ local action_name =
 	helpers.add_text_icon_widget {
 	text = "تاثير الضباب", --
 	icon = "",
+	ltr = true,
 	forced_width = dpi(97),
 	text_font = beautiful.uifont
 }

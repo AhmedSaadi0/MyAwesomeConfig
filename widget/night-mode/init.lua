@@ -21,6 +21,7 @@ local action_name =
 	helpers.add_text_icon_widget {
 	text = "الوضع الليلي",
 	icon = "",
+	ltr = true,
 	forced_width = dpi(107),
 	text_font = beautiful.uifont
 }
