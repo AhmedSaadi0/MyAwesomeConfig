@@ -137,7 +137,7 @@ theme.systray_max_rows = dpi(1)
 -------------------------------
 theme.panal_hight = dpi(32)
 theme.panal_border_width = dpi(0)
-theme.groups_radius = dpi(5)
+theme.groups_radius = dpi(12)
 
 ----------------------------------------------------------------
 -------------- Control Panal and notification panal ------------
