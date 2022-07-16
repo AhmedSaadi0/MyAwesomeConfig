@@ -180,7 +180,7 @@ local function factory(args)
         shape = shape,
         border_width = border_width,
         border_color = border_color,
-        maximum_width = 300,
+        maximum_width = 320,
         offset = {y = 10},
         widget = detailed_widget
     }

@@ -14,6 +14,7 @@ local wibox = require("wibox")
 local beautiful = require("beautiful")
 local gears = require("gears")
 local dpi = beautiful.xresources.apply_dpi
+local helpers = require("helpers")
 
 local CMD =
     [[sh -c "grep '^cpu.' /proc/stat; ps -eo '%p|%c|%C|' -o "%mem" -o '|%a' --sort=-%cpu ]] ..
@@ -113,6 +114,17 @@ local function worker(user_args)
     local shape = args.shape or function(cr, width, height)
             gears.shape.rounded_rect(cr, width, height, beautiful.groups_radius)
         end
+
+    local handle_shape = args.handle_shape or helpers.rrect(dpi(100))
+    local bar_shape = args.handle_shape or beautiful.vol_bar_shape or helpers.rrect(dpi(11))
+    local bar_height = args.bar_height or beautiful.vol_bar_height or dpi(1)
+    local bar_color = args.bar_color or beautiful.vol_bar_color
+    local bar_active_color = args.bar_active_color or beautiful.vol_bar_active_color
+    local handle_color = args.handle_color or beautiful.vol_bar_handle_color
+    local handle_width = args.handle_width or 0
+    local handle_border_color = args.handle_border_color or beautiful.vol_handle_border_color
+    local handle_border_width = args.handle_border_width or beautiful.vol_handle_border_width
+
 
     local hardware_header =
         wibox.widget {
@@ -223,6 +235,18 @@ local function worker(user_args)
                         create_textbox {text = math.floor(diff_usage) .. "%"},
                         {
                             max_value = 100,
+
+                            bar_shape = bar_shape,
+                            bar_height = bar_height,
+                            bar_color = bar_color,
+                            bar_active_color = bar_active_color,
+                            bar_active_shape = bar_shape,
+                            handle_color = handle_color,
+                            handle_shape = handle_shape,
+                            handle_border_color = handle_border_color,
+                            handle_width = handle_width,
+                            handle_border_width = handle_border_width,            
+
                             value = diff_usage,
                             -- forced_height = 20,
                             forced_width = 150,

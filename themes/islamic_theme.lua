@@ -1,5 +1,5 @@
 ---------------------------
--- Default awesome theme --
+-- Islamic awesome theme --
 ---------------------------
 
 local theme_assets = require("beautiful.theme_assets")
@@ -243,9 +243,6 @@ theme.inner_bg = "#011426"
 theme.notification_center_header_bg = "#011426"
 theme.notification_center_inner_bg = "#011426"
 
--- Variables set for theming the menu:
--- menu_[bg|fg]_[normal|focus]
--- menu_[border_color|border_width]
 theme.menu_submenu_icon = themes_path .. "default/submenu.png"
 theme.menu_height = dpi(15)
 theme.menu_width = dpi(100)
@@ -278,13 +275,13 @@ theme.music_back = "~/.config/awesome/themes/assets/no_music.png"
 
 theme.icons = require("themes.icons-islamic")
 theme.dynamic_wallpaper_dir = "themes/wallpapers//"
-theme.conky_script = "/configuration/conky-dark.sh"
--- theme.kvantum_theme = "Islamic"
+theme.conky_script = "/themes/conky/conky-islamic.sh"
+
 theme.light_theme = "light_theme"
 theme.dark_theme = "islamic_theme"
 
 theme.kvantum_theme = "Glorious-dark"
-theme.konsole_profile = "--profile islamic"
+theme.konsole_profile = "--profile Islamic"
 
 theme.plasma_cursors = "ArcStarry-cursors"
 theme.plasma_color = "Tellgo.colors"

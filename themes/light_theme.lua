@@ -168,7 +168,7 @@ theme.bar_active_color = theme.accent
 theme.bar_color = theme.bar_active_color .. "30"
 theme.bar_handle_color = theme.bar_active_color
 theme.bar_handle_border_color = theme.bar_active_color
-theme.bar_height = dpi(10)
+theme.bar_height = dpi(1)
 theme.bar_handle_width = dpi(10)
 theme.bar_handle_border_width = dpi(0)
 theme.bar_shape = function(cr, w, h)
@@ -178,7 +178,7 @@ end
 -- لون وخصائص شريط عرض المعالج والرام في الاشعارات
 theme.slider_color = theme.accent
 theme.slider_background_color = theme.slider_color .. "30"
-theme.slider_forced_height = dpi(10)
+theme.slider_forced_height = dpi(1)
 theme.slider_shape = function(cr, w, h)
     gears.shape.rounded_rect(cr, w, h, theme.groups_radius)
 end
@@ -190,7 +190,7 @@ end
 theme.vol_bar_active_color = theme.accent
 theme.vol_bar_handle_color = theme.vol_bar_active_color
 theme.vol_handle_border_color = theme.vol_bar_active_color
-theme.vol_bar_height = dpi(10)
+theme.vol_bar_height = dpi(1)
 theme.vol_handle_width = dpi(10)
 theme.vol_handle_border_width = dpi(0)
 theme.vol_bar_color = theme.vol_bar_active_color .. "30"
@@ -285,12 +285,14 @@ theme.icon_theme = nil
 theme.icons = require("themes.icons-light-red")
 
 theme.dynamic_wallpaper_dir = "themes/light-wallpapers//"
-theme.conky_script = "/configuration/conky-light.sh"
+theme.conky_script = "/themes/conky/conky-light.sh"
 theme.kvantum_theme = "Orchis"
 theme.konsole_profile = "--profile light"
 
 theme.light_theme = "light_theme"
-theme.dark_theme = "islamic_theme"
+-- theme.dark_theme = "islamic_theme"
+-- theme.dark_theme = "pinky_theme"
+theme.dark_theme = "dark_theme"
 
 theme.plasma_cursors = "ArcDusk-cursors"
 -- theme.plasma_color = "NovaAmare.colors"

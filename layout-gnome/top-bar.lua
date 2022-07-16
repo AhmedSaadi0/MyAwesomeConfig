@@ -230,7 +230,7 @@ awful.screen.connect_for_each_screen(
         s.weather =
             require("widget.wttr-weather") {
             widget_bg = beautiful.weather_color,
-            widget_fg = beautiful.weather_icon_fg_color
+            widget_fg = beautiful.weather_text_color
             -- city = "Cairo",
         }
 

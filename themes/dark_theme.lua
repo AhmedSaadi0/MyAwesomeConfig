@@ -1,6 +1,6 @@
----------------------------
--- Default awesome theme --
----------------------------
+------------------------
+-- Dark awesome theme --
+------------------------
 
 local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
@@ -19,6 +19,11 @@ local theme = {}
 theme.font = "JF Flat 11"
 theme.uifont = "JF Flat 11"
 theme.font_n = "Google Sana "
+-- notifications
+theme.appname_font = "Google Sana 10"
+theme.title_font = "Google Sana 11"
+theme.message_font = theme.uifont
+theme.hotkeys_font = theme.uifont
 
 -- theme.widget_font = "Font Awesome 5 Free Solid 11"
 theme.widget_font = theme.uifont
@@ -73,6 +78,11 @@ theme.brightness_icon_bg_color = "#ffaaff" -- theme.widget_bg
 theme.brightness_icon_fg_color = theme.brightness_cr_color
 theme.brightness_cr_text_color = theme.brightness_icon_bg_color
 
+theme.volume_widget_color = theme.widget_bg
+theme.volume_icon_bg_color = "#e5c07b" -- "#ffaaff"
+theme.volume_icon_fg_color = theme.volume_widget_color
+theme.volume_widget_text_color = theme.volume_icon_bg_color
+
 theme.battery_color = theme.widget_bg
 theme.battery_icon_bg_color = "#ffaf5f" -- theme.widget_bg
 theme.battery_icon_fg_color = theme.battery_color
@@ -80,8 +90,8 @@ theme.battery_text_color = theme.battery_icon_bg_color
 theme.battery_hover_color = theme.battery_color
 
 theme.weather_color = theme.widget_bg
-theme.weather_icon_bg_color = "#00efd1" 
-theme.weather_icon_fg_color =  theme.weather_color
+theme.weather_icon_bg_color = "#00efd1"
+theme.weather_icon_fg_color = theme.weather_color
 theme.weather_text_color = theme.weather_icon_bg_color
 
 theme.clock_color = theme.widget_bg --"#f1dc6e"
@@ -127,7 +137,8 @@ theme.panal_border_width = dpi(1)
 theme.groups_radius = dpi(12)
 
 -- Control Panal
-theme.control_panal_hight = dpi(880)
+-- theme.control_panal_hight = dpi(750) -- normal layout
+theme.control_panal_hight = dpi(645) -- gnome layout
 theme.control_border_width = dpi(1)
 theme.control_border_color = theme.border_focus
 
@@ -146,7 +157,7 @@ theme.media_button_color = theme.accent
 
 -- widgets
 -- لعمل حواف مستديرة في الاضافات على الشريط العلوي
-theme.widgets_corner_radius = dpi(10)
+theme.widgets_corner_radius = theme.groups_radius
 
 -- لون وخصائص شريط تعديل الاضاءة والصوت في الاشعارات
 theme.bar_active_color = theme.accent
@@ -164,16 +175,27 @@ end
 theme.slider_color = theme.accent
 theme.slider_background_color = theme.slider_color .. "30"
 theme.slider_forced_height = dpi(1)
+theme.slider_shape = function(cr, w, h)
+    gears.shape.rounded_rect(cr, w, h, theme.groups_radius)
+end
+theme.slider_bar_shape = function(cr, w, h)
+    gears.shape.rounded_rect(cr, w, h, 0)
+end
 
 -- Volume & Brightness widget
 theme.vol_bar_active_color = theme.accent
 theme.vol_bar_handle_color = theme.vol_bar_active_color
 theme.vol_handle_border_color = theme.vol_bar_active_color
-theme.vol_bar_height = dpi(35)
-theme.vol_handle_width = dpi(0)
-theme.vol_handle_border_width = dpi(1)
+theme.vol_bar_height = dpi(1)
+theme.vol_handle_width = dpi(10)
+theme.vol_handle_border_width = dpi(0)
 theme.vol_bar_color = theme.vol_bar_active_color .. "30"
 theme.vol_bar_shape = theme.bar_shape
+
+theme.osd_height = dpi(70)
+theme.osd_width = dpi(220)
+theme.osd_margin = dpi(90)
+theme.osd_handle_shape = gears.shape.circle
 
 -- Widget
 theme.widget_height = dpi(25)
@@ -182,6 +204,16 @@ theme.widget_height = dpi(25)
 local taglist_square_size = dpi(4)
 -- theme.taglist_squares_sel = theme_assets.taglist_squares_sel(taglist_square_size, theme.fg_normal)
 -- theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(taglist_square_size, theme.fg_normal)
+
+-- Decorations
+theme.client_shape_rectangle = gears.shape.rectangle
+theme.client_shape_rounded = function(cr, width, height)
+    gears.shape.rounded_rect(cr, width, height, theme.groups_radius)
+end
+
+theme.power_button_shape = function(cr, width, height)
+    gears.shape.rounded_rect(cr, width, height, theme.groups_radius)
+end
 
 -- Variables set for theming notifications:
 theme.notification_title_margin = dpi(6)
@@ -202,6 +234,7 @@ theme.center_notification_border_focus = theme.border_focus
 theme.center_notification_border_width = dpi(0)
 
 theme.lock_bg = theme.bg_normal .. "77"
+theme.power_button_bg = theme.widget_bg .. "aa"
 
 theme.header_bg = "#16161d"
 theme.inner_bg = "#16161d"
@@ -209,9 +242,6 @@ theme.inner_bg = "#16161d"
 theme.notification_center_header_bg = "#16161d"
 theme.notification_center_inner_bg = "#16161d"
 
--- Variables set for theming the menu:
--- menu_[bg|fg]_[normal|focus]
--- menu_[border_color|border_width]
 theme.menu_submenu_icon = themes_path .. "default/submenu.png"
 theme.menu_height = dpi(15)
 theme.menu_width = dpi(100)
@@ -236,24 +266,25 @@ theme.layout_cornerse = "~/.config/awesome/themes/layouts/cornersew.png"
 
 -- Generate Awesome icon:
 theme.awesome_icon = theme_assets.awesome_icon(theme.menu_height, theme.bg_focus, theme.fg_focus)
-
 theme.wallpaper = "~/.config/awesome/themes/wallpapers/dark-wallpaper.png"
+
+theme.music_back = "~/.config/awesome/themes/assets/no_music.png"
 
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
-theme.icon_theme = nil
+-- theme.icon_theme = nil
 theme.icons = require("themes.icons-dark")
 theme.dynamic_wallpaper_dir = "themes/wallpapers//"
-theme.conky_script = "/configuration/conky-dark.sh"
+theme.conky_script = "/themes/conky/conky-dark.sh"
 
-theme.kvantum_theme = "Islamic"
+theme.kvantum_theme = "Sweet-transparent-toolbar"
 theme.konsole_profile = "--profile islamic"
 
 theme.light_theme = "light_theme"
 theme.dark_theme = "dark_theme"
 
 theme.plasma_cursors = "ArcStarry-cursors"
-theme.plasma_color = "Tellgo.colors"
+theme.plasma_color = "SweetWithSweet.colors"
 
 return theme
 
