@@ -38,7 +38,7 @@
 
 ### Installation and usage - التثبيت والاستخدام
 
-`<b>`Arch users - مستخدمي ارش `</b>`
+<b>Arch users - مستخدمي ارش </b>
 
     yay -S base-devel clementine brightnessctl light gimp network-manager-applet telegram-desktop awesome-git rofi xorg-xbacklight xorg-xrandr redshift qt5-gsettings lxappearance konsole xfce4-power-manager xfce4-screensaver blueman xorg-setxkbmap picom-git ark dolphin ffmpegthumbs playerctl lightly-qt kvantum xidlehook polkit-kde-agent ttf-font-awesome-5 conky jq xcolor light-git
 
@@ -75,4 +75,7 @@ Copy files into .config/awesome
 </p>
 <p align='center'>
 	<img alt='screenshot 7' src='https://github.com/AhmedSaadi0/MyAwesomeConfig/blob/master/screenshots/7.png'/>
+</p>
+<p align='center'>
+	<img alt='screenshot 8' src='https://github.com/AhmedSaadi0/MyAwesomeConfig/blob/master/screenshots/8.png'/>
 </p>
