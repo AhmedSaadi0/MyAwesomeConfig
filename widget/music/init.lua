@@ -46,6 +46,7 @@ local function worker(args)
 		music:get_children_by_id("title_id")[1].text = "لا توجد موسيقى قيد التشغيل"
 		music:get_children_by_id("artist_id")[1].text = "لا يوجد فنان"
 		music:get_children_by_id("play_button_id")[1].text = ""
+		music:get_children_by_id("image_id")[1].image = beautiful.music_back
 		is_playing = false
 	end
 
@@ -84,7 +85,9 @@ local function worker(args)
 		end
 	)
 
-	local function update_music_widget(title, artist, status, position, length)
+	local function update_music_widget(title, artist, status, position, length, art_url)
+		local image_url =  string.gsub(art_url:gsub("file://", ""), "^%s*(.-)%s*$", "%1")
+
 		if string.gsub(title, "^%s*(.-)%s*$", "%1") == nil or string.gsub(title, "^%s*(.-)%s*$", "%1") == "" then
 			music:get_children_by_id("title_id")[1].text = "لا يوجد عنوان"
 		else
@@ -99,6 +102,12 @@ local function worker(args)
 
 		music:get_children_by_id("progress")[1].maximum = tonumber(length)
 		music:get_children_by_id("progress")[1].value = tonumber(position)
+		
+		if image_url == "" then
+			music:get_children_by_id("image_id")[1].image = beautiful.music_back
+		else
+			music:get_children_by_id("image_id")[1].image = image_url
+		end
 
 		update_status(status)
 	end
@@ -144,7 +153,7 @@ local function worker(args)
 	)
 
 	watch(
-		"playerctl metadata --format '{{title}} ;; {{artist}} ;; {{album}} ;; {{status}} ;; {{position}} ;; {{mpris:length}}'",
+		"playerctl metadata --format '{{title}} ;; {{artist}} ;; {{album}} ;; {{status}} ;; {{position}} ;; {{mpris:length}} ;; {{mpris:artUrl}}'",
 		1,
 		function(_, stdout)
 			if string.find(string.gsub(stdout, "^%s*(.-)%s*$", "%1"), "No player") then
@@ -166,6 +175,7 @@ local function worker(args)
 			local status = ""
 			local position = 0
 			local length = 0
+			local art_url = ""
 
 			if result[1] then
 				title = result[1]
@@ -185,8 +195,11 @@ local function worker(args)
 			if result[6] then
 				length = result[6]
 			end
+			if result[7] then
+				art_url = result[7]
+			end
 
-			update_music_widget(title, artist, status, position, length)
+			update_music_widget(title, artist, status, position, length, art_url)
 		end
 	)
 
