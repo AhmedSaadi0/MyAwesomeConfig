@@ -3,30 +3,36 @@ local wibox = require("wibox")
 local gears = require("gears")
 local beautiful = require("beautiful")
 local dpi = beautiful.xresources.apply_dpi
+local helpers = require("helpers")
+local json = require("library.json")
 
 panel_visible = false
 
--- local central_panel_switch = require("widget.central-panel-switch")
--- local user_profile = require("widget.user-profile")
--- local weather = require("widget.weather")
--- local email = require("widget.email")
 local notif_center = require("widget.notif-center")
-local settings = require("layout.central-panel.settings")
-local quick_setting = require("layout.central-panel.settings.quick-settings")
--- local music = require("widget.music")
-local hardware_monitor = require("layout.central-panel.settings.hardware-monitor")
+local music = require("widget.music") {}
+local hardware_monitor = require("layout-gnome.central-panel.settings.hardware-monitor")
 
 local central_panel = function(s)
 	-- Set right panel geometry
 	local panel_width = dpi(700)
 	local panel_margins = dpi(15)
+	local icon_font = s.font or beautiful.iconfont
 
-	local separator =
-		wibox.widget {
-		orientation = "horizontal",
-		opacity = 0.1,
-		forced_height = 15,
-		widget = wibox.widget.separator
+	local city = s.city or beautiful.city or "Sanaa"
+
+	local today = helpers.create_weather_detailed {}
+
+	local weather =
+		helpers.set_widget_block {
+		widget = today,
+		-- shape = widget_shape,
+		-- bg = widget_bg,
+		-- fg = widget_fg,
+		top = dpi(12),
+		bottom = dpi(12),
+		left = dpi(24),
+		right = dpi(24),
+		shape = helpers.rrect(beautiful.widgets_corner_radius)
 	}
 
 	local panel =
@@ -36,41 +42,47 @@ local central_panel = function(s)
 				{
 					expand = "none",
 					layout = wibox.layout.fixed.vertical,
-					-- {
-					-- 	layout = wibox.layout.align.horizontal,
-					-- 	expand = "none",
-					-- 	nil,
-					-- 	central_panel_switch,
-					-- 	nil
-					-- },
-					-- separator,
 					{
-						layout = wibox.layout.stack,
-						-- Today Pane
+						id = "pane_id",
+						visible = true,
+						layout = wibox.layout.fixed.vertical,
 						{
-							id = "pane_id",
-							visible = true,
-							layout = wibox.layout.fixed.vertical,
+							layout = wibox.layout.flex.horizontal,
+							notif_center(s),
+							spacing = dpi(7),
 							{
-								layout = wibox.layout.flex.horizontal,
-								notif_center(s),
+								layout = wibox.layout.fixed.vertical,
 								spacing = dpi(7),
-								{
-									layout = wibox.layout.fixed.vertical,
-									spacing = dpi(7),
-									hardware_monitor,
-									quick_setting,
-									music,
-									-- weather,
-									-- email,
-								}
+								helpers.set_widget_block {
+									widget = {
+										layout = wibox.layout.fixed.vertical,
+										helpers.set_widget_block {
+											widget = helpers.add_text("الطقس اليوم", nil, beautiful.uifont),
+											bg = beautiful.header_bg,
+											fg = beautiful.fg_normal,
+											top = dpi(15),
+											bottom = dpi(8)
+										},
+										weather
+									},
+									shape = helpers.rrect(beautiful.widgets_corner_radius)
+								},
+								helpers.set_widget_block {
+									widget = {
+										layout = wibox.layout.fixed.vertical,
+										helpers.set_widget_block {
+											widget = helpers.add_text("الموسقى", nil, beautiful.uifont),
+											bg = beautiful.header_bg,
+											fg = beautiful.fg_normal,
+											top = dpi(15),
+											bottom = dpi(8)
+										},
+										music,
+									},
+									shape = helpers.rrect(beautiful.widgets_corner_radius)
+								},
+								hardware_monitor
 							}
-						},
-						{
-							id = "settings_id",
-							visible = false,
-							layout = wibox.layout.fixed.vertical,
-							settings()
 						}
 					}
 				},
@@ -96,8 +108,8 @@ local central_panel = function(s)
 		border_width = beautiful.control_border_width,
 		border_color = beautiful.control_border_color,
 		shape = function(cr, width, height)
-            gears.shape.rounded_rect(cr, width, height, beautiful.groups_radius)
-        end
+			gears.shape.rounded_rect(cr, width, height, beautiful.groups_radius)
+		end
 	}
 
 	awful.placement.centered(
@@ -113,10 +125,47 @@ local central_panel = function(s)
 
 	panel.opened = false
 
-
 	panel:struts {
 		top = 0
 	}
+
+	local function update_weather(stdout)
+		local weather_json = json.parse(stdout)
+
+		local lang_ar = weather_json.current_condition[1].lang_ar[1].value
+		local today_time = weather_json.current_condition[1].localObsDateTime
+		local code = weather_json.current_condition[1].weatherCode
+		local city = weather_json.nearest_area[1].areaName[1].value
+
+		local year, month, day, hours, minutes, am_pm = today_time:match("^(%d%d%d%d)-(%d%d)-(%d%d) (%d%d):(%d%d) ([AP]M)$")
+
+		local w_icon = ""
+
+		if (am_pm == "AM" and tonumber(hours) > 5) or (am_pm == "PM" and tonumber(hours) < 6) then
+			w_icon = require("widget.wttr-weather.sun-icons")[code]
+		else
+			w_icon = require("widget.wttr-weather.moon-icons")[code]
+		end
+
+		today:get_children_by_id("temperature_id")[1]:set_text("°" .. weather_json.current_condition[1].temp_C)
+
+		today:get_children_by_id("sky_status_id")[1]:set_text(weather_json.current_condition[1].lang_ar[1].value)
+		today:get_children_by_id("weather_icon_id")[1]:set_text(w_icon)
+		today:get_children_by_id("temperature_time_id")[1]:set_text(weather_json.current_condition[1].observation_time)
+		today:get_children_by_id("moonrise_id")[1]:set_text(
+			" " .. weather_json.weather[1].astronomy[1].moonrise .. " - " .. weather_json.weather[1].astronomy[1].moonset
+		)
+		today:get_children_by_id("sunrise_id")[1]:set_text(
+			" " .. weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset
+		)
+		today:get_children_by_id("temperature_date_id")[1]:set_text(
+			" " .. os.date("%A", os.time {year = year, month = month, day = day}) .. " | " .. month .. "/" .. day
+		)
+		today:get_children_by_id("temperature_city_id")[1]:set_text(city)
+		today:get_children_by_id("h_l_temperature_id")[1]:set_text(
+			"°" .. weather_json.weather[1].maxtempC .. "/°" .. weather_json.weather[1].mintempC
+		)
+	end
 
 	open_panel = function()
 		local focused = awful.screen.focused()
@@ -127,6 +176,13 @@ local central_panel = function(s)
 		panel:emit_signal("opened")
 	end
 
+	awesome.connect_signal(
+		"widget::update_weather",
+		function(stdout)
+			update_weather(stdout)
+		end
+	)
+
 	close_panel = function()
 		local focused = awful.screen.focused()
 		panel_visible = false
@@ -136,29 +192,12 @@ local central_panel = function(s)
 		panel:emit_signal("closed")
 	end
 
-	-- Hide this panel when app dashboard is called.
-	function panel:hide_dashboard()
-		close_panel()
-	end
-
 	function panel:toggle()
 		self.opened = not self.opened
 		if self.opened then
 			open_panel()
 		else
 			close_panel()
-		end
-	end
-
-	function panel:switch_pane(mode)
-		if mode == "today_mode" then
-			-- Update Content
-			panel.widget:get_children_by_id("settings_id")[1].visible = false
-			panel.widget:get_children_by_id("pane_id")[1].visible = true
-		elseif mode == "settings_mode" then
-			-- Update Content
-			panel.widget:get_children_by_id("pane_id")[1].visible = false
-			panel.widget:get_children_by_id("settings_id")[1].visible = true
 		end
 	end
 

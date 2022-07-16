@@ -10,13 +10,22 @@ local widget_dir = config_dir .. "widget/airplane-mode/"
 local widget_icon_dir = widget_dir .. "icons/"
 local icons = beautiful.icons
 local ap_state = false
+local helpers = require("helpers")
+
+-- local action_name2 =
+-- 	wibox.widget {
+-- 	text = "وضع الطيران",
+-- 	font = beautiful.uifont,
+-- 	align = "right",
+-- 	widget = wibox.widget.textbox
+-- }
 
 local action_name =
-	wibox.widget {
+	helpers.add_text_icon_widget {
 	text = "وضع الطيران",
-	font = beautiful.uifont,
-	align = "right",
-	widget = wibox.widget.textbox
+	icon = "",
+	forced_width = dpi(100),
+	text_font = beautiful.uifont
 }
 
 local button_widget =

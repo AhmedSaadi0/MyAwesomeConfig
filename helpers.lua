@@ -48,6 +48,47 @@ function helpers.set_widget_block(args)
     return block
 end
 
+function helpers.add_text_icon_widget(args)
+    local text = args.text or ""
+    local text_font = args.text_font
+    local text_bg = args.text_bg
+
+    local icon = args.icon or ""
+    local icon_font = args.icon_font
+    local icon_bg = args.icon_bg
+
+    local forced_width = args.forced_width
+    local forced_height = args.forced_height or dpi(50)
+
+    local widget =
+        wibox.widget {
+        layout = wibox.layout.manual,
+        forced_height = forced_height,
+        forced_width = forced_width,
+        {
+            point = function(geo, args)
+                return {
+                    x = 0,
+                    y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
+                }
+            end,
+            helpers.add_text(text, text_bg, text_font),
+            layout = wibox.layout.fixed.vertical
+        },
+        {
+            point = function(geo, args)
+                return {
+                    x = args.parent.width - geo.width,
+                    y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
+                }
+            end,
+            helpers.add_text(icon, icon_bg, icon_font),
+            layout = wibox.layout.fixed.vertical
+        }
+    }
+    return widget
+end
+
 function helpers.right_rounded_rect(radius)
     return function(cr, w, h)
         gears.shape.partially_rounded_rect(cr, w, h, false, true, true, false, radius)
@@ -90,6 +131,15 @@ function helpers.colorize_text(txt, fg, font)
     return "<span foreground='" .. fg .. "' font='" .. font .. "'>" .. txt .. "</span>"
 end
 
+function helpers.add_text(txt, bg, font)
+    return wibox.widget {
+        markup = helpers.colorize_text(txt, bg, font),
+        align = "center",
+        valign = "center",
+        widget = wibox.widget.textbox
+    }
+end
+
 function helpers.add_hover_cursor(w, hover_cursor)
     local original_cursor = "left_ptr"
 
@@ -112,15 +162,6 @@ function helpers.add_hover_cursor(w, hover_cursor)
             end
         end
     )
-end
-
-function helpers.add_text(txt, bg, font)
-    return wibox.widget {
-        markup = helpers.colorize_text(txt, bg, font),
-        align = "center",
-        valign = "center",
-        widget = wibox.widget.textbox
-    }
 end
 
 helpers.rrect = function(radius)
@@ -281,6 +322,7 @@ function helpers.add_margin(args)
     local bottom = args.bottom or dpi(0)
     local left = args.left or dpi(0)
     local right = args.right or dpi(0)
+    local right = args.right or dpi(0)
 
     local visible = args.visible
     local id = args.id
@@ -302,6 +344,8 @@ function helpers.create_weather_detailed(args)
     local text_font = args.font or beautiful.uifont
     local icon_font = args.font or beautiful.iconfont
 
+    local forced_width = args.forced_width or dpi(250)
+
     local visible = args.visible
 
     local temperature_id = args.temperature_id or "temperature_id"
@@ -319,7 +363,7 @@ function helpers.create_weather_detailed(args)
         layout = wibox.layout.manual,
         visible = visible,
         forced_height = dpi(110),
-        forced_width = dpi(250),
+        forced_width = forced_width,
         {
             -- اليسار
             point = function(geo, args)

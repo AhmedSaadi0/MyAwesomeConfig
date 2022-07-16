@@ -89,8 +89,8 @@ theme.battery_icon_fg_color = theme.widget_bg
 theme.battery_text_color = theme.battery_icon_fg_color
 theme.battery_hover_color = "#92a0bd" -- "#ffaf5f"
 
-theme.weather_color = "#033768"
-theme.weather_icon_bg_color = "#044583"
+theme.weather_color = "#011426"
+theme.weather_icon_bg_color = "#010f1c"
 theme.weather_icon_fg_color = "#92a0bd"
 theme.weather_text_color = theme.weather_icon_fg_color
 
@@ -135,10 +135,11 @@ theme.systray_max_rows = dpi(1)
 theme.panal_hight = dpi(32)
 theme.panal_border_width = dpi(0)
 -- درجة دوران حواف بعض الاشياء مثل الاشعارات واشعار الصوت والسطوع
-theme.groups_radius = dpi(15)
+theme.groups_radius = dpi(8)
 
 -- Control Panal and notification panal
-theme.control_panal_hight = dpi(750)
+-- theme.control_panal_hight = dpi(750) -- normal layout
+theme.control_panal_hight = dpi(645) -- gnome layout
 theme.control_border_width = dpi(1)
 theme.control_border_color = theme.border_focus
 

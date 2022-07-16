@@ -7,7 +7,7 @@ local gears = require("gears")
 local dpi = require("beautiful").xresources.apply_dpi
 
 local brightness_slider = require("widget.brightness-slider")
-local volume_slider = require("widget.volume-slider")
+local volume_slider = require("widget.volume-slider"){}
 local blur_slider = require("widget.blur-slider")
 
 local function worker(args)

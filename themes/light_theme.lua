@@ -137,12 +137,13 @@ theme.systray_max_rows = dpi(1)
 -------------------------------
 theme.panal_hight = dpi(32)
 theme.panal_border_width = dpi(0)
-theme.groups_radius = dpi(15)
+theme.groups_radius = dpi(5)
 
 ----------------------------------------------------------------
 -------------- Control Panal and notification panal ------------
 ----------------------------------------------------------------
-theme.control_panal_hight = dpi(750)
+-- theme.control_panal_hight = dpi(750) -- normal layout
+theme.control_panal_hight = dpi(645) -- gnome layout
 theme.control_border_width = dpi(1)
 theme.control_border_color = theme.border_focus
 
@@ -292,6 +293,7 @@ theme.light_theme = "light_theme"
 theme.dark_theme = "islamic_theme"
 
 theme.plasma_cursors = "ArcDusk-cursors"
-theme.plasma_color = "NovaAmare.colors"
+-- theme.plasma_color = "NovaAmare.colors"
+theme.plasma_color = "GenomeLight21.colors"
 
 return theme

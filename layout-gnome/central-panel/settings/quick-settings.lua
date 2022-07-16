@@ -5,7 +5,7 @@ local bar_color = beautiful.groups_bg
 local dpi = beautiful.xresources.apply_dpi
 
 local brightness_slider = require("widget.brightness-slider")
-local volume_slider = require("widget.volume-slider")
+local volume_slider = require("widget.volume-slider"){}
 local blur_slider = require("widget.blur-slider")
 local blue_light = require("widget.blue-light")
 local airplane_mode = require("widget.airplane-mode")

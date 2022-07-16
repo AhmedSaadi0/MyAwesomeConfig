@@ -10,13 +10,22 @@ local config_dir = gears.filesystem.get_configuration_dir()
 local widget_icon_dir = config_dir .. "widget/bluetooth-toggle/icons/"
 local icons = beautiful.icons
 local device_state = false
+local helpers = require("helpers")
+
+-- local action_name =
+-- 	wibox.widget {
+-- 	text = "البلوتوث",
+-- 	font = beautiful.uifont,
+-- 	align = "right",
+-- 	widget = wibox.widget.textbox
+-- }
 
 local action_name =
-	wibox.widget {
+	helpers.add_text_icon_widget {
 	text = "البلوتوث",
-	font = beautiful.uifont,
-	align = "right",
-	widget = wibox.widget.textbox
+	icon = "",
+	forced_width = dpi(81),
+	text_font = beautiful.uifont
 }
 
 local button_widget =

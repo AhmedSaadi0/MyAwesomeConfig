@@ -7,13 +7,22 @@ local filesystem = gears.filesystem
 local config_dir = filesystem.get_configuration_dir()
 local beautiful = require("beautiful")
 local icons = beautiful.icons
+local helpers = require("helpers")
+
+-- local action_name =
+-- 	wibox.widget {
+-- 	text = "تاثير الضباب", --
+-- 	font = beautiful.uifont,
+-- 	align = "right",
+-- 	widget = wibox.widget.textbox
+-- }
 
 local action_name =
-	wibox.widget {
-	text = "تاثير الضباب",
-	font = beautiful.uifont,
-	align = "right",
-	widget = wibox.widget.textbox
+	helpers.add_text_icon_widget {
+	text = "تاثير الضباب", --
+	icon = "",
+	forced_width = dpi(97),
+	text_font = beautiful.uifont
 }
 
 local button_widget =

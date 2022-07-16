@@ -7,9 +7,23 @@ local gears = require("gears")
 local dpi = require("beautiful").xresources.apply_dpi
 
 local brightness_slider = require("widget.brightness-slider")
-local volume_slider = require("widget.volume-slider")
+local volume_slider =
+    require("widget.volume-slider") {
+    slider_top = dpi(0),
+    slider_bottom = dpi(0),
+    icon_top = dpi(5),
+    icon_bottom = dpi(5),
+    slider_left = dpi(12),
+    slider_right = dpi(30),
+    right = dpi(12),
+    left = dpi(12),
+    forced_height = dpi(32)
 
-local music_widget = require("widget.music"){}
+    -- left = dpi(0),
+    -- right = dpi(0),
+}
+
+local music_widget = require("widget.music") {}
 
 local function worker(args)
     local text_font = args.font or beautiful.uifont
@@ -29,16 +43,6 @@ local function worker(args)
             gears.shape.rounded_rect(cr, width, height, beautiful.groups_radius)
         end
 
-    -- Music Widget
-    -- local music = helpers.create_music_widget {}
-
-    -- local music_widget =
-    --     helpers.set_widget_block {
-    --     widget = music,
-    --     shape = shape,
-    --     forced_height = dpi(130)
-    -- }
-
     local number_text_widget =
         wibox.widget {
         text = "00%",
@@ -56,6 +60,13 @@ local function worker(args)
         align = "center",
         valign = "center",
         widget = wibox.widget.textbox
+    }
+
+    local sound_settings =
+        helpers.add_text_icon_widget {
+        text = "اعدادات الصوت",
+        icon = "",
+        text_font = text_font
     }
 
     local detailed_widget =
@@ -82,15 +93,35 @@ local function worker(args)
                             widget = wibox.container.background
                         },
                         layout = wibox.layout.fixed.vertical,
-                        -- brightness_slider,
+                        helpers.add_margin {
+                            widget = helpers.set_widget_block {
+                                widget = volume_slider,
+                                shape = shape
+                                -- forced_height = dpi(30),
+                            },
+                            top = dpi(12),
+                            right = dpi(12),
+                            left = dpi(12)
+                        },
                         helpers.add_margin {
                             widget = music_widget,
-                            top = dpi(10),
-                            -- bottom = dpi(10),
-                            right = dpi(10),
-                            left = dpi(10)
+                            top = dpi(12),
+                            -- bottom = dpi(12),
+                            right = dpi(12),
+                            left = dpi(12)
                         },
-                        volume_slider
+                        helpers.add_margin {
+                            widget = helpers.set_widget_block {
+                                widget = sound_settings,
+                                right = dpi(24),
+                                left = dpi(24),
+                                shape = shape
+                            },
+                            top = dpi(12),
+                            bottom = dpi(12),
+                            right = dpi(12),
+                            left = dpi(12)
+                        }
                     },
                     bg = bg,
                     fg = widget_fg,
@@ -113,6 +144,25 @@ local function worker(args)
         widget = detailed_widget
     }
 
+    awful.placement.top_left(
+        popup,
+        {
+            margins = {
+                -- right = panel_margins,
+                top = dpi(42),
+                left = dpi(100)
+            }
+        }
+    )
+
+    sound_settings:connect_signal(
+        "button::press",
+        function()
+            awful.spawn("systemsettings5 kcm_pulseaudio")
+            popup.visible = not popup.visible
+        end
+    )
+
     number_text_widget:connect_signal(
         "button::press",
         function()
@@ -126,7 +176,7 @@ local function worker(args)
             if popup.visible then
                 popup.visible = not popup.visible
             else
-                popup:move_next_to(mouse.current_widget_geometry)
+                popup:move_next_to()
             end
         end
     )

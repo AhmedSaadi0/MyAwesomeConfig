@@ -197,6 +197,7 @@ awful.screen.connect_for_each_screen(
             screen = "primary",
             widget = wibox.widget.systray
         }
+
         s.tray_toggler = require("widget.tray-toggle")
 
         s.cpu =
@@ -233,20 +234,7 @@ awful.screen.connect_for_each_screen(
             -- city = "Cairo",
         }
 
-        s.power_button =
-            wibox.widget {
-            markup = "<span foreground='" .. beautiful.power_button_color .. "'>    </span>",
-            align = "center",
-            valign = "center",
-            widget = wibox.widget.textbox
-        }
-
-        s.power_button:connect_signal(
-            "button::press",
-            function()
-                awesome.emit_signal("module::exit_screen:show")
-            end
-        )
+        s.left_menu = require("layout-gnome.left_menu") {}
 
         s.mywibox:setup {
             layout = wibox.layout.manual,
@@ -264,7 +252,13 @@ awful.screen.connect_for_each_screen(
                 -----------
                 -- Power --
                 -----------
-                s.power_button,
+                helpers.set_widget_block {
+                    widget = s.left_menu,
+                    left = dpi(12),
+                    right = dpi(12),
+                    bg = beautiful.bg_normal,
+                    fg = beautiful.fg_normal,
+                },
                 helpers.set_space(6),
                 -------------
                 -- Systray --

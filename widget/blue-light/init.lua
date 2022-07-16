@@ -6,6 +6,7 @@ local dpi = require("beautiful").xresources.apply_dpi
 local clickable_container = require("widget.blue-light.clickable-container")
 local icons = beautiful.icons
 local blue_light_state = nil
+local helpers = require("helpers")
 
 local action_name =
 	wibox.widget {
@@ -13,6 +14,14 @@ local action_name =
 	font = beautiful.uifont,
 	align = "right",
 	widget = wibox.widget.textbox
+}
+
+local action_name =
+	helpers.add_text_icon_widget {
+	text = "تقليل الضوء الازرق",
+	icon = "",
+	forced_width = dpi(135),
+	text_font = beautiful.uifont
 }
 
 local button_widget =
@@ -113,7 +122,6 @@ awesome.connect_signal(
 		b_ight_osd_slider:set_value(bluelight)
 	end
 )
-
 
 local kill_state = function()
 	awful.spawn.easy_async_with_shell(

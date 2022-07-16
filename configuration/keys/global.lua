@@ -122,6 +122,14 @@ local global_keys =
 		{modkey},
 		"F1",
 		function()
+			awesome.emit_signal("widget::open_left_menu")
+		end,
+		{description = "قتح القائمة على اليسار", group = "عمليات الشاشة"}
+	),
+	awful.key(
+		{modkey},
+		"F3",
+		function()
 			awesome.emit_signal("widget::open_music")
 		end,
 		{description = "قتح اداة الموسيقى", group = "عمليات الشاشة"}

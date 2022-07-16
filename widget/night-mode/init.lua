@@ -7,13 +7,22 @@ local filesystem = gears.filesystem
 local config_dir = filesystem.get_configuration_dir()
 local beautiful = require("beautiful")
 local icons = beautiful.icons
+local helpers = require("helpers")
+
+-- local action_name =
+-- 	wibox.widget {
+-- 	text = "الوضع الليلي",
+-- 	font = beautiful.uifont,
+-- 	align = "right",
+-- 	widget = wibox.widget.textbox
+-- }
 
 local action_name =
-	wibox.widget {
+	helpers.add_text_icon_widget {
 	text = "الوضع الليلي",
-	font = beautiful.uifont,
-	align = "right",
-	widget = wibox.widget.textbox
+	icon = "",
+	forced_width = dpi(107),
+	text_font = beautiful.uifont
 }
 
 local button_widget =
@@ -38,7 +47,7 @@ local widget_button =
 	widget = clickable_container
 }
 
-local action_status 
+local action_status
 
 local update_imagebox = function()
 	if action_status then
@@ -69,18 +78,25 @@ local toggle_night_mode = function(togglemode)
 	local toggle_n_m_script =
 		[[bash -c "
 			case ]] ..
-				togglemode ..
+		togglemode ..
 			[[ in
 				'enable')
-				sed -i -e 's/]] .. beautiful.light_theme .. [[/]] .. beautiful.dark_theme .. [[/g' \"]] .. config_dir .. [[rc.lua\";;'disable')
-				sed -i -e 's/]] .. beautiful.dark_theme ..[[/]] .. beautiful.light_theme .. [[/g' \"]] .. config_dir .. [[rc.lua\";;
+				sed -i -e 's/]] ..
+				beautiful.light_theme ..
+					[[/]] ..
+						beautiful.dark_theme ..
+							[[/g' \"]] ..
+								config_dir ..
+									[[rc.lua\";;'disable')
+				sed -i -e 's/]] ..
+										beautiful.dark_theme ..
+											[[/]] .. beautiful.light_theme .. [[/g' \"]] .. config_dir .. [[rc.lua\";;
 			esac
 	"]]
 
 	-- Run the script
 	awful.spawn.with_shell(toggle_n_m_script)
 	awful.spawn.with_shell("echo 'awesome.restart()' | awesome-client")
-
 end
 
 local toggle_mode_fx = function()

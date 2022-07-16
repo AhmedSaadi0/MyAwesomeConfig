@@ -153,34 +153,51 @@ awesome.connect_signal(
 	end
 )
 
-local volume_setting =
-	wibox.widget {
-	{
+local volume_setting = function(args)
+
+	local slider_top = args.slider_top or dpi(12)
+	local slider_bottom = args.slider_bottom or dpi(12)
+	local slider_left = args.slider_left or dpi(24)
+	local slider_right = args.slider_right or dpi(60)
+	
+	local icon_top = args.icon_top or dpi(12)
+	local icon_bottom = args.icon_bottom or dpi(12)
+
+	local left = args.left or dpi(24)
+	local right = args.right or dpi(24)
+	local forced_height = args.forced_height or dpi(60)
+
+	local widget =
+		wibox.widget {
 		{
-			point = function(geo, args)
-				return {
-					x = args.parent.width - geo.width,
-					y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
-				}
-			end,
-			action_level,
-			top = dpi(12),
-			bottom = dpi(12),
-			widget = wibox.container.margin
+			{
+				point = function(geo, args)
+					return {
+						x = args.parent.width - geo.width,
+						y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
+					}
+				end,
+				action_level,
+				top = icon_top,
+				bottom = icon_bottom,
+				widget = wibox.container.margin
+			},
+			{
+				slider,
+				top = slider_top,
+				bottom = slider_bottom,
+				right = slider_right,
+				left = slider_left,
+				widget = wibox.container.margin
+			},
+			layout = wibox.layout.manual
 		},
-		{
-			slider,
-			top = dpi(12),
-			bottom = dpi(12),
-			right = dpi(60),
-			widget = wibox.container.margin
-		},
-		layout = wibox.layout.manual
-	},
-	left = dpi(24),
-	right = dpi(24),
-	forced_height = dpi(60),
-	widget = wibox.container.margin
-}
+		right = right,
+		forced_height = forced_height,
+		widget = wibox.container.margin
+	}
+
+	return widget
+end
 
 return volume_setting

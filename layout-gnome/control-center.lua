@@ -1,5 +1,5 @@
 local awful = require("awful")
-local central_panel = require("layout.central-panel")
+local central_panel = require("layout-gnome.central-panel")
 
 screen.connect_signal(
     "request::desktop_decoration",

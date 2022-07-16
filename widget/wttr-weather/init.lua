@@ -9,106 +9,8 @@ local json = require("library.json")
 
 local weather_json = ""
 
-local sun_icon_dic = {}
-local moon_icon_dic = {}
-
-sun_icon_dic["395"] = ""
-sun_icon_dic["392"] = "⛈"
-sun_icon_dic["389"] = "⛈"
-sun_icon_dic["386"] = "⛈"
-sun_icon_dic["377"] = ""
-sun_icon_dic["374"] = ""
-sun_icon_dic["371"] = ""
-sun_icon_dic["368"] = ""
-sun_icon_dic["365"] = ""
-sun_icon_dic["362"] = ""
-sun_icon_dic["359"] = ""
-sun_icon_dic["356"] = ""
-sun_icon_dic["353"] = ""
-sun_icon_dic["350"] = ""
-sun_icon_dic["338"] = ""
-sun_icon_dic["335"] = ""
-sun_icon_dic["332"] = ""
-sun_icon_dic["329"] = ""
-sun_icon_dic["326"] = ""
-sun_icon_dic["323"] = ""
-sun_icon_dic["320"] = ""
-sun_icon_dic["317"] = ""
-sun_icon_dic["314"] = ""
-sun_icon_dic["311"] = ""
-sun_icon_dic["308"] = ""
-sun_icon_dic["305"] = ""
-sun_icon_dic["302"] = ""
-sun_icon_dic["299"] = ""
-sun_icon_dic["296"] = ""
-sun_icon_dic["293"] = ""
-sun_icon_dic["284"] = ""
-sun_icon_dic["281"] = ""
-sun_icon_dic["266"] = ""
-sun_icon_dic["263"] = ""
-sun_icon_dic["260"] = "🌫"
-sun_icon_dic["248"] = "🌫"
-sun_icon_dic["230"] = ""
-sun_icon_dic["227"] = ""
-sun_icon_dic["200"] = "⛈"
-sun_icon_dic["185"] = ""
-sun_icon_dic["182"] = ""
-sun_icon_dic["179"] = ""
-sun_icon_dic["176"] = ""
-sun_icon_dic["143"] = "🌫"
-sun_icon_dic["122"] = "🌥"
-sun_icon_dic["119"] = ""
-sun_icon_dic["116"] = ""
-sun_icon_dic["113"] = ""
-
-moon_icon_dic["395"] = ""
-moon_icon_dic["392"] = "⛈"
-moon_icon_dic["389"] = "⛈"
-moon_icon_dic["386"] = "⛈"
-moon_icon_dic["377"] = ""
-moon_icon_dic["374"] = ""
-moon_icon_dic["371"] = ""
-moon_icon_dic["368"] = ""
-moon_icon_dic["365"] = ""
-moon_icon_dic["362"] = ""
-moon_icon_dic["359"] = ""
-moon_icon_dic["356"] = ""
-moon_icon_dic["353"] = ""
-moon_icon_dic["350"] = ""
-moon_icon_dic["338"] = ""
-moon_icon_dic["335"] = ""
-moon_icon_dic["332"] = ""
-moon_icon_dic["329"] = ""
-moon_icon_dic["326"] = ""
-moon_icon_dic["323"] = ""
-moon_icon_dic["320"] = ""
-moon_icon_dic["317"] = ""
-moon_icon_dic["314"] = ""
-moon_icon_dic["311"] = ""
-moon_icon_dic["308"] = ""
-moon_icon_dic["305"] = ""
-moon_icon_dic["302"] = ""
-moon_icon_dic["299"] = ""
-moon_icon_dic["296"] = ""
-moon_icon_dic["293"] = ""
-moon_icon_dic["284"] = ""
-moon_icon_dic["281"] = ""
-moon_icon_dic["266"] = ""
-moon_icon_dic["263"] = ""
-moon_icon_dic["260"] = "🌫"
-moon_icon_dic["248"] = "🌫"
-moon_icon_dic["230"] = ""
-moon_icon_dic["227"] = ""
-moon_icon_dic["200"] = "⛈"
-moon_icon_dic["185"] = ""
-moon_icon_dic["182"] = ""
-moon_icon_dic["179"] = ""
-moon_icon_dic["176"] = ""
-moon_icon_dic["143"] = "🌫"
-moon_icon_dic["122"] = "🌥"
-moon_icon_dic["119"] = ""
-moon_icon_dic["116"] = ""
-moon_icon_dic["113"] = ""
+local sun_icons = require("widget.wttr-weather.sun-icons")
+local moon_icons = require("widget.wttr-weather.moon-icons")
 
 local function factory(args)
     local city = args.city or beautiful.city or "Sanaa"
@@ -337,12 +239,12 @@ local function factory(args)
             shape = widget_shape,
             bg = widget_bg,
             fg = widget_fg,
-            top = dpi(10),
-            bottom = dpi(10),
-            left = dpi(10),
-            right = dpi(10)
+            top = dpi(12),
+            bottom = dpi(12),
+            left = dpi(12),
+            right = dpi(12)
         },
-        right = dpi(24)
+        right = dpi(12)
     }
 
     local widget_2 = helpers.add_margin {
@@ -353,12 +255,12 @@ local function factory(args)
             shape = widget_shape,
             bg = widget_bg,
             fg = widget_fg,
-            top = dpi(10),
-            bottom = dpi(10),
-            left = dpi(10),
-            right = dpi(10)
+            top = dpi(12),
+            bottom = dpi(12),
+            left = dpi(12),
+            right = dpi(12)
         },
-        right = dpi(24)
+        right = dpi(12)
     }
 
     local widget_3 = helpers.add_margin {
@@ -369,27 +271,27 @@ local function factory(args)
             shape = widget_shape,
             bg = widget_bg,
             fg = widget_fg,
-            top = dpi(10),
-            bottom = dpi(10),
-            left = dpi(10),
-            right = dpi(10)
+            top = dpi(12),
+            bottom = dpi(12),
+            left = dpi(12),
+            right = dpi(12)
         },
-        right = dpi(24)
+        right = dpi(12)
     }
 
     local widget_4 = helpers.add_margin {
         visible = false,
         id = "widget_4",
-        right = dpi(24),
+        right = dpi(12),
         widget = helpers.set_widget_block {
             widget = today_4,
             shape = widget_shape,
             bg = widget_bg,
             fg = widget_fg,
-            top = dpi(10),
-            bottom = dpi(10),
-            left = dpi(10),
-            right = dpi(10)
+            top = dpi(12),
+            bottom = dpi(12),
+            left = dpi(12),
+            right = dpi(12)
         }
     }
 
@@ -400,12 +302,12 @@ local function factory(args)
             shape = widget_shape,
             bg = widget_bg,
             fg = widget_fg,
-            top = dpi(10),
-            bottom = dpi(10),
-            left = dpi(10),
-            right = dpi(10)
+            top = dpi(12),
+            bottom = dpi(12),
+            left = dpi(12),
+            right = dpi(12)
         },
-        right = dpi(24)
+        right = dpi(12)
     }
 
     local widget_6 = helpers.add_margin {
@@ -416,12 +318,12 @@ local function factory(args)
             shape = widget_shape,
             bg = widget_bg,
             fg = widget_fg,
-            top = dpi(10),
-            bottom = dpi(10),
-            left = dpi(10),
-            right = dpi(10)
+            top = dpi(12),
+            bottom = dpi(12),
+            left = dpi(12),
+            right = dpi(12)
         },
-        right = dpi(24)
+        right = dpi(12)
     }
 
     local widget_7 = helpers.add_margin {
@@ -432,27 +334,27 @@ local function factory(args)
             shape = widget_shape,
             bg = widget_bg,
             fg = widget_fg,
-            top = dpi(10),
-            bottom = dpi(10),
-            left = dpi(10),
-            right = dpi(10)
+            top = dpi(12),
+            bottom = dpi(12),
+            left = dpi(12),
+            right = dpi(12)
         },
-        right = dpi(24)
+        right = dpi(12)
     }
 
     local widget_8 = helpers.add_margin {
         visible = false,
         id = "widget_8",
-        right = dpi(24),
+        right = dpi(12),
         widget = helpers.set_widget_block {
             widget = tomorrow_4,
             shape = widget_shape,
             bg = widget_bg,
             fg = widget_fg,
-            top = dpi(10),
-            bottom = dpi(10),
-            left = dpi(10),
-            right = dpi(10)
+            top = dpi(12),
+            bottom = dpi(12),
+            left = dpi(12),
+            right = dpi(12)
         }
     }
 
@@ -463,12 +365,12 @@ local function factory(args)
             shape = widget_shape,
             bg = widget_bg,
             fg = widget_fg,
-            top = dpi(10),
-            bottom = dpi(10),
-            left = dpi(10),
-            right = dpi(10)
+            top = dpi(12),
+            bottom = dpi(12),
+            left = dpi(12),
+            right = dpi(12)
         },
-        right = dpi(24)
+        right = dpi(12)
     }
 
     local widget_10 = helpers.add_margin {
@@ -479,12 +381,12 @@ local function factory(args)
             shape = widget_shape,
             bg = widget_bg,
             fg = widget_fg,
-            top = dpi(10),
-            bottom = dpi(10),
-            left = dpi(10),
-            right = dpi(10)
+            top = dpi(12),
+            bottom = dpi(12),
+            left = dpi(12),
+            right = dpi(12)
         },
-        right = dpi(24)
+        right = dpi(12)
     }
 
     local widget_11 = helpers.add_margin {
@@ -495,27 +397,27 @@ local function factory(args)
             shape = widget_shape,
             bg = widget_bg,
             fg = widget_fg,
-            top = dpi(10),
-            bottom = dpi(10),
-            left = dpi(10),
-            right = dpi(10)
+            top = dpi(12),
+            bottom = dpi(12),
+            left = dpi(12),
+            right = dpi(12)
         },
-        right = dpi(24)
+        right = dpi(12)
     }
 
     local widget_12 = helpers.add_margin {
         visible = false,
         id = "widget_12",
-        right = dpi(24),
+        right = dpi(12),
         widget = helpers.set_widget_block {
             widget = after_tomorrow_4,
             shape = widget_shape,
             bg = widget_bg,
             fg = widget_fg,
-            top = dpi(10),
-            bottom = dpi(10),
-            left = dpi(10),
-            right = dpi(10)
+            top = dpi(12),
+            bottom = dpi(12),
+            left = dpi(12),
+            right = dpi(12)
         }
     }
 
@@ -529,10 +431,10 @@ local function factory(args)
                 {
                     {
                         header,
-                        left = dpi(24),
+                        left = dpi(12),
                         top = dpi(15),
                         bottom = dpi(15),
-                        right = dpi(24),
+                        right = dpi(12),
                         widget = wibox.container.margin
                     },
                     bg = header_bg,
@@ -546,10 +448,10 @@ local function factory(args)
                         widget_3,
                         widget_4
                     },
-                    top = dpi(24),
-                    bottom = dpi(24),
-                    left = dpi(24),
-                    -- right = dpi(24),
+                    top = dpi(12),
+                    bottom = dpi(12),
+                    left = dpi(12),
+                    -- right = dpi(12),
                     bg = beautiful.transparent
                 },
                 helpers.set_widget_block {
@@ -560,10 +462,10 @@ local function factory(args)
                         widget_7,
                         widget_8,
                     },
-                    -- top = dpi(24),
-                    bottom = dpi(24),
-                    left = dpi(24),
-                    -- right = dpi(24),
+                    -- top = dpi(12),
+                    bottom = dpi(12),
+                    left = dpi(12),
+                    -- right = dpi(12),
                     bg = beautiful.transparent
                 },helpers.set_widget_block {
                     widget = {
@@ -573,10 +475,10 @@ local function factory(args)
                         widget_11,
                         widget_12,
                     },
-                    -- top = dpi(24),
-                    bottom = dpi(24),
-                    left = dpi(24),
-                    -- right = dpi(24),
+                    -- top = dpi(12),
+                    bottom = dpi(12),
+                    left = dpi(12),
+                    -- right = dpi(12),
                     bg = beautiful.transparent
                 },
                 layout = wibox.layout.fixed.vertical
@@ -612,7 +514,7 @@ local function factory(args)
 
             weather_json = json.parse(stdout)
             detailed_widget.visible = true
-
+            awesome.emit_signal("widget::update_weather", stdout)
 
             local lang_ar = weather_json.current_condition[1].lang_ar[1].value
             local today_time = weather_json.current_condition[1].localObsDateTime
@@ -625,9 +527,9 @@ local function factory(args)
             local w_icon = ""
 
             if (am_pm == "AM" and tonumber(hours) > 5) or (am_pm == "PM" and tonumber(hours) < 6) then
-                w_icon = sun_icon_dic[code]
+                w_icon = sun_icons[code]
             else
-                w_icon = moon_icon_dic[code]
+                w_icon = moon_icons[code]
             end
 
             icon.markup = helpers.colorize_text(w_icon, beautiful.weather_icon_fg_color, icon_font)
@@ -669,7 +571,7 @@ local function factory(args)
             )
             today_2:get_children_by_id("temperature_id")[1]:set_text("°" .. weather_json.weather[1].hourly[4].tempC)
             today_2:get_children_by_id("sky_status_id")[1]:set_text(weather_json.weather[1].hourly[4].lang_ar[1].value)
-            today_2:get_children_by_id("weather_icon_id")[1]:set_text(sun_icon_dic[weather_json.weather[1].hourly[4].weatherCode])
+            today_2:get_children_by_id("weather_icon_id")[1]:set_text(sun_icons[weather_json.weather[1].hourly[4].weatherCode])
             today_2:get_children_by_id("temperature_time_id")[1]:set_text("09:00")
             today_2:get_children_by_id("moonrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].moonrise .. " - " .. weather_json.weather[1].astronomy[1].moonset)
             today_2:get_children_by_id("sunrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset)
@@ -679,7 +581,7 @@ local function factory(args)
 
             today_3:get_children_by_id("temperature_id")[1]:set_text("°" .. weather_json.weather[1].hourly[6].tempC)
             today_3:get_children_by_id("sky_status_id")[1]:set_text(weather_json.weather[1].hourly[6].lang_ar[1].value)
-            today_3:get_children_by_id("weather_icon_id")[1]:set_text(sun_icon_dic[weather_json.weather[1].hourly[6].weatherCode])
+            today_3:get_children_by_id("weather_icon_id")[1]:set_text(sun_icons[weather_json.weather[1].hourly[6].weatherCode])
             today_3:get_children_by_id("temperature_time_id")[1]:set_text("15:00")
             today_3:get_children_by_id("moonrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].moonrise .. " - " .. weather_json.weather[1].astronomy[1].moonset)
             today_3:get_children_by_id("sunrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset)
@@ -689,7 +591,7 @@ local function factory(args)
 
             today_4:get_children_by_id("temperature_id")[1]:set_text("°" .. weather_json.weather[1].hourly[8].tempC)
             today_4:get_children_by_id("sky_status_id")[1]:set_text(weather_json.weather[1].hourly[8].lang_ar[1].value)
-            today_4:get_children_by_id("weather_icon_id")[1]:set_text(moon_icon_dic[weather_json.weather[1].hourly[8].weatherCode])
+            today_4:get_children_by_id("weather_icon_id")[1]:set_text(moon_icons[weather_json.weather[1].hourly[8].weatherCode])
             today_4:get_children_by_id("temperature_time_id")[1]:set_text("21:00")
             today_4:get_children_by_id("moonrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].moonrise .. " - " .. weather_json.weather[1].astronomy[1].moonset)
             today_4:get_children_by_id("sunrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset)
@@ -703,7 +605,7 @@ local function factory(args)
             local year, month, day = weather_json.weather[2].date:match("^(%d%d%d%d)-(%d%d)-(%d%d)$")
             tomorrow_1:get_children_by_id("temperature_id")[1]:set_text("°" .. weather_json.weather[2].hourly[4].tempC)
             tomorrow_1:get_children_by_id("sky_status_id")[1]:set_text(weather_json.weather[2].hourly[4].lang_ar[1].value)
-            tomorrow_1:get_children_by_id("weather_icon_id")[1]:set_text(sun_icon_dic[weather_json.weather[2].hourly[4].weatherCode])
+            tomorrow_1:get_children_by_id("weather_icon_id")[1]:set_text(sun_icons[weather_json.weather[2].hourly[4].weatherCode])
             tomorrow_1:get_children_by_id("temperature_time_id")[1]:set_text("12:00")
             tomorrow_1:get_children_by_id("moonrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].moonrise .. " - " .. weather_json.weather[1].astronomy[1].moonset)
             tomorrow_1:get_children_by_id("sunrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset)
@@ -733,7 +635,7 @@ local function factory(args)
 
             tomorrow_2:get_children_by_id("temperature_id")[1]:set_text("°" .. weather_json.weather[2].hourly[3].tempC)
             tomorrow_2:get_children_by_id("sky_status_id")[1]:set_text(weather_json.weather[2].hourly[3].lang_ar[1].value)
-            tomorrow_2:get_children_by_id("weather_icon_id")[1]:set_text(sun_icon_dic[weather_json.weather[2].hourly[3].weatherCode])
+            tomorrow_2:get_children_by_id("weather_icon_id")[1]:set_text(sun_icons[weather_json.weather[2].hourly[3].weatherCode])
             tomorrow_2:get_children_by_id("temperature_time_id")[1]:set_text("09:00")
             tomorrow_2:get_children_by_id("moonrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].moonrise .. " - " .. weather_json.weather[1].astronomy[1].moonset)
             tomorrow_2:get_children_by_id("sunrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset)
@@ -743,7 +645,7 @@ local function factory(args)
 
             tomorrow_3:get_children_by_id("temperature_id")[1]:set_text("°" .. weather_json.weather[2].hourly[6].tempC)
             tomorrow_3:get_children_by_id("sky_status_id")[1]:set_text(weather_json.weather[2].hourly[6].lang_ar[1].value)
-            tomorrow_3:get_children_by_id("weather_icon_id")[1]:set_text(sun_icon_dic[weather_json.weather[2].hourly[6].weatherCode])
+            tomorrow_3:get_children_by_id("weather_icon_id")[1]:set_text(sun_icons[weather_json.weather[2].hourly[6].weatherCode])
             tomorrow_3:get_children_by_id("temperature_time_id")[1]:set_text("15:00")
             tomorrow_3:get_children_by_id("moonrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].moonrise .. " - " .. weather_json.weather[1].astronomy[1].moonset)
             tomorrow_3:get_children_by_id("sunrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset)
@@ -753,7 +655,7 @@ local function factory(args)
 
             tomorrow_4:get_children_by_id("temperature_id")[1]:set_text("°" .. weather_json.weather[2].hourly[8].tempC)
             tomorrow_4:get_children_by_id("sky_status_id")[1]:set_text(weather_json.weather[2].hourly[8].lang_ar[1].value)
-            tomorrow_4:get_children_by_id("weather_icon_id")[1]:set_text(moon_icon_dic[weather_json.weather[2].hourly[8].weatherCode])
+            tomorrow_4:get_children_by_id("weather_icon_id")[1]:set_text(moon_icons[weather_json.weather[2].hourly[8].weatherCode])
             tomorrow_4:get_children_by_id("temperature_time_id")[1]:set_text("21:00")
             tomorrow_4:get_children_by_id("moonrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].moonrise .. " - " .. weather_json.weather[1].astronomy[1].moonset)
             tomorrow_4:get_children_by_id("sunrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset)
@@ -767,7 +669,7 @@ local function factory(args)
             local year, month, day = weather_json.weather[3].date:match("^(%d%d%d%d)-(%d%d)-(%d%d)$")
             after_tomorrow_1:get_children_by_id("temperature_id")[1]:set_text("°" .. weather_json.weather[3].hourly[4].tempC)
             after_tomorrow_1:get_children_by_id("sky_status_id")[1]:set_text(weather_json.weather[3].hourly[4].lang_ar[1].value)
-            after_tomorrow_1:get_children_by_id("weather_icon_id")[1]:set_text(sun_icon_dic[weather_json.weather[3].hourly[4].weatherCode])
+            after_tomorrow_1:get_children_by_id("weather_icon_id")[1]:set_text(sun_icons[weather_json.weather[3].hourly[4].weatherCode])
             after_tomorrow_1:get_children_by_id("temperature_time_id")[1]:set_text("12:00")
             after_tomorrow_1:get_children_by_id("moonrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].moonrise .. " - " .. weather_json.weather[1].astronomy[1].moonset)
             after_tomorrow_1:get_children_by_id("sunrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset)
@@ -797,7 +699,7 @@ local function factory(args)
             
             after_tomorrow_2:get_children_by_id("temperature_id")[1]:set_text("°" .. weather_json.weather[3].hourly[3].tempC)
             after_tomorrow_2:get_children_by_id("sky_status_id")[1]:set_text(weather_json.weather[3].hourly[3].lang_ar[1].value)
-            after_tomorrow_2:get_children_by_id("weather_icon_id")[1]:set_text(sun_icon_dic[weather_json.weather[3].hourly[3].weatherCode])
+            after_tomorrow_2:get_children_by_id("weather_icon_id")[1]:set_text(sun_icons[weather_json.weather[3].hourly[3].weatherCode])
             after_tomorrow_2:get_children_by_id("temperature_time_id")[1]:set_text("09:00")
             after_tomorrow_2:get_children_by_id("moonrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].moonrise .. " - " .. weather_json.weather[1].astronomy[1].moonset)
             after_tomorrow_2:get_children_by_id("sunrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset)
@@ -807,7 +709,7 @@ local function factory(args)
             
             after_tomorrow_3:get_children_by_id("temperature_id")[1]:set_text("°" .. weather_json.weather[3].hourly[7].tempC)
             after_tomorrow_3:get_children_by_id("sky_status_id")[1]:set_text(weather_json.weather[3].hourly[6].lang_ar[1].value)
-            after_tomorrow_3:get_children_by_id("weather_icon_id")[1]:set_text(sun_icon_dic[weather_json.weather[3].hourly[6].weatherCode])
+            after_tomorrow_3:get_children_by_id("weather_icon_id")[1]:set_text(sun_icons[weather_json.weather[3].hourly[6].weatherCode])
             after_tomorrow_3:get_children_by_id("temperature_time_id")[1]:set_text("15:00")
             after_tomorrow_3:get_children_by_id("moonrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].moonrise .. " - " .. weather_json.weather[1].astronomy[1].moonset)
             after_tomorrow_3:get_children_by_id("sunrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset)
@@ -817,7 +719,7 @@ local function factory(args)
 
             after_tomorrow_4:get_children_by_id("temperature_id")[1]:set_text("°" .. weather_json.weather[3].hourly[8].tempC)
             after_tomorrow_4:get_children_by_id("sky_status_id")[1]:set_text(weather_json.weather[3].hourly[8].lang_ar[1].value)
-            after_tomorrow_4:get_children_by_id("weather_icon_id")[1]:set_text(moon_icon_dic[weather_json.weather[3].hourly[8].weatherCode])
+            after_tomorrow_4:get_children_by_id("weather_icon_id")[1]:set_text(moon_icons[weather_json.weather[3].hourly[8].weatherCode])
             after_tomorrow_4:get_children_by_id("temperature_time_id")[1]:set_text("21:00")
             after_tomorrow_4:get_children_by_id("moonrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].moonrise .. " - " .. weather_json.weather[1].astronomy[1].moonset)
             after_tomorrow_4:get_children_by_id("sunrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset)

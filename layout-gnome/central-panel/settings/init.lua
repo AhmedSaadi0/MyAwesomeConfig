@@ -6,8 +6,8 @@ local dpi = beautiful.xresources.apply_dpi
 local clickable_container = require("widget.clickable-container")
 local icons = beautiful.icons
 
-local quick_setting = require("layout.central-panel.settings.quick-settings")
-local hardware_monitor = require("layout.central-panel.settings.hardware-monitor")
+local quick_setting = require("layout-gnome.central-panel.settings.quick-settings")
+local hardware_monitor = require("layout-gnome.central-panel.settings.hardware-monitor")
 
 return function()
 	return wibox.widget {
