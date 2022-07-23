@@ -38,10 +38,10 @@ conky.config = {
     -------------------------------------
     default_color = "4b5263",
     color0 = "4b5263", -- clock
-    color1 = "4b5263", -- date
-    color2 = "4b5263", -- current temperature
-    color3 = "4b5263", -- high tempratures
-    color4 = "4b5263", -- low tempratures
+    color1 = "f5f5f5", -- date
+    color2 = "087e8b", -- current temperature
+    color3 = "f5f5f5", -- high tempratures
+    color4 = "282c34", -- low tempratures
     color5 = "4b5263", -- days
     -------------------------------------
     --  Icon Sources

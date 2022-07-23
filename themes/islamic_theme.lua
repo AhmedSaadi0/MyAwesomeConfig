@@ -165,7 +165,7 @@ theme.bar_active_color = theme.accent
 theme.bar_color = theme.bar_active_color .. "30"
 theme.bar_handle_color = theme.bar_active_color
 theme.bar_handle_border_color = theme.bar_active_color
-theme.bar_height = dpi(10)
+theme.bar_height = dpi(1)
 theme.bar_handle_width = dpi(10)
 theme.bar_handle_border_width = dpi(0)
 theme.bar_shape = function(cr, w, h)
@@ -175,7 +175,7 @@ end
 -- لون وخصائص شريط عرض المعالج والرام في الاشعارات
 theme.slider_color = theme.accent
 theme.slider_background_color = theme.slider_color .. "30"
-theme.slider_forced_height = dpi(10)
+theme.slider_forced_height = dpi(1)
 theme.slider_shape = function(cr, w, h)
     gears.shape.rounded_rect(cr, w, h, theme.groups_radius)
 end
@@ -187,7 +187,7 @@ end
 theme.vol_bar_active_color = theme.accent
 theme.vol_bar_handle_color = theme.vol_bar_active_color
 theme.vol_handle_border_color = theme.vol_bar_active_color
-theme.vol_bar_height = dpi(10)
+theme.vol_bar_height = dpi(1)
 theme.vol_handle_width = dpi(10)
 theme.vol_handle_border_width = dpi(0)
 theme.vol_bar_color = theme.vol_bar_active_color .. "30"
@@ -229,7 +229,7 @@ theme.notification_icon_margin = dpi(2)
 theme.notification_bg = theme.bg_normal
 theme.notification_border_focus = theme.border_focus
 theme.notification_border_width = dpi(1)
-theme.notification_spacing = dpi(30)
+theme.notification_spacing = dpi(25)
 
 theme.center_notification_border_focus = theme.border_focus
 theme.center_notification_border_width = dpi(0)

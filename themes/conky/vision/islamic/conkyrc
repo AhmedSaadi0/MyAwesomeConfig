@@ -49,22 +49,23 @@ override_utf8_locale=true,
 -------------------------------------
 default_color='f1dc6e',
 
-color0='f1dc6e', -- clock
-color1='f1dc6e', -- date
+color0='f1dc6e', -- Hours
+color6='#60c29f', -- Minuts
+color1='ff5558', -- date
 color2='f1dc6e', -- current temperature
-color3='f1dc6e', -- high tempratures
-color4='f1dc6e', -- low tempratures
+color3='7aa2f7', -- high tempratures
+color4='b83d3f', -- low tempratures
 color5='f1dc6e', -- days
 
 
 -------------------------------------
 --  Icon Sources
 -------------------------------------
-template0='~/.config/awesome/themes/conky/vision/dark/conky-vision/#f1dc6e__32',  --  today
-template1='~/.config/awesome/themes/conky/vision/dark/conky-vision/#f1dc6e__32',  --  +1day
-template2='~/.config/awesome/themes/conky/vision/dark/conky-vision/#f1dc6e__32',  --  +2days
-template3='~/.config/awesome/themes/conky/vision/dark/conky-vision/#f1dc6e__32',  --  +3days
-template4='~/.config/awesome/themes/conky/vision/dark/conky-vision/#f1dc6e__32',  --  +4days
+template0='~/.config/awesome/themes/conky/vision/islamic/conky-vision/#f1dc6e__32',  --  today
+template1='~/.config/awesome/themes/conky/vision/islamic/conky-vision/#f1dc6e__32',  --  +1day
+template2='~/.config/awesome/themes/conky/vision/islamic/conky-vision/#f1dc6e__32',  --  +2days
+template3='~/.config/awesome/themes/conky/vision/islamic/conky-vision/#f1dc6e__32',  --  +3days
+template4='~/.config/awesome/themes/conky/vision/islamic/conky-vision/#f1dc6e__32',  --  +4days
 
 
 -------------------------------------
@@ -103,13 +104,13 @@ conky.text = [[
 \
 \
 \
-${execi 300 ~/.config/awesome/themes/conky/vision/dark/conky-vision/get_weather ${template6} ${template7} ${template8} ${template9}}\
+${execi 300 ~/.config/awesome/themes/conky/vision/islamic/conky-vision/get_weather ${template6} ${template7} ${template8} ${template9}}\
 \
 \
 \
 \
 ${font Poiret One:weight=Light:size=96}${color0}\
-${alignc}${time %H:%M}\
+${alignc}${time %H} ${color6}${alignc}${time %M}\
 ${font}${color}
 \
 \
@@ -132,10 +133,10 @@ ${font}${color}\
 \
 \
 ${font Poiret One:size=12}${color3}\
-${goto 164}${execi 300 ~/.config/awesome/themes/conky/vision/dark/conky-vision/parse_weather 'max' '.main.temp' '1'}°\
-${goto 272}${execi 300 ~/.config/awesome/themes/conky/vision/dark/conky-vision/parse_weather 'max' '.main.temp' '2'}°\
-${goto 378}${execi 300 ~/.config/awesome/themes/conky/vision/dark/conky-vision/parse_weather 'max' '.main.temp' '3'}°\
-${goto 484}${execi 300 ~/.config/awesome/themes/conky/vision/dark/conky-vision/parse_weather 'max' '.main.temp' '4'}°\
+${goto 164}${execi 300 ~/.config/awesome/themes/conky/vision/islamic/conky-vision/parse_weather 'max' '.main.temp' '1'}°\
+${goto 272}${execi 300 ~/.config/awesome/themes/conky/vision/islamic/conky-vision/parse_weather 'max' '.main.temp' '2'}°\
+${goto 378}${execi 300 ~/.config/awesome/themes/conky/vision/islamic/conky-vision/parse_weather 'max' '.main.temp' '3'}°\
+${goto 484}${execi 300 ~/.config/awesome/themes/conky/vision/islamic/conky-vision/parse_weather 'max' '.main.temp' '4'}°\
 ${font}${color}\
 \
 \
@@ -143,10 +144,10 @@ ${font}${color}\
 \
 ${font Poiret One:size=12}${color4}\
 ${voffset 52}\
-${goto 218}${execi 300 ~/.config/awesome/themes/conky/vision/dark/conky-vision/parse_weather 'min' '.main.temp' '1'}°\
-${goto 324}${execi 300 ~/.config/awesome/themes/conky/vision/dark/conky-vision/parse_weather 'min' '.main.temp' '2'}°\
-${goto 430}${execi 300 ~/.config/awesome/themes/conky/vision/dark/conky-vision/parse_weather 'min' '.main.temp' '3'}°\
-${goto 536}${execi 300 ~/.config/awesome/themes/conky/vision/dark/conky-vision/parse_weather 'min' '.main.temp' '4'}°\
+${goto 218}${execi 300 ~/.config/awesome/themes/conky/vision/islamic/conky-vision/parse_weather 'min' '.main.temp' '1'}°\
+${goto 324}${execi 300 ~/.config/awesome/themes/conky/vision/islamic/conky-vision/parse_weather 'min' '.main.temp' '2'}°\
+${goto 430}${execi 300 ~/.config/awesome/themes/conky/vision/islamic/conky-vision/parse_weather 'min' '.main.temp' '3'}°\
+${goto 536}${execi 300 ~/.config/awesome/themes/conky/vision/islamic/conky-vision/parse_weather 'min' '.main.temp' '4'}°\
 ${font}${color}
 \
 \
@@ -165,8 +166,8 @@ ${font}${color}
 \
 \
 ${execi 300 cp -f ${template0}/$(jq .weather[0].id ~/.cache/conky-vision/weather.json).svg ~/.cache/conky-vision/current.svg}${image ~/.cache/conky-vision/current.svg -p 72,266 -s 32x32}\
-${execi 300 cp -f ${template1}/$(~/.config/awesome/themes/conky/vision/dark/conky-vision/parse_weather 'first' '.weather[0].id' '1').svg ~/.cache/conky-vision/forecast-1.svg}${image ~/.cache/conky-vision/forecast-1.svg -p 178,266 -s 32x32}\
-${execi 300 cp -f ${template2}/$(~/.config/awesome/themes/conky/vision/dark/conky-vision/parse_weather 'first' '.weather[0].id' '2').svg ~/.cache/conky-vision/forecast-2.svg}${image ~/.cache/conky-vision/forecast-2.svg -p 284,266 -s 32x32}\
-${execi 300 cp -f ${template3}/$(~/.config/awesome/themes/conky/vision/dark/conky-vision/parse_weather 'first' '.weather[0].id' '3').svg ~/.cache/conky-vision/forecast-3.svg}${image ~/.cache/conky-vision/forecast-3.svg -p 390,266 -s 32x32}\
-${execi 300 cp -f ${template4}/$(~/.config/awesome/themes/conky/vision/dark/conky-vision/parse_weather 'first' '.weather[0].id' '4').svg ~/.cache/conky-vision/forecast-4.svg}${image ~/.cache/conky-vision/forecast-4.svg -p 496,266 -s 32x32}\
+${execi 300 cp -f ${template1}/$(~/.config/awesome/themes/conky/vision/islamic/conky-vision/parse_weather 'first' '.weather[0].id' '1').svg ~/.cache/conky-vision/forecast-1.svg}${image ~/.cache/conky-vision/forecast-1.svg -p 178,266 -s 32x32}\
+${execi 300 cp -f ${template2}/$(~/.config/awesome/themes/conky/vision/islamic/conky-vision/parse_weather 'first' '.weather[0].id' '2').svg ~/.cache/conky-vision/forecast-2.svg}${image ~/.cache/conky-vision/forecast-2.svg -p 284,266 -s 32x32}\
+${execi 300 cp -f ${template3}/$(~/.config/awesome/themes/conky/vision/islamic/conky-vision/parse_weather 'first' '.weather[0].id' '3').svg ~/.cache/conky-vision/forecast-3.svg}${image ~/.cache/conky-vision/forecast-3.svg -p 390,266 -s 32x32}\
+${execi 300 cp -f ${template4}/$(~/.config/awesome/themes/conky/vision/islamic/conky-vision/parse_weather 'first' '.weather[0].id' '4').svg ~/.cache/conky-vision/forecast-4.svg}${image ~/.cache/conky-vision/forecast-4.svg -p 496,266 -s 32x32}\
 ]]
