@@ -18,7 +18,7 @@ naughty.config.defaults.title = "اشعارات النظام"
 naughty.config.defaults.margin = 50
 naughty.config.defaults.border_width = beautiful.notification_border_width
 naughty.config.defaults.border_color = beautiful.notification_border_focus
-naughty.config.defaults.position = "top_left"
+naughty.config.defaults.position = "bottom_left"
 naughty.config.defaults.shape = function(cr, w, h)
 	gears.shape.rounded_rect(cr, w, h, beautiful.groups_radius)
 end
