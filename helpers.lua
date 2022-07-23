@@ -349,12 +349,17 @@ function helpers.add_margin(args)
     local visible = args.visible
     local id = args.id
 
+    local forced_height = args.forced_height
+    local forced_width = args.forced_width
+
     local margin = {
         widget,
         id = id,
         top = top,
         bottom = bottom,
         left = left,
+        forced_height = forced_height,
+        forced_width = forced_width,
         right = right,
         visible = visible,
         widget = wibox.container.margin
@@ -469,25 +474,39 @@ function helpers.create_weather_detailed(args)
             layout = wibox.layout.fixed.horizontal,
             {
                 layout = wibox.layout.fixed.vertical,
-                {
-                    layout = wibox.layout.fixed.horizontal,
-                    helpers.add_margin {
-                        widget = {
-                            text = "",
-                            id = weather_icon_id,
-                            font = icon_font,
-                            -- align = "left",
-                            widget = wibox.widget.textbox
+                helpers.add_margin {
+                    widget = {
+                        layout = wibox.layout.fixed.horizontal,
+                        helpers.add_margin {
+                            widget = {
+                                text = "",
+                                id = weather_icon_id,
+                                font = icon_font,
+                                -- align = "left",
+                                widget = wibox.widget.textbox
+                            },
+                            right = dpi(5)
                         },
-                        right = dpi(5)
+                        helpers.add_margin {
+                            widget = {
+                                layout = wibox.container.scroll.horizontal,
+                                -- max_size = 100,
+                                -- fps = 60,
+                                step_function = wibox.container.scroll.step_functions.waiting_nonlinear_back_and_forth,
+                                speed = 50,
+                                {
+                                    text = "",
+                                    id = sky_status_id,
+                                    font = text_font,
+                                    align = "left",
+                                    widget = wibox.widget.textbox
+                                }
+                            }
+                            -- left = forced_width - 180
+                            -- forced_width = forced_width - 130,
+                        }
                     },
-                    {
-                        text = "",
-                        id = sky_status_id,
-                        font = text_font,
-                        align = "left",
-                        widget = wibox.widget.textbox
-                    }
+                    left = forced_width - 135
                 },
                 {
                     text = "",

@@ -278,7 +278,7 @@ theme.dynamic_wallpaper_dir = "themes/wallpapers//"
 theme.conky_script = "/themes/conky/conky-dark.sh"
 
 theme.kvantum_theme = "Sweet-transparent-toolbar"
-theme.konsole_profile = "--profile islamic"
+theme.konsole_profile = "--profile Sweet"
 
 theme.light_theme = "light_theme"
 theme.dark_theme = "dark_theme"
