@@ -13,8 +13,10 @@ local blur_slider = require("widget.blur-slider")
 local blue_light = require("widget.blue-light")
 local airplane_mode = require("widget.airplane-mode")
 local bluetooth_toggle = require("widget.bluetooth-toggle")
-local nightmode_toggle = require("widget.night-mode")
+-- local nightmode_toggle = require("widget.night-mode")
 local blur_toggle = require("widget.blur-toggle")
+
+local theme_switcher = require("widget.theme-switcher.init"){}
 
 local function factory(args)
     local text_font = args.font or beautiful.uifont
@@ -100,6 +102,7 @@ local function factory(args)
             helpers.set_widget_block {
                 widget = {
                     layout = wibox.layout.fixed.vertical,
+                    -- الخيارات مثل وضع الطيرات
                     helpers.add_margin {
                         widget = helpers.set_widget_block {
                             widget = {
@@ -107,7 +110,7 @@ local function factory(args)
                                 blue_light,
                                 airplane_mode,
                                 bluetooth_toggle,
-                                nightmode_toggle,
+                                -- nightmode_toggle,
                                 blur_toggle
                             },
                             shape = shape
@@ -119,6 +122,21 @@ local function factory(args)
 
                         bottom = dpi(12)
                     },
+                    -- مبدل الثيمات
+                    helpers.add_margin {
+                        widget = helpers.set_widget_block {
+                            widget = {
+                                layout = wibox.layout.fixed.vertical,
+                                theme_switcher,
+                            },
+                            shape = shape
+                            -- bottom = dpi(15)
+                        },
+                        right = dpi(12),
+                        left = dpi(12),
+                        bottom = dpi(12)
+                    },
+                    -- الاضائة والصوت والتاصير الضبابي
                     helpers.add_margin {
                         widget = helpers.set_widget_block {
                             widget = {
@@ -134,6 +152,7 @@ local function factory(args)
                         left = dpi(12),
                         bottom = dpi(12)
                     },
+                    -- الاختصارات
                     helpers.add_margin {
                         widget = helpers.set_widget_block {
                             widget = {
@@ -151,6 +170,7 @@ local function factory(args)
                         left = dpi(12),
                         bottom = dpi(12)
                     },
+                    -- الخروج
                     helpers.add_margin {
                         widget = helpers.set_widget_block {
                             widget = {

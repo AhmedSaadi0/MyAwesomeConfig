@@ -26,6 +26,8 @@ function helpers.set_widget_block(args)
 
     local bgimage = args.bgimage or nil
 
+    local id = args.id
+
     local block = {
         {
             widget,
@@ -41,6 +43,7 @@ function helpers.set_widget_block(args)
         bg = bg,
         visible = visible,
         font = font,
+        id = id,
         forced_height = forced_height,
         forced_width = forced_width,
         widget = wibox.container.background
@@ -99,12 +102,27 @@ function helpers.add_text_icon_widget(args)
         forced_width = forced_width,
         {
             point = left,
-            helpers.add_text(text, text_bg, text_font),
+            {
+                markup = helpers.colorize_text(text, text_bg, text_font),
+                align = "center",
+                valign = "center",
+                id = "text_id",
+                widget = wibox.widget.textbox
+            },
+            id = "left",
             layout = wibox.layout.fixed.vertical
         },
         {
             point = right,
-            helpers.add_text(icon, icon_bg, icon_font),
+            id = "right",
+            {
+                markup = helpers.colorize_text(icon, icon_bg, icon_font),
+                align = "center",
+                valign = "center",
+                id = "icon_id",
+                widget = wibox.widget.textbox
+            },
+            -- helpers.add_text(icon, icon_bg, icon_font),
             layout = wibox.layout.fixed.vertical
         }
     }
@@ -158,6 +176,7 @@ function helpers.add_text(txt, bg, font)
         markup = helpers.colorize_text(txt, bg, font),
         align = "center",
         valign = "center",
+        id = "text_id",
         widget = wibox.widget.textbox
     }
 end
