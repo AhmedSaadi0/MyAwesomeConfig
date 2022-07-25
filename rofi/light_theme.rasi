@@ -6,7 +6,9 @@
 	background-alt:					#b4b4b455;
 	active-background:				#ff5a5f;
 	urgent-background:				#ff5a5faa;
-    
+
+	foreground-selected:			#1c1d29;
+
 	selected-background:			@active-background;
 	selected-urgent-background:		@urgent-background;
 	selected-active-background:		@active-background;

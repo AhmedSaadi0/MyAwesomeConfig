@@ -4,9 +4,11 @@
 	background:						#011426;
 	foreground-alt:					#f8f8f255;
 	background-alt:					#01254955;
-	active-background:				#012549;
+	active-background:				#f1dc6e;
 	urgent-background:				#ff2222aa;
     
+	foreground-selected:			#1c1d29;
+	
 	selected-background:			@active-background;
 	selected-urgent-background:		@urgent-background;
 	selected-active-background:		@active-background;

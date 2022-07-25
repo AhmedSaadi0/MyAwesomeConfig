@@ -196,28 +196,30 @@ local function worker(args)
 
     check_status()
 
-    local toggle_night_mode = function(theme)
-        local toggle_n_m_script = "sed -i 's/" .. selected_theme .. "/" .. theme .. "/' " .. config_dir .. "rc.lua"
-        awful.spawn.with_shell(toggle_n_m_script)
+    local change_theme = function(theme)
+        local theme_script = "sed -i 's/" .. selected_theme .. "/" .. theme .. "/' " .. config_dir .. "rc.lua"
+        local rofi_script = "sed -i 's/" .. selected_theme .. "/" .. theme .. "/' ~/.config/rofi/config.rasi"
+        awful.spawn.with_shell(rofi_script)
+        awful.spawn.with_shell(theme_script)
         awful.spawn.with_shell("echo 'awesome.restart()' | awesome-client")
     end
     
     islamic_theme:connect_signal(
         "button::press",
         function()
-            toggle_night_mode("islamic_theme")
+            change_theme("islamic_theme")
         end
     )
     dark_theme:connect_signal(
         "button::press",
         function()
-            toggle_night_mode("dark_theme")
+            change_theme("dark_theme")
         end
     )
     light_theme:connect_signal(
         "button::press",
         function()
-            toggle_night_mode("light_theme")
+            change_theme("light_theme")
         end
     )
 
