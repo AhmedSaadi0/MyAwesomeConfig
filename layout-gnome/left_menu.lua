@@ -7,7 +7,7 @@ local gears = require("gears")
 local dpi = require("beautiful").xresources.apply_dpi
 
 local brightness_slider = require("widget.brightness-slider")
-local volume_slider = require("widget.volume-slider"){}
+local volume_slider = require("widget.volume-slider") {}
 local blur_slider = require("widget.blur-slider")
 
 local blue_light = require("widget.blue-light")
@@ -16,7 +16,7 @@ local bluetooth_toggle = require("widget.bluetooth-toggle")
 -- local nightmode_toggle = require("widget.night-mode")
 local blur_toggle = require("widget.blur-toggle")
 
-local theme_switcher = require("widget.theme-switcher.init"){}
+local theme_switcher = require("widget.theme-switcher.init") {}
 
 local function factory(args)
     local text_font = args.font or beautiful.uifont
@@ -113,13 +113,14 @@ local function factory(args)
                                 -- nightmode_toggle,
                                 blur_toggle
                             },
+                            border_width = beautiful.slider_inner_border_width,
+                            border_color = beautiful.slider_inner_border_color,
                             shape = shape
                             -- bottom = dpi(15)
                         },
                         right = dpi(12),
                         left = dpi(12),
                         top = dpi(12),
-
                         bottom = dpi(12)
                     },
                     -- مبدل الثيمات
@@ -127,8 +128,11 @@ local function factory(args)
                         widget = helpers.set_widget_block {
                             widget = {
                                 layout = wibox.layout.fixed.vertical,
-                                theme_switcher,
+                                theme_switcher
                             },
+                            border_width = beautiful.slider_inner_border_width,
+                            border_color = beautiful.slider_inner_border_color,
+
                             shape = shape
                             -- bottom = dpi(15)
                         },
@@ -145,6 +149,8 @@ local function factory(args)
                                 volume_slider,
                                 blur_slider
                             },
+                            border_width = beautiful.slider_inner_border_width,
+                            border_color = beautiful.slider_inner_border_color,
                             shape = shape
                             -- bottom = dpi(15)
                         },
@@ -159,10 +165,12 @@ local function factory(args)
                                 layout = wibox.layout.fixed.vertical,
                                 open_settings,
                                 wifi_settings,
-                                sound_settings,
+                                sound_settings
                             },
                             right = dpi(24),
                             left = dpi(24),
+                            border_width = beautiful.slider_inner_border_width,
+                            border_color = beautiful.slider_inner_border_color,
                             shape = shape
                             -- bottom = dpi(15)
                         },
@@ -175,10 +183,12 @@ local function factory(args)
                         widget = helpers.set_widget_block {
                             widget = {
                                 layout = wibox.layout.fixed.vertical,
-                                power_button,
+                                power_button
                             },
                             right = dpi(24),
                             left = dpi(24),
+                            border_width = beautiful.slider_inner_border_width,
+                            border_color = beautiful.slider_inner_border_color,
                             shape = shape
                             -- bottom = dpi(15)
                         },
@@ -206,15 +216,15 @@ local function factory(args)
     }
 
     awful.placement.top_left(
-		popup,
-		{
-			margins = {
-				-- right = panel_margins,
-				top = dpi(42),
-				left = dpi(10)
-			},
-		}
-	)
+        popup,
+        {
+            margins = {
+                -- right = panel_margins,
+                top = dpi(42),
+                left = dpi(10)
+            }
+        }
+    )
 
     local show_popup = function()
         popup:move_next_to()
@@ -279,7 +289,6 @@ local function factory(args)
             end
         end
     )
-
 
     return icon
 end

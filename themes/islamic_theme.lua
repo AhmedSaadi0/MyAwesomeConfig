@@ -13,6 +13,8 @@ local gears = require("gears")
 
 local theme = {}
 
+local controllers = require("themes.controllers")
+
 -------------------------------
 ------------ Fonts ------------
 -------------------------------
@@ -126,26 +128,26 @@ theme.taglist_bg_empty = theme.widget_bg
 -- theme.taglist_shape = shape.rectangle -- rounded_bar
 theme.taglist_font = theme.iconfont
 
--- Sys tray --
+-- Sys tray
 theme.bg_systray = theme.bg_normal
-theme.systray_icon_spacing = dpi(5)
-theme.systray_max_rows = dpi(1)
+theme.systray_icon_spacing = controllers.systray_icon_spacing
+theme.systray_max_rows = controllers.systray_max_rows
 
--- Panal --
-theme.panal_hight = dpi(32)
-theme.panal_border_width = dpi(0)
+-- Panal
+theme.panal_hight = controllers.panal_hight
+theme.panal_border_width = controllers.panal_border_width
 -- درجة دوران حواف بعض الاشياء مثل الاشعارات واشعار الصوت والسطوع
-theme.groups_radius = dpi(12)
+theme.groups_radius = controllers.groups_radius
 
--- Control Panal and notification panal
+-- Control Panal
 -- theme.control_panal_hight = dpi(750) -- normal layout
-theme.control_panal_hight = dpi(645) -- gnome layout
-theme.control_border_width = dpi(1)
+theme.control_panal_hight = controllers.control_panal_hight
+theme.control_border_width = controllers.control_border_width
 theme.control_border_color = theme.border_focus
 
 -- حواف حول اضافات الاشعارات
-theme.slider_inner_border_color = "#458588"
-theme.slider_inner_border_width = dpi(0)
+theme.slider_inner_border_color = theme.border_focus
+theme.slider_inner_border_width = controllers.slider_inner_border_width
 
 -- خلفية ولون اضافات الاشعارات
 theme.groups_title_bg = theme.widget_bg
@@ -165,74 +167,61 @@ theme.bar_active_color = theme.accent
 theme.bar_color = theme.bar_active_color .. "30"
 theme.bar_handle_color = theme.bar_active_color
 theme.bar_handle_border_color = theme.bar_active_color
-theme.bar_height = dpi(1)
-theme.bar_handle_width = dpi(10)
-theme.bar_handle_border_width = dpi(0)
-theme.bar_shape = function(cr, w, h)
-    gears.shape.rounded_rect(cr, w, h, theme.groups_radius)
-end
+theme.bar_height = controllers.bar_height
+theme.bar_handle_width = controllers.bar_handle_width
+theme.bar_handle_border_width = controllers.bar_handle_border_width
+theme.bar_shape = controllers.bar_shape
 
 -- لون وخصائص شريط عرض المعالج والرام في الاشعارات
 theme.slider_color = theme.accent
 theme.slider_background_color = theme.slider_color .. "30"
-theme.slider_forced_height = dpi(1)
-theme.slider_shape = function(cr, w, h)
-    gears.shape.rounded_rect(cr, w, h, theme.groups_radius)
-end
-theme.slider_bar_shape = function(cr, w, h)
-    gears.shape.rounded_rect(cr, w, h, 0)
-end
+theme.slider_forced_height = controllers.slider_forced_height
+theme.slider_shape = controllers.slider_shape
+theme.slider_bar_shape = controllers.slider_bar_shape
 
 -- Volume & Brightness widget
 theme.vol_bar_active_color = theme.accent
 theme.vol_bar_handle_color = theme.vol_bar_active_color
 theme.vol_handle_border_color = theme.vol_bar_active_color
-theme.vol_bar_height = dpi(1)
-theme.vol_handle_width = dpi(10)
-theme.vol_handle_border_width = dpi(0)
+theme.vol_bar_height = controllers.vol_bar_height
+theme.vol_handle_width = controllers.vol_handle_width
+theme.vol_handle_border_width = controllers.vol_handle_border_width
 theme.vol_bar_color = theme.vol_bar_active_color .. "30"
 theme.vol_bar_shape = theme.bar_shape
 
-theme.osd_height = dpi(70)
-theme.osd_width = dpi(220)
-theme.osd_margin = dpi(90)
-theme.osd_handle_shape = gears.shape.circle
+theme.osd_height = controllers.osd_height
+theme.osd_width = controllers.osd_width
+theme.osd_margin = controllers.osd_margin
+theme.osd_handle_shape = controllers.osd_handle_shape
 
 -- Widget
-theme.widget_height = dpi(25)
-
+theme.widget_height = controllers.widget_height
 -- Generate taglist squares:
-local taglist_square_size = dpi(4)
--- theme.taglist_squares_sel = theme_assets.taglist_squares_sel(taglist_square_size, theme.fg_normal)
--- theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(taglist_square_size, theme.fg_normal)
+local taglist_square_size = controllers.taglist_square_size
 
 -- Decorations
-theme.client_shape_rectangle = gears.shape.rectangle
-theme.client_shape_rounded = function(cr, width, height)
-    gears.shape.rounded_rect(cr, width, height, theme.groups_radius)
-end
+theme.client_shape_rectangle = controllers.client_shape_rectangle
+theme.client_shape_rounded = controllers.client_shape_rounded
 
-theme.power_button_shape = function(cr, width, height)
-    gears.shape.rounded_rect(cr, width, height, theme.groups_radius)
-end
+theme.power_button_shape = controllers.power_button_shape
 
 -- Variables set for theming notifications:
-theme.notification_title_margin = dpi(6)
-theme.notification_body_left_margin = dpi(7)
-theme.notification_body_right_margin = dpi(7)
-theme.notification_body_top_margin = dpi(8)
-theme.notification_body_bottom_margin = dpi(6)
-theme.notification_body_margins = dpi(6)
+theme.notification_title_margin = controllers.notification_title_margin
+theme.notification_body_left_margin = controllers.notification_body_left_margin
+theme.notification_body_right_margin = controllers.notification_body_right_margin
+theme.notification_body_top_margin = controllers.notification_body_top_margin
+theme.notification_body_bottom_margin = controllers.notification_body_bottom_margin
+theme.notification_body_margins = controllers.notification_body_margins
 -- theme.notification_margins = dpi(60)
 
-theme.notification_icon_margin = dpi(2)
+theme.notification_icon_margin = controllers.notification_icon_margin
 theme.notification_bg = theme.bg_normal
 theme.notification_border_focus = theme.border_focus
-theme.notification_border_width = dpi(1)
-theme.notification_spacing = dpi(25)
+theme.notification_border_width = controllers.notification_border_width
+theme.notification_spacing = controllers.notification_spacing
 
 theme.center_notification_border_focus = theme.border_focus
-theme.center_notification_border_width = dpi(0)
+theme.center_notification_border_width = controllers.center_notification_border_width
 
 theme.lock_bg = theme.bg_normal .. "77"
 theme.power_button_bg = theme.widget_bg .. "aa"
@@ -244,8 +233,8 @@ theme.notification_center_header_bg = "#011426"
 theme.notification_center_inner_bg = "#011426"
 
 theme.menu_submenu_icon = themes_path .. "default/submenu.png"
-theme.menu_height = dpi(15)
-theme.menu_width = dpi(100)
+theme.menu_height = controllers.menu_height
+theme.menu_width = controllers.menu_width
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = "~/.config/awesome/themes/layouts/fairhw.png"

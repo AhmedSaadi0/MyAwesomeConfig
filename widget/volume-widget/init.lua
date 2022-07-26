@@ -96,6 +96,8 @@ local function worker(args)
                         helpers.add_margin {
                             widget = helpers.set_widget_block {
                                 widget = volume_slider,
+                                border_width = beautiful.slider_inner_border_width,
+                                border_color = beautiful.slider_inner_border_color,		
                                 shape = shape
                                 -- forced_height = dpi(30),
                             },
@@ -105,6 +107,7 @@ local function worker(args)
                         },
                         helpers.add_margin {
                             widget = music_widget,
+                            
                             top = dpi(12),
                             -- bottom = dpi(12),
                             right = dpi(12),
@@ -115,6 +118,8 @@ local function worker(args)
                                 widget = sound_settings,
                                 right = dpi(24),
                                 left = dpi(24),
+                                border_width = beautiful.slider_inner_border_width,
+                                border_color = beautiful.slider_inner_border_color,		
                                 shape = shape
                             },
                             top = dpi(12),

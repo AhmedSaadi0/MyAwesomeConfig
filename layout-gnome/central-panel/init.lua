@@ -65,6 +65,8 @@ local central_panel = function(s)
 										},
 										weather
 									},
+									border_width = beautiful.slider_inner_border_width,
+									border_color = beautiful.slider_inner_border_color,		
 									shape = helpers.rrect(beautiful.widgets_corner_radius)
 								},
 								helpers.set_widget_block {
@@ -79,6 +81,8 @@ local central_panel = function(s)
 										},
 										music,
 									},
+									border_width = beautiful.slider_inner_border_width,
+									border_color = beautiful.slider_inner_border_color,		
 									shape = helpers.rrect(beautiful.widgets_corner_radius)
 								},
 								hardware_monitor

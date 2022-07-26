@@ -24,6 +24,10 @@ function helpers.set_widget_block(args)
     local forced_height = args.forced_height
     local forced_width = args.forced_width
 
+    local border_width = args.border_width
+    local border_color = args.border_color
+
+
     local bgimage = args.bgimage or nil
 
     local id = args.id
@@ -46,6 +50,8 @@ function helpers.set_widget_block(args)
         id = id,
         forced_height = forced_height,
         forced_width = forced_width,
+        border_width = border_width,
+        border_color = border_color,
         widget = wibox.container.background
     }
     return block
