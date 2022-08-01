@@ -50,7 +50,7 @@ theme.fg_minimize = "#ffffff"
 theme.useless_gap = dpi(5)
 theme.border_width = dpi(1)
 theme.border_normal = "#e06c75"
-theme.border_focus = "#7ec7a2"
+theme.border_focus = "#61afef"
 theme.border_marked = "#7ec7a2"
 
 -- colors
@@ -220,7 +220,7 @@ theme.critical_notification_fg = "#011426"
 theme.notification_icon_margin = controllers.notification_icon_margin
 theme.notification_bg = theme.bg_normal
 theme.notification_border_focus = theme.border_focus
-theme.notification_border_width = controllers.notification_border_width
+theme.osd_border_width = controllers.osd_border_width
 theme.notification_spacing = controllers.notification_spacing
 
 theme.center_notification_border_focus = theme.border_focus

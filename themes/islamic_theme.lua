@@ -221,7 +221,7 @@ theme.critical_notification_bg = "#ff5558"
 theme.critical_notification_fg = "#011426"
 
 theme.notification_border_focus = theme.border_focus
-theme.notification_border_width = controllers.notification_border_width
+theme.osd_border_width = controllers.osd_border_width
 theme.notification_spacing = controllers.notification_spacing
 
 theme.center_notification_border_focus = theme.border_focus

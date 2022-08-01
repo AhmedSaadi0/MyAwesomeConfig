@@ -143,7 +143,7 @@ theme.notification_body_margins = dpi(6)
 theme.notification_icon_margin = dpi(2)
 theme.notification_bg = theme.bg_normal
 theme.notification_border_focus = theme.border_focus
-theme.notification_border_width = dpi(0)
+theme.osd_border_width = dpi(0)
 theme.notification_spacing = dpi(25)
 
 theme.center_notification_border_focus = theme.border_focus

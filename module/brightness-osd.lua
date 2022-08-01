@@ -163,7 +163,7 @@ screen.connect_signal(
 			},
 			bg = beautiful.background,
 			border_color = beautiful.notification_border_focus,
-			border_width = beautiful.notification_border_width,
+			border_width = beautiful.osd_border_width,
 			shape = function(cr, w, h)
 				gears.shape.rounded_rect(cr, w, h, beautiful.groups_radius)
 			end,

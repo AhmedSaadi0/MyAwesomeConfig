@@ -164,7 +164,7 @@ screen.connect_signal(
 				gears.shape.rounded_rect(cr, w, h, beautiful.groups_radius)
 			end,
 			border_color = beautiful.notification_border_focus,
-			border_width = beautiful.notification_border_width,
+			border_width = beautiful.osd_border_width,
 			widget = wibox.container.background()
 		}
 
