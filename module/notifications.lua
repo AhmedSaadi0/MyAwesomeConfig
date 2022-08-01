@@ -47,8 +47,9 @@ ruled.notification.connect_signal(
 			rule = {urgency = "critical"},
 			properties = {
 				-- font        		= 'JF Flat 10',
-				-- bg = beautiful.notification_bg,
-				-- fg = beautiful.fg_normal,
+				bg = beautiful.critical_notification_bg,
+				fg = beautiful.critical_notification_fg,
+				title_bg = beautiful.critical_notification_bg,
 				-- margin = dpi(16),
 				-- position = "bottom_left",
 				implicit_timeout = 0
@@ -60,8 +61,8 @@ ruled.notification.connect_signal(
 			rule = {urgency = "normal"},
 			properties = {
 				-- font        		= 'JF Flat 10',
-				-- bg = beautiful.notification_bg,
-				-- fg = beautiful.fg_normal,
+				bg = beautiful.notification_bg,
+				fg = beautiful.fg_normal,
 				-- margin = dpi(16),
 				-- position = "bottom_left",
 				implicit_timeout = 5
@@ -73,8 +74,8 @@ ruled.notification.connect_signal(
 			rule = {urgency = "low"},
 			properties = {
 				-- font        		= 'JF Flat 10',
-				-- bg = beautiful.notification_bg,
-				-- fg = beautiful.fg_normal,
+				bg = beautiful.low_notification_bg,
+				fg = beautiful.low_notification_fg,
 				-- margin = dpi(16),
 				-- position = "bottom_left",
 				implicit_timeout = 5
@@ -215,7 +216,7 @@ naughty.connect_signal(
 													bottom = dpi(10),
 													widget = wibox.container.margin
 												},
-												bg = beautiful.header_bg,
+												bg = beautiful.notification_center_header_bg,
 												widget = wibox.container.background
 											},
 											{
@@ -288,7 +289,6 @@ naughty.connect_signal(
 		}
 
 		-- Destroy popups if dont_disturb mode is on
-		-- Or if the right_panel is visible
 		if _G.dont_disturb then
 			naughty.destroy_all_notifications(nil, 1)
 		end

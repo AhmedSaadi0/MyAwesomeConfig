@@ -3,16 +3,16 @@ local awful = require("awful")
 local gears = require("gears")
 
 -- require("init")
-require("module.notifications")
 
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init("~/.config/awesome/themes/islamic_theme.lua")
+beautiful.init("~/.config/awesome/themes/circles_theme.lua")
 
 
 -- require("layout.init")
 require("layout-gnome")
 
 -- require("ui.control-center")
+require("module.notifications")
 
 require("configuration.client")
 require("configuration.root")
@@ -30,6 +30,7 @@ require("module.exit-screen")
 require("module.volume-osd")
 -- require('module.menu')
 -- require('menu.init')
+
 
 -- ░█░█░█▀█░█░░░█░░░█▀█░█▀█░█▀█░█▀▀░█▀▄
 -- ░█▄█░█▀█░█░░░█░░░█▀▀░█▀█░█▀▀░█▀▀░█▀▄

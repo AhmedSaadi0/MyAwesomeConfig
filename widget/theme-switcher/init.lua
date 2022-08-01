@@ -51,17 +51,26 @@ local function worker(args)
         icon_font = icon_font,
         forced_width = dpi(72)
     }
+    
+    local circles_theme =
+        helpers.add_text_icon_widget {
+        text = "دوائر",
+        icon = "",
+        text_font = text_font,
+        icon_font = icon_font,
+        forced_width = dpi(72)
+    }
 
     local detailed_widget =
         wibox.widget {
         layout = wibox.layout.manual,
-        forced_height = dpi(80),
+        forced_height = dpi(160),
         -- عربي
         {
             point = function(geo, args)
                 return {
                     x = 0,
-                    y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
+                    y = 0
                 }
             end,
             layout = wibox.layout.fixed.vertical,
@@ -86,7 +95,7 @@ local function worker(args)
             point = function(geo, args)
                 return {
                     x = (args.parent.width / 2 + (geo.width / 2)) - geo.width,
-                    y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
+                    y = 0
                 }
             end,
             layout = wibox.layout.fixed.vertical,
@@ -111,7 +120,7 @@ local function worker(args)
             point = function(geo, args)
                 return {
                     x = args.parent.width - geo.width,
-                    y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
+                    y = 0
                 }
             end,
             layout = wibox.layout.fixed.vertical,
@@ -119,6 +128,31 @@ local function worker(args)
                 widget = helpers.set_widget_block {
                     widget = light_theme,
                     id = "light",
+                    shape = shape,
+                    top = dpi(8),
+                    bottom = dpi(8),
+                    right = dpi(8),
+                    left = dpi(8)
+                },
+                top = dpi(8),
+                bottom = dpi(8),
+                right = dpi(8),
+                left = dpi(8)
+            }
+        },
+        -- دوائر
+        {
+            point = function(geo, args)
+                return {
+                    x = args.parent.width - geo.width,
+                    y = args.parent.height - geo.height
+                }
+            end,
+            layout = wibox.layout.fixed.vertical,
+            helpers.add_margin {
+                widget = helpers.set_widget_block {
+                    widget = circles_theme,
+                    id = "circle",
                     shape = shape,
                     top = dpi(8),
                     bottom = dpi(8),
@@ -169,6 +203,18 @@ local function worker(args)
         end
     end
 
+    local function set_circle(on)
+        if on then
+            circles_theme:get_children_by_id("text_id")[1].markup  = helpers.colorize_text("دوائر", selected_text_color, text_font)
+            circles_theme:get_children_by_id("icon_id")[1].markup  = helpers.colorize_text("", selected_text_color, icon_font)
+            detailed_widget:get_children_by_id("circle")[1].bg = selected_bg_color
+        else
+            circles_theme:get_children_by_id("text_id")[1].markup  = helpers.colorize_text("دوائر", nil, text_font)
+            circles_theme:get_children_by_id("icon_id")[1].markup  = helpers.colorize_text("", nil, icon_font)
+            detailed_widget:get_children_by_id("circle")[1].bg = beautiful.widget_bg
+        end
+    end
+
 
     local check_status = function()
         awful.spawn.easy_async_with_shell(
@@ -178,17 +224,26 @@ local function worker(args)
                     set_light(true)
                     set_dark(false)
                     set_arabic(false)
+                    set_circle(false)
                     selected_theme = "light_theme"
                 elseif string.find(stdout, "islamic_theme") then
                     set_light(false)
                     set_dark(false)
                     set_arabic(true)
+                    set_circle(false)
                     selected_theme = "islamic_theme"
                 elseif string.find(stdout, "dark_theme") then
                     set_light(false)
                     set_dark(true)
                     set_arabic(false)
+                    set_circle(false)
                     selected_theme = "dark_theme"
+                elseif string.find(stdout, "circles_theme") then
+                    set_light(false)
+                    set_dark(false)
+                    set_arabic(false)
+                    set_circle(true)
+                    selected_theme = "circles_theme"
                 end
             end
         )
@@ -220,6 +275,12 @@ local function worker(args)
         "button::press",
         function()
             change_theme("light_theme")
+        end
+    )
+    circles_theme:connect_signal(
+        "button::press",
+        function()
+            change_theme("circles_theme")
         end
     )
 

@@ -214,6 +214,9 @@ theme.notification_body_bottom_margin = controllers.notification_body_bottom_mar
 theme.notification_body_margins = controllers.notification_body_margins
 -- theme.notification_margins = dpi(60)
 
+theme.critical_notification_bg = "#ff5558"
+theme.critical_notification_fg = "#011426"
+
 theme.notification_icon_margin = controllers.notification_icon_margin
 theme.notification_bg = theme.bg_normal
 theme.notification_border_focus = theme.border_focus

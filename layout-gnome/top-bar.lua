@@ -204,7 +204,6 @@ awful.screen.connect_for_each_screen(
             require("widget.cpu")(
             {
                 width = 90,
-                border_width = 1,
                 step_width = 2,
                 step_spacing = 0,
                 color = beautiful.cpu_color,
@@ -222,7 +221,6 @@ awful.screen.connect_for_each_screen(
 
         s.temp =
             require("widget.temp") {
-            border_width = dpi(1),
             tooltip_border_color = beautiful.cpu_temp_color
             -- tooltip_bg = beautiful.cpu_temp_color,
             -- tooltip_fg = beautiful.cpu_temp_icon_fg_color,

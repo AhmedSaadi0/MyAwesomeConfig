@@ -46,7 +46,7 @@ local function factory(args)
     local font = args.font or beautiful.uifont
     local header_bg = args.header_bg or beautiful.header_bg
     local bg = args.bg or beautiful.bg_normal
-    local border_width = args.border_width or beautiful.border_width
+    local border_width = args.border_width or beautiful.control_border_width
     local border_color = args.border_color or beautiful.border_focus
 
     local shape = args.shape or function(cr, width, height)

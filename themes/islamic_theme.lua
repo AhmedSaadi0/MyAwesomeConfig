@@ -89,7 +89,7 @@ theme.battery_color = "#0781f4"
 theme.battery_icon_bg_color = "#0569c7" -- "#ffaf5f"
 theme.battery_icon_fg_color = theme.widget_bg
 theme.battery_text_color = theme.battery_icon_fg_color
-theme.battery_hover_color = "#92a0bd" -- "#ffaf5f"
+theme.battery_hover_color = theme.battery_color -- "#92a0bd" -- "#ffaf5f"
 
 theme.weather_color = "#011426"
 theme.weather_icon_bg_color = "#010f1c"
@@ -216,6 +216,10 @@ theme.notification_body_margins = controllers.notification_body_margins
 
 theme.notification_icon_margin = controllers.notification_icon_margin
 theme.notification_bg = theme.bg_normal
+
+theme.critical_notification_bg = "#ff5558"
+theme.critical_notification_fg = "#011426"
+
 theme.notification_border_focus = theme.border_focus
 theme.notification_border_width = controllers.notification_border_width
 theme.notification_spacing = controllers.notification_spacing
@@ -230,7 +234,7 @@ theme.header_bg = "#011426"
 theme.inner_bg = "#011426"
 
 theme.notification_center_header_bg = "#011426"
-theme.notification_center_inner_bg = "#011426"
+theme.notification_center_inner_bg = theme.notification_bg
 
 theme.menu_submenu_icon = themes_path .. "default/submenu.png"
 theme.menu_height = controllers.menu_height

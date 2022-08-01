@@ -107,9 +107,10 @@ local return_button = function()
     local show_battery_warning = function()
         naughty.notification ({
             icon = widget_icon_dir .. 'battery-alert.svg',
-            app_name = 'System notification',
-            title = 'Battery is dying!',
-            message = 'Hey, I think we have a problem here. Save your work before reaching the oblivion.',
+            app_name = 'النظام',
+            title = 'البطارية منخفظة جداً!',
+            message = 'صديقي, بطارية جهازك اوشكت على الانتهاء. لا تنسى ان تحفظ عملك قبل ان ينظفئ الجهاز.',
+            -- message = 'Hey, I think we have a problem here. Save your work before reaching the oblivion.',
             urgency = 'critical'
         })
     end

@@ -106,7 +106,7 @@ local function worker(user_args)
     local timeout = args.timeout or 1
     local header_bg = args.header_bg or beautiful.header_bg
 
-    local border_width = args.border_width or beautiful.border_width
+    local border_width = args.border_width or beautiful.control_border_width
     local border_color = args.border_color or beautiful.border_focus
 
     local font = args.font or beautiful.uifont

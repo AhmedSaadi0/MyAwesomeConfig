@@ -29,7 +29,7 @@ local function factory(args)
     local widget_bg = args.widget_bg or beautiful.bg_normal
     local widget_fg = args.widget_fg or beautiful.fg_normal
 
-    local border_width = args.border_width or beautiful.border_width
+    local border_width = args.border_width or beautiful.control_border_width
     local border_color = args.border_color or beautiful.border_focus
 
     local shape = args.shape or function(cr, width, height)

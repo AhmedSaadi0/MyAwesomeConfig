@@ -49,7 +49,7 @@ uppercase no
 default_color 000000
  
 # -- Lua Load -- #
-lua_load ~/.config/awesome/configuration/conky/pie_clock/.clock_rings.lua
+lua_load ~/.config/awesome/themes/conky/pie_clock/.clock_rings.lua
 lua_draw_hook_pre clock_rings
 
 color1 6ED801 #green
