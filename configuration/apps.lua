@@ -22,7 +22,8 @@ return {
 		graphics = "gimp",
 		-- Default sandbox
 		social = "telegram-desktop",
-		-- Default IDE
+		-- Default IDE  
+		-- LC_ALL=C prime-run studio
 		development = "prime-run studio",
 		-- Default network manager
 		-- network_manager = "konsole -e nmtui-connect",

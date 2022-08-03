@@ -1,3 +1,0 @@
-Extract .conkyrc and .clock_rings.lua to the home ~ folder
-Run conky -c ~/.conkyrc
-Enjoy

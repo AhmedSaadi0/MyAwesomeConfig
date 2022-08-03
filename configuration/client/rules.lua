@@ -81,6 +81,25 @@ ruled.client.connect_signal(
 			}
 		}
 
+		-- Glava
+		
+		ruled.client.append_rule {
+			id = "glava",
+			rule_any = {
+				type = {"glava"},
+				class = {"GLava"}
+			},
+			properties = {
+				titlebars_enabled = false,
+				switchtotag=true,
+				floating = true,
+				border_width = 0,
+				above = false,
+				skip_decoration = true,
+				placement = awful.placement.bottom_right
+			}
+		}
+
 		-- Modals
 		ruled.client.append_rule {
 			id = "modal",
