@@ -25,6 +25,10 @@ warn_text = "0x161925"
 
 bg_colour = "0x555b67"
 
+battery_circle_color = "0xe06c75"
+ram_circle_color = "0xe06c75"
+time_circle_color = "0xe06c75"
+
 normal = "0x7ec7a2"
 warn = "0xff7200"
 crit = "0xff000d"
@@ -647,16 +651,23 @@ function conky_ring_stats(cr)
         local crit_level = 90
 
         if level_pct < warn_level then
-            pt.fg_colour = normal
+            pt.fg_colour = time_circle_color
         elseif level_pct >= warn_level and level_pct < crit_level then
-            pt.fg_colour = warn
-            font_colour = warn_text
+                pt.fg_colour = warn
+                font_colour = warn_text
         else
-            pt.fg_colour = crit
-            font_colour = warn_text
-
+            if pt.name == 'battery_percent' then
+                pt.font_colour = g_main_colour
+            else
+                pt.fg_colour = crit
+                font_colour = warn_text
+            end
         end
-    
+
+        if pt.name == 'fs_used_perc' then
+            font_colour = warn_text
+        end
+
         cairo_set_source_rgb(cr,rgb_to_r_g_b(font_colour))
     
         cairo_select_font_face (cr, font_name, CAIRO_FONT_SLANT_BOLD, CAIRO_FONT_WEIGHT_NORMAL)
@@ -680,7 +691,7 @@ function conky_ring_stats(cr)
 
     local function draw_ring(cr, t, pt)
         local w, h = conky_window.width, conky_window.height
-        
+
         local xc, yc, ring_r, ring_w, sa, ea = pt.x, pt.y, pt.radius, pt.thickness, pt.start_angle, pt.end_angle
         local bgc, bga, fgc, fga = pt.bg_colour, pt.bg_alpha, pt.fg_colour, pt.fg_alpha
     
@@ -712,7 +723,7 @@ function conky_ring_stats(cr)
             crit_level = 20
     
             if level_pct > warn_level then
-                pt.fg_colour = normal
+                pt.fg_colour = battery_circle_color
             elseif level_pct <= warn_level and level_pct > crit_level then
                 pt.fg_colour = warn
             else
@@ -722,7 +733,11 @@ function conky_ring_stats(cr)
             warn_level = 80
             crit_level = 92
             if level_pct < warn_level then
-                pt.fg_colour = normal
+                if pt.name == 'memperc' or pt.name == 'fs_used_perc' then
+                    pt.fg_colour = ram_circle_color
+                else
+                    pt.fg_colour = normal
+                end
             elseif level_pct >= warn_level and level_pct < crit_level then
                 pt.fg_colour = warn
             else

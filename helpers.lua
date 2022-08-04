@@ -583,7 +583,7 @@ function helpers.create_music_widget(args)
 
     local buttons_group_bg_color = args.buttons_group_bg_color or widget_bg
     local buttons_group_fg_color = args.buttons_group_fg_color or widget_fg
-
+    
     local final =
         wibox.widget {
         layout = wibox.layout.fixed.vertical,
@@ -599,6 +599,7 @@ function helpers.create_music_widget(args)
                         vertical_fit_policy = "fit",
                         valign = "center",
                         align = "center",
+                        type = "normal",
                         resize = true,
                         forced_height = dpi(110),
                         forced_width = dpi(110),
@@ -785,6 +786,7 @@ function helpers.create_music_widget(args)
                 maximum = 100,
                 widget = wibox.widget.slider
             },
+            bg = widget_bg,
             left = dpi(12),
             right = dpi(12),
             bottom = dpi(6)

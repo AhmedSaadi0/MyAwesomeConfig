@@ -45,7 +45,6 @@ local function factory(args)
         widget = wibox.widget.textbox
     }
 
-    -- Popup
     local quick_header =
         wibox.widget {
         text = "احمد",

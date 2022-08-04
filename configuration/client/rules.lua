@@ -82,7 +82,6 @@ ruled.client.connect_signal(
 		}
 
 		-- Glava
-		
 		ruled.client.append_rule {
 			id = "glava",
 			rule_any = {

@@ -189,6 +189,38 @@ awful.screen.connect_for_each_screen(
             }
         )
 
+        if beautiful.desktop_music_widget then
+            s.music =
+                require("widget.desktop-music") {
+                widget_bg = beautiful.desktop_music_widget_bg,
+                widget_fg = beautiful.desktop_music_widget_fg,
+                forced_width = dpi(490),
+            }
+
+            s.popup =
+                awful.popup {
+                ontop = false,
+                visible = true,
+                type = "desktop",
+                -- shape = shape,
+                -- border_width = border_width,
+                -- border_color = border_color,
+                maximum_width = 490,
+                offset = {y = 10},
+                widget = s.music
+            }
+            awful.placement.bottom_right(
+                s.popup,
+                {
+                    margins = {
+                        -- right = panel_margins,
+                        right = dpi(55),
+                        bottom = dpi(155)
+                    }
+                }
+            )
+        end
+
         s.systray =
             wibox.widget {
             visible = false,
@@ -255,7 +287,7 @@ awful.screen.connect_for_each_screen(
                     left = dpi(12),
                     right = dpi(12),
                     bg = beautiful.bg_normal,
-                    fg = beautiful.fg_normal,
+                    fg = beautiful.fg_normal
                 },
                 helpers.set_space(6),
                 -------------

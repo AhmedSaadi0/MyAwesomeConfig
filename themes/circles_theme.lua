@@ -109,6 +109,11 @@ theme.xforeground = theme.fg_normal
 theme.tooltip_fg = theme.fg_normal
 theme.tooltip_bg = theme.bg_normal
 
+-- Allow desktop music widget
+theme.desktop_music_widget = true
+theme.desktop_music_widget_bg = "#1e222a"
+theme.desktop_music_widget_fg = "#e06c75"
+
 --------------------------------
 ------------ Taglist -----------
 --------------------------------

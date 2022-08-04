@@ -15,6 +15,10 @@ local function worker(args)
 	local widget_fg = args.widget_fg or beautiful.fg_normal
 	local icon_bg = args.icon_bg
 	local icon_fg = args.icon_fg
+
+	local bar_color = args.bar_color or beautiful.vol_bar_color
+	local bar_active_color = args.bar_active_color or beautiful.vol_bar_active_color
+
 	local inner_image_shape = args.shape or helpers.rrect(dpi(11))
 	local buttons_group_shape = args.shape or helpers.rrect(dpi(11))
 	local buttons_group_bg_color = args.buttons_group_bg_color or widget_bg
@@ -28,6 +32,8 @@ local function worker(args)
 		widget_fg = widget_fg,
 		icon_bg = icon_bg,
 		icon_fg = icon_fg,
+		bar_color=bar_color,
+		bar_active_color=bar_active_color,
 		inner_image_shape = inner_image_shape,
 		buttons_group_shape = buttons_group_shape,
 		buttons_group_bg_color = buttons_group_bg_color,
