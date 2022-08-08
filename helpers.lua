@@ -27,8 +27,9 @@ function helpers.set_widget_block(args)
     local border_width = args.border_width
     local border_color = args.border_color
 
-
     local bgimage = args.bgimage or nil
+
+    local screen = args.screen
 
     local id = args.id
 
@@ -52,6 +53,7 @@ function helpers.set_widget_block(args)
         forced_width = forced_width,
         border_width = border_width,
         border_color = border_color,
+        screen = screen,
         widget = wibox.container.background
     }
     return block
@@ -583,7 +585,7 @@ function helpers.create_music_widget(args)
 
     local buttons_group_bg_color = args.buttons_group_bg_color or widget_bg
     local buttons_group_fg_color = args.buttons_group_fg_color or widget_fg
-    
+
     local final =
         wibox.widget {
         layout = wibox.layout.fixed.vertical,

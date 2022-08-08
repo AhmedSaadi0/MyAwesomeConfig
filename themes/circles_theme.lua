@@ -15,6 +15,8 @@ local theme = {}
 
 local controllers = require("themes.controllers")
 
+local helpers = require("themes.helpers")
+
 -------------------------------
 ------------ Fonts ------------
 -------------------------------
@@ -67,6 +69,7 @@ theme.cpu_icon_bg_color = theme.cpu_color
 
 theme.cpu_temp_color = theme.widget_bg
 theme.cpu_temp_icon_bg_color = "#61afef" -- theme.widget_bg
+theme.cpu_temp_icon_high_bg_color = "#f9ab5d" -- theme.widget_bg
 theme.cpu_temp_icon_fg_color = theme.cpu_temp_color
 theme.cpu_temp_text_color = theme.cpu_temp_icon_bg_color
 

@@ -61,10 +61,19 @@ local function worker(args)
         forced_width = dpi(72)
     }
 
+    local colors_theme =
+        helpers.add_text_icon_widget {
+        text = "جمالي",
+        icon = "",
+        text_font = text_font,
+        icon_font = icon_font,
+        forced_width = dpi(72)
+    }
+
     local detailed_widget =
         wibox.widget {
         layout = wibox.layout.manual,
-        forced_height = dpi(160),
+        forced_height = dpi(156),
         -- عربي
         {
             point = function(geo, args)
@@ -140,11 +149,35 @@ local function worker(args)
                 left = dpi(8)
             }
         },
-        -- دوائر
+        -- جمالي
         {
             point = function(geo, args)
                 return {
                     x = args.parent.width - geo.width,
+                    y = args.parent.height - geo.height
+                }
+            end,
+            layout = wibox.layout.fixed.vertical,
+            helpers.add_margin {
+                widget = helpers.set_widget_block {
+                    widget = colors_theme,
+                    id = "colors",
+                    shape = shape,
+                    top = dpi(8),
+                    bottom = dpi(8),
+                    right = dpi(8),
+                    left = dpi(8)
+                },
+                bottom = dpi(8),
+                right = dpi(8),
+                left = dpi(8)
+            }
+        },
+        -- دوائر
+        {
+            point = function(geo, args)
+                return {
+                    x = (args.parent.width / 2 + (geo.width / 2)) - geo.width,
                     y = args.parent.height - geo.height
                 }
             end,
@@ -159,7 +192,6 @@ local function worker(args)
                     right = dpi(8),
                     left = dpi(8)
                 },
-                top = dpi(8),
                 bottom = dpi(8),
                 right = dpi(8),
                 left = dpi(8)
@@ -175,7 +207,7 @@ local function worker(args)
         else
             islamic_theme:get_children_by_id("text_id")[1].markup  = helpers.colorize_text("عربي", nil, text_font)
             islamic_theme:get_children_by_id("icon_id")[1].markup  = helpers.colorize_text("", nil, icon_font)
-            detailed_widget:get_children_by_id("arabic")[1].bg = beautiful.widget_bg
+            detailed_widget:get_children_by_id("arabic")[1].bg = beautiful.bg_normal .. "88"
         end
     end
 
@@ -187,7 +219,7 @@ local function worker(args)
         else
             dark_theme:get_children_by_id("text_id")[1].markup  = helpers.colorize_text("مظلم", nil, text_font)
             dark_theme:get_children_by_id("icon_id")[1].markup  = helpers.colorize_text("", nil, icon_font)
-            detailed_widget:get_children_by_id("dark")[1].bg = beautiful.widget_bg
+            detailed_widget:get_children_by_id("dark")[1].bg = beautiful.bg_normal .. "88"
         end
     end
 
@@ -199,7 +231,7 @@ local function worker(args)
         else
             light_theme:get_children_by_id("text_id")[1].markup  = helpers.colorize_text("مضيء", nil, text_font)
             light_theme:get_children_by_id("icon_id")[1].markup  = helpers.colorize_text("", nil, icon_font)
-            detailed_widget:get_children_by_id("light")[1].bg = beautiful.widget_bg
+            detailed_widget:get_children_by_id("light")[1].bg = beautiful.bg_normal .. "88"
         end
     end
 
@@ -211,7 +243,19 @@ local function worker(args)
         else
             circles_theme:get_children_by_id("text_id")[1].markup  = helpers.colorize_text("دوائر", nil, text_font)
             circles_theme:get_children_by_id("icon_id")[1].markup  = helpers.colorize_text("", nil, icon_font)
-            detailed_widget:get_children_by_id("circle")[1].bg = beautiful.widget_bg
+            detailed_widget:get_children_by_id("circle")[1].bg = beautiful.bg_normal .. "88"
+        end
+    end
+
+    local function set_colors(on)
+        if on then
+            colors_theme:get_children_by_id("text_id")[1].markup  = helpers.colorize_text("جمالي", selected_text_color, text_font)
+            colors_theme:get_children_by_id("icon_id")[1].markup  = helpers.colorize_text("", selected_text_color, icon_font)
+            detailed_widget:get_children_by_id("colors")[1].bg = selected_bg_color
+        else
+            colors_theme:get_children_by_id("text_id")[1].markup  = helpers.colorize_text("جمالي", nil, text_font)
+            colors_theme:get_children_by_id("icon_id")[1].markup  = helpers.colorize_text("", nil, icon_font)
+            detailed_widget:get_children_by_id("colors")[1].bg = beautiful.bg_normal .. "88"
         end
     end
 
@@ -225,25 +269,36 @@ local function worker(args)
                     set_dark(false)
                     set_arabic(false)
                     set_circle(false)
+                    set_colors(false)
                     selected_theme = "light_theme"
                 elseif string.find(stdout, "islamic_theme") then
                     set_light(false)
                     set_dark(false)
                     set_arabic(true)
                     set_circle(false)
+                    set_colors(false)
                     selected_theme = "islamic_theme"
                 elseif string.find(stdout, "dark_theme") then
                     set_light(false)
                     set_dark(true)
                     set_arabic(false)
                     set_circle(false)
+                    set_colors(false)
                     selected_theme = "dark_theme"
                 elseif string.find(stdout, "circles_theme") then
                     set_light(false)
                     set_dark(false)
                     set_arabic(false)
                     set_circle(true)
+                    set_colors(false)
                     selected_theme = "circles_theme"
+                elseif string.find(stdout, "colors_theme") then
+                    set_light(false)
+                    set_dark(false)
+                    set_arabic(false)
+                    set_circle(false)
+                    set_colors(true)
+                    selected_theme = "colors_theme"
                 end
             end
         )
@@ -281,6 +336,12 @@ local function worker(args)
         "button::press",
         function()
             change_theme("circles_theme")
+        end
+    )
+    colors_theme:connect_signal(
+        "button::press",
+        function()
+            change_theme("colors_theme")
         end
     )
 

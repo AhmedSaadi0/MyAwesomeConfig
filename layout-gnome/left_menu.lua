@@ -18,7 +18,7 @@ local blur_toggle = require("widget.blur-toggle")
 
 local theme_switcher = require("widget.theme-switcher.init") {}
 
-local function factory(args)
+local function factory(s, args)
     local text_font = args.font or beautiful.uifont
     local icon_font = args.font or beautiful.iconfont
 
@@ -215,15 +215,16 @@ local function factory(args)
     }
 
     awful.placement.top_left(
-        popup,
-        {
-            margins = {
-                -- right = panel_margins,
+		popup,
+		{
+			margins = {
                 top = dpi(42),
                 left = dpi(10)
-            }
-        }
-    )
+			},
+			parent = s
+		}
+	)
+
 
     local show_popup = function()
         popup:move_next_to()

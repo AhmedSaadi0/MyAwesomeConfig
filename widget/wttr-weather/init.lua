@@ -39,6 +39,7 @@ local function factory(args)
     local number_text_widget =
         wibox.widget {
         text = "",
+        screen = "primary",
         font = text_font,
         align = "center",
         valign = "center",

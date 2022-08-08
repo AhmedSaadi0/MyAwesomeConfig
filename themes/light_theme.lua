@@ -68,6 +68,7 @@ theme.cpu_icon_color = "#5e81ac" --"#ff79c6"
 theme.cpu_temp_color = "#e2ad57"
 theme.cpu_temp_icon_bg_color = "#c8994d" -- "#00efd1"
 theme.cpu_temp_icon_fg_color = "#282c34"
+theme.cpu_temp_icon_high_bg_color = "#f9ab5d" -- theme.widget_bg
 theme.cpu_temp_text_color = theme.cpu_temp_icon_fg_color
 
 theme.net_speed_color = "#83c1a6" -- "#00efd1"

@@ -67,6 +67,7 @@ theme.cpu_icon_color = "#e2ad57" --"#ff79c6"
 
 theme.cpu_temp_color = "#e2ad57"
 theme.cpu_temp_icon_bg_color = "#c8994d" -- "#00efd1"
+theme.cpu_temp_icon_high_bg_color = "#e2ce67" -- theme.widget_bg
 theme.cpu_temp_icon_fg_color = theme.widget_bg
 theme.cpu_temp_text_color = theme.cpu_temp_icon_fg_color
 

@@ -181,7 +181,7 @@ local function worker(args)
             if popup.visible then
                 popup.visible = not popup.visible
             else
-                popup:move_next_to()
+                popup:move_next_to(mouse.current_widget_geometry)
             end
         end
     )

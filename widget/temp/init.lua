@@ -44,6 +44,7 @@ end
 
 local function factory(args)
     local font = args.font or beautiful.uifont
+    local icon_font = args.icon_font or beautiful.iconfont
     local header_bg = args.header_bg or beautiful.header_bg
     local bg = args.bg or beautiful.bg_normal
     local border_width = args.border_width or beautiful.control_border_width
@@ -52,6 +53,19 @@ local function factory(args)
     local shape = args.shape or function(cr, width, height)
             gears.shape.rounded_rect(cr, width, height, beautiful.groups_radius)
         end
+
+    local temp_icon =
+        wibox.widget {
+        layout = wibox.layout.fixed.horizontal,
+        helpers.set_widget_block {
+            widget = helpers.add_text("", beautiful.cpu_temp_icon_fg_color, icon_font),
+            bg = beautiful.cpu_temp_icon_bg_color,
+            shape = helpers.right_rounded_rect(beautiful.widgets_corner_radius),
+            right = 7,
+            id = "widget",
+            left = 5
+        }
+    }
 
     local number_text_widget =
         wibox.widget {
@@ -190,6 +204,16 @@ local function factory(args)
             for line in stdout:gmatch("[^\r\n]+") do
                 if line:match("temp1") then
                     number_text_widget.text = helpers.trim(string.gsub(line, "temp1:+", ""))
+
+                    local _temp = string.match(string.gsub(line, "temp1:+", ""), "%d+")
+                    if tonumber(_temp) > 75 then
+                        -- temp_icon:get_children_by_id("text_id")[1].markup = helpers.colorize_text("", beautiful.cpu_temp_icon_fg_color, icon_font)
+                        temp_icon:get_children_by_id("widget")[1].bg =
+                            beautiful.cpu_temp_icon_high_bg_color or beautiful.cpu_temp_icon_bg_color
+                    else
+                        -- temp_icon:get_children_by_id("text_id")[1].markup = helpers.colorize_text("", beautiful.cpu_temp_icon_fg_color, icon_font)
+                        temp_icon:get_children_by_id("widget")[1].bg = beautiful.cpu_temp_icon_bg_color
+                    end
                 elseif line:match("Composite") then
                     local degree = helpers.trim(string.match(line, "%d+"))
                     slider_composite.core:set_value(math.floor(degree))
@@ -233,7 +257,21 @@ local function factory(args)
         end
     )
 
-    return number_text_widget
+    local with_icon =
+        wibox.widget {
+        layout = wibox.layout.fixed.horizontal,
+        helpers.set_widget_block {
+            widget = number_text_widget,
+            shape = helpers.left_rounded_rect(beautiful.widgets_corner_radius),
+            bg = beautiful.cpu_temp_color,
+            fg = beautiful.cpu_temp_text_color,
+            left = 5,
+            right = 5
+        },
+        temp_icon
+    }
+
+    return with_icon
 end
 
 return factory
