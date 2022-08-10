@@ -434,7 +434,7 @@ local global_keys =
 		{altkey},
 		"Tab",
 		function()
-			awful.spawn("rofi -show windowcd -theme ~/.config/awesome/rofi-new-dracula/recent-app-theme.rasi", false)
+			awful.spawn("rofi -show windowcd", false)
 		end,
 		{description = "اخر تطبيقات", group = "تطبيقات"}
 	)

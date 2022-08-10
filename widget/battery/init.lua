@@ -144,9 +144,12 @@ local return_button = function()
 				if status == "fully-charged" or status == "charging" then
 					charging_icon:get_children_by_id("text_id")[1].markup =
 						helpers.colorize_text("", beautiful.battery_icon_fg_color, "Font Awesome 5 Free Solid 11")
-				else
+				elseif status == "discharging" then
 					charging_icon:get_children_by_id("text_id")[1].markup =
 						helpers.colorize_text("", beautiful.battery_icon_fg_color, "Font Awesome 5 Free Solid 11")
+				else
+					charging_icon:get_children_by_id("text_id")[1].markup =
+						helpers.colorize_text("", beautiful.battery_icon_fg_color, "Font Awesome 5 Free Solid 11")
 				end
 
 				-- Fully charged

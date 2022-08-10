@@ -6,7 +6,7 @@
    viewBox="0 0 240 240"
    id="svg4"
    sodipodi:docname="lock.svg"
-   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04, custom)"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -36,23 +36,25 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1898"
-     inkscape:window-height="1024"
+     inkscape:window-width="943"
+     inkscape:window-height="1026"
      id="namedview6"
      showgrid="false"
      inkscape:pagecheckerboard="true"
      inkscape:zoom="1.3906433"
-     inkscape:cx="100.67283"
-     inkscape:cy="141.66105"
+     inkscape:cx="101.39192"
+     inkscape:cy="141.66106"
      inkscape:window-x="10"
-     inkscape:window-y="44"
+     inkscape:window-y="42"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg4" />
+     inkscape:current-layer="svg4"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1" />
   <path
      d="m 120,172.38095 a 19.047619,19.047619 0 0 0 19.04762,-19.04762 c 0,-10.57143 -8.57143,-19.04762 -19.04762,-19.04762 A 19.047619,19.047619 0 0 0 100.95238,153.33333 19.047619,19.047619 0 0 0 120,172.38095 m 57.14285,-85.71428 a 19.047619,19.047619 0 0 1 19.04762,19.04762 v 95.23809 A 19.047619,19.047619 0 0 1 177.14285,220 H 62.857146 a 19.047619,19.047619 0 0 1 -19.04762,-19.04762 v -95.23809 c 0,-10.57143 8.57143,-19.04762 19.04762,-19.04762 h 9.52381 V 67.61905 A 47.619048,47.619048 0 0 1 120,20 47.619048,47.619048 0 0 1 167.61904,67.61905 v 19.04762 h 9.52381 M 120,39.04762 A 28.571429,28.571429 0 0 0 91.428575,67.61905 V 86.66667 H 148.57142 V 67.61905 A 28.571429,28.571429 0 0 0 120,39.04762 Z"
      id="path2"
      inkscape:connector-curvature="0"
-     style="fill:#01e4c8;stroke-width:9.52380943;fill-opacity:1" />
+     style="fill:#cf65b8;stroke-width:9.52380943;fill-opacity:1" />
   <ellipse
      style="opacity:1;fill:#f7c7a0;fill-opacity:1;stroke:#f7c7a0;stroke-width:0.179153;paint-order:stroke fill markers"
      id="path911"
