@@ -14,7 +14,7 @@ local moon_icons = require("widget.wttr-weather.moon-icons")
 
 local function factory(args)
     local city = args.city or beautiful.city or "Sanaa"
-    
+
     local text_font = args.font or beautiful.uifont
     local icon_font = args.font or beautiful.iconfont
 
@@ -22,19 +22,21 @@ local function factory(args)
 
     local bg = args.bg or beautiful.bg_normal
 
-    local widget_bg = args.widget_bg or beautiful.bg_normal
+    local widget_bg = args.widget_bg or beautiful.widget_bg
     local widget_fg = args.widget_fg or beautiful.fg_normal
-    
+
     local border_width = args.border_width or beautiful.control_border_width
     local border_color = args.border_color or beautiful.border_focus
 
+    local whole_bg_color = beautiful.weather_color_whole_color or beautiful.transparent
+
     local popup_shape = args.popup_shape or function(cr, width, height)
-        gears.shape.rounded_rect(cr, width, height, beautiful.groups_radius)
-    end
+            gears.shape.rounded_rect(cr, width, height, beautiful.groups_radius)
+        end
 
     local widget_shape = args.widget_shape or function(cr, width, height)
-        gears.shape.rounded_rect(cr, width, height, beautiful.groups_radius)
-    end
+            gears.shape.rounded_rect(cr, width, height, beautiful.groups_radius)
+        end
 
     local number_text_widget =
         wibox.widget {
@@ -57,19 +59,28 @@ local function factory(args)
     local weather_widget =
         wibox.widget {
         helpers.set_widget_block {
-            widget = number_text_widget,
-            bg = beautiful.weather_color,
-            fg = beautiful.weather_text_color,
-            shape = helpers.left_rounded_rect(beautiful.widgets_corner_radius),
-            left = 8,
-            right = 5
-        },
-        helpers.set_widget_block {
-            widget = icon,
-            bg = beautiful.weather_icon_bg_color,
-            shape = helpers.right_rounded_rect(beautiful.widgets_corner_radius),
-            right = 4,
-            left = 4
+            widget = {
+                layout = wibox.layout.fixed.horizontal,
+                helpers.set_widget_block {
+                    widget = number_text_widget,
+                    bg = beautiful.weather_color,
+                    fg = beautiful.weather_text_color,
+                    shape = helpers.left_rounded_rect(beautiful.widgets_corner_radius),
+                    left = 8,
+                    right = 5
+                },
+                helpers.set_widget_block {
+                    widget = icon,
+                    bg = beautiful.weather_icon_bg_color,
+                    shape = helpers.right_rounded_rect(beautiful.widgets_corner_radius),
+                    right = 4,
+                    left = 4
+                }
+            },
+            bg = whole_bg_color,
+            id = "widget_id",
+            font = beautiful.iconfont,
+            shape = helpers.rrect(beautiful.widgets_corner_radius)
         },
         layout = wibox.layout.fixed.horizontal
     }
@@ -234,7 +245,8 @@ local function factory(args)
     }
 
     -- Today
-    local widget_1 = helpers.add_margin {
+    local widget_1 =
+        helpers.add_margin {
         widget = helpers.set_widget_block {
             widget = today_1,
             shape = widget_shape,
@@ -248,7 +260,8 @@ local function factory(args)
         right = dpi(12)
     }
 
-    local widget_2 = helpers.add_margin {
+    local widget_2 =
+        helpers.add_margin {
         visible = false,
         id = "widget_2",
         widget = helpers.set_widget_block {
@@ -264,7 +277,8 @@ local function factory(args)
         right = dpi(12)
     }
 
-    local widget_3 = helpers.add_margin {
+    local widget_3 =
+        helpers.add_margin {
         visible = false,
         id = "widget_3",
         widget = helpers.set_widget_block {
@@ -280,7 +294,8 @@ local function factory(args)
         right = dpi(12)
     }
 
-    local widget_4 = helpers.add_margin {
+    local widget_4 =
+        helpers.add_margin {
         visible = false,
         id = "widget_4",
         right = dpi(12),
@@ -297,7 +312,8 @@ local function factory(args)
     }
 
     -- Tomorrow
-    local widget_5 = helpers.add_margin {
+    local widget_5 =
+        helpers.add_margin {
         widget = helpers.set_widget_block {
             widget = tomorrow_1,
             shape = widget_shape,
@@ -311,7 +327,8 @@ local function factory(args)
         right = dpi(12)
     }
 
-    local widget_6 = helpers.add_margin {
+    local widget_6 =
+        helpers.add_margin {
         visible = false,
         id = "widget_6",
         widget = helpers.set_widget_block {
@@ -327,7 +344,8 @@ local function factory(args)
         right = dpi(12)
     }
 
-    local widget_7 = helpers.add_margin {
+    local widget_7 =
+        helpers.add_margin {
         visible = false,
         id = "widget_7",
         widget = helpers.set_widget_block {
@@ -343,7 +361,8 @@ local function factory(args)
         right = dpi(12)
     }
 
-    local widget_8 = helpers.add_margin {
+    local widget_8 =
+        helpers.add_margin {
         visible = false,
         id = "widget_8",
         right = dpi(12),
@@ -360,7 +379,8 @@ local function factory(args)
     }
 
     -- After Tomorrow
-    local widget_9 = helpers.add_margin {
+    local widget_9 =
+        helpers.add_margin {
         widget = helpers.set_widget_block {
             widget = after_tomorrow_1,
             shape = widget_shape,
@@ -374,7 +394,8 @@ local function factory(args)
         right = dpi(12)
     }
 
-    local widget_10 = helpers.add_margin {
+    local widget_10 =
+        helpers.add_margin {
         visible = false,
         id = "widget_10",
         widget = helpers.set_widget_block {
@@ -390,7 +411,8 @@ local function factory(args)
         right = dpi(12)
     }
 
-    local widget_11 = helpers.add_margin {
+    local widget_11 =
+        helpers.add_margin {
         visible = false,
         id = "widget_11",
         widget = helpers.set_widget_block {
@@ -406,7 +428,8 @@ local function factory(args)
         right = dpi(12)
     }
 
-    local widget_12 = helpers.add_margin {
+    local widget_12 =
+        helpers.add_margin {
         visible = false,
         id = "widget_12",
         right = dpi(12),
@@ -421,7 +444,6 @@ local function factory(args)
             right = dpi(12)
         }
     }
-
 
     local detailed_widget =
         wibox.widget {
@@ -461,20 +483,21 @@ local function factory(args)
                         widget_5,
                         widget_6,
                         widget_7,
-                        widget_8,
+                        widget_8
                     },
                     -- top = dpi(12),
                     bottom = dpi(12),
                     left = dpi(12),
                     -- right = dpi(12),
                     bg = beautiful.transparent
-                },helpers.set_widget_block {
+                },
+                helpers.set_widget_block {
                     widget = {
                         layout = wibox.layout.fixed.horizontal,
                         widget_9,
                         widget_10,
                         widget_11,
-                        widget_12,
+                        widget_12
                     },
                     -- top = dpi(12),
                     bottom = dpi(12),
@@ -504,7 +527,7 @@ local function factory(args)
     }
 
     watch(
-        "curl ar.wttr.in/'".. city .."?format=j1'",
+        "curl ar.wttr.in/'" .. city .. "?format=j1'",
         -- "cat w.txt",
         900,
         function(_, stdout)
@@ -544,12 +567,33 @@ local function factory(args)
             today_1:get_children_by_id("temperature_id")[1]:set_text("°" .. weather_json.current_condition[1].temp_C)
             today_1:get_children_by_id("sky_status_id")[1]:set_text(weather_json.current_condition[1].lang_ar[1].value)
             today_1:get_children_by_id("weather_icon_id")[1]:set_text(w_icon)
-            today_1:get_children_by_id("temperature_time_id")[1]:set_text(weather_json.current_condition[1].observation_time)
-            today_1:get_children_by_id("moonrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].moonrise .. " - " .. weather_json.weather[1].astronomy[1].moonset)
-            today_1:get_children_by_id("sunrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset)
-            today_1:get_children_by_id("temperature_date_id")[1]:set_text(" " .. os.date("%A", os.time{year=year, month=month, day=day}) .. " | " .. month .. "/" .. day)
+            today_1:get_children_by_id("temperature_time_id")[1]:set_text(
+                weather_json.current_condition[1].observation_time
+            )
+            today_1:get_children_by_id("moonrise_id")[1]:set_text(
+                " " ..
+                    weather_json.weather[1].astronomy[1].moonrise ..
+                        " - " .. weather_json.weather[1].astronomy[1].moonset
+            )
+            today_1:get_children_by_id("sunrise_id")[1]:set_text(
+                " " ..
+                    weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset
+            )
+            today_1:get_children_by_id("temperature_date_id")[1]:set_text(
+                " " .. os.date("%A", os.time {year = year, month = month, day = day}) .. " | " .. month .. "/" .. day
+            )
             today_1:get_children_by_id("temperature_city_id")[1]:set_text(city)
-            today_1:get_children_by_id("h_l_temperature_id")[1]:set_text("°" .. weather_json.weather[1].maxtempC .. "/°" .. weather_json.weather[1].mintempC)
+            today_1:get_children_by_id("h_l_temperature_id")[1]:set_text(
+                "°" .. weather_json.weather[1].maxtempC .. "/°" .. weather_json.weather[1].mintempC
+            )
+
+            if tonumber(weather_json.current_condition[1].temp_C) < 15 then
+                weather_widget:get_children_by_id("widget_id")[1].bg = beautiful.weather_cold_color or beautiful.volume_widget_whole_color or beautiful.transparent
+            elseif tonumber(weather_json.current_condition[1].temp_C) >= 15 and tonumber(weather_json.current_condition[1].temp_C) <= 25 then
+                weather_widget:get_children_by_id("widget_id")[1].bg = beautiful.weather_nice_color or beautiful.volume_widget_whole_color or beautiful.transparent
+            elseif tonumber(weather_json.current_condition[1].temp_C) > 25 then
+                weather_widget:get_children_by_id("widget_id")[1].bg = beautiful.weather_hot_color or beautiful.volume_widget_whole_color or beautiful.transparent
+            end
 
             -- mouse::enter
             today_1:connect_signal(
@@ -572,47 +616,101 @@ local function factory(args)
             )
             today_2:get_children_by_id("temperature_id")[1]:set_text("°" .. weather_json.weather[1].hourly[4].tempC)
             today_2:get_children_by_id("sky_status_id")[1]:set_text(weather_json.weather[1].hourly[4].lang_ar[1].value)
-            today_2:get_children_by_id("weather_icon_id")[1]:set_text(sun_icons[weather_json.weather[1].hourly[4].weatherCode])
+            today_2:get_children_by_id("weather_icon_id")[1]:set_text(
+                sun_icons[weather_json.weather[1].hourly[4].weatherCode]
+            )
             today_2:get_children_by_id("temperature_time_id")[1]:set_text("09:00 AM")
-            today_2:get_children_by_id("moonrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].moonrise .. " - " .. weather_json.weather[1].astronomy[1].moonset)
-            today_2:get_children_by_id("sunrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset)
-            today_2:get_children_by_id("temperature_date_id")[1]:set_text(" " .. os.date("%A", os.time{year=year, month=month, day=day}) .. " | " .. month .. "/" .. day)
+            today_2:get_children_by_id("moonrise_id")[1]:set_text(
+                " " ..
+                    weather_json.weather[1].astronomy[1].moonrise ..
+                        " - " .. weather_json.weather[1].astronomy[1].moonset
+            )
+            today_2:get_children_by_id("sunrise_id")[1]:set_text(
+                " " ..
+                    weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset
+            )
+            today_2:get_children_by_id("temperature_date_id")[1]:set_text(
+                " " .. os.date("%A", os.time {year = year, month = month, day = day}) .. " | " .. month .. "/" .. day
+            )
             today_2:get_children_by_id("temperature_city_id")[1]:set_text(city)
-            today_2:get_children_by_id("h_l_temperature_id")[1]:set_text("°" .. weather_json.weather[1].maxtempC .. "/°" .. weather_json.weather[1].mintempC)
+            today_2:get_children_by_id("h_l_temperature_id")[1]:set_text(
+                "°" .. weather_json.weather[1].maxtempC .. "/°" .. weather_json.weather[1].mintempC
+            )
 
             today_3:get_children_by_id("temperature_id")[1]:set_text("°" .. weather_json.weather[1].hourly[6].tempC)
             today_3:get_children_by_id("sky_status_id")[1]:set_text(weather_json.weather[1].hourly[6].lang_ar[1].value)
-            today_3:get_children_by_id("weather_icon_id")[1]:set_text(sun_icons[weather_json.weather[1].hourly[6].weatherCode])
+            today_3:get_children_by_id("weather_icon_id")[1]:set_text(
+                sun_icons[weather_json.weather[1].hourly[6].weatherCode]
+            )
             today_3:get_children_by_id("temperature_time_id")[1]:set_text("03:00 PM")
-            today_3:get_children_by_id("moonrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].moonrise .. " - " .. weather_json.weather[1].astronomy[1].moonset)
-            today_3:get_children_by_id("sunrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset)
-            today_3:get_children_by_id("temperature_date_id")[1]:set_text(" " .. os.date("%A", os.time{year=year, month=month, day=day}) .. " | " .. month .. "/" .. day)
+            today_3:get_children_by_id("moonrise_id")[1]:set_text(
+                " " ..
+                    weather_json.weather[1].astronomy[1].moonrise ..
+                        " - " .. weather_json.weather[1].astronomy[1].moonset
+            )
+            today_3:get_children_by_id("sunrise_id")[1]:set_text(
+                " " ..
+                    weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset
+            )
+            today_3:get_children_by_id("temperature_date_id")[1]:set_text(
+                " " .. os.date("%A", os.time {year = year, month = month, day = day}) .. " | " .. month .. "/" .. day
+            )
             today_3:get_children_by_id("temperature_city_id")[1]:set_text(city)
-            today_3:get_children_by_id("h_l_temperature_id")[1]:set_text("°" .. weather_json.weather[1].maxtempC .. "/°" .. weather_json.weather[1].mintempC)
+            today_3:get_children_by_id("h_l_temperature_id")[1]:set_text(
+                "°" .. weather_json.weather[1].maxtempC .. "/°" .. weather_json.weather[1].mintempC
+            )
 
             today_4:get_children_by_id("temperature_id")[1]:set_text("°" .. weather_json.weather[1].hourly[8].tempC)
             today_4:get_children_by_id("sky_status_id")[1]:set_text(weather_json.weather[1].hourly[8].lang_ar[1].value)
-            today_4:get_children_by_id("weather_icon_id")[1]:set_text(moon_icons[weather_json.weather[1].hourly[8].weatherCode])
+            today_4:get_children_by_id("weather_icon_id")[1]:set_text(
+                moon_icons[weather_json.weather[1].hourly[8].weatherCode]
+            )
             today_4:get_children_by_id("temperature_time_id")[1]:set_text("09:00 PM")
-            today_4:get_children_by_id("moonrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].moonrise .. " - " .. weather_json.weather[1].astronomy[1].moonset)
-            today_4:get_children_by_id("sunrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset)
-            today_4:get_children_by_id("temperature_date_id")[1]:set_text(" " .. os.date("%A", os.time{year=year, month=month, day=day}) .. " | " .. month .. "/" .. day)
+            today_4:get_children_by_id("moonrise_id")[1]:set_text(
+                " " ..
+                    weather_json.weather[1].astronomy[1].moonrise ..
+                        " - " .. weather_json.weather[1].astronomy[1].moonset
+            )
+            today_4:get_children_by_id("sunrise_id")[1]:set_text(
+                " " ..
+                    weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset
+            )
+            today_4:get_children_by_id("temperature_date_id")[1]:set_text(
+                " " .. os.date("%A", os.time {year = year, month = month, day = day}) .. " | " .. month .. "/" .. day
+            )
             today_4:get_children_by_id("temperature_city_id")[1]:set_text(city)
-            today_4:get_children_by_id("h_l_temperature_id")[1]:set_text("°" .. weather_json.weather[1].maxtempC .. "/°" .. weather_json.weather[1].mintempC)
+            today_4:get_children_by_id("h_l_temperature_id")[1]:set_text(
+                "°" .. weather_json.weather[1].maxtempC .. "/°" .. weather_json.weather[1].mintempC
+            )
 
             ----------------------------------------
             -- Tomorrow Weather 4 defferent times --
             ----------------------------------------
             local year, month, day = weather_json.weather[2].date:match("^(%d%d%d%d)-(%d%d)-(%d%d)$")
             tomorrow_1:get_children_by_id("temperature_id")[1]:set_text("°" .. weather_json.weather[2].hourly[4].tempC)
-            tomorrow_1:get_children_by_id("sky_status_id")[1]:set_text(weather_json.weather[2].hourly[4].lang_ar[1].value)
-            tomorrow_1:get_children_by_id("weather_icon_id")[1]:set_text(sun_icons[weather_json.weather[2].hourly[4].weatherCode])
+            tomorrow_1:get_children_by_id("sky_status_id")[1]:set_text(
+                weather_json.weather[2].hourly[4].lang_ar[1].value
+            )
+            tomorrow_1:get_children_by_id("weather_icon_id")[1]:set_text(
+                sun_icons[weather_json.weather[2].hourly[4].weatherCode]
+            )
             tomorrow_1:get_children_by_id("temperature_time_id")[1]:set_text("12:00 PM")
-            tomorrow_1:get_children_by_id("moonrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].moonrise .. " - " .. weather_json.weather[1].astronomy[1].moonset)
-            tomorrow_1:get_children_by_id("sunrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset)
-            tomorrow_1:get_children_by_id("temperature_date_id")[1]:set_text(" " .. os.date("%A", os.time{year=year, month=month, day=day}) .. " | " .. month .. "/" .. day)
+            tomorrow_1:get_children_by_id("moonrise_id")[1]:set_text(
+                " " ..
+                    weather_json.weather[1].astronomy[1].moonrise ..
+                        " - " .. weather_json.weather[1].astronomy[1].moonset
+            )
+            tomorrow_1:get_children_by_id("sunrise_id")[1]:set_text(
+                " " ..
+                    weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset
+            )
+            tomorrow_1:get_children_by_id("temperature_date_id")[1]:set_text(
+                " " .. os.date("%A", os.time {year = year, month = month, day = day}) .. " | " .. month .. "/" .. day
+            )
             tomorrow_1:get_children_by_id("temperature_city_id")[1]:set_text(city)
-            tomorrow_1:get_children_by_id("h_l_temperature_id")[1]:set_text("°" .. weather_json.weather[2].maxtempC .. "/°" .. weather_json.weather[2].mintempC)
+            tomorrow_1:get_children_by_id("h_l_temperature_id")[1]:set_text(
+                "°" .. weather_json.weather[2].maxtempC .. "/°" .. weather_json.weather[2].mintempC
+            )
 
             -- mouse::enter
             tomorrow_1:connect_signal(
@@ -635,48 +733,110 @@ local function factory(args)
             )
 
             tomorrow_2:get_children_by_id("temperature_id")[1]:set_text("°" .. weather_json.weather[2].hourly[3].tempC)
-            tomorrow_2:get_children_by_id("sky_status_id")[1]:set_text(weather_json.weather[2].hourly[3].lang_ar[1].value)
-            tomorrow_2:get_children_by_id("weather_icon_id")[1]:set_text(sun_icons[weather_json.weather[2].hourly[3].weatherCode])
+            tomorrow_2:get_children_by_id("sky_status_id")[1]:set_text(
+                weather_json.weather[2].hourly[3].lang_ar[1].value
+            )
+            tomorrow_2:get_children_by_id("weather_icon_id")[1]:set_text(
+                sun_icons[weather_json.weather[2].hourly[3].weatherCode]
+            )
             tomorrow_2:get_children_by_id("temperature_time_id")[1]:set_text("09:00 AM")
-            tomorrow_2:get_children_by_id("moonrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].moonrise .. " - " .. weather_json.weather[1].astronomy[1].moonset)
-            tomorrow_2:get_children_by_id("sunrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset)
-            tomorrow_2:get_children_by_id("temperature_date_id")[1]:set_text(" " .. os.date("%A", os.time{year=year, month=month, day=day}) .. " | " .. month .. "/" .. day)
+            tomorrow_2:get_children_by_id("moonrise_id")[1]:set_text(
+                " " ..
+                    weather_json.weather[1].astronomy[1].moonrise ..
+                        " - " .. weather_json.weather[1].astronomy[1].moonset
+            )
+            tomorrow_2:get_children_by_id("sunrise_id")[1]:set_text(
+                " " ..
+                    weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset
+            )
+            tomorrow_2:get_children_by_id("temperature_date_id")[1]:set_text(
+                " " .. os.date("%A", os.time {year = year, month = month, day = day}) .. " | " .. month .. "/" .. day
+            )
             tomorrow_2:get_children_by_id("temperature_city_id")[1]:set_text(city)
-            tomorrow_2:get_children_by_id("h_l_temperature_id")[1]:set_text("°" .. weather_json.weather[2].maxtempC .. "/°" .. weather_json.weather[2].mintempC)
+            tomorrow_2:get_children_by_id("h_l_temperature_id")[1]:set_text(
+                "°" .. weather_json.weather[2].maxtempC .. "/°" .. weather_json.weather[2].mintempC
+            )
 
             tomorrow_3:get_children_by_id("temperature_id")[1]:set_text("°" .. weather_json.weather[2].hourly[6].tempC)
-            tomorrow_3:get_children_by_id("sky_status_id")[1]:set_text(weather_json.weather[2].hourly[6].lang_ar[1].value)
-            tomorrow_3:get_children_by_id("weather_icon_id")[1]:set_text(sun_icons[weather_json.weather[2].hourly[6].weatherCode])
+            tomorrow_3:get_children_by_id("sky_status_id")[1]:set_text(
+                weather_json.weather[2].hourly[6].lang_ar[1].value
+            )
+            tomorrow_3:get_children_by_id("weather_icon_id")[1]:set_text(
+                sun_icons[weather_json.weather[2].hourly[6].weatherCode]
+            )
             tomorrow_3:get_children_by_id("temperature_time_id")[1]:set_text("03:00 PM")
-            tomorrow_3:get_children_by_id("moonrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].moonrise .. " - " .. weather_json.weather[1].astronomy[1].moonset)
-            tomorrow_3:get_children_by_id("sunrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset)
-            tomorrow_3:get_children_by_id("temperature_date_id")[1]:set_text(" " .. os.date("%A", os.time{year=year, month=month, day=day}) .. " | " .. month .. "/" .. day)
+            tomorrow_3:get_children_by_id("moonrise_id")[1]:set_text(
+                " " ..
+                    weather_json.weather[1].astronomy[1].moonrise ..
+                        " - " .. weather_json.weather[1].astronomy[1].moonset
+            )
+            tomorrow_3:get_children_by_id("sunrise_id")[1]:set_text(
+                " " ..
+                    weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset
+            )
+            tomorrow_3:get_children_by_id("temperature_date_id")[1]:set_text(
+                " " .. os.date("%A", os.time {year = year, month = month, day = day}) .. " | " .. month .. "/" .. day
+            )
             tomorrow_3:get_children_by_id("temperature_city_id")[1]:set_text(city)
-            tomorrow_3:get_children_by_id("h_l_temperature_id")[1]:set_text("°" .. weather_json.weather[2].maxtempC .. "/°" .. weather_json.weather[2].mintempC)
+            tomorrow_3:get_children_by_id("h_l_temperature_id")[1]:set_text(
+                "°" .. weather_json.weather[2].maxtempC .. "/°" .. weather_json.weather[2].mintempC
+            )
 
             tomorrow_4:get_children_by_id("temperature_id")[1]:set_text("°" .. weather_json.weather[2].hourly[8].tempC)
-            tomorrow_4:get_children_by_id("sky_status_id")[1]:set_text(weather_json.weather[2].hourly[8].lang_ar[1].value)
-            tomorrow_4:get_children_by_id("weather_icon_id")[1]:set_text(moon_icons[weather_json.weather[2].hourly[8].weatherCode])
+            tomorrow_4:get_children_by_id("sky_status_id")[1]:set_text(
+                weather_json.weather[2].hourly[8].lang_ar[1].value
+            )
+            tomorrow_4:get_children_by_id("weather_icon_id")[1]:set_text(
+                moon_icons[weather_json.weather[2].hourly[8].weatherCode]
+            )
             tomorrow_4:get_children_by_id("temperature_time_id")[1]:set_text("09:00 PM")
-            tomorrow_4:get_children_by_id("moonrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].moonrise .. " - " .. weather_json.weather[1].astronomy[1].moonset)
-            tomorrow_4:get_children_by_id("sunrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset)
-            tomorrow_4:get_children_by_id("temperature_date_id")[1]:set_text(" " .. os.date("%A", os.time{year=year, month=month, day=day}) .. " | " .. month .. "/" .. day)
+            tomorrow_4:get_children_by_id("moonrise_id")[1]:set_text(
+                " " ..
+                    weather_json.weather[1].astronomy[1].moonrise ..
+                        " - " .. weather_json.weather[1].astronomy[1].moonset
+            )
+            tomorrow_4:get_children_by_id("sunrise_id")[1]:set_text(
+                " " ..
+                    weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset
+            )
+            tomorrow_4:get_children_by_id("temperature_date_id")[1]:set_text(
+                " " .. os.date("%A", os.time {year = year, month = month, day = day}) .. " | " .. month .. "/" .. day
+            )
             tomorrow_4:get_children_by_id("temperature_city_id")[1]:set_text(city)
-            tomorrow_4:get_children_by_id("h_l_temperature_id")[1]:set_text("°" .. weather_json.weather[2].maxtempC .. "/°" .. weather_json.weather[2].mintempC)
+            tomorrow_4:get_children_by_id("h_l_temperature_id")[1]:set_text(
+                "°" .. weather_json.weather[2].maxtempC .. "/°" .. weather_json.weather[2].mintempC
+            )
 
             ----------------------------------------------
             -- After tomorrow Weather 4 defferent times --
             ----------------------------------------------
             local year, month, day = weather_json.weather[3].date:match("^(%d%d%d%d)-(%d%d)-(%d%d)$")
-            after_tomorrow_1:get_children_by_id("temperature_id")[1]:set_text("°" .. weather_json.weather[3].hourly[4].tempC)
-            after_tomorrow_1:get_children_by_id("sky_status_id")[1]:set_text(weather_json.weather[3].hourly[4].lang_ar[1].value)
-            after_tomorrow_1:get_children_by_id("weather_icon_id")[1]:set_text(sun_icons[weather_json.weather[3].hourly[4].weatherCode])
+            after_tomorrow_1:get_children_by_id("temperature_id")[1]:set_text(
+                "°" .. weather_json.weather[3].hourly[4].tempC
+            )
+            after_tomorrow_1:get_children_by_id("sky_status_id")[1]:set_text(
+                weather_json.weather[3].hourly[4].lang_ar[1].value
+            )
+            after_tomorrow_1:get_children_by_id("weather_icon_id")[1]:set_text(
+                sun_icons[weather_json.weather[3].hourly[4].weatherCode]
+            )
             after_tomorrow_1:get_children_by_id("temperature_time_id")[1]:set_text("12:00 PM")
-            after_tomorrow_1:get_children_by_id("moonrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].moonrise .. " - " .. weather_json.weather[1].astronomy[1].moonset)
-            after_tomorrow_1:get_children_by_id("sunrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset)
-            after_tomorrow_1:get_children_by_id("temperature_date_id")[1]:set_text(" " .. os.date("%A", os.time{year=year, month=month, day=day}) .. " | " ..  month .. "/" .. day)
+            after_tomorrow_1:get_children_by_id("moonrise_id")[1]:set_text(
+                " " ..
+                    weather_json.weather[1].astronomy[1].moonrise ..
+                        " - " .. weather_json.weather[1].astronomy[1].moonset
+            )
+            after_tomorrow_1:get_children_by_id("sunrise_id")[1]:set_text(
+                " " ..
+                    weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset
+            )
+            after_tomorrow_1:get_children_by_id("temperature_date_id")[1]:set_text(
+                " " .. os.date("%A", os.time {year = year, month = month, day = day}) .. " | " .. month .. "/" .. day
+            )
             after_tomorrow_1:get_children_by_id("temperature_city_id")[1]:set_text(city)
-            after_tomorrow_1:get_children_by_id("h_l_temperature_id")[1]:set_text("°" .. weather_json.weather[3].maxtempC .. "/°" .. weather_json.weather[3].mintempC)
+            after_tomorrow_1:get_children_by_id("h_l_temperature_id")[1]:set_text(
+                "°" .. weather_json.weather[3].maxtempC .. "/°" .. weather_json.weather[3].mintempC
+            )
 
             -- mouse::enter
             after_tomorrow_1:connect_signal(
@@ -697,37 +857,87 @@ local function factory(args)
                     detailed_widget:get_children_by_id("widget_12")[1].visible = false
                 end
             )
-            
-            after_tomorrow_2:get_children_by_id("temperature_id")[1]:set_text("°" .. weather_json.weather[3].hourly[3].tempC)
-            after_tomorrow_2:get_children_by_id("sky_status_id")[1]:set_text(weather_json.weather[3].hourly[3].lang_ar[1].value)
-            after_tomorrow_2:get_children_by_id("weather_icon_id")[1]:set_text(sun_icons[weather_json.weather[3].hourly[3].weatherCode])
+
+            after_tomorrow_2:get_children_by_id("temperature_id")[1]:set_text(
+                "°" .. weather_json.weather[3].hourly[3].tempC
+            )
+            after_tomorrow_2:get_children_by_id("sky_status_id")[1]:set_text(
+                weather_json.weather[3].hourly[3].lang_ar[1].value
+            )
+            after_tomorrow_2:get_children_by_id("weather_icon_id")[1]:set_text(
+                sun_icons[weather_json.weather[3].hourly[3].weatherCode]
+            )
             after_tomorrow_2:get_children_by_id("temperature_time_id")[1]:set_text("09:00 AM")
-            after_tomorrow_2:get_children_by_id("moonrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].moonrise .. " - " .. weather_json.weather[1].astronomy[1].moonset)
-            after_tomorrow_2:get_children_by_id("sunrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset)
-            after_tomorrow_2:get_children_by_id("temperature_date_id")[1]:set_text(" " .. os.date("%A", os.time{year=year, month=month, day=day}) .. " | " ..  month .. "/" .. day)
+            after_tomorrow_2:get_children_by_id("moonrise_id")[1]:set_text(
+                " " ..
+                    weather_json.weather[1].astronomy[1].moonrise ..
+                        " - " .. weather_json.weather[1].astronomy[1].moonset
+            )
+            after_tomorrow_2:get_children_by_id("sunrise_id")[1]:set_text(
+                " " ..
+                    weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset
+            )
+            after_tomorrow_2:get_children_by_id("temperature_date_id")[1]:set_text(
+                " " .. os.date("%A", os.time {year = year, month = month, day = day}) .. " | " .. month .. "/" .. day
+            )
             after_tomorrow_2:get_children_by_id("temperature_city_id")[1]:set_text(city)
-            after_tomorrow_2:get_children_by_id("h_l_temperature_id")[1]:set_text("°" .. weather_json.weather[3].maxtempC .. "/°" .. weather_json.weather[3].mintempC)
-            
-            after_tomorrow_3:get_children_by_id("temperature_id")[1]:set_text("°" .. weather_json.weather[3].hourly[7].tempC)
-            after_tomorrow_3:get_children_by_id("sky_status_id")[1]:set_text(weather_json.weather[3].hourly[6].lang_ar[1].value)
-            after_tomorrow_3:get_children_by_id("weather_icon_id")[1]:set_text(sun_icons[weather_json.weather[3].hourly[6].weatherCode])
+            after_tomorrow_2:get_children_by_id("h_l_temperature_id")[1]:set_text(
+                "°" .. weather_json.weather[3].maxtempC .. "/°" .. weather_json.weather[3].mintempC
+            )
+
+            after_tomorrow_3:get_children_by_id("temperature_id")[1]:set_text(
+                "°" .. weather_json.weather[3].hourly[7].tempC
+            )
+            after_tomorrow_3:get_children_by_id("sky_status_id")[1]:set_text(
+                weather_json.weather[3].hourly[6].lang_ar[1].value
+            )
+            after_tomorrow_3:get_children_by_id("weather_icon_id")[1]:set_text(
+                sun_icons[weather_json.weather[3].hourly[6].weatherCode]
+            )
             after_tomorrow_3:get_children_by_id("temperature_time_id")[1]:set_text("03:00 PM")
-            after_tomorrow_3:get_children_by_id("moonrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].moonrise .. " - " .. weather_json.weather[1].astronomy[1].moonset)
-            after_tomorrow_3:get_children_by_id("sunrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset)
-            after_tomorrow_3:get_children_by_id("temperature_date_id")[1]:set_text(" " .. os.date("%A", os.time{year=year, month=month, day=day}) .. " | " ..  month .. "/" .. day)
+            after_tomorrow_3:get_children_by_id("moonrise_id")[1]:set_text(
+                " " ..
+                    weather_json.weather[1].astronomy[1].moonrise ..
+                        " - " .. weather_json.weather[1].astronomy[1].moonset
+            )
+            after_tomorrow_3:get_children_by_id("sunrise_id")[1]:set_text(
+                " " ..
+                    weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset
+            )
+            after_tomorrow_3:get_children_by_id("temperature_date_id")[1]:set_text(
+                " " .. os.date("%A", os.time {year = year, month = month, day = day}) .. " | " .. month .. "/" .. day
+            )
             after_tomorrow_3:get_children_by_id("temperature_city_id")[1]:set_text(city)
-            after_tomorrow_3:get_children_by_id("h_l_temperature_id")[1]:set_text("°" .. weather_json.weather[3].maxtempC .. "/°" .. weather_json.weather[3].mintempC)
+            after_tomorrow_3:get_children_by_id("h_l_temperature_id")[1]:set_text(
+                "°" .. weather_json.weather[3].maxtempC .. "/°" .. weather_json.weather[3].mintempC
+            )
 
-            after_tomorrow_4:get_children_by_id("temperature_id")[1]:set_text("°" .. weather_json.weather[3].hourly[8].tempC)
-            after_tomorrow_4:get_children_by_id("sky_status_id")[1]:set_text(weather_json.weather[3].hourly[8].lang_ar[1].value)
-            after_tomorrow_4:get_children_by_id("weather_icon_id")[1]:set_text(moon_icons[weather_json.weather[3].hourly[8].weatherCode])
+            after_tomorrow_4:get_children_by_id("temperature_id")[1]:set_text(
+                "°" .. weather_json.weather[3].hourly[8].tempC
+            )
+            after_tomorrow_4:get_children_by_id("sky_status_id")[1]:set_text(
+                weather_json.weather[3].hourly[8].lang_ar[1].value
+            )
+            after_tomorrow_4:get_children_by_id("weather_icon_id")[1]:set_text(
+                moon_icons[weather_json.weather[3].hourly[8].weatherCode]
+            )
             after_tomorrow_4:get_children_by_id("temperature_time_id")[1]:set_text("09:00 PM")
-            after_tomorrow_4:get_children_by_id("moonrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].moonrise .. " - " .. weather_json.weather[1].astronomy[1].moonset)
-            after_tomorrow_4:get_children_by_id("sunrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset)
-            after_tomorrow_4:get_children_by_id("temperature_date_id")[1]:set_text(" " .. os.date("%A", os.time{year=year, month=month, day=day}) .. " | " ..  month .. "/" .. day)
+            after_tomorrow_4:get_children_by_id("moonrise_id")[1]:set_text(
+                " " ..
+                    weather_json.weather[1].astronomy[1].moonrise ..
+                        " - " .. weather_json.weather[1].astronomy[1].moonset
+            )
+            after_tomorrow_4:get_children_by_id("sunrise_id")[1]:set_text(
+                " " ..
+                    weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset
+            )
+            after_tomorrow_4:get_children_by_id("temperature_date_id")[1]:set_text(
+                " " .. os.date("%A", os.time {year = year, month = month, day = day}) .. " | " .. month .. "/" .. day
+            )
             after_tomorrow_4:get_children_by_id("temperature_city_id")[1]:set_text(city)
-            after_tomorrow_4:get_children_by_id("h_l_temperature_id")[1]:set_text("°" .. weather_json.weather[3].maxtempC .. "/°" .. weather_json.weather[3].mintempC)
-
+            after_tomorrow_4:get_children_by_id("h_l_temperature_id")[1]:set_text(
+                "°" .. weather_json.weather[3].maxtempC .. "/°" .. weather_json.weather[3].mintempC
+            )
         end
     )
 

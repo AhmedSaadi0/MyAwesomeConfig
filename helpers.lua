@@ -14,6 +14,12 @@ function helpers.set_widget_block(args)
     local right = args.right or 0
     local top = args.top or 0
     local bottom = args.bottom or 0
+
+    local margin_left = args.margin_left or 0
+    local margin_right = args.margin_right or 0
+    local margin_top = args.margin_top or 0
+    local margin_bottom = args.margin_bottom or 0
+
     local shape = args.shape or gears.shape.rectangle
     local fg = args.fg or beautiful.fg_normal
     local bg = args.bg or beautiful.widget_bg
@@ -33,28 +39,35 @@ function helpers.set_widget_block(args)
 
     local id = args.id
 
-    local block = {
-        {
-            widget,
-            left = left,
-            right = right,
-            top = top,
-            bottom = bottom,
-            widget = wibox.container.margin
+    local block =
+        helpers.add_margin {
+        widget = {
+            {
+                widget,
+                left = left,
+                right = right,
+                top = top,
+                bottom = bottom,
+                widget = wibox.container.margin
+            },
+            shape = shape,
+            bgimage = bgimage,
+            fg = fg,
+            bg = bg,
+            visible = visible,
+            font = font,
+            id = id,
+            forced_height = forced_height,
+            forced_width = forced_width,
+            border_width = border_width,
+            border_color = border_color,
+            screen = screen,
+            widget = wibox.container.background
         },
-        shape = shape,
-        bgimage = bgimage,
-        fg = fg,
-        bg = bg,
-        visible = visible,
-        font = font,
-        id = id,
-        forced_height = forced_height,
-        forced_width = forced_width,
-        border_width = border_width,
-        border_color = border_color,
-        screen = screen,
-        widget = wibox.container.background
+        left = margin_left,
+        right = margin_right,
+        top = margin_top,
+        bottom = margin_bottom,
     }
     return block
 end

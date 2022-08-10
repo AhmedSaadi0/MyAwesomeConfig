@@ -81,20 +81,20 @@ theme.keyboard_text_color = theme.keyboard_icon_fg_color
 theme.cpu_color = "#f47680"
 theme.cpu_icon_bg_color = theme.cpu_color
 
-theme.cpu_temp_color =
+theme.cpu_temp_color = "#00000000"
+theme.cpu_temp_whole_color =
     helpers.create_gradient_color {
     color1 = "#ee5161",
     color2 = "#fecca4",
     from = {50, 10},
     to = {-10, 10}
 }
--- theme.cpu_temp_icon_high_bg_color = "#f9ab5d"
-theme.cpu_temp_icon_bg_color = "#ee5161" -- theme.widget_bg
+theme.cpu_temp_icon_bg_color = theme.cpu_temp_color
 theme.cpu_temp_icon_fg_color = theme.bg_normal
 theme.cpu_temp_text_color = theme.cpu_temp_icon_fg_color
 
-theme.net_speed_color =
-    helpers.create_gradient_color {
+theme.net_speed_color = "#00000000"
+theme.net_speed_whole_color = helpers.create_gradient_color {
     color1 = "#8a64eb",
     color2 = "#75f2e8",
     stops1 = 0,
@@ -102,57 +102,75 @@ theme.net_speed_color =
     from = {110, 10},
     to = {-100, 10}
 }
-theme.net_speed_icon_bg_color = "#8a64eb" -- theme.widget_bg
+theme.net_speed_icon_bg_color = theme.net_speed_color-- theme.widget_bg
 theme.net_speed_icon_fg_color = theme.bg_normal
 theme.net_speed_text_color = theme.net_speed_icon_fg_color
 
-theme.brightness_cr_color =
+theme.brightness_cr_color = "#00000000"
+theme.brightness_cr_whole_color =
     helpers.create_gradient_color {
     color1 = "#9e4fc6",
     color2 = "#a1ffd0",
     from = {50, 10},
     to = {-60, 10}
 }
-theme.brightness_icon_bg_color = helpers.create_gradient_color {
-    color1 = "#9e5dc7",
-    color2 = "#9e6bc8",
-    from = {20, 10},
-    to = {-200, 10}
-}
+theme.brightness_icon_bg_color = theme.brightness_cr_color
 theme.brightness_icon_fg_color = theme.bg_normal
 theme.brightness_cr_text_color = theme.brightness_icon_fg_color
 
-theme.volume_widget_color =
-    helpers.create_gradient_color {
+theme.volume_widget_color = "#00000000"
+theme.volume_widget_whole_color = helpers.create_gradient_color {
     color1 = "#e5c07b",
     color2 = "#245684",
     from = {50, 10},
     to = {-10, 10}
 }
-theme.volume_icon_bg_color = "#baa87d" -- "#ffaaff"
+theme.volume_icon_bg_color = theme.volume_widget_color
 theme.volume_icon_fg_color = theme.bg_normal
 theme.volume_widget_text_color = theme.volume_icon_fg_color
 
-theme.battery_color =
+theme.battery_color = "#00000000"
+theme.battery_whole_color =
     helpers.create_gradient_color {
     color1 = "#3498fd",
     color2 = "#393c89",
     from = {50, 0},
     to = {0, 50}
 }
-theme.battery_icon_bg_color = "#3497fb" -- theme.widget_bg
+theme.battery_icon_bg_color = theme.battery_color
 theme.battery_icon_fg_color = theme.bg_normal
 theme.battery_text_color = theme.battery_icon_fg_color
 theme.battery_hover_color = "#7464f8"
 
-theme.weather_color =
+theme.weather_color = "#00000000"
+theme.weather_color_whole_color =
     helpers.create_gradient_color {
+    color1 = "#71f1e8",
+    color2 = "#b461bb",
+    from = {180, 10},
+    to = {-60, 10}
+}
+theme.weather_cold_color = helpers.create_gradient_color {
+    color1 = "#71f1e8",
+    color2 = "#b461bb",
+    from = {180, 10},
+    to = {-30, 10}
+}
+theme.weather_nice_color = helpers.create_gradient_color {
+    color1 = "#ffc9a0",
+    color2 = "#00ffed",
+    from = {180, 10},
+    to = {-30, 10}
+}
+theme.weather_hot_color = helpers.create_gradient_color {
     color1 = "#ffcda5",
     color2 = "#ae4a9e",
     from = {180, 10},
     to = {-30, 10}
 }
-theme.weather_icon_bg_color = "#fdcba4"
+theme.weather_widget_bg_color = theme.weather_color_whole_color
+theme.weather_widget_text_color = theme.bg_normal
+theme.weather_icon_bg_color = theme.weather_color
 theme.weather_icon_fg_color = theme.bg_normal
 theme.weather_text_color = theme.weather_icon_fg_color
 
@@ -162,7 +180,7 @@ theme.clock_color = helpers.create_gradient_color {
     from = {250, 10},
     to = {-20, 10}
 }
-theme.clock_whole_bg = theme.clock_color
+theme.clock_whole_color = theme.clock_color
 theme.clock_icon_bg_color = "#9868e800"
 theme.clock_icon_fg_color = theme.bg_normal
 theme.clock_text_color = theme.clock_icon_fg_color --"#f1dc6e"

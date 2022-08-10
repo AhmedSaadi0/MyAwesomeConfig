@@ -286,28 +286,28 @@ awful.screen.connect_for_each_screen(
                 -- keyboard layout --
                 ---------------------
                 helpers.set_widget_block {
-                    widget = helpers.set_widget_block {
-                        widget = mykeyboardlayout,
-                        bg = beautiful.keyboard_layout_color,
-                        fg = beautiful.keyboard_text_color,
-                        shape = helpers.left_rounded_rect(beautiful.widgets_corner_radius),
-                        left = 2,
-                        right = 2
+                    widget = {
+                        layout = wibox.layout.fixed.horizontal,
+                        helpers.set_widget_block {
+                            widget = mykeyboardlayout,
+                            bg = beautiful.keyboard_layout_color.. "00",
+                            fg = beautiful.keyboard_text_color,
+                            shape = helpers.left_rounded_rect(beautiful.widgets_corner_radius),
+                            left = 2,
+                            right = 2
+                        },
+                        helpers.set_widget_block {
+                            widget = helpers.set_widget_block {
+                                widget = helpers.add_text("", beautiful.keyboard_icon_fg_color),
+                                bg = beautiful.keyboard_icon_bg_color .. "00",
+                                font = beautiful.iconfont,
+                                shape = helpers.right_rounded_rect(beautiful.widgets_corner_radius),
+                                right = 5,
+                                left = 5
+                            }
+                        }
                     },
-                    bg = beautiful.transparent,
-                    top = 4,
-                    bottom = 4
-                },
-                helpers.set_widget_block {
-                    widget = helpers.set_widget_block {
-                        widget = helpers.add_text("", beautiful.keyboard_icon_fg_color),
-                        bg = beautiful.keyboard_icon_bg_color,
-                        font = beautiful.iconfont,
-                        shape = helpers.right_rounded_rect(beautiful.widgets_corner_radius),
-                        right = 5,
-                        left = 5
-                    },
-                    bg = beautiful.transparent,
+                    bg = "#ffffff",
                     font = beautiful.iconfont,
                     top = 4,
                     bottom = 4
