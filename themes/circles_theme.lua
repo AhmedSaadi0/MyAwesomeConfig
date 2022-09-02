@@ -38,9 +38,9 @@ theme.iconfont = "Font Awesome 5 Free Solid 11"
 -------------------------------
 theme.accent = "#61afef"
 
-theme.bg_normal = "#1e222a"
-theme.widget_bg = "#181b21"
-theme.bg_focus = "#181b21"
+theme.bg_normal = "#1c2027"
+theme.widget_bg = "#171a20"
+theme.bg_focus = "#171a20"
 theme.bg_urgent = "#ff0000"
 theme.bg_minimize = "#444444"
 
@@ -51,7 +51,7 @@ theme.fg_minimize = "#ffffff"
 
 theme.useless_gap = dpi(5)
 theme.border_width = dpi(1)
-theme.border_normal = "#e06c75"
+theme.border_normal = "#666666"
 theme.border_focus = "#61afef"
 theme.border_marked = "#7ec7a2"
 

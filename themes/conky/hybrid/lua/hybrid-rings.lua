@@ -48,7 +48,7 @@ settings_table = {
     -- hwmon path /sys/bus/platform/devices/coretemp.0/hwmon/
     {
         name='platform',
-        arg='coretemp.0/hwmon/hwmon5 temp 2',
+        arg='coretemp.0/hwmon/hwmon4 temp 2',
         max=110,
         bg_colour=bg_colour,
         bg_alpha=0.5,
@@ -63,7 +63,7 @@ settings_table = {
     },
     {
         name='platform',
-        arg='coretemp.0/hwmon/hwmon5 temp 3',
+        arg='coretemp.0/hwmon/hwmon4 temp 3',
         max=110,
         bg_colour=bg_colour,
         bg_alpha=0.3,
@@ -78,7 +78,7 @@ settings_table = {
     },
     {
         name='platform',
-        arg='coretemp.0/hwmon/hwmon5 temp 4',
+        arg='coretemp.0/hwmon/hwmon4 temp 4',
         max=110,
         bg_colour=bg_colour,
         bg_alpha=0.5,
@@ -94,7 +94,7 @@ settings_table = {
 
     {
         name='platform',
-        arg='coretemp.0/hwmon/hwmon5 temp 5',
+        arg='coretemp.0/hwmon/hwmon4 temp 5',
         max=110,
         bg_colour=bg_colour,
         bg_alpha=0.5,
@@ -109,7 +109,7 @@ settings_table = {
     },
     {
         name='platform',
-        arg='coretemp.0/hwmon/hwmon5 temp 6',
+        arg='coretemp.0/hwmon/hwmon4 temp 6',
         max=110,
         bg_colour=bg_colour,
         bg_alpha=0.3,
@@ -124,7 +124,7 @@ settings_table = {
     },
     {
         name='platform',
-        arg='coretemp.0/hwmon/hwmon5 temp 7',
+        arg='coretemp.0/hwmon/hwmon4 temp 7',
         max=110,
         bg_colour=bg_colour,
         bg_alpha=0.5,
@@ -158,7 +158,7 @@ settings_table = {
     -- cpu temp, gpu temp, battery % and swap
     {
         name='platform',
-        arg='coretemp.0/hwmon/hwmon5 temp 1',
+        arg='coretemp.0/hwmon/hwmon4 temp 1',
         max=110,
         bg_colour=bg_colour,
         bg_alpha=0.3,

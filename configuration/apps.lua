@@ -43,7 +43,8 @@ return {
 	run_on_start_up = {
 		"nm-applet -sm-disable",
 		"blueman-applet",
-		"xrandr --output eDP-1",
+		"xclip",
+		-- "xrandr --output eDP-1",
 		-- "kded5",
 		-- "/usr/lib/org_kde_powerdevil",
 		"xfce4-power-manager",
@@ -57,7 +58,7 @@ return {
 		"/usr/lib/polkit-kde-authentication-agent-1",
 		-- "/usr/lib/kactivitymanagerd",
 		-- 		"xrandr --output HDMI-1-0 --mode 1440x900 --rate 61 --noprimary --left-of eDP-1",
-		"picom -b --experimental-backends --dbus --config " .. config_dir .. "/configuration/picom.conf",
+		"picom -b --dbus --config " .. config_dir .. "/configuration/picom.conf",
 		-- kvantum theme
 		"kvantummanager --set " .. beautiful.kvantum_theme,
 		config_dir .. "./bin/plasma-theme -c " .. config_dir .. "/themes/plasma-colors/" .. beautiful.plasma_color,

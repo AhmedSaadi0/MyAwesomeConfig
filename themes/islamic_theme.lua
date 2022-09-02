@@ -49,7 +49,7 @@ theme.fg_minimize = "#ffffff"
 
 theme.useless_gap = dpi(5)
 theme.border_width = dpi(1)
-theme.border_normal = "#e06c75"
+theme.border_normal = "#666666"
 theme.border_focus = "#f1dc6e"
 theme.border_marked = "#7ec7a2"
 
@@ -98,6 +98,7 @@ theme.weather_icon_fg_color = "#92a0bd"
 theme.weather_text_color = theme.weather_icon_fg_color
 
 theme.clock_color = "#f1dc6e"
+theme.clock_whole_color = theme.clock_color
 theme.clock_icon_bg_color = "#b1a151"
 theme.clock_icon_fg_color = theme.widget_bg
 theme.clock_text_color = theme.widget_bg

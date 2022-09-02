@@ -183,9 +183,10 @@ awful.screen.connect_for_each_screen(
                 position = "top",
                 screen = s,
                 type = "panel",
+                -- shape = beautiful.client_shape_rounded,
                 height = beautiful.panal_hight,
                 border_width = beautiful.panal_border_width,
-                border_color = beautiful.bg_normal
+                border_color = beautiful.panal_border_color or beautiful.bg_normal
             }
         )
 
