@@ -36,6 +36,7 @@ naughty.config.icon_dirs = {
 	"/usr/share/icons/hicolor/",
 	"/usr/share/pixmaps/"
 }
+
 naughty.config.icon_formats = {"svg", "png", "jpg", "gif"}
 
 -- Presets / rules

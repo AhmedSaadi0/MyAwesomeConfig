@@ -111,13 +111,14 @@ local dont_disturb_wrapped =
 }
 
 -- Create a notification sound
-naughty.connect_signal(
-	"request::display",
-	function(n)
-		if not dont_disturb then
-			awful.spawn.with_shell("canberra-gtk-play -i message")
+function naughty.config.notify_callback(args)
+	if not dont_disturb then
+		if not string.find(args.title, "Clementine") then
+			local sound = beautiful.notification_sound or "widget/notif-center/notification.ogg"
+			awful.spawn.with_shell("paplay " .. config_dir .. sound, false)
 		end
 	end
-)
+    return args
+end
 
 return dont_disturb_wrapped

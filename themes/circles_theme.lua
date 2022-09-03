@@ -275,6 +275,7 @@ theme.music_back = "~/.config/awesome/themes/assets/no_music.png"
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 -- theme.icon_theme = nil
 theme.icons = require("themes.icons-circles")
+
 theme.dynamic_wallpaper_dir = "themes/wallpapers//"
 theme.conky_script = "/themes/conky/conky-circles.sh"
 
