@@ -11,7 +11,7 @@ return {
 		-- Default web browser
 		web_browser = "firefox",
 		-- Default text editor
-		text_editor = "code",
+		text_editor = "codium",
 		-- Default file manager
 		file_manager = "dolphin -reverse",
 		-- Default media player

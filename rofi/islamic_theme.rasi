@@ -2,7 +2,7 @@
 	font:							"JF Flat 11";
 	foreground:						#f1dc6e;
 	background:						#011426;
-	foreground-alt:					#f8f8f255;
+	foreground-alt:					#f1dc6e;
 	background-alt:					#01254955;
 	active-background:				#f1dc6e;
 	urgent-background:				#ff2222aa;

@@ -50,7 +50,7 @@ override_utf8_locale=true,
 default_color='f1dc6e',
 
 color0='f1dc6e', -- Hours
-color6='#60c29f', -- Minuts
+color6='60c29f', -- Minuts
 color1='ff5558', -- date
 color2='f1dc6e', -- current temperature
 color3='7aa2f7', -- high tempratures
@@ -153,7 +153,7 @@ ${font}${color}
 \
 \
 \
-${font Poiret One:size=14}${color5}\
+${font JF Flat:size=14}${color5}\
 ${voffset 20}\
 ${goto 76}${execi 300 LANG=${template9} LC_TIME=${template9} date +%a | gawk '{print toupper($0);}'}\
 ${goto 182}${execi 300 LANG=${template9} LC_TIME=${template9} date -d +1day +%a | gawk '{print toupper($0);}'}\

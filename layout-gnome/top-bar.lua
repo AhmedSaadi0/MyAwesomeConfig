@@ -212,30 +212,36 @@ awful.screen.connect_for_each_screen(
             if beautiful.desktop_music_widget then
                 s.music =
                     require("widget.desktop-music") {
-                    widget_bg = beautiful.desktop_music_widget_bg,
+                    widget_bg = "00000000",
                     widget_fg = beautiful.desktop_music_widget_fg,
-                    forced_width = dpi(490)
+                    forced_width = beautiful.desktop_music_widget_maximum_width,
+                    title_font = beautiful.desktop_music_widget_title_font or "JF Flat 20",
+                    artist_font = beautiful.desktop_music_widget_artist_font or "JF Flat 16",
+                
                 }
 
                 s.popup =
                     awful.popup {
                     ontop = false,
                     visible = true,
+                    bg = beautiful.desktop_music_widget_bg,
                     type = "desktop",
                     -- shape = shape,
                     -- border_width = border_width,
                     -- border_color = border_color,
-                    maximum_width = 490,
+                    maximum_width = beautiful.desktop_music_widget_maximum_width,
                     offset = {y = 10},
                     widget = s.music
                 }
-                awful.placement.bottom_right(
+                awful.placement.top_left(
                     s.popup,
                     {
                         margins = {
                             -- right = panel_margins,
-                            right = dpi(55),
-                            bottom = dpi(155)
+                            top = beautiful.desktop_music_widget_top,
+                            bottom = beautiful.desktop_music_widget_bottom,
+                            right = beautiful.desktop_music_widget_right,
+                            left = beautiful.desktop_music_widget_left
                         },
                         parent = s
                     }
@@ -424,7 +430,7 @@ awful.screen.connect_for_each_screen(
                             shape = helpers.right_rounded_rect(beautiful.widgets_corner_radius),
                             font = beautiful.iconfont,
                             left = 5
-                        },
+                        }
                     },
                     bg = beautiful.brightness_cr_whole_color or beautiful.transparent,
                     font = beautiful.iconfont,
@@ -443,7 +449,7 @@ awful.screen.connect_for_each_screen(
                     shape = helpers.rrect(beautiful.widgets_corner_radius),
                     margin_top = 3,
                     margin_bottom = 3
-                },
+                }
             },
             ---------------------------------
             --------- Middle widgets ---------
@@ -470,7 +476,7 @@ awful.screen.connect_for_each_screen(
                             font = "Font Awesome 5 Free Solid 11",
                             right = 10,
                             left = 7
-                        },
+                        }
                     },
                     bg = beautiful.clock_whole_color or beautiful.transparent,
                     font = beautiful.iconfont,

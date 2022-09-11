@@ -113,7 +113,7 @@ local dont_disturb_wrapped =
 -- Create a notification sound
 function naughty.config.notify_callback(args)
 	if not dont_disturb then
-		if not string.find(args.title, "Clementine") then
+		if not args.app_name:match("Clementine") then
 			local sound = beautiful.notification_sound or "widget/notif-center/notification.ogg"
 			awful.spawn.with_shell("paplay " .. config_dir .. sound, false)
 		end

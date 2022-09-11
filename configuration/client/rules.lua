@@ -192,6 +192,7 @@ ruled.client.connect_signal(
 					"Geany",
 					"Atom",
 					"Subl3",
+					"VSCodium",
 					"code",
 					"Code"
 				},
@@ -218,7 +219,7 @@ ruled.client.connect_signal(
 			},
 			properties = {
 				tag = tag_names[4],
-				switch_to_tags = true
+				switch_to_tags = false
 			}
 		}
 
@@ -239,7 +240,7 @@ ruled.client.connect_signal(
 			},
 			properties = {
 				tag = tag_names[1],
-				switch_to_tags = true,
+				switch_to_tags = false,
 				placement = awful.placement.centered
 			}
 		}
@@ -299,6 +300,7 @@ ruled.client.connect_signal(
 				class = {
 					"feh",
 					"Pqiv",
+					"gwenview",
 					"Sxiv"
 				}
 			},
@@ -324,6 +326,7 @@ ruled.client.connect_signal(
 				class = {
 					"scrcpy",
 					"Mugshot",
+					"xdman-Main",
 					"krunner",
 				},
 				role = {

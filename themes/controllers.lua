@@ -17,8 +17,9 @@ theme.systray_max_rows = dpi(1)
 -- Panal
 theme.panal_hight = dpi(32)
 theme.panal_border_width = dpi(0)
+
 -- درجة دوران حواف بعض الاشياء مثل الاشعارات واشعار الصوت والسطوع
-theme.groups_radius = dpi(15)
+theme.groups_radius = dpi(12)
 
 -- Control Panal
 -- theme.control_panal_hight = dpi(750) -- normal layout

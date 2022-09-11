@@ -114,8 +114,16 @@ theme.tooltip_bg = theme.bg_normal
 
 -- Allow desktop music widget
 theme.desktop_music_widget = true
-theme.desktop_music_widget_bg = "#1e222a"
+-- theme.desktop_music_widget_bg = "#1e222a"
+-- theme.desktop_music_widget_fg = "#e06c75"
+theme.desktop_music_widget_bg = "#1e222a00"
 theme.desktop_music_widget_fg = "#e06c75"
+theme.desktop_music_widget_top = dpi(920)
+theme.desktop_music_widget_maximum_width = dpi(490)
+theme.desktop_music_widget_bottom = dpi(0)
+theme.desktop_music_widget_right = dpi(0)
+theme.desktop_music_widget_left = dpi(1375)
+
 
 --------------------------------
 ------------ Taglist -----------

@@ -7,7 +7,8 @@ local helpers = require("helpers")
 local watch = awful.widget.watch
 
 local function worker(args)
-	local text_font = args.font or beautiful.uifont
+	local title_font = args.title_font
+	local artist_font = args.artist_font
 
 	local widget_bg = args.widget_bg or beautiful.widget_bg
 	local widget_fg = args.widget_fg or beautiful.fg_normal
@@ -21,7 +22,7 @@ local function worker(args)
 		helpers.set_widget_block {
 			widget = {
 				text = "",
-				font = "JF Flat 20",
+				font = title_font,
 				align = "left",
 				valign = "left",
 				id = "title",
@@ -34,7 +35,7 @@ local function worker(args)
 		helpers.set_widget_block {
 			widget = {
 				text = "",
-				font = "JF Flat 16",
+				font = artist_font ,
 				align = "left",
 				valign = "left",
 				id = "artist",
