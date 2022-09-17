@@ -110,7 +110,7 @@ ${execi 300 ~/.config/awesome/themes/conky/vision/islamic/conky-vision/get_weath
 \
 \
 ${font Poiret One:weight=Light:size=96}${color0}\
-${alignc}${time %H} ${color6}${alignc}${time %M}\
+${alignc}${time %I} ${color6}${alignc}${time %M}\
 ${font}${color}
 \
 \

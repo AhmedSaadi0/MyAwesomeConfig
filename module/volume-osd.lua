@@ -134,6 +134,9 @@ screen.connect_signal(
 			maximum_width = osd_width,
 			offset = dpi(5),
 			-- shape = gears.shape.rectangle,
+			-- shape = function(cr, w, h)
+			-- 	gears.shape.rounded_rect(cr, w, h, beautiful.groups_radius)
+			-- end,
 			handle_shape = beautiful.osd_handle_shape or gears.shape.circle,
 			bg = beautiful.transparent,
 			preferred_anchors = osd_preferred_anchors,

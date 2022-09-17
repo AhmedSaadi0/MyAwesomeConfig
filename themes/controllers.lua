@@ -8,7 +8,7 @@ local gears = require("gears")
 local theme = {}
 
 -- حواف حول الاضافات الذي من الشريط العلوي
-local panal_stuff_border = dpi(1)
+local panal_stuff_border = dpi(0)
 
 -- Sys tray
 theme.systray_icon_spacing = dpi(5)
@@ -19,7 +19,7 @@ theme.panal_hight = dpi(32)
 theme.panal_border_width = dpi(0)
 
 -- درجة دوران حواف بعض الاشياء مثل الاشعارات واشعار الصوت والسطوع
-theme.groups_radius = dpi(12)
+theme.groups_radius = dpi(15)
 
 -- Control Panal
 -- theme.control_panal_hight = dpi(750) -- normal layout

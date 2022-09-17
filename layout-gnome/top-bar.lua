@@ -213,11 +213,11 @@ awful.screen.connect_for_each_screen(
                 s.music =
                     require("widget.desktop-music") {
                     widget_bg = "00000000",
-                    widget_fg = beautiful.desktop_music_widget_fg,
+                    widget_artist_fg = beautiful.widget_artist_fg or beautiful.desktop_music_widget_fg,
+                    widget_title_fg = beautiful.widget_title_fg or beautiful.desktop_music_widget_fg,
                     forced_width = beautiful.desktop_music_widget_maximum_width,
                     title_font = beautiful.desktop_music_widget_title_font or "JF Flat 20",
                     artist_font = beautiful.desktop_music_widget_artist_font or "JF Flat 16",
-                
                 }
 
                 s.popup =

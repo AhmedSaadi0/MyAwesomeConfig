@@ -121,8 +121,8 @@ theme.desktop_music_widget_bottom = dpi(0)
 theme.desktop_music_widget_right = dpi(0)
 theme.desktop_music_widget_left = dpi(130)
 theme.desktop_music_widget_maximum_width = dpi(458)
-theme.desktop_music_widget_title_font = "JF Flat 14"
-theme.desktop_music_widget_artist_font = "JF Flat 10"
+theme.desktop_music_widget_title_font = "JF Flat 16"
+theme.desktop_music_widget_artist_font = "JF Flat 14"
 --------------------------------
 ------------ Taglist -----------
 --------------------------------

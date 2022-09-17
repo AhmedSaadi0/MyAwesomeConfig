@@ -11,7 +11,8 @@ local function worker(args)
 	local artist_font = args.artist_font
 
 	local widget_bg = args.widget_bg or beautiful.widget_bg
-	local widget_fg = args.widget_fg or beautiful.fg_normal
+	local widget_artist_fg = args.widget_artist_fg or beautiful.fg_normal
+	local widget_title_fg = args.widget_title_fg or beautiful.fg_normal
 
 	local forced_width = args.forced_width
 
@@ -26,11 +27,11 @@ local function worker(args)
 				align = "left",
 				valign = "left",
 				id = "title",
-				bg = widget_fg,
+				bg = widget_title_fg,
 				widget = wibox.widget.textbox
 			},
 			bg = widget_bg,
-			fg = widget_fg
+			fg = widget_title_fg
 		},
 		helpers.set_widget_block {
 			widget = {
@@ -39,12 +40,12 @@ local function worker(args)
 				align = "left",
 				valign = "left",
 				id = "artist",
-				bg = widget_fg,
+				bg = widget_artist_fg,
 				widget = wibox.widget.textbox
 			},
 			top = dpi(10),
 			bg = widget_bg,
-			fg = widget_fg
+			fg = widget_artist_fg
 		}
 	}
 
