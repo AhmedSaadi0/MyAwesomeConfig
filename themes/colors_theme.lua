@@ -46,13 +46,13 @@ theme.accent =
     to = {-20, 10}
 }
 
-theme.bg_normal = "#ffffff"
-theme.widget_bg = "#f0f3fa"
-theme.bg_focus = "#f0f3fa"
+theme.bg_normal = "#1e2233"
+theme.widget_bg = "#141723"
+theme.bg_focus = "#141723"
 theme.bg_urgent = "#ff0000"
 theme.bg_minimize = "#444444"
 
-theme.fg_normal = "#1f1f1f"
+theme.fg_normal = "#c8ccd4"
 theme.fg_focus = "#ffffff"
 theme.fg_urgent = "#ffffff"
 theme.fg_minimize = "#ffffff"

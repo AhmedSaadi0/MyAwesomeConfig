@@ -45,6 +45,11 @@
 
     yay -S base-devel clementine brightnessctl light gimp network-manager-applet telegram-desktop awesome-git rofi xorg-xbacklight xorg-xrandr redshift qt5-gsettings lxappearance konsole xfce4-power-manager xfce4-screensaver blueman xorg-setxkbmap picom-git ark dolphin ffmpegthumbs playerctl lightly-qt kvantum xidlehook polkit-kde-agent ttf-font-awesome-5 conky-lua jq xcolor light-git xclip gufw qt5ct
 
+<b>For animation use <a href="https://github.com/pijulius/picom"> pijulius picom fork </a></b>
+
+<b>لاستخدام الانميشن استخدم <a href="https://github.com/pijulius/picom"> pijulius picom </a></b>
+
+
 #### Setup - التثبيت
 
 انسخ الملفات الى مجلد .config/awesome
