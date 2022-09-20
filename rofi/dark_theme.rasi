@@ -1,9 +1,9 @@
 *{
 	font:							"JF Flat 11";
-	foreground:						#00efd1;
+	foreground:						#1c1d29;
 	background:						#16161e;
 	foreground-alt:					#92a0bd;
-	background-alt:					#1c1d2955;
+	background-alt:					#1c1d29;
 	active-background:				#00efd1;
 	urgent-background:				#ff2222aa;
     

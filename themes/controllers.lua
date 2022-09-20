@@ -8,7 +8,7 @@ local gears = require("gears")
 local theme = {}
 
 -- حواف حول الاضافات الذي من الشريط العلوي
-local panal_stuff_border = dpi(0)
+local panal_stuff_border = dpi(1)
 
 -- Sys tray
 theme.systray_icon_spacing = dpi(5)
