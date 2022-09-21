@@ -52,9 +52,9 @@
      d="m 60,20 h 120 a 20,20 0 0 1 20,20 v 160 a 20,20 0 0 1 -20,20 H 60 A 20,20 0 0 1 40,200 V 40 A 20,20 0 0 1 60,20 m 60,20 a 60,60 0 0 0 -60,60 c 0,33.1 26.9,60 61,60 l -8.8,-22.3 c -2.7,-4.8 -1.1,-10.9 3.7,-13.7 l 8.6,-5 c 4.8,-2.7 10.9,-1.1 13.7,3.7 l 19.2,24.2 C 171.2,135.9 180,119 180,100 A 60,60 0 0 0 120,40 m 0,50 a 10,10 0 0 1 10,10 10,10 0 0 1 -10,10 10,10 0 0 1 -10,-10 10,10 0 0 1 10,-10 m -50,90 a 10,10 0 0 0 -10,10 10,10 0 0 0 10,10 10,10 0 0 0 10,-10 10,10 0 0 0 -10,-10 m 50.9,-47.3 24.9,63.1 25.9,-15 -42.2,-53.1 z"
      id="path2"
      inkscape:connector-curvature="0"
-     style="fill:#fb595e;stroke-width:10;fill-opacity:1" />
+     style="fill:#00a1ff;stroke-width:10;fill-opacity:1" />
   <path
-     style="fill:#80bda3;fill-opacity:1;stroke:none;stroke-width:0.133;paint-order:stroke fill markers"
+     style="fill:#ff006e;fill-opacity:1;stroke:none;stroke-width:0.133;paint-order:stroke fill markers"
      id="path901"
      sodipodi:type="arc"
      sodipodi:cx="120.82574"

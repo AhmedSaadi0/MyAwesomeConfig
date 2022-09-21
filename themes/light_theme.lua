@@ -34,7 +34,7 @@ theme.hotkeys_font = theme.uifont
 -------------------------------
 ------------ Colors -----------
 -------------------------------
-theme.accent = "#ff5a5f"
+theme.accent = "#00a1ff"
 
 theme.bg_normal = "#f2f2f2"
 theme.widget_bg = "#dddddd"
@@ -49,8 +49,8 @@ theme.fg_minimize = "#ffffff"
 
 theme.useless_gap = dpi(5)
 theme.border_width = dpi(1)
-theme.border_normal = "#272b33"
-theme.border_focus = "#fc595e"
+theme.border_normal = "#666666"
+theme.border_focus = theme.accent
 theme.border_marked = "#7ec7a2"
 
 -- bar widgets colors
@@ -71,8 +71,8 @@ theme.cpu_temp_icon_fg_color = "#282c34"
 theme.cpu_temp_icon_high_bg_color = "#f9ab5d" -- theme.widget_bg
 theme.cpu_temp_text_color = theme.cpu_temp_icon_fg_color
 
-theme.net_speed_color = "#83c1a6" -- "#00efd1"
-theme.net_speed_icon_bg_color = "#74ab92" -- "#00efd1"
+theme.net_speed_color = "#ff006e" -- "#00efd1"
+theme.net_speed_icon_bg_color = "#d6005d" -- "#00efd1"
 theme.net_speed_icon_fg_color = "#282c34"
 theme.net_speed_text_color = "#282c34"
 
@@ -81,8 +81,8 @@ theme.brightness_icon_bg_color = "#07747e" -- "#ffaaff"
 theme.brightness_icon_fg_color = theme.widget_bg
 theme.brightness_cr_text_color = theme.brightness_icon_fg_color
 
-theme.volume_widget_color = "#ff5a5f"
-theme.volume_icon_bg_color = "#cc484c" -- "#ffaaff"
+theme.volume_widget_color = "#00a1ff"
+theme.volume_icon_bg_color = "#007dc5" -- "#ffaaff"
 theme.volume_icon_fg_color = "#282c34"
 theme.volume_widget_text_color = theme.volume_icon_fg_color
 
@@ -97,8 +97,9 @@ theme.weather_icon_bg_color = "#c7c7c7"
 theme.weather_icon_fg_color = theme.fg_normal
 theme.weather_text_color = theme.weather_icon_fg_color
 
-theme.clock_color = "#ff5a5f" -- "#fedb41"
-theme.clock_icon_bg_color = "#cc484c"
+theme.clock_color = "#00a1ff" -- "#fedb41"
+theme.clock_whole_color = theme.clock_color
+theme.clock_icon_bg_color = "#007dc5"
 theme.clock_icon_fg_color = "#282c34"
 theme.clock_text_color = "#282c34"
 
@@ -110,16 +111,30 @@ theme.xforeground = theme.fg_normal
 theme.tooltip_fg = theme.fg_normal
 theme.tooltip_bg = theme.bg_normal
 theme.tooltip_font = theme.font
+
+-- Desktop music widget
+theme.desktop_music_widget = true
+theme.desktop_music_widget_bg = "#00000000"
+theme.widget_artist_fg = "#ff006e"
+theme.widget_title_fg = theme.accent
+theme.desktop_music_widget_top = dpi(585)
+theme.desktop_music_widget_bottom = dpi(10)
+theme.desktop_music_widget_right = dpi(0)
+theme.desktop_music_widget_left = dpi(538)
+theme.desktop_music_widget_maximum_width = dpi(790)
+theme.desktop_music_widget_title_font = "JF Flat 16"
+theme.desktop_music_widget_artist_font = "JF Flat 14"
+
 --------------------------------
 ------------ Taglist -----------
 --------------------------------
-theme.taglist_fg_focus = "#ff5a5f"
+theme.taglist_fg_focus = theme.accent
 theme.taglist_bg_focus = theme.widget_bg
 
-theme.taglist_fg_urgent = "#cc484c"
+theme.taglist_fg_urgent = "#ffaa00"
 theme.taglist_bg_urgent = theme.widget_bg
 
-theme.taglist_fg_occupied = "#087e8b"
+theme.taglist_fg_occupied = "#ff006e"
 theme.taglist_bg_occupied = theme.widget_bg
 
 theme.taglist_fg_empty = "#545862"
@@ -269,7 +284,8 @@ theme.layout_cornerse = "~/.config/awesome/themes/layouts/cornersew.png"
 -- Generate Awesome icon:
 theme.awesome_icon = theme_assets.awesome_icon(theme.menu_height, theme.bg_focus, theme.fg_focus)
 
-theme.wallpaper = "~/.config/awesome/themes/light-wallpapers/manjaro.png"
+theme.wallpaper = "~/.config/awesome/themes/wallpapers/light.png"
+
 theme.music_back = "~/.config/awesome/themes/assets/no_music.png"
 
 -- Define the icon theme for application icons. If not set then the icons

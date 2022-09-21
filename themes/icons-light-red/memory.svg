@@ -52,9 +52,9 @@
      d="M 175.55556,175.55556 H 64.444444 V 64.44444 H 175.55556 M 220,108.88889 V 86.66667 H 197.77778 V 64.44444 c 0,-12.33333 -10,-22.22222 -22.22222,-22.22222 H 153.33333 V 20 H 131.11111 V 42.22222 H 108.88889 V 20 H 86.666667 V 42.22222 H 64.444444 c -12.333333,0 -22.222222,9.88889 -22.222222,22.22222 V 86.66667 H 20 v 22.22222 h 22.222222 v 22.22222 H 20 v 22.22222 h 22.222222 v 22.22223 a 22.222222,22.222222 0 0 0 22.222222,22.22222 H 86.666667 V 220 h 22.222223 v -22.22222 h 22.22222 V 220 h 22.22222 v -22.22222 h 22.22223 a 22.222222,22.222222 0 0 0 22.22222,-22.22222 V 153.33333 H 220 v -22.22222 h -22.22222 v -22.22222 m -66.66667,22.22222 h -22.22222 v -22.22222 h 22.22222 M 153.33333,86.66667 H 86.666667 v 66.66666 h 66.666663 z"
      id="path2"
      inkscape:connector-curvature="0"
-     style="fill:#fb595e;stroke-width:11.11111164;fill-opacity:1" />
+     style="fill:#00a1ff;stroke-width:11.11111164;fill-opacity:1" />
   <rect
-     style="fill:#80bda3;fill-opacity:1;stroke:#fedb41;stroke-width:0.133;stroke-opacity:1;paint-order:stroke fill markers"
+     style="fill:#ff006e;fill-opacity:1;stroke:#fedb41;stroke-width:0.133;stroke-opacity:1;paint-order:stroke fill markers"
      id="rect981"
      width="66.666664"
      height="66.666656"

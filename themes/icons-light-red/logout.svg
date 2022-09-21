@@ -52,9 +52,9 @@
      d="M 160,170 V 140 H 90 v -40 h 70 V 70 l 50,50 -50,50 M 140,20 a 20,20 0 0 1 20,20 V 60 H 140 V 40 H 50 v 160 h 90 v -20 h 20 v 20 a 20,20 0 0 1 -20,20 H 50 A 20,20 0 0 1 30,200 V 40 A 20,20 0 0 1 50,20 Z"
      id="path2"
      inkscape:connector-curvature="0"
-     style="fill:#fb595e;stroke-width:10;fill-opacity:1" />
+     style="fill:#00a1ff;stroke-width:10;fill-opacity:1" />
   <path
-     style="fill:#80bda3;stroke:#80bda3;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1"
+     style="fill:#ff006e;stroke:#ff006e;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1"
      d="m 90,100 h 70 V 70 l 50,50 -50,50 V 140 H 90 Z"
      id="path973" />
 </svg>

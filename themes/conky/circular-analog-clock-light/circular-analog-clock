@@ -1,0 +1,60 @@
+# Conky settings #
+
+temperature_unit celsius
+
+
+
+default_color ff006e
+
+text_buffer_size 1024
+minimum_size 390 400
+alignment middle_left
+background no
+border_width 0 
+cpu_avg_samples 2
+default_color white
+default_outline_color white
+default_shade_color white
+double_buffer yes 
+draw_borders no
+draw_graph_borders no 
+draw_outline no
+draw_shades no
+use_xft yes
+xftfont Digitalix:size=5
+gap_x 164
+gap_y -46
+minimum_size 390 400
+maximum_width 1000 
+net_avg_samples 2
+no_buffers yes 
+out_to_console no
+out_to_stderr no
+extra_newline no
+own_window yes
+own_window_class Conky
+own_window_type override
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager 
+own_window_argb_visual yes
+own_window_argb_value 0
+#own_window_argb_value 255
+stippled_borders 0
+update_interval 1
+update_interval_on_battery 7
+uppercase no
+use_spacer none
+show_graph_scale no 
+show_graph_range no
+short_units no
+#max_user_text 24000
+top_name_width 15
+
+# Lua Load  #
+lua_load ~/.config/awesome/themes/conky/circular-analog-clock-light/clock_rings.lua
+lua_draw_hook_pre clock_rings
+
+own_window_colour 000000
+TEXT
+
+

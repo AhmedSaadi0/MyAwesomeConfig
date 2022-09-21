@@ -49,7 +49,7 @@ theme.fg_minimize = "#ffffff"
 
 theme.useless_gap = dpi(5)
 theme.border_width = dpi(1)
-theme.border_normal = "#e06c75"
+theme.border_normal = "#666666"
 theme.border_focus = "#00efd1"
 theme.border_marked = "#7ec7a2"
 
@@ -110,7 +110,7 @@ theme.xforeground = theme.fg_normal
 theme.tooltip_fg = theme.fg_normal
 theme.tooltip_bg = theme.bg_normal
 
--- Allow desktop music widget
+-- Desktop music widget
 theme.desktop_music_widget = true
 theme.desktop_music_widget_bg = "#00000000"
 theme.widget_artist_fg = "#fedb41"

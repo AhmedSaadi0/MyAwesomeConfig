@@ -52,9 +52,9 @@
      d="m 170,170 a 50,50 0 0 1 -50,50 50,50 0 0 1 -50,-50 c 0,-16.4 7.9,-30.9 20,-40 V 50 a 30,30 0 0 1 30,-30 30,30 0 0 1 30,30 v 80 c 12.1,9.1 20,23.6 20,40 M 110,80 v 61.7 C 98.3,145.8 90,156.9 90,170 a 30,30 0 0 0 30,30 30,30 0 0 0 30,-30 c 0,-13.1 -8.3,-24.2 -20,-28.3 V 80 Z"
      id="path2"
      inkscape:connector-curvature="0"
-     style="fill:#fb595e;stroke-width:10;fill-opacity:1" />
+     style="fill:#00a1ff;stroke-width:10;fill-opacity:1" />
   <circle
-     style="opacity:1;fill:#80bda3;fill-opacity:1;stroke:#61afef;stroke-width:0.133;paint-order:stroke fill markers"
+     style="opacity:1;fill:#ff006e;fill-opacity:1;stroke:#61afef;stroke-width:0.133;paint-order:stroke fill markers"
      id="path887"
      cx="120.23488"
      cy="170.62936"
