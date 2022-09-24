@@ -259,7 +259,7 @@ local global_keys =
 			awesome.emit_signal("widget::volume")
 			awesome.emit_signal("module::volume_osd:show", true)
 		end,
-		{description = "رفع مستوى الصوت 10", group = "ميديا"}
+		{description = "Volume down 10", group = "ميديا"}
 	),
 	awful.key(
 		{},
@@ -269,7 +269,7 @@ local global_keys =
 			awesome.emit_signal("widget::volume")
 			awesome.emit_signal("module::volume_osd:show", true)
 		end,
-		{description = "خفظ مستوى الصوت 10", group = "ميديا"}
+		{description = "Volume up 10", group = "ميديا"}
 	),
 	awful.key(
 		{},
@@ -277,7 +277,7 @@ local global_keys =
 		function()
 			awful.spawn("amixer -D pulse set Master 1+ toggle", false)
 		end,
-		{description = "التبديل بين الوضع الصامت", group = "ميديا"}
+		{description = "Toggle mute", group = "ميديا"}
 	),
 	awful.key(
 		{},
@@ -317,7 +317,7 @@ local global_keys =
 		function()
 			awful.spawn("clementine -s", false)
 		end,
-		{description = "كليمنتاين توقف", group = "ميديا"}
+		{description = "Stop Clementine", group = "ميديا"}
 	),
 	-- الاضاءة
 	awful.key(
