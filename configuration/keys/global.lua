@@ -431,6 +431,14 @@ local global_keys =
 		{description = "مدير المهام", group = "تطبيقات"}
 	),
 	awful.key(
+		{modkey, "Shift"},
+		"g",
+		function()
+			awful.spawn("glava --force-mod=bars", false)
+		end,
+		{description = "Glava", group = "تطبيقات"}
+	),
+	awful.key(
 		{altkey},
 		"Tab",
 		function()

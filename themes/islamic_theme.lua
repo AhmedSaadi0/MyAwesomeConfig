@@ -290,7 +290,7 @@ theme.dark_theme = "islamic_theme"
 theme.kvantum_theme = "Glorious-dark"
 theme.konsole_profile = "--profile Islamic"
 
-theme.plasma_cursors = "ArcStarry-cursors"
+theme.plasma_cursors = "GoogleDot-Blue"
 theme.plasma_color = "Tellgo.colors"
 
 return theme

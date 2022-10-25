@@ -304,7 +304,7 @@ theme.light_theme = "light_theme"
 -- theme.dark_theme = "pinky_theme"
 theme.dark_theme = "dark_theme"
 
-theme.plasma_cursors = "ArcDusk-cursors"
+theme.plasma_cursors = "GoogleDot-Black"
 -- theme.plasma_color = "NovaAmare.colors"
 theme.plasma_color = "GenomeLight21.colors"
 

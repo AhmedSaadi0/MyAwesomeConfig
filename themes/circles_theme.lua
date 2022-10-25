@@ -293,7 +293,7 @@ theme.konsole_profile = "--profile Circles"
 theme.light_theme = "light_theme"
 theme.dark_theme = "dark_theme"
 
-theme.plasma_cursors = "ArcStarry-cursors"
+theme.plasma_cursors = "GoogleDot-Blue"
 theme.plasma_color = "Circles.colors"
 
 return theme

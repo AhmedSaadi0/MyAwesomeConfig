@@ -348,7 +348,7 @@ theme.layout_cornerse = "~/.config/awesome/themes/layouts/cornersew.png"
 
 -- Generate Awesome icon:
 theme.awesome_icon = theme_assets.awesome_icon(theme.menu_height, theme.bg_focus, theme.fg_focus)
-theme.wallpaper = "~/.config/awesome/themes/wallpapers/colors.jpg"
+theme.wallpaper = "~/.config/awesome/themes/wallpapers/78.jpg"
 
 theme.music_back = "~/.config/awesome/themes/assets/no_music.png"
 
@@ -365,7 +365,7 @@ theme.konsole_profile = "--profile Aesthetic"
 theme.light_theme = "light_theme"
 theme.dark_theme = "dark_theme"
 
-theme.plasma_cursors = "ArcStarry-cursors"
+theme.plasma_cursors = "GoogleDot-Blue"
 theme.plasma_color = "Aesthetic.colors"
 
 return theme

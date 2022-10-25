@@ -257,7 +257,7 @@ theme.konsole_profile = "--profile pinky"
 theme.light_theme = "light_theme"
 theme.dark_theme = "pinky_theme"
 
-theme.plasma_cursors = "ArcStarry-cursors"
+theme.plasma_cursors = "GoogleDot-Blue"
 theme.plasma_color = "ArcAuroraDark.colors"
 
 return theme

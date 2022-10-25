@@ -91,6 +91,9 @@ ruled.client.connect_signal(
 			properties = {
 				titlebars_enabled = false,
 				switchtotag=true,
+				ontop = false,
+				sticky = true,
+				skip_taskbar = true,
 				floating = true,
 				border_width = 0,
 				above = false,
