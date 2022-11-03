@@ -12,6 +12,8 @@ local config_dir = gears.filesystem.get_configuration_dir()
 local widget_icon_dir = config_dir .. "widget/battery/icons/"
 
 local helpers = require("helpers")
+local battery_health_80_viewd = false
+local battery_health_90_viewd = false
 
 local return_button = function()
 	local battery_imagebox =
@@ -122,6 +124,28 @@ local return_button = function()
 		)
 	end
 
+	local health_battery_warning = function(battery_persentage)
+		naughty.notification(
+			{
+				icon = widget_icon_dir .. "battery-charging-80.svg",
+				app_name = "النظام",
+				title = "الحفاظ على حياة البطارية ",
+				message = "صديقي, بطارية جهازك اصبحت ".. battery_persentage .."% يفضل فصل شاحن البطارية للحفاظ على بطارية بصحة جيدة.",
+				urgency = "normal"
+			}
+		)
+	end
+
+	local show_health_battery_warning = function(battery_persentage)
+		if battery_persentage >= 80 and battery_persentage <= 90 and not battery_health_80_viewd then
+			battery_health_80_viewd = true
+			health_battery_warning(battery_persentage)
+		elseif battery_persentage >= 90 and battery_persentage <= 99 and not battery_health_90_viewd then
+			battery_health_90_viewd = true
+			health_battery_warning(battery_persentage)
+		end
+	end
+
 	local update_battery = function(status)
 		awful.spawn.easy_async_with_shell(
 			[[sh -c "
@@ -184,8 +208,9 @@ local return_button = function()
 				elseif battery_percentage >= 60 and battery_percentage < 80 then
 					icon_name = icon_name .. "-" .. status .. "-" .. "60"
 				elseif battery_percentage >= 80 and battery_percentage < 90 then
-					icon_name = icon_name .. "-" .. status .. "-" .. "80"
+					show_health_battery_warning(battery_percentage)
 				elseif battery_percentage >= 90 and battery_percentage < 100 then
+					show_health_battery_warning(battery_percentage)
 					icon_name = icon_name .. "-" .. status .. "-" .. "90"
 				end
 

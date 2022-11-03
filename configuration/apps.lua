@@ -24,7 +24,7 @@ return {
 		social = "telegram-desktop",
 		-- Default IDE  
 		-- LC_ALL=C prime-run studio
-		development = "prime-run studio",
+		development = "studio",
 		-- Default network manager
 		-- network_manager = "konsole -e nmtui-connect",
 		-- Default bluetooth manager
@@ -58,7 +58,7 @@ return {
 		"/usr/lib/polkit-kde-authentication-agent-1",
 		-- "/usr/lib/kactivitymanagerd",
 		-- 		"xrandr --output HDMI-1-0 --mode 1440x900 --rate 61 --noprimary --left-of eDP-1",
-		"picom -b --dbus --config " .. config_dir .. "/configuration/picom.conf",
+		"picom -b --experimental-backends --dbus --config " .. config_dir .. "/configuration/picom.conf",
 		-- kvantum theme
 		"kvantummanager --set " .. beautiful.kvantum_theme,
 		config_dir .. "./bin/plasma-theme -c " .. config_dir .. "/themes/plasma-colors/" .. beautiful.plasma_color,

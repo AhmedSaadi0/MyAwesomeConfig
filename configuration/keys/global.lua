@@ -375,7 +375,7 @@ local global_keys =
 		{modkey, "Shift"},
 		"a",
 		function()
-			awful.spawn(apps.default.development)
+			awful.spawn.with_shell("LC_ALL=C " .. apps.default.development)
 		end,
 		{
 			description = "افتح اندرويد استوديو",

@@ -348,7 +348,7 @@ theme.layout_cornerse = "~/.config/awesome/themes/layouts/cornersew.png"
 
 -- Generate Awesome icon:
 theme.awesome_icon = theme_assets.awesome_icon(theme.menu_height, theme.bg_focus, theme.fg_focus)
-theme.wallpaper = "~/.config/awesome/themes/wallpapers/78.jpg"
+theme.wallpaper = "~/.config/awesome/themes/wallpapers/kde.png"
 
 theme.music_back = "~/.config/awesome/themes/assets/no_music.png"
 
