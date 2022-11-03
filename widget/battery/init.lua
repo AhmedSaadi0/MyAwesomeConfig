@@ -208,9 +208,14 @@ local return_button = function()
 				elseif battery_percentage >= 60 and battery_percentage < 80 then
 					icon_name = icon_name .. "-" .. status .. "-" .. "60"
 				elseif battery_percentage >= 80 and battery_percentage < 90 then
-					show_health_battery_warning(battery_percentage)
+					if status == "charging" then
+						show_health_battery_warning(battery_percentage)
+					end
+					icon_name = icon_name .. "-" .. status .. "-" .. "80"
 				elseif battery_percentage >= 90 and battery_percentage < 100 then
-					show_health_battery_warning(battery_percentage)
+					if status == "charging" then
+						show_health_battery_warning(battery_percentage)
+					end
 					icon_name = icon_name .. "-" .. status .. "-" .. "90"
 				end
 

@@ -198,6 +198,19 @@ theme.desktop_music_widget = false
 theme.desktop_music_widget_bg = "#ad42a7"
 theme.desktop_music_widget_fg = "#3497fb"
 
+
+-- Allow desktop music widget
+-- theme.desktop_music_widget = true
+-- theme.desktop_music_widget_bg = "#00000000"
+-- theme.desktop_music_widget_fg = theme.accent
+-- theme.desktop_music_widget_top = dpi(540)
+-- theme.desktop_music_widget_bottom = dpi(0)
+-- theme.desktop_music_widget_right = dpi(0)
+-- theme.desktop_music_widget_left = dpi(130)
+-- theme.desktop_music_widget_maximum_width = dpi(458)
+-- theme.desktop_music_widget_title_font = "JF Flat 16"
+-- theme.desktop_music_widget_artist_font = "JF Flat 14"
+
 --------------------------------
 ------------ Taglist -----------
 --------------------------------
