@@ -93,3 +93,9 @@ Copy files into .config/awesome
 <p align='center'>
 	<img alt='screenshot 10' src='https://github.com/AhmedSaadi0/MyAwesomeConfig/blob/master/screenshots/10.png'/>
 </p>
+<p align='center'>
+	<img alt='screenshot 11' src='https://github.com/AhmedSaadi0/MyAwesomeConfig/blob/master/screenshots/11.png'/>
+</p>
+<p align='center'>
+	<img alt='screenshot 12' src='https://github.com/AhmedSaadi0/MyAwesomeConfig/blob/master/screenshots/12.png'/>
+</p>
