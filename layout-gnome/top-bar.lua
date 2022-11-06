@@ -298,12 +298,11 @@ awful.screen.connect_for_each_screen(
                 ---------------
                 helpers.set_widget_block {
                     widget = s.left_menu,
-                    left = dpi(12),
-                    right = dpi(12),
+                    left = dpi(6),
+                    right = dpi(0),
                     bg = beautiful.bg_normal,
                     fg = beautiful.fg_normal
                 },
-                helpers.set_space(6),
                 -------------
                 -- Systray --
                 -------------
@@ -311,7 +310,6 @@ awful.screen.connect_for_each_screen(
                     widget = helpers.set_widget_block {
                         widget = s.systray,
                         bg = beautiful.transparent,
-                        left = 2,
                         right = 2
                     },
                     bg = beautiful.transparent,

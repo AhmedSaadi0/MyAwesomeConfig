@@ -5,6 +5,7 @@ local beautiful = require("beautiful")
 local helpers = require("helpers")
 local gears = require("gears")
 local dpi = require("beautiful").xresources.apply_dpi
+local clickable_container = require("widget.clickable-container")
 
 local brightness_slider = require("widget.brightness-slider")
 local volume_slider = require("widget.volume-slider") {}
@@ -43,6 +44,16 @@ local function factory(s, args)
         align = "center",
         valign = "center",
         widget = wibox.widget.textbox
+    }
+
+    local widget_button =
+        wibox.widget {
+        {
+            icon,
+            margins = dpi(7),
+            widget = wibox.container.margin
+        },
+        widget = clickable_container
     }
 
     local quick_header =
@@ -131,7 +142,6 @@ local function factory(s, args)
                             },
                             border_width = beautiful.slider_inner_border_width,
                             border_color = beautiful.slider_inner_border_color,
-
                             shape = shape
                             -- bottom = dpi(15)
                         },
@@ -216,16 +226,15 @@ local function factory(s, args)
     }
 
     awful.placement.top_left(
-		popup,
-		{
-			margins = {
+        popup,
+        {
+            margins = {
                 top = dpi(42),
                 left = dpi(10)
-			},
-			parent = s
-		}
-	)
-
+            },
+            parent = s
+        }
+    )
 
     local show_popup = function()
         popup:move_next_to()
@@ -291,7 +300,7 @@ local function factory(s, args)
         end
     )
 
-    return icon
+    return widget_button
 end
 
 return factory

@@ -73,7 +73,7 @@ local function worker(args)
     local light_material_you_theme =
         helpers.add_text_icon_widget {
         text = "مادي",
-        icon = "",
+        icon = "",
         text_font = text_font,
         icon_font = icon_font,
         forced_width = dpi(72)
@@ -295,11 +295,11 @@ local function worker(args)
     local function set_material_light(on)
         if on then
             light_material_you_theme:get_children_by_id("text_id")[1].markup  = helpers.colorize_text("مادي", selected_text_color, text_font)
-            light_material_you_theme:get_children_by_id("icon_id")[1].markup  = helpers.colorize_text("", selected_text_color, icon_font)
+            light_material_you_theme:get_children_by_id("icon_id")[1].markup  = helpers.colorize_text("", selected_text_color, icon_font)
             detailed_widget:get_children_by_id("light_material_you_theme")[1].bg = selected_bg_color
         else
             light_material_you_theme:get_children_by_id("text_id")[1].markup  = helpers.colorize_text("مادي", nil, text_font)
-            light_material_you_theme:get_children_by_id("icon_id")[1].markup  = helpers.colorize_text("", nil, icon_font)
+            light_material_you_theme:get_children_by_id("icon_id")[1].markup  = helpers.colorize_text("", nil, icon_font)
             detailed_widget:get_children_by_id("light_material_you_theme")[1].bg = beautiful.bg_normal .. "88"
         end
     end

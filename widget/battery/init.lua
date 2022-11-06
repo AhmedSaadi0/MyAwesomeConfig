@@ -125,15 +125,20 @@ local return_button = function()
 	end
 
 	local health_battery_warning = function(battery_persentage)
-		message =
-			"نسبة شحت البطارية وصل الى (" ..
-			battery_persentage ..
-				"%) للحفاظ على بطارية تدوم لوقت اكثر يفضل اتبارع قاعدة 40 - 80.\nالقاعدة 40 80 هي محاولة الحفاظ على بطارية الهاتف بين 40% إلى 80٪ لتقليل دورات الشحن وإطالة عمر البطارية"
+		if battery_persentage >= 80 then
+			icon = "battery-charging-80.svg"
+			title = "قم بازالة الشاحن"
+		elseif battery_persentage <= 40 then
+			icon = "battery-discharging-30.svg"
+			title = "قم بتوصيل الشاحن"
+		end
+		message = 
+			"نسبة شحت البطارية وصل الى (" .. battery_persentage .. "%) للحفاظ على بطارية تدوم لوقت اكثر يفضل اتبارع قاعدة 40 - 80.\nالقاعدة 40 80 هي محاولة الحفاظ على بطارية الجهاز بين 40% إلى 80٪ لتقليل دورات الشحن وإطالة عمر البطارية"
 		naughty.notification(
 			{
-				icon = widget_icon_dir .. "battery-charging-80.svg",
+				icon = widget_icon_dir .. icon,
 				app_name = "النظام",
-				title = "الحفاظ على حياة البطارية ",
+				title = title,
 				message = message,
 				urgency = "normal"
 			}
@@ -207,7 +212,7 @@ local return_button = function()
 					icon_name = icon_name .. "-" .. status .. "-" .. "90"
 				end
 
-				if status == "discharging" and  battery_percentage > 40 and charging_battery_health_viewded then
+				if status == "discharging" and battery_percentage > 40 and charging_battery_health_viewded then
 					charging_battery_health_viewded = false
 				end
 

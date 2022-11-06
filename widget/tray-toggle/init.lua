@@ -5,14 +5,17 @@ local dpi = require("beautiful").xresources.apply_dpi
 local clickable_container = require("widget.clickable-container")
 local config_dir = gears.filesystem.get_configuration_dir()
 local widget_icon_dir = config_dir .. "widget/tray-toggle/icons/"
+local beautiful = require("beautiful")
 
 local widget =
 	wibox.widget {
 	{
 		id = "icon",
-		image = widget_icon_dir .. "right-arrow" .. ".svg",
-		widget = wibox.widget.imagebox,
-		resize = true
+		text = "",
+		align = "center",
+		valign = "center",
+		font = beautiful.iconfont,
+		widget = wibox.widget.textbox
 	},
 	layout = wibox.layout.align.horizontal
 }
@@ -46,9 +49,9 @@ awesome.connect_signal(
 	function()
 		if screen.primary.systray then
 			if not screen.primary.systray.visible then
-				widget.icon:set_image(gears.surface.load_uncached(widget_icon_dir .. "left-arrow.svg"))
+				widget.icon:set_text("")
 			else
-				widget.icon:set_image(gears.surface.load_uncached(widget_icon_dir .. "right-arrow.svg"))
+				widget.icon:set_text("")
 			end
 			screen.primary.systray.visible = not screen.primary.systray.visible
 		end
@@ -58,7 +61,8 @@ awesome.connect_signal(
 -- Update icon on start-up
 if screen.primary.systray then
 	if screen.primary.systray.visible then
-		widget.icon:set_image(widget_icon_dir .. "right-arrow" .. ".svg")
+		widget.icon:set_text("")
+		-- widget.icon:set_image(widget_icon_dir .. "right-arrow" .. ".svg")
 	end
 end
 

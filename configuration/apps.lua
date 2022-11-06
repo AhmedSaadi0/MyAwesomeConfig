@@ -43,16 +43,17 @@ return {
 	run_on_start_up = {
 		"nm-applet -sm-disable",
 		"blueman-applet",
-		"xclip",
+		"xfce4-clipman",
+		-- "xclip",
 		-- "xrandr --output eDP-1",
 		-- "kded5",
 		-- "/usr/lib/org_kde_powerdevil",
 		"xfce4-power-manager",
 		"xfce4-screensaver &> x.log",
-		[[
-			xidlehook --not-when-fullscreen --not-when-audio --timer 600 \
-			'xfce4-screensaver-command --lock' ""
-		]],
+		-- [[
+		-- 	xidlehook --not-when-fullscreen --not-when-audio --timer 600 \
+		-- 	'xfce4-screensaver-command --lock' ""
+		-- ]],
 		"balooctl enable",
 		'setxkbmap -layout "us,ar" -option "grp:win_space_toggle"',
 		"/usr/lib/polkit-kde-authentication-agent-1",

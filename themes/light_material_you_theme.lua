@@ -50,9 +50,9 @@ theme.fg_minimize = "#fef6e1"
 
 theme.useless_gap = dpi(5)
 theme.border_width = dpi(1)
-theme.border_normal = "#666666"
-theme.border_focus = theme.accent
-theme.border_marked = "#7ec7a2"
+theme.border_normal = "#e6c5c4"
+theme.border_focus = "#3f4859"
+theme.border_marked = "#e6c5c4"
 
 -- bar widgets colors
 theme.taglist_color = "#4c566a" -- "#dddddd"
@@ -223,7 +223,9 @@ local taglist_square_size = controllers.taglist_square_size
 
 -- Decorations
 theme.client_shape_rectangle = controllers.client_shape_rectangle
-theme.client_shape_rounded = controllers.client_shape_rounded
+theme.client_shape_rounded = function(cr, width, height)
+    gears.shape.rounded_rect(cr, width, height, theme.groups_radius)
+end
 
 theme.power_button_shape = controllers.power_button_shape
 
