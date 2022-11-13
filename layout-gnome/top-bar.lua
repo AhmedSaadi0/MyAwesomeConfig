@@ -217,7 +217,7 @@ awful.screen.connect_for_each_screen(
                     widget_title_fg = beautiful.widget_title_fg or beautiful.desktop_music_widget_fg,
                     forced_width = beautiful.desktop_music_widget_maximum_width,
                     title_font = beautiful.desktop_music_widget_title_font or "JF Flat 20",
-                    artist_font = beautiful.desktop_music_widget_artist_font or "JF Flat 16",
+                    artist_font = beautiful.desktop_music_widget_artist_font or "JF Flat 16"
                 }
 
                 s.popup =
@@ -250,6 +250,13 @@ awful.screen.connect_for_each_screen(
         end
 
         s.tray_toggler = require("widget.tray-toggle")
+
+        s.prayer_times =
+            require("widget.prayer-times") {
+            widget_bg = beautiful.weather_widget_bg_color or beautiful.weather_color,
+            widget_fg = beautiful.weather_widget_text_color or beautiful.weather_text_color
+            -- city = "Cairo",
+        }
 
         s.cpu =
             require("widget.cpu")(
@@ -503,6 +510,18 @@ awful.screen.connect_for_each_screen(
                 end,
                 layout = wibox.layout.fixed.horizontal,
                 forced_height = dpi(30),
+                ------------------
+                -- prayer times --
+                ------------------
+                helpers.set_widget_block {
+                    widget = s.prayer_times,
+                    bg = beautiful.battery_whole_color or beautiful.transparent,
+                    font = beautiful.iconfont,
+                    shape = helpers.rrect(beautiful.widgets_corner_radius),
+                    margin_top = 3,
+                    margin_bottom = 3
+                },
+                helpers.set_space(7),
                 -------------
                 -- Battery --
                 -------------

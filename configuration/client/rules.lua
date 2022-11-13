@@ -90,7 +90,7 @@ ruled.client.connect_signal(
 			},
 			properties = {
 				titlebars_enabled = false,
-				switchtotag=true,
+				switchtotag = true,
 				ontop = false,
 				sticky = true,
 				skip_taskbar = true,
@@ -177,7 +177,6 @@ ruled.client.connect_signal(
 				class = {
 					"firefox",
 					"Tor Browser",
-					"discord",
 					"Chromium",
 					"Google-chrome"
 				}
@@ -273,7 +272,8 @@ ruled.client.connect_signal(
 			id = "social",
 			rule_any = {
 				class = {
-					"TelegramDesktop"
+					"TelegramDesktop",
+					"discord"
 				}
 			},
 			properties = {
@@ -330,7 +330,7 @@ ruled.client.connect_signal(
 					"scrcpy",
 					"Mugshot",
 					"xdman-Main",
-					"krunner",
+					"krunner"
 				},
 				role = {
 					"AlarmWindow",

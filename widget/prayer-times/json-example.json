@@ -1,0 +1,91 @@
+{
+    "code": 200,
+    "status": "OK",
+    "data": {
+        "timings": {
+            "Fajr": "04:50",
+            "Sunrise": "06:04",
+            "Dhuhr": "11:47",
+            "Asr": "15:06",
+            "Sunset": "17:31",
+            "Maghrib": "17:31",
+            "Isha": "18:41",
+            "Imsak": "04:40",
+            "Midnight": "23:47",
+            "Firstthird": "21:42",
+            "Lastthird": "01:53"
+        },
+        "date": {
+            "readable": "13 Nov 2022",
+            "timestamp": "1668296140",
+            "hijri": {
+                "date": "18-04-1444",
+                "format": "DD-MM-YYYY",
+                "day": "18",
+                "weekday": {
+                    "en": "Al Ahad",
+                    "ar": "\u0627\u0644\u0627\u062d\u062f"
+                },
+                "month": {
+                    "number": 4,
+                    "en": "Rab\u012b\u02bf al-th\u0101n\u012b",
+                    "ar": "\u0631\u064e\u0628\u064a\u0639 \u0627\u0644\u062b\u0627\u0646\u064a"
+                },
+                "year": "1444",
+                "designation": {
+                    "abbreviated": "AH",
+                    "expanded": "Anno Hegirae"
+                },
+                "holidays": []
+            },
+            "gregorian": {
+                "date": "13-11-2022",
+                "format": "DD-MM-YYYY",
+                "day": "13",
+                "weekday": {
+                    "en": "Sunday"
+                },
+                "month": {
+                    "number": 11,
+                    "en": "November"
+                },
+                "year": "2022",
+                "designation": {
+                    "abbreviated": "AD",
+                    "expanded": "Anno Domini"
+                }
+            }
+        },
+        "meta": {
+            "latitude": 15.3694451,
+            "longitude": 44.1910066,
+            "timezone": "Asia\/Aden",
+            "method": {
+                "id": 3,
+                "name": "Muslim World League",
+                "params": {
+                    "Fajr": 18,
+                    "Isha": 17
+                },
+                "location": {
+                    "latitude": 51.5194682,
+                    "longitude": -0.1360365
+                }
+            },
+            "latitudeAdjustmentMethod": "ANGLE_BASED",
+            "midnightMode": "STANDARD",
+            "school": "STANDARD",
+            "offset": {
+                "Imsak": 0,
+                "Fajr": 0,
+                "Sunrise": 0,
+                "Dhuhr": 0,
+                "Asr": 0,
+                "Maghrib": 0,
+                "Sunset": 0,
+                "Isha": 0,
+                "Midnight": 0
+            }
+        }
+    }
+}
