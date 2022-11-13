@@ -189,7 +189,7 @@ local function factory(args)
 
             local current_time = os.date("%H:%M")
 
-            if current_time > json_object.data.timings.Isha then
+            if current_time > json_object.data.timings.Isha or current_time <= json_object.data.timings.Fajr then
                 number_text_widget.text = "الفجر (" .. json_object.data.timings.Fajr .. ")"
             elseif current_time > json_object.data.timings.Maghrib then
                 local h, m = json_object.data.timings.Isha:match("^(%d%d):(%d%d)$")
@@ -202,7 +202,7 @@ local function factory(args)
             elseif current_time > json_object.data.timings.Dhuhr then
                 local h, m = json_object.data.timings.Asr:match("^(%d%d):(%d%d)$")
                 h = (h - 12)
-                number_text_widget.text = "العصر (0" ..  h .. ":" .. m  .. ")"
+                number_text_widget.text = "العصر (0" .. h .. ":" .. m .. ")"
             elseif current_time > json_object.data.timings.Fajr then
                 number_text_widget.text = "الظهر (" .. json_object.data.timings.Dhuhr .. ")"
             end

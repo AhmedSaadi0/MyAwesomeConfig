@@ -247,6 +247,15 @@ awful.screen.connect_for_each_screen(
                     }
                 )
             end
+
+            s.bat = require("widget.battery.init")()
+
+            s.temp =
+                require("widget.temp") {
+                tooltip_border_color = beautiful.cpu_temp_color
+                -- tooltip_bg = beautiful.cpu_temp_color,
+                -- tooltip_fg = beautiful.cpu_temp_icon_fg_color,
+            }
         end
 
         s.tray_toggler = require("widget.tray-toggle")
@@ -275,14 +284,6 @@ awful.screen.connect_for_each_screen(
         }
         s.brightness = require("widget.brightness-widget") {}
         s.volume = require("widget.volume-widget.init") {}
-        s.bat = require("widget.battery.init")()
-
-        s.temp =
-            require("widget.temp") {
-            tooltip_border_color = beautiful.cpu_temp_color
-            -- tooltip_bg = beautiful.cpu_temp_color,
-            -- tooltip_fg = beautiful.cpu_temp_icon_fg_color,
-        }
 
         s.left_menu = require("layout-gnome.left_menu")(s, {})
 

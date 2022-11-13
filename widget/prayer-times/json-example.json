@@ -4,27 +4,27 @@
     "data": {
         "timings": {
             "Fajr": "04:50",
-            "Sunrise": "06:04",
-            "Dhuhr": "11:47",
+            "Sunrise": "06:05",
+            "Dhuhr": "11:48",
             "Asr": "15:06",
-            "Sunset": "17:31",
-            "Maghrib": "17:31",
-            "Isha": "18:41",
+            "Sunset": "17:30",
+            "Maghrib": "17:30",
+            "Isha": "18:40",
             "Imsak": "04:40",
-            "Midnight": "23:47",
+            "Midnight": "23:48",
             "Firstthird": "21:42",
             "Lastthird": "01:53"
         },
         "date": {
-            "readable": "13 Nov 2022",
-            "timestamp": "1668296140",
+            "readable": "14 Nov 2022",
+            "timestamp": "1668374522",
             "hijri": {
-                "date": "18-04-1444",
+                "date": "19-04-1444",
                 "format": "DD-MM-YYYY",
-                "day": "18",
+                "day": "19",
                 "weekday": {
-                    "en": "Al Ahad",
-                    "ar": "\u0627\u0644\u0627\u062d\u062f"
+                    "en": "Al Athnayn",
+                    "ar": "\u0627\u0644\u0627\u062b\u0646\u064a\u0646"
                 },
                 "month": {
                     "number": 4,
@@ -39,11 +39,11 @@
                 "holidays": []
             },
             "gregorian": {
-                "date": "13-11-2022",
+                "date": "14-11-2022",
                 "format": "DD-MM-YYYY",
-                "day": "13",
+                "day": "14",
                 "weekday": {
-                    "en": "Sunday"
+                    "en": "Monday"
                 },
                 "month": {
                     "number": 11,
