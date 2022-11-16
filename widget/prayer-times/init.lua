@@ -283,23 +283,23 @@ local function factory(args)
                 local h, m = "", ""
 
                 -- Set name of prayer in panal
-                if current_time >= json_object.data.timings.Isha and current_time < json_object.data.timings.Fajr then
+                if current_time >= json_object.data.timings.Isha or current_time < json_object.data.timings.Fajr then
                     prayer = "الفجر"
                     number_text_widget.text = "الفجر (" .. json_object.data.timings.Fajr .. ")"
                     h, m = json_object.data.timings.Fajr:match("^(%d%d):(%d%d)$")
-                elseif current_time >= json_object.data.timings.Maghrib and current_time < json_object.data.timings.Isha then
+                elseif current_time >= json_object.data.timings.Maghrib or current_time < json_object.data.timings.Isha then
                     prayer = "العشاء"
                     h, m = json_object.data.timings.Isha:match("^(%d%d):(%d%d)$")
                     number_text_widget.text = "العشاء (0" .. (h - 12) .. ":" .. m .. ")"
-                elseif current_time >= json_object.data.timings.Asr and current_time < json_object.data.timings.Maghrib then
+                elseif current_time >= json_object.data.timings.Asr or current_time < json_object.data.timings.Maghrib then
                     prayer = "المغرب"
                     h, m = json_object.data.timings.Maghrib:match("^(%d%d):(%d%d)$")
                     number_text_widget.text = "المغرب (0" .. (h - 12) .. ":" .. m .. ")"
-                elseif current_time >= json_object.data.timings.Dhuhr and current_time < json_object.data.timings.Asr then
+                elseif current_time >= json_object.data.timings.Dhuhr or current_time < json_object.data.timings.Asr then
                     prayer = "العصر"
                     h, m = json_object.data.timings.Asr:match("^(%d%d):(%d%d)$")
                     number_text_widget.text = "العصر (0" .. (h - 12) .. ":" .. m .. ")"
-                elseif current_time >= json_object.data.timings.Fajr and current_time < json_object.data.timings.Dhuhr then
+                elseif current_time >= json_object.data.timings.Fajr or current_time < json_object.data.timings.Dhuhr then
                     prayer = "الظهر"
                     number_text_widget.text = "الظهر (" .. json_object.data.timings.Dhuhr .. ")"
                     h, m = json_object.data.timings.Dhuhr:match("^(%d%d):(%d%d)$")
