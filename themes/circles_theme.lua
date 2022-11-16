@@ -39,8 +39,8 @@ theme.iconfont = "Font Awesome 5 Free Solid 11"
 theme.accent = "#61afef"
 
 theme.bg_normal = "#1c2027"
-theme.widget_bg = "#171a20"
-theme.bg_focus = "#171a20"
+theme.widget_bg = "#13161b"
+theme.bg_focus = "#13161b"
 theme.bg_urgent = "#ff0000"
 theme.bg_minimize = "#444444"
 

@@ -59,7 +59,7 @@ return {
 		"/usr/lib/polkit-kde-authentication-agent-1",
 		-- "/usr/lib/kactivitymanagerd",
 		-- 		"xrandr --output HDMI-1-0 --mode 1440x900 --rate 61 --noprimary --left-of eDP-1",
-		"picom -b --experimental-backends --dbus --config " .. config_dir .. "/configuration/picom.conf",
+		"picom --dbus --config " .. config_dir .. "/configuration/picom.conf",
 		-- kvantum theme
 		"kvantummanager --set " .. beautiful.kvantum_theme,
 		config_dir .. "./bin/plasma-theme -c " .. config_dir .. "/themes/plasma-colors/" .. beautiful.plasma_color,

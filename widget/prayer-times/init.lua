@@ -7,6 +7,10 @@ local gears = require("gears")
 local dpi = beautiful.xresources.apply_dpi
 local json = require("library.json")
 
+local config_dir = gears.filesystem.get_configuration_dir()
+
+local prayer = ""
+
 local function factory(args)
     local city = args.city or beautiful.city or "sanaa"
     local country = args.country or beautiful.country or "yemen"
@@ -175,44 +179,11 @@ local function factory(args)
         widget = detailed_widget
     }
 
-    watch(
-        "curl 'https://api.aladhan.com/v1/timingsByCity?city=" ..
-            city .. "&country=" .. country .. "&method=" .. method .. "'",
-        3600,
-        function(_, stdout)
-            if stdout == "" then
-                number_text_widget.text = "غير متوفرة حاليا"
-                return
-            end
-
-            local json_object = json.parse(stdout)
-
-            local current_time = os.date("%H:%M")
-
-            if current_time > json_object.data.timings.Isha or current_time <= json_object.data.timings.Fajr then
-                number_text_widget.text = "الفجر (" .. json_object.data.timings.Fajr .. ")"
-            elseif current_time > json_object.data.timings.Maghrib then
-                local h, m = json_object.data.timings.Isha:match("^(%d%d):(%d%d)$")
-                h = (h - 12)
-                number_text_widget.text = "العشاء (0" .. h .. ":" .. m .. ")"
-            elseif current_time > json_object.data.timings.Asr then
-                local h, m = json_object.data.timings.Maghrib:match("^(%d%d):(%d%d)$")
-                h = (h - 12)
-                number_text_widget.text = "المغرب (0" .. h .. ":" .. m .. ")"
-            elseif current_time > json_object.data.timings.Dhuhr then
-                local h, m = json_object.data.timings.Asr:match("^(%d%d):(%d%d)$")
-                h = (h - 12)
-                number_text_widget.text = "العصر (0" .. h .. ":" .. m .. ")"
-            elseif current_time > json_object.data.timings.Fajr then
-                number_text_widget.text = "الظهر (" .. json_object.data.timings.Dhuhr .. ")"
-            end
-        end
-    )
-
-    -- awful.spawn.easy_async_with_shell(
+    -- watch(
     --     "curl 'https://api.aladhan.com/v1/timingsByCity?city=" ..
     --         city .. "&country=" .. country .. "&method=" .. method .. "'",
-    --     function(stdout)
+    --     3600,
+    --     function(_, stdout)
     --         if stdout == "" then
     --             number_text_widget.text = "غير متوفرة حاليا"
     --             return
@@ -222,21 +193,127 @@ local function factory(args)
 
     --         local current_time = os.date("%H:%M")
 
-    --         if current_time > json_object.data.timings.Isha then
+    --         if current_time > json_object.data.timings.Isha or current_time <= json_object.data.timings.Fajr then
     --             number_text_widget.text = "الفجر (" .. json_object.data.timings.Fajr .. ")"
     --         elseif current_time > json_object.data.timings.Maghrib then
-    --             number_text_widget.text = "العشاء (" .. json_object.data.timings.Isha .. ")"
+    --             local h, m = json_object.data.timings.Isha:match("^(%d%d):(%d%d)$")
+    --             h = (h - 12)
+    --             number_text_widget.text = "العشاء (0" .. h .. ":" .. m .. ")"
     --         elseif current_time > json_object.data.timings.Asr then
-    --             number_text_widget.text = "المغرب (" .. json_object.data.timings.Maghrib .. ")"
+    --             local h, m = json_object.data.timings.Maghrib:match("^(%d%d):(%d%d)$")
+    --             h = (h - 12)
+    --             number_text_widget.text = "المغرب (0" .. h .. ":" .. m .. ")"
     --         elseif current_time > json_object.data.timings.Dhuhr then
-    --             number_text_widget.text = "العصر (" .. json_object.data.timings.Asr .. ")"
+    --             local h, m = json_object.data.timings.Asr:match("^(%d%d):(%d%d)$")
+    --             h = (h - 12)
+    --             number_text_widget.text = "العصر (0" .. h .. ":" .. m .. ")"
     --         elseif current_time > json_object.data.timings.Fajr then
     --             number_text_widget.text = "الظهر (" .. json_object.data.timings.Dhuhr .. ")"
     --         end
-
-    --         -- number_text_widget.text = os.date('%H-%M')
     --     end
     -- )
+
+    function set_timer(time)
+        gears.timer {
+            timeout = time,
+            call_now = true,
+            autostart = true,
+            callback = function()
+                -- You should read it from `/sys/class/power_supply/` (on Linux)
+                -- instead of spawning a shell. This is only an example.
+                number_text_widget.text = "الفجر (" .. json_object.data.timings.Fajr .. ")"
+            end
+        }
+    end
+
+    local prayer_timer =
+        gears.timer {
+        timeout = 360,
+        call_now = false,
+        autostart = false,
+        callback = function()
+            play_athan_sound()
+            calculate_prayer_times()
+        end
+    }
+
+    function play_athan_sound()
+        awful.spawn.with_shell("notify-send -a 'الاذان' 'حان الان وقت صلاة " .. prayer .. "'")
+        local sound = beautiful.notification_sound or "widget/prayer-times/sounds/notification.ogg"
+        awful.spawn.with_shell("paplay " .. config_dir .. sound, false)
+    end
+
+    function get_difftime(paryer_hour, paryer_minute)
+        local prayer_day = tonumber(os.date("%d"))
+
+        local hour_now = os.date("%H")
+
+        if tonumber(hour_now) > tonumber(paryer_hour) then
+            prayer_day = tonumber(prayer_day) + 1
+        end
+
+        local prayer_time =
+            os.time {
+            year = os.date("%Y"),
+            month = os.date("%m"),
+            day = prayer_day,
+            hour = paryer_hour,
+            min = paryer_minute
+        }
+
+        return os.difftime(prayer_time, os.time())
+    end
+
+    function calculate_prayer_times()
+        awful.spawn.easy_async_with_shell(
+            "curl 'https://api.aladhan.com/v1/timingsByCity?city=" ..
+                city .. "&country=" .. country .. "&method=" .. method .. "'",
+            function(stdout)
+                if stdout == "" then
+                    number_text_widget.text = "غير متوفرة حاليا"
+                    return
+                end
+
+                prayer_timer:stop()
+
+                local json_object = json.parse(stdout)
+
+                local current_time = os.date("%H:%M")
+
+                local h, m = "", ""
+
+                -- Set name of prayer in panal
+                if current_time >= json_object.data.timings.Isha and current_time < json_object.data.timings.Fajr then
+                    prayer = "الفجر"
+                    number_text_widget.text = "الفجر (" .. json_object.data.timings.Fajr .. ")"
+                    h, m = json_object.data.timings.Fajr:match("^(%d%d):(%d%d)$")
+                elseif current_time >= json_object.data.timings.Maghrib and current_time < json_object.data.timings.Isha then
+                    prayer = "العشاء"
+                    h, m = json_object.data.timings.Isha:match("^(%d%d):(%d%d)$")
+                    number_text_widget.text = "العشاء (0" .. (h - 12) .. ":" .. m .. ")"
+                elseif current_time >= json_object.data.timings.Asr and current_time < json_object.data.timings.Maghrib then
+                    prayer = "المغرب"
+                    h, m = json_object.data.timings.Maghrib:match("^(%d%d):(%d%d)$")
+                    number_text_widget.text = "المغرب (0" .. (h - 12) .. ":" .. m .. ")"
+                elseif current_time >= json_object.data.timings.Dhuhr and current_time < json_object.data.timings.Asr then
+                    prayer = "العصر"
+                    h, m = json_object.data.timings.Asr:match("^(%d%d):(%d%d)$")
+                    number_text_widget.text = "العصر (0" .. (h - 12) .. ":" .. m .. ")"
+                elseif current_time >= json_object.data.timings.Fajr and current_time < json_object.data.timings.Dhuhr then
+                    prayer = "الظهر"
+                    number_text_widget.text = "الظهر (" .. json_object.data.timings.Dhuhr .. ")"
+                    h, m = json_object.data.timings.Dhuhr:match("^(%d%d):(%d%d)$")
+                end
+
+                -- Set athan timer
+                prayer_timer.timeout = get_difftime(h, m)
+                prayer_timer:start()
+
+            end
+        )
+    end
+
+    calculate_prayer_times()
 
     number_text_widget:connect_signal(
         "button::press",

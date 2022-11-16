@@ -19,7 +19,8 @@ theme.panal_hight = dpi(32)
 theme.panal_border_width = dpi(0)
 
 -- درجة دوران حواف بعض الاشياء مثل الاشعارات واشعار الصوت والسطوع
-theme.groups_radius = dpi(12)
+theme.groups_radius = dpi(0)
+theme.windows_radius = dpi(0)
 
 -- Control Panal
 -- theme.control_panal_hight = dpi(750) -- normal layout
@@ -62,11 +63,11 @@ local taglist_square_size = dpi(4)
 -- Decorations
 theme.client_shape_rectangle = gears.shape.rectangle
 theme.client_shape_rounded = function(cr, width, height)
-    gears.shape.rounded_rect(cr, width, height, theme.groups_radius)
+    gears.shape.rounded_rect(cr, width, height, theme.windows_radius)
 end
 
 theme.power_button_shape = function(cr, width, height)
-    gears.shape.rounded_rect(cr, width, height, theme.groups_radius)
+    gears.shape.rounded_rect(cr, width, height, theme.windows_radius)
 end
 
 -- Variables set for theming notifications:
