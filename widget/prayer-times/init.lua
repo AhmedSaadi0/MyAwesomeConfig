@@ -226,20 +226,32 @@ local function factory(args)
         }
     end
 
-    local prayer_timer =
+    local recalculate_timer =
+        gears.timer {
+        timeout = 600,
+        call_now = false,
+        autostart = false,
+        callback = function()
+            calculate_prayer_times()
+        end
+    }
+
+    local athan_timer =
         gears.timer {
         timeout = 360,
         call_now = false,
         autostart = false,
         callback = function()
             play_athan_sound()
-            calculate_prayer_times()
+            number_text_widget.text = "صلاة " .. prayer .. " الان"
+
+            recalculate_timer:start()
         end
     }
 
     function play_athan_sound()
         awful.spawn.with_shell("notify-send -a 'الاذان' 'حان الان وقت صلاة " .. prayer .. "'")
-        local sound = beautiful.notification_sound or "widget/prayer-times/sounds/notification.ogg"
+        local sound = beautiful.athan_sound or "widget/prayer-times/sounds/notification.ogg"
         awful.spawn.with_shell("paplay " .. config_dir .. sound, false)
     end
 
@@ -274,7 +286,8 @@ local function factory(args)
                     return
                 end
 
-                prayer_timer:stop()
+                athan_timer:stop()
+                recalculate_timer:stop()
 
                 local json_object = json.parse(stdout)
 
@@ -306,8 +319,8 @@ local function factory(args)
                 end
 
                 -- Set athan timer
-                prayer_timer.timeout = get_difftime(h, m)
-                prayer_timer:start()
+                athan_timer.timeout = get_difftime(h, m)
+                athan_timer:start()
             end
         )
     end

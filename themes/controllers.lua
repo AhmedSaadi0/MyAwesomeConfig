@@ -19,8 +19,8 @@ theme.panal_hight = dpi(32)
 theme.panal_border_width = dpi(0)
 
 -- درجة دوران حواف بعض الاشياء مثل الاشعارات واشعار الصوت والسطوع
-theme.groups_radius = dpi(10)
-theme.windows_radius = dpi(10)
+theme.groups_radius = dpi(12)
+theme.windows_radius = dpi(12)
 
 -- Control Panal
 -- theme.control_panal_hight = dpi(750) -- normal layout
