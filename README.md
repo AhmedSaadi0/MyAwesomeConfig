@@ -100,3 +100,6 @@
 <p align='center'>
 	<img alt='screenshot 12' src='https://github.com/AhmedSaadi0/MyAwesomeConfig/blob/master/screenshots/12.png'/>
 </p>
+<p align='center'>
+	<img alt='screenshot 13' src='https://github.com/AhmedSaadi0/MyAwesomeConfig/blob/master/screenshots/13.png'/>
+</p>
