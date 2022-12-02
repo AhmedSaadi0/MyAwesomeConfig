@@ -51,8 +51,8 @@
 
 #### Setup - التثبيت
 	git clone https://github.com/AhmedSaadi0/MyAwesomeConfig.git
-	cp ~/.config/awesome ~/.config/awesome-old
-    cp MyAwesomeConfig ~/.config/awesome
+	mv ~/.config/awesomeBACK/ ~/.config/awesome-old
+	cp MyAwesomeConfig ~/.config/awesome
 	mkdir ~/.config/rofi/
     cp ~/.config/awesome/rofi/config.rasi ~/.config/rofi/config.rasi
     cp ~/.config/awesome/themes/plasma-colors/* ~/.local/share/color-schemes
