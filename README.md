@@ -50,15 +50,17 @@
 
 
 #### Setup - التثبيت
-
-انسخ الملفات الى مجلد .config/awesome
-
-Copy files into .config/awesome
-
-    mkdir ~/.config/rofi/
-    cp ~/.config/awesome/rofi/* ~/.config/rofi/
-
-    cp -R ~/.config/awesome/.fonts ~/
+	git clone https://github.com/AhmedSaadi0/MyAwesomeConfig.git
+	cp ~/.config/awesome ~/.config/awesome-old
+    cp MyAwesomeConfig ~/.config/awesome
+	mkdir ~/.config/rofi/
+    cp ~/.config/awesome/rofi/config.rasi ~/.config/rofi/config.rasi
+    cp ~/.config/awesome/themes/plasma-colors/* ~/.local/share/color-schemes
+    cp ~/.config/awesome/themes/qt5/* ~/.config/qt5ct/
+    cp -r ~/.config/awesome/themes/kvantum-themes/* ~/.config/Kvantum
+    cp -r ~/.config/awesome/.fonts ~/
+	sudo cp /etc/environment /etc/environmentOLD
+	echo 'QT_QPA_PLATFORMTHEME=qt5ct' | sudo tee -a /etc/environment
 
 # Screenshots - لقطات
 

@@ -300,12 +300,10 @@ theme.icons = require("themes.icons-material-you")
 theme.dynamic_wallpaper_dir = "themes/light-wallpapers//"
 theme.conky_script = "/themes/conky/conky-colors.sh"
 
-theme.kvantum_theme = "Orchis"
+theme.kvantum_theme = "a-m-you"
 theme.konsole_profile = "--profile material-you"
 
 theme.light_theme = "light_theme"
--- theme.dark_theme = "islamic_theme"
--- theme.dark_theme = "pinky_theme"
 theme.dark_theme = "dark_theme"
 
 theme.plasma_cursors = "GoogleDot-Black"

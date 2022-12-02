@@ -42,8 +42,8 @@ theme.accent =
     helpers.create_gradient_color {
     color1 = "#7666fc",
     color2 = "#fd6cac",
-    from = {80, 10},
-    to = {-20, 10}
+    from = {0, 0},
+    to = {100, 100}
 }
 
 theme.bg_normal = "#1e2233"
@@ -94,15 +94,17 @@ theme.cpu_temp_icon_fg_color = theme.bg_normal
 theme.cpu_temp_text_color = theme.cpu_temp_icon_fg_color
 
 theme.net_speed_color = "#00000000"
-theme.net_speed_whole_color = helpers.create_gradient_color {
-    color1 = "#8a64eb",
-    color2 = "#75f2e8",
+theme.net_speed_whole_color =
+    helpers.create_gradient_color {
+    color1 = "#478dd7",
+    color2 = "#afd1ff",
     stops1 = 0,
     stops2 = 0.8,
     from = {110, 10},
     to = {-100, 10}
 }
-theme.net_speed_icon_bg_color = theme.net_speed_color-- theme.widget_bg
+theme.net_speed_icon_bg_color = theme.net_speed_color
+ -- theme.widget_bg
 theme.net_speed_icon_fg_color = theme.bg_normal
 theme.net_speed_text_color = theme.net_speed_icon_fg_color
 
@@ -119,7 +121,8 @@ theme.brightness_icon_fg_color = theme.bg_normal
 theme.brightness_cr_text_color = theme.brightness_icon_fg_color
 
 theme.volume_widget_color = "#00000000"
-theme.volume_widget_whole_color = helpers.create_gradient_color {
+theme.volume_widget_whole_color =
+    helpers.create_gradient_color {
     color1 = "#e5c07b",
     color2 = "#245684",
     from = {50, 10},
@@ -150,19 +153,22 @@ theme.weather_color_whole_color =
     from = {180, 10},
     to = {-60, 10}
 }
-theme.weather_cold_color = helpers.create_gradient_color {
+theme.weather_cold_color =
+    helpers.create_gradient_color {
     color1 = "#71f1e8",
     color2 = "#b461bb",
     from = {180, 10},
     to = {-30, 10}
 }
-theme.weather_nice_color = helpers.create_gradient_color {
+theme.weather_nice_color =
+    helpers.create_gradient_color {
     color1 = "#ffc9a0",
     color2 = "#00ffed",
     from = {180, 10},
     to = {-30, 10}
 }
-theme.weather_hot_color = helpers.create_gradient_color {
+theme.weather_hot_color =
+    helpers.create_gradient_color {
     color1 = "#ffcda5",
     color2 = "#ae4a9e",
     from = {180, 10},
@@ -174,7 +180,8 @@ theme.weather_icon_bg_color = theme.weather_color
 theme.weather_icon_fg_color = theme.bg_normal
 theme.weather_text_color = theme.weather_icon_fg_color
 
-theme.clock_color = helpers.create_gradient_color {
+theme.clock_color =
+    helpers.create_gradient_color {
     color1 = "#7666fc",
     color2 = "#fd6cac",
     from = {250, 10},
@@ -194,22 +201,27 @@ theme.tooltip_fg = theme.fg_normal
 theme.tooltip_bg = theme.bg_normal
 
 -- Allow desktop music widget
-theme.desktop_music_widget = false
-theme.desktop_music_widget_bg = "#ad42a7"
-theme.desktop_music_widget_fg = "#3497fb"
-
-
--- Allow desktop music widget
--- theme.desktop_music_widget = true
--- theme.desktop_music_widget_bg = "#00000000"
--- theme.desktop_music_widget_fg = theme.accent
--- theme.desktop_music_widget_top = dpi(540)
--- theme.desktop_music_widget_bottom = dpi(0)
--- theme.desktop_music_widget_right = dpi(0)
--- theme.desktop_music_widget_left = dpi(130)
--- theme.desktop_music_widget_maximum_width = dpi(458)
--- theme.desktop_music_widget_title_font = "JF Flat 16"
--- theme.desktop_music_widget_artist_font = "JF Flat 14"
+theme.desktop_music_widget = true
+theme.desktop_music_widget_bg = "#00000000"
+theme.widget_title_fg = helpers.create_gradient_color {
+    color2 = "#ff4bde",
+    color1 = "#0cdfff",
+    from = {500, 20},
+    to = {0, 0}
+}
+theme.widget_artist_fg = helpers.create_gradient_color {
+    color2 = "#ff4bde",
+    color1 = "#0cdfff",
+    from = {500, 20},
+    to = {0, 0}
+}
+theme.desktop_music_widget_top = dpi(500)
+theme.desktop_music_widget_bottom = dpi(0)
+theme.desktop_music_widget_right = dpi(0)
+theme.desktop_music_widget_left = dpi(50)
+theme.desktop_music_widget_maximum_width = dpi(500)
+theme.desktop_music_widget_title_font = "JF Flat 16"
+theme.desktop_music_widget_artist_font = "JF Flat 14"
 
 --------------------------------
 ------------ Taglist -----------
@@ -361,7 +373,7 @@ theme.layout_cornerse = "~/.config/awesome/themes/layouts/cornersew.png"
 
 -- Generate Awesome icon:
 theme.awesome_icon = theme_assets.awesome_icon(theme.menu_height, theme.bg_focus, theme.fg_focus)
-theme.wallpaper = "~/.config/awesome/themes/wallpapers/kde.png"
+theme.wallpaper = "~/.config/awesome/themes/wallpapers/zdtvq4gd6wc91.png"
 
 theme.music_back = "~/.config/awesome/themes/assets/no_music.png"
 

@@ -10,6 +10,10 @@ local theme = {}
 -- حواف حول الاضافات الذي من الشريط العلوي
 local panal_stuff_border = dpi(1)
 
+local bar_height = dpi(2)
+local bar_handle_width = dpi(15)
+local bar_handle_border_width = dpi(0)
+
 -- Sys tray
 theme.systray_icon_spacing = dpi(5)
 theme.systray_max_rows = dpi(1)
@@ -30,14 +34,14 @@ theme.control_border_width = panal_stuff_border
 -- حواف حول اضافات الاشعارات
 theme.slider_inner_border_width = dpi(0)
 
-theme.bar_height = dpi(1)
-theme.bar_handle_width = dpi(10)
-theme.bar_handle_border_width = dpi(1)
+theme.bar_height = bar_height
+theme.bar_handle_width = bar_handle_width
+theme.bar_handle_border_width = bar_handle_border_width
 theme.bar_shape = function(cr, w, h)
     gears.shape.rounded_rect(cr, w, h, 30)
 end
 
-theme.slider_forced_height = dpi(1)
+theme.slider_forced_height = bar_height
 theme.slider_shape = function(cr, w, h)
     gears.shape.rounded_rect(cr, w, h, theme.groups_radius)
 end
@@ -45,12 +49,12 @@ theme.slider_bar_shape = function(cr, w, h)
     gears.shape.rounded_rect(cr, w, h, 0)
 end
 
-theme.vol_bar_height = dpi(1)
-theme.vol_handle_width = dpi(10)
-theme.vol_handle_border_width = dpi(0)
+theme.vol_bar_height = bar_height
+theme.vol_handle_width = bar_handle_width
+theme.vol_handle_border_width = bar_handle_border_width
 
 theme.osd_height = dpi(70)
-theme.osd_width = dpi(220)
+theme.osd_width = dpi(280)
 theme.osd_margin = dpi(90)
 theme.osd_handle_shape = gears.shape.circle
 

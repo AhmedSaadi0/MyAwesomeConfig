@@ -6,6 +6,7 @@ local watch = awful.widget.watch
 local gears = require("gears")
 local dpi = beautiful.xresources.apply_dpi
 local json = require("library.json")
+local naughty = require("naughty")
 
 local config_dir = gears.filesystem.get_configuration_dir()
 
@@ -228,7 +229,7 @@ local function factory(args)
 
     local recalculate_timer =
         gears.timer {
-        timeout = 600,
+        timeout = 1000,
         call_now = false,
         autostart = false,
         callback = function()
@@ -238,7 +239,6 @@ local function factory(args)
 
     local athan_timer =
         gears.timer {
-        timeout = 360,
         call_now = false,
         autostart = false,
         callback = function()
@@ -250,7 +250,16 @@ local function factory(args)
     }
 
     function play_athan_sound()
-        awful.spawn.with_shell("notify-send -a 'الاذان' 'حان الان وقت صلاة " .. prayer .. "'")
+        naughty.notification(
+            {
+                icon = config_dir .. "widget/prayer-times/mosque.png",
+                app_name = "الاذان",
+                title = "صلاة" .. prayer,
+                message = "حان الان موعد صلاة" .. prayer,
+                urgency = "normal"
+            }
+        )
+        -- awful.spawn.with_shell("notify-send -a 'الاذان' 'حان الان وقت صلاة " .. prayer .. "'")
         local sound = beautiful.athan_sound or "widget/prayer-times/sounds/notification.ogg"
         awful.spawn.with_shell("paplay " .. config_dir .. sound, false)
     end

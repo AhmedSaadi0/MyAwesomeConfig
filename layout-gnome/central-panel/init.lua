@@ -121,7 +121,7 @@ local central_panel = function(s)
 		{
 			margins = {
 				-- right = panel_margins,
-				top = s.geometry.y + dpi(83)
+				top = s.geometry.y + dpi(85)
 			},
 			parent = s
 		}

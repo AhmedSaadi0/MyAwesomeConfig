@@ -287,7 +287,7 @@ theme.conky_script = "/themes/conky/conky-islamic.sh"
 theme.light_theme = "light_theme"
 theme.dark_theme = "islamic_theme"
 
-theme.kvantum_theme = "Glorious-dark"
+theme.kvantum_theme = "a-islamic"
 theme.konsole_profile = "--profile Islamic"
 
 theme.plasma_cursors = "GoogleDot-Blue"

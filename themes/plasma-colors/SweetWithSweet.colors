@@ -38,11 +38,11 @@ BackgroundNormal=0,219,190
 DecorationFocus=0,239,209
 DecorationHover=0,239,209
 ForegroundActive=252,252,252
-ForegroundInactive=211,218,227
+ForegroundInactive=22,25,37
 ForegroundLink=253,188,75
 ForegroundNegative=237,37,78
 ForegroundNeutral=255,106,0
-ForegroundNormal=254,254,254
+ForegroundNormal=22,25,37
 ForegroundPositive=113,247,159
 ForegroundVisited=189,195,199
 
