@@ -51,7 +51,7 @@
 
 #### Setup - التثبيت
 	git clone https://github.com/AhmedSaadi0/MyAwesomeConfig.git
-	mv ~/.config/awesomeBACK/ ~/.config/awesome-old
+	mv ~/.config/awesome/ ~/.config/awesome-old
 	cp MyAwesomeConfig ~/.config/awesome
 	mkdir ~/.config/rofi/
     cp ~/.config/awesome/rofi/config.rasi ~/.config/rofi/config.rasi
