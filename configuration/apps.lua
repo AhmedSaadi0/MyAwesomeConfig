@@ -16,23 +16,11 @@ return {
 		file_manager = "dolphin -reverse",
 		-- Default media player
 		multimedia = "clementine",
-		-- Default game, can be a launcher like steam
-		game = "supertuxkart",
-		-- Default graphics editor
-		graphics = "gimp",
-		-- Default sandbox
+		-- Default chat app
 		social = "telegram-desktop",
 		-- Default IDE  
 		-- LC_ALL=C prime-run studio
 		development = "studio",
-		-- Default network manager
-		-- network_manager = "konsole -e nmtui-connect",
-		-- Default bluetooth manager
-		-- bluetooth_manager = "blueman-manager",
-		-- Default power manager
-		-- power_manager = "xfce4-power-manager",
-		-- Default GUI package manager
-		package_manager = "pacman",
 		-- Default locker
 		-- lock = "/usr/lib/kscreenlocker_greet",
 		lock = "xfce4-screensaver-command --lock",

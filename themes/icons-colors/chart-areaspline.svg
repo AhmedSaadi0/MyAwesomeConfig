@@ -6,9 +6,10 @@
    viewBox="0 0 240 240"
    id="svg4"
    sodipodi:docname="chart-areaspline.svg"
-   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04, custom)"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14, custom)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -26,7 +27,50 @@
     </rdf:RDF>
   </metadata>
   <defs
-     id="defs8" />
+     id="defs8">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient2859">
+      <stop
+         style="stop-color:#fee041;stop-opacity:1;"
+         offset="0"
+         id="stop2855" />
+      <stop
+         style="stop-color:#0cdfff;stop-opacity:1;"
+         offset="1"
+         id="stop2857" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient2851">
+      <stop
+         style="stop-color:#ff4bde;stop-opacity:1;"
+         offset="0"
+         id="stop2847" />
+      <stop
+         style="stop-color:#0cdfff;stop-opacity:1;"
+         offset="1"
+         id="stop2849" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2851"
+       id="linearGradient2853"
+       x1="20"
+       y1="120"
+       x2="220"
+       y2="120"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2859"
+       id="linearGradient2861"
+       x1="39.48531"
+       y1="109.6801"
+       x2="220.38306"
+       y2="109.6801"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
   <sodipodi:namedview
      pagecolor="#ffffff"
      bordercolor="#666666"
@@ -37,26 +81,28 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="1898"
-     inkscape:window-height="1024"
+     inkscape:window-height="1026"
      id="namedview6"
      showgrid="false"
      inkscape:pagecheckerboard="true"
      inkscape:zoom="3.9333333"
-     inkscape:cx="110.84746"
-     inkscape:cy="134.49153"
+     inkscape:cx="111.22881"
+     inkscape:cy="105.76271"
      inkscape:window-x="10"
-     inkscape:window-y="44"
+     inkscape:window-y="42"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg4"
      showguides="true"
-     inkscape:guide-bbox="true" />
+     inkscape:guide-bbox="true"
+     inkscape:showpageshadow="0"
+     inkscape:deskcolor="#d1d1d1" />
   <path
      d="M 174.5,154.55 220,75.85 v 116.9 20 H 20 v -180 h 20 v 125.4 l 55,-95.4 65,37.8 42.4,-73.3 17.3,10 -52.3,90.5 -65.1,-37.5 -59.2,102.5 h 22.6 l 43.9,-75.6 z"
      id="path2"
      inkscape:connector-curvature="0"
-     style="fill:#da6ac1;stroke-width:10;fill-opacity:1" />
+     style="fill:url(#linearGradient2853);stroke-width:10;fill-opacity:1" />
   <path
-     style="fill:#f7c7a0;fill-opacity:1;stroke:#f7c7a0;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="fill:url(#linearGradient2861);fill-opacity:1;stroke:#f7c7a0;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      d="m 40,158.15 55,-95.4 65,37.8 42.4,-73.3 17.3,10 -52.3,90.5 -65.1,-37.5 -59.125085,102.04208 -3.189394,-0.0128 z"
      id="path893"
      sodipodi:nodetypes="cccccccccc" />

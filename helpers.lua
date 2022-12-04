@@ -586,7 +586,7 @@ function helpers.create_music_widget(args)
 
     local buttons_group_shape = args.shape or helpers.rrect(dpi(11))
 
-    local handle_shape = args.handle_shape or helpers.rrect(dpi(100))
+    local handle_shape = gears.shape.circle
     local bar_shape = args.handle_shape or beautiful.vol_bar_shape or helpers.rrect(dpi(11))
     local bar_height = args.bar_height or beautiful.vol_bar_height or dpi(1)
     local bar_color = args.bar_color or beautiful.vol_bar_color

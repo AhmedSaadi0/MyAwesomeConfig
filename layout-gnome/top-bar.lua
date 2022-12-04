@@ -202,7 +202,7 @@ awful.screen.connect_for_each_screen(
 
             s.systray =
                 wibox.widget {
-                visible = false,
+                visible = true,
                 base_size = 22,
                 horizontal = true,
                 screen = "primary",

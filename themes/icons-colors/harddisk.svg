@@ -6,9 +6,10 @@
    viewBox="0 0 240 240"
    id="svg4"
    sodipodi:docname="harddisk.svg"
-   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04, custom)"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14, custom)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -26,7 +27,50 @@
     </rdf:RDF>
   </metadata>
   <defs
-     id="defs8" />
+     id="defs8">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient5194">
+      <stop
+         style="stop-color:#f7c7a0;stop-opacity:1;"
+         offset="0"
+         id="stop5190" />
+      <stop
+         style="stop-color:#0cdfff;stop-opacity:1;"
+         offset="1"
+         id="stop5192" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient5186">
+      <stop
+         style="stop-color:#ff4bde;stop-opacity:1;"
+         offset="0"
+         id="stop5182" />
+      <stop
+         style="stop-color:#0cdfff;stop-opacity:0.99996012;"
+         offset="1"
+         id="stop5184" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5186"
+       id="linearGradient5188"
+       x1="40"
+       y1="120"
+       x2="200"
+       y2="120"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5194"
+       id="linearGradient5196"
+       x1="109.07234"
+       y1="99.875725"
+       x2="132.57913"
+       y2="99.875725"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
   <sodipodi:namedview
      pagecolor="#ffffff"
      bordercolor="#666666"
@@ -36,25 +80,27 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1898"
-     inkscape:window-height="1024"
+     inkscape:window-width="1325"
+     inkscape:window-height="1026"
      id="namedview6"
      showgrid="false"
      inkscape:pagecheckerboard="true"
      inkscape:zoom="1.9666667"
-     inkscape:cx="119.49153"
-     inkscape:cy="97.627119"
-     inkscape:window-x="10"
-     inkscape:window-y="44"
+     inkscape:cx="121.01695"
+     inkscape:cy="97.627117"
+     inkscape:window-x="583"
+     inkscape:window-y="42"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg4" />
+     inkscape:current-layer="svg4"
+     inkscape:showpageshadow="0"
+     inkscape:deskcolor="#d1d1d1" />
   <path
      d="m 60,20 h 120 a 20,20 0 0 1 20,20 v 160 a 20,20 0 0 1 -20,20 H 60 A 20,20 0 0 1 40,200 V 40 A 20,20 0 0 1 60,20 m 60,20 a 60,60 0 0 0 -60,60 c 0,33.1 26.9,60 61,60 l -8.8,-22.3 c -2.7,-4.8 -1.1,-10.9 3.7,-13.7 l 8.6,-5 c 4.8,-2.7 10.9,-1.1 13.7,3.7 l 19.2,24.2 C 171.2,135.9 180,119 180,100 A 60,60 0 0 0 120,40 m 0,50 a 10,10 0 0 1 10,10 10,10 0 0 1 -10,10 10,10 0 0 1 -10,-10 10,10 0 0 1 10,-10 m -50,90 a 10,10 0 0 0 -10,10 10,10 0 0 0 10,10 10,10 0 0 0 10,-10 10,10 0 0 0 -10,-10 m 50.9,-47.3 24.9,63.1 25.9,-15 -42.2,-53.1 z"
      id="path2"
      inkscape:connector-curvature="0"
-     style="fill:#da6ac1;stroke-width:10;fill-opacity:1" />
+     style="fill:url(#linearGradient5188);stroke-width:10;fill-opacity:1" />
   <path
-     style="fill:#f7c7a0;fill-opacity:1;stroke:none;stroke-width:0.133;paint-order:stroke fill markers"
+     style="fill:url(#linearGradient5196);fill-opacity:1;stroke:none;stroke-width:0.133;paint-order:stroke fill markers"
      id="path901"
      sodipodi:type="arc"
      sodipodi:cx="120.82574"
