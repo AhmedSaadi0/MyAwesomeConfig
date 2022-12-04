@@ -45,6 +45,15 @@ theme.accent =
     from = {0, 0},
     to = {100, 100}
 }
+local bar_color = helpers.create_gradient_color {
+    color2 = "#4f1745", -- color1 = "#7666fc",
+    color1 = "#03363d", -- color2 = "#fd6cac",
+    from = {0, 0},
+    to = {100, 100}
+}
+
+local bar_active_color = theme.accent
+
 
 theme.bg_normal = "#1e2233"
 theme.widget_bg = "#141723"
@@ -278,8 +287,8 @@ theme.media_button_color = theme.accent
 theme.widgets_corner_radius = theme.groups_radius
 
 -- لون وخصائص شريط تعديل الاضاءة والصوت في الاشعارات
-theme.bar_active_color = "#ff4bde"
-theme.bar_color = "#ff4bde30"
+theme.bar_active_color = "#10ddff"
+theme.bar_color = "#4f1745"
 theme.bar_handle_color = theme.accent
 theme.bar_handle_border_color = theme.accent
 theme.bar_height = controllers.bar_height
@@ -288,20 +297,20 @@ theme.bar_handle_border_width = controllers.bar_handle_border_width
 theme.bar_shape = controllers.bar_shape
 
 -- لون وخصائص شريط عرض المعالج والرام في الاشعارات
-theme.slider_color = theme.accent
-theme.slider_background_color = "#ff4bde30"
+theme.slider_color = bar_active_color
+theme.slider_background_color = bar_color
 theme.slider_forced_height = controllers.slider_forced_height
 theme.slider_shape = controllers.slider_shape
 theme.slider_bar_shape = controllers.slider_bar_shape
 
 -- Volume & Brightness widget
-theme.vol_bar_active_color = "#ff4bde"
+theme.vol_bar_active_color = "#10ddff"
+theme.vol_bar_color = "#4f1745"
 theme.vol_bar_handle_color = theme.accent
 theme.vol_handle_border_color = theme.accent
 theme.vol_bar_height = controllers.vol_bar_height
 theme.vol_handle_width = controllers.vol_handle_width
 theme.vol_handle_border_width = controllers.vol_handle_border_width
-theme.vol_bar_color = "#ff4bde30"
 theme.vol_bar_shape = theme.bar_shape
 
 theme.osd_height = controllers.osd_height

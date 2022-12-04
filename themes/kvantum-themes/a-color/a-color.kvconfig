@@ -1,5 +1,5 @@
 [%General]
-author=Ahmed Alsaadi, based on Eliver Lara
+author=Eliver Lara
 comment=A dark and modern theme for Kvantum. 
 x11drag=menubar_and_primary_toolbar
 alt_mnemonic=true
@@ -58,12 +58,12 @@ tooltip_delay=-1
 tree_branch_line=true
 dark_titlebar=true
 opaque=QMPlay2,kaffeine,kmplayer,subtitlecomposer,kdenlive,vlc,avidemux,avidemux2_qt4,avidemux3_qt4,avidemux3_qt5,kamoso,QtCreator,VirtualBox,trojita,dragon,digikam,virtualboxvm
-reduce_window_opacity=80
+reduce_window_opacity=30
 scrollable_menu=false
 submenu_delay=250
 no_inactiveness=false
 no_window_pattern=false
-reduce_menu_opacity=80
+reduce_menu_opacity=30
 respect_DE=true
 click_behavior=0
 contrast=1.00
