@@ -288,6 +288,8 @@ theme.conky_script = "/themes/conky/conky-cosmic.sh"
 
 theme.light_theme = "light_theme"
 theme.dark_theme = "islamic_theme"
+theme.qt_icon_theme = "We10X"
+theme.qt_style_theme = "Lightly"
 
 theme.kvantum_theme = "Glorious-dark"
 theme.konsole_profile = "--profile Cosmic"

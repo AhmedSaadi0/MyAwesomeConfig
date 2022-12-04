@@ -386,8 +386,10 @@ theme.icons = require("themes.icons-colors")
 theme.dynamic_wallpaper_dir = "themes/wallpapers//"
 theme.conky_script = "/themes/conky/conky-colors.sh"
 
-theme.kvantum_theme = "Sweet-transparent-toolbar"
+theme.kvantum_theme = "a-color"
 theme.konsole_profile = "--profile Aesthetic"
+theme.qt_icon_theme = "NeonIcons"
+theme.qt_style_theme = "kvantum"
 
 theme.light_theme = "light_theme"
 theme.dark_theme = "dark_theme"

@@ -54,7 +54,11 @@ return {
 		config_dir .. "./bin/plasma-theme -c " .. config_dir .. "/themes/plasma-colors/" .. beautiful.plasma_color,
 		-- "kwriteconfig5 --file ~/.config/kcminputrc --group Mouse --key cursorTheme " .. beautiful.plasma_cursors,
 		"kcminit",
-		config_dir .. beautiful.conky_script
+		config_dir .. beautiful.conky_script,
+		-- Change Icons
+		'sed -i "s/icon_theme=.*/icon_theme='.. beautiful.qt_icon_theme ..'/g" ~/.config/qt5ct/qt5ct.conf',
+		-- Change Style
+		'sed -i "s/style=.*/style='.. beautiful.qt_style_theme ..'/g" ~/.config/qt5ct/qt5ct.conf'
 	},
 	-- List of binaries/shell scripts that will execute for a certain task
 	utils = {

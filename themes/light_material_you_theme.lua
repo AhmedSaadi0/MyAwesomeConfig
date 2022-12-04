@@ -302,6 +302,8 @@ theme.conky_script = "/themes/conky/conky-colors.sh"
 
 theme.kvantum_theme = "a-m-you"
 theme.konsole_profile = "--profile material-you"
+theme.qt_icon_theme = "Oreo-black-circle"
+theme.qt_style_theme = "Lightly"
 
 theme.light_theme = "light_theme"
 theme.dark_theme = "dark_theme"

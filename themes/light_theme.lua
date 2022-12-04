@@ -299,6 +299,9 @@ theme.conky_script = "/themes/conky/conky-light.sh"
 theme.kvantum_theme = "Orchis"
 theme.konsole_profile = "--profile light"
 
+theme.qt_icon_theme = "Calm"
+theme.qt_style_theme = "Lightly"
+
 theme.light_theme = "light_theme"
 -- theme.dark_theme = "islamic_theme"
 -- theme.dark_theme = "pinky_theme"

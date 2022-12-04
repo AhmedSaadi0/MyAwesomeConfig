@@ -286,6 +286,8 @@ theme.conky_script = "/themes/conky/conky-islamic.sh"
 
 theme.light_theme = "light_theme"
 theme.dark_theme = "islamic_theme"
+theme.qt_icon_theme = "We10X"
+theme.qt_style_theme = "Lightly"
 
 theme.kvantum_theme = "a-islamic"
 theme.konsole_profile = "--profile Islamic"
