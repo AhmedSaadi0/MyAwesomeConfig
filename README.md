@@ -61,6 +61,12 @@
     cp -r ~/.config/awesome/.fonts ~/
 	sudo cp /etc/environment /etc/environmentOLD
 	echo 'QT_QPA_PLATFORMTHEME=qt5ct' | sudo tee -a /etc/environment
+	mkdir ~/.local/share/icons
+	tar xvf ~/.config/awesome/themes/sys-icons/Calm.tar.gz -C ~/.local/share/icons
+	tar xvf ~/.config/awesome/themes/sys-icons/neon-icons-master.tar.gz -C ~/.local/share/icons
+	tar xvf ~/.config/awesome/themes/sys-icons/NeonIcons.tar.gz -C ~/.local/share/icons
+	tar xvf ~/.config/awesome/themes/sys-icons/Oreo-black-circle.tar.gz -C ~/.local/share/icons
+	tar xvf ~/.config/awesome/themes/sys-icons/We10X.tar.gz -C ~/.local/share/icons
 
 # Screenshots - لقطات
 

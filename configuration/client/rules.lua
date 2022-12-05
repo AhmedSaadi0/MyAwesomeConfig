@@ -195,6 +195,7 @@ ruled.client.connect_signal(
 					"Atom",
 					"Subl3",
 					"VSCodium",
+					"jetbrains-pycharm-ce",
 					"code",
 					"Code"
 				},

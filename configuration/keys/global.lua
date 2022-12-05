@@ -386,7 +386,7 @@ local global_keys =
 		{modkey, "Shift"},
 		"p",
 		function()
-			awful.spawn("prime-run pycharm")
+			awful.spawn("charm")
 		end,
 		{description = "افتح PyCahrm", group = "تطبيقات"}
 	),
