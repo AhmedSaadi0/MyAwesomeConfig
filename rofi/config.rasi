@@ -3,12 +3,12 @@ configuration
 	display-drun:					"Activate";
 	// display-run:					"Execute";
 	show-icons:						true;
-    icon-theme: 					"Papirus";
+    icon-theme:"NeonIcons"; 
     drun-display-format:            "{name}";
-    
+
 }
 
-@import "~/.config/awesome/rofi/circles_theme.rasi"
+@import "~/.config/awesome/rofi/colors_theme.rasi"
 
 window
 {
@@ -40,7 +40,7 @@ listview
     spacing:						10;
     columns:						4;
 	scrollbar:    					false;
-    
+
 }
 
 inputbar
@@ -98,7 +98,7 @@ element.normal.active
 
 element.selected.normal
 {
-	background-color:				@selected-background;
+	background-image:				@selected-background;
 	text-color:						@foreground-selected;
 }
 

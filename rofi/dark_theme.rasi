@@ -4,7 +4,7 @@
 	background:						#16161e;
 	foreground-alt:					#92a0bd;
 	background-alt:					#1c1d29;
-	active-background:				#00efd1;
+	active-background:				linear-gradient(to left, #00efd1, #0cdfff);
 	urgent-background:				#ff2222aa;
     
 	foreground-selected:			#1c1d29;

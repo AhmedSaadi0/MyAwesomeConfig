@@ -57,6 +57,7 @@ return {
 		config_dir .. beautiful.conky_script,
 		-- Change Icons
 		'sed -i "s/icon_theme=.*/icon_theme='.. beautiful.qt_icon_theme ..'/g" ~/.config/qt5ct/qt5ct.conf',
+		"sed -i 's/icon-theme:.*/icon-theme:\"" .. beautiful.qt_icon_theme .. "\"; /g' /home/ahmed/.config/rofi/config.rasi",
 		-- Change Style
 		'sed -i "s/style=.*/style='.. beautiful.qt_style_theme ..'/g" ~/.config/qt5ct/qt5ct.conf'
 	},
