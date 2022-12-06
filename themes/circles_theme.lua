@@ -36,7 +36,26 @@ theme.iconfont = "Font Awesome 5 Free Solid 11"
 -------------------------------
 ------------ Colors -----------
 -------------------------------
-theme.accent = "#61afef"
+theme.accent =
+    helpers.create_gradient_color {
+    color1 = "#61afef",
+    color2 = "#0cdfff",
+    from = {100, 0},
+    to = {10, 10}
+}
+local bar_color = helpers.create_gradient_color {
+    color2 = "#2a4e6a",
+    color1 = "#2a4235",
+    from = {0, 0},
+    to = {100, 100}
+}
+
+local bar_active_color = helpers.create_gradient_color {
+    color2 = "#61afef",
+    color1 = "#a1fdcd",
+    from = {0, 0},
+    to = {100, 100}
+}
 
 theme.bg_normal = "#1c2027"
 theme.widget_bg = "#13161b"
@@ -99,10 +118,10 @@ theme.weather_icon_bg_color = "#c8ccd4"
 theme.weather_icon_fg_color = theme.weather_color
 theme.weather_text_color = theme.weather_icon_bg_color
 
-theme.clock_color = theme.widget_bg --"#f1dc6e"
-theme.clock_icon_bg_color = "#61afef" --#7ec7a2"
+theme.clock_color = theme.widget_bg
+theme.clock_icon_bg_color = theme.accent
 theme.clock_icon_fg_color = theme.clock_color
-theme.clock_text_color = theme.clock_icon_bg_color --"#f1dc6e"
+theme.clock_text_color = theme.clock_icon_bg_color
 
 theme.dashboard_box_bg = theme.widget_bg
 theme.dashboard_box_fg = theme.fg_normal
@@ -128,7 +147,7 @@ theme.desktop_music_widget_left = dpi(1375)
 --------------------------------
 ------------ Taglist -----------
 --------------------------------
-theme.taglist_fg_focus = theme.accent
+theme.taglist_fg_focus = "#61afef"
 theme.taglist_bg_focus = theme.widget_bg
 
 theme.taglist_fg_urgent = "#e06c75"
@@ -179,7 +198,7 @@ theme.widgets_corner_radius = theme.groups_radius
 
 -- لون وخصائص شريط تعديل الاضاءة والصوت في الاشعارات
 theme.bar_active_color = "#7ec7a2"
-theme.bar_color = theme.bar_active_color .. "30"
+theme.bar_color = "#203f55"
 theme.bar_handle_color = theme.bar_active_color
 theme.bar_handle_border_color = theme.bar_active_color
 theme.bar_height = controllers.bar_height
@@ -188,20 +207,20 @@ theme.bar_handle_border_width = controllers.bar_handle_border_width
 theme.bar_shape = controllers.bar_shape
 
 -- لون وخصائص شريط عرض المعالج والرام في الاشعارات
-theme.slider_color = "#7ec7a2"
-theme.slider_background_color = theme.slider_color .. "30"
+theme.slider_color = bar_active_color
+theme.slider_background_color = bar_color
 theme.slider_forced_height = controllers.slider_forced_height
 theme.slider_shape = controllers.slider_shape
 theme.slider_bar_shape = controllers.slider_bar_shape
 
 -- Volume & Brightness widget
 theme.vol_bar_active_color = "#7ec7a2"
+theme.vol_bar_color = "#203f55"
 theme.vol_bar_handle_color = theme.vol_bar_active_color
 theme.vol_handle_border_color = theme.vol_bar_active_color
 theme.vol_bar_height = controllers.vol_bar_height
 theme.vol_handle_width = controllers.vol_handle_width
 theme.vol_handle_border_width = controllers.vol_handle_border_width
-theme.vol_bar_color = theme.vol_bar_active_color .. "30"
 theme.vol_bar_shape = theme.bar_shape
 
 theme.osd_height = controllers.osd_height
@@ -282,7 +301,7 @@ theme.music_back = "~/.config/awesome/themes/assets/no_music.png"
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 -- theme.icon_theme = nil
-theme.icons = require("themes.icons-circles")
+theme.icons = require("themes.icons-circles-gradients")
 
 theme.dynamic_wallpaper_dir = "themes/wallpapers//"
 theme.conky_script = "/themes/conky/conky-circles.sh"
