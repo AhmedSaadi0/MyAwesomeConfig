@@ -69,6 +69,7 @@ local function factory(s, args)
         helpers.add_text_icon_widget {
         text = "خروج ...",
         icon = "",
+        icon_font = beautiful.iconfont,
         text_font = text_font
     }
 
@@ -76,6 +77,7 @@ local function factory(s, args)
         helpers.add_text_icon_widget {
         text = "الاعدادات",
         icon = "",
+        icon_font = beautiful.iconfont,
         text_font = text_font
     }
 
@@ -83,6 +85,7 @@ local function factory(s, args)
         helpers.add_text_icon_widget {
         text = "اعدادات الاتصال",
         icon = "",
+        icon_font = beautiful.iconfont,
         text_font = text_font
     }
 
@@ -90,6 +93,7 @@ local function factory(s, args)
         helpers.add_text_icon_widget {
         text = "اعدادات الصوت",
         icon = "",
+        icon_font = beautiful.iconfont,
         text_font = text_font
     }
 

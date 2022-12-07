@@ -25,6 +25,7 @@ local action_name =
 	text = "البلوتوث",
 	icon = "",
 	ltr = true,
+	icon_font = beautiful.iconfont,
 	forced_width = dpi(81),
 	text_font = beautiful.uifont
 }

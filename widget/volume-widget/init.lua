@@ -66,6 +66,7 @@ local function worker(args)
         helpers.add_text_icon_widget {
         text = "اعدادات الصوت",
         icon = "",
+        icon_font = beautiful.iconfont,
         text_font = text_font
     }
 

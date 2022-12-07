@@ -6,9 +6,10 @@
    version="1.1"
    id="svg6"
    sodipodi:docname="dont-disturb-mode.svg"
-   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04, custom)"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14, custom)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -26,7 +27,29 @@
     </rdf:RDF>
   </metadata>
   <defs
-     id="defs10" />
+     id="defs10">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient2160">
+      <stop
+         style="stop-color:#7ec7a2;stop-opacity:1;"
+         offset="0"
+         id="stop2156" />
+      <stop
+         style="stop-color:#1c6bff;stop-opacity:1;"
+         offset="1"
+         id="stop2158" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2160"
+       id="linearGradient2162"
+       x1="0.0234375"
+       y1="224.02109"
+       x2="424.14062"
+       y2="224.02109"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
   <sodipodi:namedview
      pagecolor="#252525"
      bordercolor="#666666"
@@ -36,18 +59,20 @@
      guidetolerance="10"
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:window-width="1110"
-     inkscape:window-height="1024"
+     inkscape:window-width="1918"
+     inkscape:window-height="1046"
      id="namedview8"
      showgrid="false"
      inkscape:zoom="0.4609375"
-     inkscape:cx="266.84746"
-     inkscape:cy="247.32203"
-     inkscape:window-x="10"
-     inkscape:window-y="44"
+     inkscape:cx="270.10169"
+     inkscape:cy="245.15254"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
      inkscape:window-maximized="0"
      inkscape:current-layer="g4"
-     inkscape:pagecheckerboard="0" />
+     inkscape:pagecheckerboard="0"
+     inkscape:showpageshadow="0"
+     inkscape:deskcolor="#252525" />
   <g
      id="g4"
      transform="matrix(0.71799041,0,0,0.71799041,59.727137,63.17728)">
@@ -56,7 +81,7 @@
        data-original="#000000"
        class="active-path"
        data-old_color="#000000"
-       style="fill:#7ec7a2;fill-opacity:1"
+       style="fill:url(#linearGradient2162);fill-opacity:1"
        data-darkreader-inline-fill=""
        id="path2"
        inkscape:connector-curvature="0" />

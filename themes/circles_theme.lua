@@ -143,6 +143,16 @@ theme.desktop_music_widget_bottom = dpi(0)
 theme.desktop_music_widget_right = dpi(0)
 theme.desktop_music_widget_left = dpi(1375)
 
+-- Clock & Date Widget --
+theme.desktop_clock_widget = true
+theme.desktop_clock_widget_top = dpi(520)
+theme.desktop_clock_widget_bottom = dpi(0)
+theme.desktop_clock_widget_right = dpi(0)
+theme.desktop_clock_widget_left = dpi(-850)
+theme.clock_forced_width = dpi(450)
+theme.desktop_clock_widget_clock_font = "JF Flat 16"
+theme.desktop_clock_widget_date_font = "JF Flat 14"
+
 
 --------------------------------
 ------------ Taglist -----------
@@ -196,10 +206,10 @@ theme.media_button_color = theme.accent
 -- لعمل حواف مستديرة في الاضافات على الشريط العلوي
 theme.widgets_corner_radius = theme.groups_radius
 
--- لون وخصائص شريط تعديل الاضاءة والصوت في الاشعارات
+-- لون وخصائص شريط تعديل الاضاءة والصوت في الاشعارات --
 theme.bar_active_color = "#7ec7a2"
 theme.bar_color = "#203f55"
-theme.bar_handle_color = theme.bar_active_color
+theme.bar_handle_color = theme.accent
 theme.bar_handle_border_color = theme.bar_active_color
 theme.bar_height = controllers.bar_height
 theme.bar_handle_width = controllers.bar_handle_width
@@ -216,7 +226,7 @@ theme.slider_bar_shape = controllers.slider_bar_shape
 -- Volume & Brightness widget
 theme.vol_bar_active_color = "#7ec7a2"
 theme.vol_bar_color = "#203f55"
-theme.vol_bar_handle_color = theme.vol_bar_active_color
+theme.vol_bar_handle_color = theme.accent
 theme.vol_handle_border_color = theme.vol_bar_active_color
 theme.vol_bar_height = controllers.vol_bar_height
 theme.vol_handle_width = controllers.vol_handle_width

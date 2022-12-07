@@ -15,6 +15,8 @@ local theme = {}
 
 local controllers = require("themes.controllers")
 
+local helpers = require("themes.helpers")
+
 -------------------------------
 ------------ Fonts ------------
 -------------------------------
@@ -34,7 +36,24 @@ theme.iconfont = "Font Awesome 5 Free Solid 11"
 -------------------------------
 ------------ Colors -----------
 -------------------------------
-theme.accent = "#f1dc6e"
+-- theme.accent = "#f1dc6e"
+
+theme.accent =
+    helpers.create_gradient_color {
+    color1 = "#f1dc6e",
+    color2 = "#ff8a1c",
+    from = {0, 0},
+    to = {100, 100}
+}
+local bar_color = helpers.create_gradient_color {
+    color1 = "#022b52",
+    color2 = "#2a2613",
+    from = {0, 0},
+    to = {100, 100}
+}
+
+local bar_active_color = theme.accent
+
 
 theme.bg_normal = "#012549"
 theme.widget_bg = "#011426"
@@ -97,11 +116,11 @@ theme.weather_icon_bg_color = "#010f1c"
 theme.weather_icon_fg_color = "#92a0bd"
 theme.weather_text_color = theme.weather_icon_fg_color
 
-theme.clock_color = "#f1dc6e"
+theme.clock_color = theme.accent
 theme.clock_whole_color = theme.clock_color
-theme.clock_icon_bg_color = "#b1a151"
-theme.clock_icon_fg_color = theme.widget_bg
-theme.clock_text_color = theme.widget_bg
+theme.clock_icon_bg_color = "#9868e800"
+theme.clock_icon_fg_color = theme.bg_normal
+theme.clock_text_color = theme.clock_icon_fg_color --"#f1dc6e"
 
 theme.dashboard_box_bg = theme.widget_bg
 theme.dashboard_box_fg = theme.fg_normal
@@ -127,7 +146,7 @@ theme.desktop_music_widget_artist_font = "JF Flat 14"
 ------------ Taglist -----------
 --------------------------------
 -- TAG List
-theme.taglist_fg_focus = theme.accent
+theme.taglist_fg_focus = "#f1dc6e"
 theme.taglist_bg_focus = theme.widget_bg
 
 theme.taglist_fg_urgent = "#e06c75"
@@ -177,9 +196,9 @@ theme.media_button_color = theme.accent
 theme.widgets_corner_radius = theme.groups_radius
 
 -- لون وخصائص شريط تعديل الاضاءة والصوت في الاشعارات
-theme.bar_active_color = theme.accent
-theme.bar_color = theme.bar_active_color .. "30"
-theme.bar_handle_color = theme.bar_active_color
+theme.bar_active_color = "#faa83a"
+theme.bar_color = "#122939"
+theme.bar_handle_color = theme.accent
 theme.bar_handle_border_color = theme.bar_active_color
 theme.bar_height = controllers.bar_height
 theme.bar_handle_width = controllers.bar_handle_width
@@ -187,20 +206,20 @@ theme.bar_handle_border_width = controllers.bar_handle_border_width
 theme.bar_shape = controllers.bar_shape
 
 -- لون وخصائص شريط عرض المعالج والرام في الاشعارات
-theme.slider_color = theme.accent
-theme.slider_background_color = theme.slider_color .. "30"
+theme.slider_color = bar_active_color
+theme.slider_background_color = bar_color
 theme.slider_forced_height = controllers.slider_forced_height
 theme.slider_shape = controllers.slider_shape
 theme.slider_bar_shape = controllers.slider_bar_shape
 
 -- Volume & Brightness widget
-theme.vol_bar_active_color = theme.accent
-theme.vol_bar_handle_color = theme.vol_bar_active_color
+theme.vol_bar_active_color = "#faa83a"
+theme.vol_bar_color = "#122939"
+theme.vol_bar_handle_color = theme.accent
 theme.vol_handle_border_color = theme.vol_bar_active_color
 theme.vol_bar_height = controllers.vol_bar_height
 theme.vol_handle_width = controllers.vol_handle_width
 theme.vol_handle_border_width = controllers.vol_handle_border_width
-theme.vol_bar_color = theme.vol_bar_active_color .. "30"
 theme.vol_bar_shape = theme.bar_shape
 
 theme.osd_height = controllers.osd_height

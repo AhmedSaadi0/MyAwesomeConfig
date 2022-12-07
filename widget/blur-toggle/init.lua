@@ -22,6 +22,7 @@ local action_name =
 	text = "تاثير الضباب", --
 	icon = "",
 	ltr = true,
+	icon_font = beautiful.iconfont,
 	forced_width = dpi(97),
 	text_font = beautiful.uifont
 }

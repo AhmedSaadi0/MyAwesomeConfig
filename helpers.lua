@@ -38,6 +38,9 @@ function helpers.set_widget_block(args)
     local screen = args.screen
 
     local id = args.id
+    
+    local margin_id = args.margin_id
+
 
     local block =
         helpers.add_margin {
@@ -64,10 +67,11 @@ function helpers.set_widget_block(args)
             screen = screen,
             widget = wibox.container.background
         },
+        id = margin_id,
         left = margin_left,
         right = margin_right,
         top = margin_top,
-        bottom = margin_bottom,
+        bottom = margin_bottom
     }
     return block
 end
@@ -124,10 +128,12 @@ function helpers.add_text_icon_widget(args)
         {
             point = left,
             {
-                markup = helpers.colorize_text(text, text_bg, text_font),
+                text = text,
                 align = "center",
                 valign = "center",
                 id = "text_id",
+                font = text_font,
+                fg = text_bg,
                 widget = wibox.widget.textbox
             },
             id = "left",
@@ -137,10 +143,12 @@ function helpers.add_text_icon_widget(args)
             point = right,
             id = "right",
             {
-                markup = helpers.colorize_text(icon, icon_bg, icon_font),
+                text = icon,
                 align = "center",
                 valign = "center",
                 id = "icon_id",
+                font = icon_font,
+                bg = icon_bg,
                 widget = wibox.widget.textbox
             },
             -- helpers.add_text(icon, icon_bg, icon_font),

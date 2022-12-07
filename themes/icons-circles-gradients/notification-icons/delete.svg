@@ -1,1 +1,63 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="240" height="240" viewBox="0 0 24 24"><path fill="#ffffff" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   width="240"
+   height="240"
+   viewBox="0 0 24 24"
+   id="svg138"
+   sodipodi:docname="delete.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs142">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient1766">
+      <stop
+         style="stop-color:#7ec7a2;stop-opacity:1;"
+         offset="0"
+         id="stop1762" />
+      <stop
+         style="stop-color:#67b1ff;stop-opacity:1;"
+         offset="1"
+         id="stop1764" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1766"
+       id="linearGradient1768"
+       x1="5"
+       y1="12"
+       x2="19"
+       y2="12"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <sodipodi:namedview
+     id="namedview140"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     showgrid="false"
+     inkscape:zoom="3.6583333"
+     inkscape:cx="120.13667"
+     inkscape:cy="120.27335"
+     inkscape:window-width="1918"
+     inkscape:window-height="1046"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg138" />
+  <path
+     fill="#ffffff"
+     d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+     id="path136"
+     style="fill-opacity:1;fill:url(#linearGradient1768)" />
+</svg>

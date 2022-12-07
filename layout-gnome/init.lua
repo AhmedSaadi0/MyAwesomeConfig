@@ -3,6 +3,7 @@ local gears = require("gears")
 local awful = require("awful")
 -- require("layout.top-bar")
 require("layout-gnome.top-bar")
+require("layout-gnome.desktop-widgets")
 
 require ("layout-gnome.control-center")
 

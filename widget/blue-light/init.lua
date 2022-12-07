@@ -21,6 +21,7 @@ local action_name =
 	text = "تقليل الضوء الازرق",
 	icon = "",
 	ltr = true,
+	icon_font = beautiful.iconfont,
 	forced_width = dpi(135),
 	text_font = beautiful.uifont
 }

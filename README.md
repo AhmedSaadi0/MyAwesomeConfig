@@ -98,6 +98,9 @@
 	<img alt='screenshot 9' src='https://github.com/AhmedSaadi0/MyAwesomeConfig/blob/master/screenshots/9.png'/>
 </p>
 <p align='center'>
+	<img alt='screenshot 15' src='https://github.com/AhmedSaadi0/MyAwesomeConfig/blob/master/screenshots/15.png'/>
+</p>
+<p align='center'>
 	<img alt='screenshot 10' src='https://github.com/AhmedSaadi0/MyAwesomeConfig/blob/master/screenshots/10.png'/>
 </p>
 <p align='center'>

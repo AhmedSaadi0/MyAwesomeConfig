@@ -15,6 +15,8 @@ local theme = {}
 
 local controllers = require("themes.controllers")
 
+local helpers = require("themes.helpers")
+
 -------------------------------
 ------------ Fonts ------------
 -------------------------------
@@ -34,7 +36,24 @@ theme.hotkeys_font = theme.uifont
 -------------------------------
 ------------ Colors -----------
 -------------------------------
-theme.accent = "#00a1ff"
+-- theme.accent = "#00a1ff"
+
+theme.accent =
+    helpers.create_gradient_color {
+    color2 = "#ff4bde",
+    color1 = "#00a1ff",
+    from = {0, 0},
+    to = {100, 100}
+}
+local bar_color = helpers.create_gradient_color {
+    color2 = "#eab1f5",
+    color1 = "#a6d4f7",
+    from = {0, 0},
+    to = {100, 100}
+}
+
+local bar_active_color = theme.accent
+
 
 theme.bg_normal = "#f2f2f2"
 theme.widget_bg = "#dddddd"
@@ -50,7 +69,7 @@ theme.fg_minimize = "#ffffff"
 theme.useless_gap = dpi(5)
 theme.border_width = dpi(1)
 theme.border_normal = "#666666"
-theme.border_focus = theme.accent
+theme.border_focus = "#00a1ff"
 theme.border_marked = "#7ec7a2"
 
 -- bar widgets colors
@@ -92,14 +111,23 @@ theme.battery_icon_fg_color = theme.widget_bg
 theme.battery_text_color = theme.battery_icon_fg_color
 theme.battery_hover_color = "#3b4252" -- "#ffaf5f"
 
-theme.weather_color = "#dddddd"
+-- theme.weather_color = "#dddddd"
+theme.weather_color =
+helpers.create_gradient_color {
+    color1 = "#dddddd",
+    color2 = "#dddddd",
+    from = {180, 10},
+    to = {-60, 10}
+}
 theme.weather_icon_bg_color = "#c7c7c7"
 theme.weather_icon_fg_color = theme.fg_normal
 theme.weather_text_color = theme.weather_icon_fg_color
 
-theme.clock_color = "#00a1ff" -- "#fedb41"
+
+-- theme.clock_color = "#00a1ff"
+theme.clock_color = theme.accent
 theme.clock_whole_color = theme.clock_color
-theme.clock_icon_bg_color = "#007dc5"
+theme.clock_icon_bg_color = "#ca3db2"
 theme.clock_icon_fg_color = "#282c34"
 theme.clock_text_color = "#282c34"
 
@@ -182,9 +210,9 @@ theme.media_button_color = theme.fg_normal
 theme.widgets_corner_radius = theme.groups_radius
 
 -- لون وخصائص شريط تعديل الاضاءة والصوت في الاشعارات
-theme.bar_active_color = theme.accent
-theme.bar_color = theme.bar_active_color .. "30"
-theme.bar_handle_color = theme.bar_active_color
+theme.bar_active_color = "#717bf0"
+theme.bar_color = "#cbc1f6"
+theme.bar_handle_color = theme.accent
 theme.bar_handle_border_color = theme.bar_active_color
 theme.bar_height = controllers.bar_height
 theme.bar_handle_width = controllers.bar_handle_width
@@ -192,20 +220,20 @@ theme.bar_handle_border_width = controllers.bar_handle_border_width
 theme.bar_shape = controllers.bar_shape
 
 -- لون وخصائص شريط عرض المعالج والرام في الاشعارات
-theme.slider_color = theme.accent
-theme.slider_background_color = theme.slider_color .. "30"
+theme.slider_color = bar_active_color
+theme.slider_background_color = bar_color
 theme.slider_forced_height = controllers.slider_forced_height
 theme.slider_shape = controllers.slider_shape
 theme.slider_bar_shape = controllers.slider_bar_shape
 
 -- Volume & Brightness widget
-theme.vol_bar_active_color = theme.accent
-theme.vol_bar_handle_color = theme.vol_bar_active_color
+theme.vol_bar_active_color = "#717bf0"
+theme.vol_bar_color = "#cbc1f6"
+theme.vol_bar_handle_color = theme.accent
 theme.vol_handle_border_color = theme.vol_bar_active_color
 theme.vol_bar_height = controllers.vol_bar_height
 theme.vol_handle_width = controllers.vol_handle_width
 theme.vol_handle_border_width = controllers.vol_handle_border_width
-theme.vol_bar_color = theme.vol_bar_active_color .. "30"
 theme.vol_bar_shape = theme.bar_shape
 
 theme.osd_height = controllers.osd_height

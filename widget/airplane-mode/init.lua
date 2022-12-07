@@ -25,6 +25,7 @@ local action_name =
 	text = "وضع الطيران",
 	icon = "",
 	ltr = true,
+	icon_font = beautiful.iconfont,
 	forced_width = dpi(100),
 	text_font = beautiful.uifont
 }
