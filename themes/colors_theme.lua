@@ -210,38 +210,7 @@ theme.tooltip_fg = theme.fg_normal
 theme.tooltip_bg = theme.bg_normal
 
 -- Allow desktop music widget --
-theme.desktop_music_widget = false
-theme.desktop_music_widget_bg = "#00000000"
-theme.widget_title_fg =
-    helpers.create_gradient_color {
-    color2 = "#ff4bde",
-    color1 = "#0cdfff",
-    from = {500, 20},
-    to = {0, 0}
-}
-theme.widget_artist_fg =
-    helpers.create_gradient_color {
-    color2 = "#ff4bde",
-    color1 = "#0cdfff",
-    from = {500, 20},
-    to = {0, 0}
-}
-theme.desktop_music_widget_top = dpi(500)
-theme.desktop_music_widget_bottom = dpi(0)
-theme.desktop_music_widget_right = dpi(0)
-theme.desktop_music_widget_left = dpi(50)
-theme.desktop_music_widget_maximum_width = dpi(500)
-theme.desktop_music_widget_title_font = "JF Flat 16"
-theme.desktop_music_widget_artist_font = "JF Flat 14"
-
--- Clock & Date Widget --
-theme.desktop_clock_music = true
-theme.desktop_clock_widget_top = dpi(100)
-theme.desktop_clock_widget_bottom = dpi(0)
-theme.desktop_clock_widget_right = dpi(0)
-theme.desktop_clock_widget_left = dpi(50)
-theme.desktop_clock_widget_clock_font = "JF Flat 16"
-theme.desktop_clock_widget_date_font = "JF Flat 14"
+theme.color_theme = true
 
 --------------------------------
 ------------ Taglist -----------

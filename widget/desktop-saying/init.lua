@@ -8,13 +8,20 @@ local awful = require("awful")
 local function worker(args)
 	local wisdom_text_font = args.wisdom_text_font or "JF Flat 14"
 
+	local forced_width = args.forced_width
+	local forced_height = args.forced_height
+	local valign = args.valign
+	local align = args.align
+
 	local final =
 		wibox.widget {
 		text = "",
 		font = wisdom_text_font,
-		align = "left",
-		valign = "left",
+		valign = valign,
+		align = align,
 		id = "wisdom",
+		forced_width = forced_width,
+		forced_height = forced_height,
 		widget = wibox.widget.textbox
 	}
 

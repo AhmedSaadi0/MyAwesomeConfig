@@ -131,27 +131,8 @@ theme.xforeground = theme.fg_normal
 theme.tooltip_fg = theme.fg_normal
 theme.tooltip_bg = theme.bg_normal
 
--- Allow desktop music widget
-theme.desktop_music_widget = true
--- theme.desktop_music_widget_bg = "#1e222a"
--- theme.desktop_music_widget_fg = "#e06c75"
-theme.desktop_music_widget_bg = "#1e222a00"
-theme.desktop_music_widget_fg = "#e06c75"
-theme.desktop_music_widget_top = dpi(920)
-theme.desktop_music_widget_maximum_width = dpi(490)
-theme.desktop_music_widget_bottom = dpi(0)
-theme.desktop_music_widget_right = dpi(0)
-theme.desktop_music_widget_left = dpi(1375)
-
--- Clock & Date Widget --
-theme.desktop_clock_widget = true
-theme.desktop_clock_widget_top = dpi(520)
-theme.desktop_clock_widget_bottom = dpi(0)
-theme.desktop_clock_widget_right = dpi(0)
-theme.desktop_clock_widget_left = dpi(-850)
-theme.clock_forced_width = dpi(450)
-theme.desktop_clock_widget_clock_font = "JF Flat 16"
-theme.desktop_clock_widget_date_font = "JF Flat 14"
+-- Allow desktop widgets
+theme.circle_theme = true
 
 
 --------------------------------
@@ -318,7 +299,7 @@ theme.conky_script = "/themes/conky/conky-circles.sh"
 
 theme.kvantum_theme = "a-circles"
 theme.konsole_profile = "--profile Circles"
-theme.qt_icon_theme = "Calm"
+theme.qt_icon_theme = "FairyWren" --"Calm"
 theme.qt_style_theme = "Lightly"
 
 theme.light_theme = "light_theme"

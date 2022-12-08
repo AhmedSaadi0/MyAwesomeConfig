@@ -14,9 +14,11 @@ local function worker(args)
 
 	local time_now_text_font = args.day_text_font or "JF Flat 20"
 	local time_now_text_color = args.time_now_text_color or beautiful.accent
+	local time_right = args.time_right or dpi(15)
 
 	local month_name_text_font = args.month_name_text_font or "JF Flat 25"
 	local month_name_text_color = args.month_name_text_color or beautiful.accent
+	local month_left = args.month_left
 
 	local day_number_text_font = args.day_number_text_font or "JF Flat 50"
 	local day_number_text_color = args.day_number_text_color or beautiful.accent
@@ -82,7 +84,7 @@ local function worker(args)
 				},
 				forced_width = dpi(280),
 				bg = beautiful.transparent,
-				right = dpi(15)
+				right = time_right,
 			},
 			---------------
 			-- الفاصل الطولي --
@@ -113,11 +115,11 @@ local function worker(args)
 					},
 					bg = beautiful.transparent,
 					fg = month_name_text_color,
-					left = dpi(15)
+					left = dpi(10)
 				},
 				helpers.set_widget_block {
 					widget = {
-						text = "07",
+						text = "",
 						font = day_number_text_font,
 						id = "day_number",
 						align = "center",
@@ -126,7 +128,7 @@ local function worker(args)
 					},
 					bg = beautiful.transparent,
 					fg = day_number_text_color,
-					left = dpi(15)
+					left = month_left,
 				}
 			}
 		}

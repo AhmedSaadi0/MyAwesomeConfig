@@ -7,91 +7,39 @@ local gears = require("gears")
 
 awful.screen.connect_for_each_screen(
     function(s)
-        if beautiful.desktop_music_widget then
-            s.music =
-                require("widget.desktop-music") {
-                widget_bg = "00000000",
-                widget_artist_fg = beautiful.widget_artist_fg or beautiful.desktop_music_widget_fg,
-                widget_title_fg = beautiful.widget_title_fg or beautiful.desktop_music_widget_fg,
-                forced_width = beautiful.desktop_music_widget_maximum_width,
-                title_font = beautiful.desktop_music_widget_title_font or "JF Flat 20",
-                artist_font = beautiful.desktop_music_widget_artist_font or "JF Flat 16"
+        --------------------------------
+        --------- Colors Theme ---------
+        --------------------------------
+        if beautiful.color_theme then
+            s.clock = require("widget.desktop-clock") {
+                month_left = dpi(65),
+                time_right = dpi(10),
             }
-
-            s.music_popup =
-                awful.popup {
-                ontop = false,
-                visible = true,
-                bg = beautiful.desktop_music_widget_bg,
-                type = "desktop",
-                -- shape = shape,
-                -- border_width = border_width,
-                -- border_color = border_color,
-                maximum_width = beautiful.desktop_music_widget_maximum_width,
-                offset = {y = 10},
-                widget = s.music
-            }
-            awful.placement.top_left(
-                s.music_popup,
-                {
-                    margins = {
-                        -- right = panel_margins,
-                        top = beautiful.desktop_music_widget_top,
-                        bottom = beautiful.desktop_music_widget_bottom,
-                        right = beautiful.desktop_music_widget_right,
-                        left = beautiful.desktop_music_widget_left
-                    },
-                    parent = s
-                }
-            )
-        end
-
-        if beautiful.desktop_clock_widget then
-            s.clock = require("widget.desktop-clock") {}
-
-            s.clock_popup =
-                awful.popup {
-                ontop = false,
-                visible = true,
-                bg = beautiful.desktop_music_widget_bg,
-                type = "desktop",
-                -- shape = shape,
-                -- border_width = border_width,
-                -- border_color = border_color,
-                maximum_width = beautiful.desktop_music_widget_maximum_width,
-                offset = {y = 10},
-                widget = s.clock
-            }
-            awful.placement.top(
-                s.clock_popup,
-                {
-                    margins = {
-                        -- right = panel_margins,
-                        top = beautiful.desktop_clock_widget_top,
-                        bottom = beautiful.desktop_clock_widget_bottom,
-                        right = beautiful.desktop_clock_widget_right,
-                        left = beautiful.desktop_clock_widget_left
-                    },
-                    parent = s
-                }
-            )
-        end
-
-        if beautiful.desktop_clock_music then
-            s.clock = require("widget.desktop-clock") {}
 
             s.saying =
                 require("widget.desktop-saying") {
-                wisdom_text_font = "JF Flat 15"
+                wisdom_text_font = "JF Flat 15",
+                forced_width = dpi(750)
             }
 
             s.music =
                 require("widget.desktop-music") {
                 widget_bg = "00000000",
-                widget_artist_fg = beautiful.widget_artist_fg or beautiful.desktop_music_widget_fg,
-                widget_title_fg = beautiful.widget_title_fg or beautiful.desktop_music_widget_fg,
-                title_font = beautiful.desktop_music_widget_title_font or "JF Flat 20",
-                artist_font = beautiful.desktop_music_widget_artist_font or "JF Flat 16"
+                widget_artist_fg = helpers.create_gradient_color {
+                    color2 = "#ff4bde",
+                    color1 = "#0cdfff",
+                    from = {500, 20},
+                    to = {0, 0}
+                },
+                widget_title_fg = helpers.create_gradient_color {
+                    color2 = "#ff4bde",
+                    color1 = "#0cdfff",
+                    from = {500, 20},
+                    to = {0, 0}
+                },
+                forced_width = dpi(570),
+                title_font = "JF Flat 16",
+                artist_font = "JF Flat 14"
             }
 
             s.final =
@@ -103,7 +51,7 @@ awful.screen.connect_for_each_screen(
                 helpers.set_widget_block {
                     widget = s.clock,
                     bg = beautiful.transparent,
-                    right = dpi(15),
+                    right = dpi(5)
                 },
                 ----------------
                 -- الفاصل العرضي --
@@ -124,8 +72,8 @@ awful.screen.connect_for_each_screen(
                 helpers.set_widget_block {
                     widget = s.music,
                     bg = beautiful.transparent,
-                    left = dpi(15),
-                    right = dpi(15),
+                    left = dpi(35),
+                    right = dpi(10),
                     top = dpi(30)
                 },
                 ----------------
@@ -148,8 +96,18 @@ awful.screen.connect_for_each_screen(
                     widget = s.saying,
                     bg = beautiful.transparent,
                     fg = beautiful.accent,
-                    left = dpi(15),
-                    right = dpi(15)
+                    left = dpi(35),
+                    right = dpi(10)
+                },
+                helpers.set_widget_block {
+                    widget = {
+                        text = "",
+                        widget = wibox.widget.textbox
+                    },
+                    shape = gears.shape.rectangle,
+                    bg = beautiful.accent,
+                    fg = beautiful.accent,
+                    right = dpi(1)
                 }
             }
 
@@ -157,12 +115,8 @@ awful.screen.connect_for_each_screen(
                 awful.popup {
                 ontop = false,
                 visible = true,
-                bg = beautiful.desktop_music_widget_bg,
+                bg = beautiful.transparent,
                 type = "desktop",
-                -- shape = shape,
-                -- border_width = border_width,
-                -- border_color = border_color,
-                -- maximum_width = beautiful.desktop_music_widget_maximum_width,
                 offset = {y = 10},
                 widget = s.final
             }
@@ -171,10 +125,116 @@ awful.screen.connect_for_each_screen(
                 {
                     margins = {
                         -- right = panel_margins,
-                        top = beautiful.desktop_clock_widget_top,
-                        bottom = beautiful.desktop_clock_widget_bottom,
-                        right = beautiful.desktop_clock_widget_right,
-                        left = beautiful.desktop_clock_widget_left
+                        top = dpi(100),
+                        bottom = 0,
+                        right = 0,
+                        left = dpi(50)
+                    },
+                    parent = s
+                }
+            )
+        end
+
+        --------------------------------
+        --------- Circle Theme ---------
+        --------------------------------
+        if beautiful.circle_theme then
+            -------------
+            -- Wisdoms --
+            -------------
+            s.saying =
+                require("widget.desktop-saying") {
+                wisdom_text_font = "JF Flat 15",
+                forced_width = dpi(490),
+                forced_height = dpi(170),
+                valign = "top"
+            }
+
+            s.saying_popup =
+                awful.popup {
+                ontop = false,
+                visible = true,
+                bg = beautiful.transparent,
+                type = "desktop",
+                forced_width = dpi(490),
+                offset = {y = 10},
+                fg = "#e06c75",
+                widget = s.saying
+            }
+            awful.placement.bottom_right(
+                s.saying_popup,
+                {
+                    margins = {
+                        -- right = panel_margins,
+                        top = dpi(0),
+                        bottom = dpi(0),
+                        right = dpi(60),
+                        left = dpi(0)
+                    },
+                    parent = s
+                }
+            )
+
+            -----------
+            -- Music --
+            -----------
+            s.music =
+                require("widget.desktop-music") {
+                widget_bg = "00000000",
+                widget_title_fg = "#e06c75",
+                widget_artist_fg = "#e06c75",
+                forced_width = dpi(490),
+                title_font = "JF Flat 20",
+                artist_font = "JF Flat 16"
+            }
+
+            s.music_popup =
+                awful.popup {
+                ontop = false,
+                visible = true,
+                bg = beautiful.transparent,
+                type = "desktop",
+                forced_width = dpi(490),
+                offset = {y = 10},
+                widget = s.music
+            }
+            awful.placement.bottom_right(
+                s.music_popup,
+                {
+                    margins = {
+                        -- right = panel_margins,
+                        top = dpi(0),
+                        bottom = dpi(240),
+                        right = dpi(60),
+                        left = dpi(0)
+                    },
+                    parent = s
+                }
+            )
+
+            -----------
+            -- Clock --
+            -----------
+            s.clock = require("widget.desktop-clock") {}
+            s.clock_popup =
+                awful.popup {
+                ontop = false,
+                visible = true,
+                bg = beautiful.transparent,
+                type = "desktop",
+                maximum_width = dpi(450),
+                offset = {y = 10},
+                widget = s.clock
+            }
+            awful.placement.top(
+                s.clock_popup,
+                {
+                    margins = {
+                        -- right = panel_margins,
+                        top = dpi(520),
+                        bottom = dpi(0),
+                        right = dpi(0),
+                        left = dpi(-1000)
                     },
                     parent = s
                 }
