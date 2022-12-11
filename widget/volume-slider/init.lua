@@ -31,6 +31,8 @@ local action_level =
 	widget = wibox.container.background
 }
 
+local update_volume = false
+
 local slider =
 	wibox.widget {
 	nil,
@@ -58,13 +60,14 @@ local volume_slider = slider.volume_slider
 volume_slider:connect_signal(
 	"property::value",
 	function()
-		local volume_level = volume_slider:get_value()
-
-		spawn("amixer -D pulse sset Master " .. volume_level .. "%", false)
-
-		-- Update volume osd
-		awesome.emit_signal("module::volume_osd", volume_level)
-		awesome.emit_signal("widget::set_volume", volume_level)
+		if update_volume then
+			local volume_level = volume_slider:get_value()
+			spawn("amixer -D pulse sset Master " .. volume_level .. "%", false)
+			awesome.emit_signal("module::volume_osd", volume_level)
+			awesome.emit_signal("widget::set_volume", volume_level)
+		else
+			update_volume = true
+		end
 	end
 )
 
@@ -99,7 +102,7 @@ volume_slider:buttons(
 
 local update_slider = function()
 	awful.spawn.easy_async_with_shell(
-		[[bash -c "amixer -D pulse sget Master"]],
+		[[amixer -D pulse sget Master]],
 		function(stdout)
 			local volume = string.match(stdout, "(%d?%d?%d)%%")
 			volume_slider:set_value(tonumber(volume))
@@ -137,7 +140,7 @@ action_level:buttons(
 	)
 )
 
--- The emit will come from the global keybind
+-- This signal will come from the global keybind
 awesome.connect_signal(
 	"widget::volume",
 	function()
@@ -145,21 +148,20 @@ awesome.connect_signal(
 	end
 )
 
--- The emit will come from the OSD
+-- This signal will come from the OSD
 awesome.connect_signal(
 	"widget::volume:update",
-	function(value)
+	function(value, update_volume)
 		volume_slider:set_value(tonumber(value))
 	end
 )
 
 local volume_setting = function(args)
-
 	local slider_top = args.slider_top or dpi(12)
 	local slider_bottom = args.slider_bottom or dpi(12)
 	local slider_left = args.slider_left or dpi(24)
 	local slider_right = args.slider_right or dpi(60)
-	
+
 	local icon_top = args.icon_top or dpi(12)
 	local icon_bottom = args.icon_bottom or dpi(12)
 

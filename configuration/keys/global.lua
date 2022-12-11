@@ -254,10 +254,14 @@ local global_keys =
 		{},
 		"XF86AudioRaiseVolume",
 		function()
-			-- awful.spawn("amixer -q sset Master 5%+", false)
-			awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%", false)
-			awesome.emit_signal("widget::volume")
-			awesome.emit_signal("module::volume_osd:show", true)
+			awful.spawn.easy_async_with_shell(
+				[[amixer -D pulse sset Master 5%+]],
+				function(stdout)
+					local volume = string.match(stdout, "(%d?%d?%d)%%")
+					awesome.emit_signal("widget::volume:update", volume, false)
+					awesome.emit_signal("module::volume_osd:show", true)
+				end
+			)
 		end,
 		{description = "Volume down 10", group = "ميديا"}
 	),
@@ -265,9 +269,14 @@ local global_keys =
 		{},
 		"XF86AudioLowerVolume",
 		function()
-			awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%", false)
-			awesome.emit_signal("widget::volume")
-			awesome.emit_signal("module::volume_osd:show", true)
+			awful.spawn.easy_async_with_shell(
+				[[amixer -D pulse sset Master 5%-]],
+				function(stdout)
+					local volume = string.match(stdout, "(%d?%d?%d)%%")
+					awesome.emit_signal("widget::volume:update", volume, false)
+					awesome.emit_signal("module::volume_osd:show", true)
+				end
+			)
 		end,
 		{description = "Volume up 10", group = "ميديا"}
 	),

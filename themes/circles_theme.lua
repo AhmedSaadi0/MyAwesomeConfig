@@ -300,7 +300,7 @@ theme.conky_script = "/themes/conky/conky-circles.sh"
 theme.kvantum_theme = "a-circles"
 theme.konsole_profile = "--profile Circles"
 theme.qt_icon_theme = "FairyWren" --"Calm"
-theme.qt_style_theme = "Lightly"
+theme.qt_style_theme = "kvantum"--"Lightly"
 
 theme.light_theme = "light_theme"
 theme.dark_theme = "dark_theme"

@@ -191,7 +191,7 @@ local function worker(args)
         "widget::volume",
         function(c)
             spawn.easy_async_with_shell(
-                "amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print $2 }'",
+                "amixer -D pulse sget Master | grep 'Right:' | awk -F'[][]' '{ print $2 }'",
                 function(stdout)
                     number_text_widget.text = stdout
                 end
@@ -207,7 +207,7 @@ local function worker(args)
     )
 
     spawn.easy_async_with_shell(
-        "amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print $2 }'",
+        "amixer -D pulse sget Master | grep 'Right:' | awk -F'[][]' '{ print $2 }'",
         function(stdout)
             number_text_widget.text = stdout
         end
