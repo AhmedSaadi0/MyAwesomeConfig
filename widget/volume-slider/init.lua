@@ -31,8 +31,6 @@ local action_level =
 	widget = wibox.container.background
 }
 
-local update_volume = false
-
 local slider =
 	wibox.widget {
 	nil,
@@ -60,14 +58,10 @@ local volume_slider = slider.volume_slider
 volume_slider:connect_signal(
 	"property::value",
 	function()
-		if update_volume then
-			local volume_level = volume_slider:get_value()
-			spawn("amixer -D pulse sset Master " .. volume_level .. "%", false)
-			awesome.emit_signal("module::volume_osd", volume_level)
-			awesome.emit_signal("widget::set_volume", volume_level)
-		else
-			update_volume = true
-		end
+		local volume_level = volume_slider:get_value()
+		spawn("amixer -D pulse sset Master " .. volume_level .. "%", false)
+		awesome.emit_signal("module::volume_osd", volume_level)
+		awesome.emit_signal("widget::set_volume", volume_level)
 	end
 )
 
@@ -151,7 +145,7 @@ awesome.connect_signal(
 -- This signal will come from the OSD
 awesome.connect_signal(
 	"widget::volume:update",
-	function(value, update_volume)
+	function(value)
 		volume_slider:set_value(tonumber(value))
 	end
 )

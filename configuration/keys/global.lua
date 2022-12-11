@@ -258,7 +258,7 @@ local global_keys =
 				[[amixer -D pulse sset Master 5%+]],
 				function(stdout)
 					local volume = string.match(stdout, "(%d?%d?%d)%%")
-					awesome.emit_signal("widget::volume:update", volume, false)
+					awesome.emit_signal("widget::volume:update", volume)
 					awesome.emit_signal("module::volume_osd:show", true)
 				end
 			)
@@ -273,7 +273,7 @@ local global_keys =
 				[[amixer -D pulse sset Master 5%-]],
 				function(stdout)
 					local volume = string.match(stdout, "(%d?%d?%d)%%")
-					awesome.emit_signal("widget::volume:update", volume, false)
+					awesome.emit_signal("widget::volume:update", volume)
 					awesome.emit_signal("module::volume_osd:show", true)
 				end
 			)

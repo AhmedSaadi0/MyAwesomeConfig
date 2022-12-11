@@ -91,78 +91,123 @@ local function factory(args)
     --  POP UP Widget --
     --------------------
     local header =
-        wibox.widget {
+    helpers.add_text_icon_widget {
         text = "اوقات الصلوات",
-        font = text_font,
-        align = "center",
-        valign = "center",
+        icon = "",
+        text_font = text_font,
+        icon_font = icon_font,
+        widget = wibox.widget.textbox
+    }
+
+    -- local hijri_date =
+    --     wibox.widget {
+    --     text = "",
+    --     font = text_font,
+    --     align = "center",
+    --     valign = "center",
+    --     widget = wibox.widget.textbox
+    -- }
+
+    local fajr =
+        helpers.add_text_icon_widget {
+        text = "صلاة الفجر",
+        icon = "",
+        text_font = text_font,
+        icon_font = icon_font,
+        widget = wibox.widget.textbox
+    }
+
+    local dhuhr =
+        helpers.add_text_icon_widget {
+        text = "صلاة الظهر",
+        icon = "",
+        text_font = text_font,
+        icon_font = icon_font,
+        widget = wibox.widget.textbox
+    }
+
+    local asr =
+        helpers.add_text_icon_widget {
+        text = "صلاة العصر",
+        icon = "",
+        text_font = text_font,
+        icon_font = icon_font,
+        widget = wibox.widget.textbox
+    }
+
+    local maghrib =
+        helpers.add_text_icon_widget {
+        text = "صلاة المغرب",
+        icon = "",
+        text_font = text_font,
+        icon_font = icon_font,
+        widget = wibox.widget.textbox
+    }
+
+    local isha =
+        helpers.add_text_icon_widget {
+        text = "صلاة العشاء",
+        icon = "",
+        text_font = text_font,
+        icon_font = icon_font,
         widget = wibox.widget.textbox
     }
 
     local detailed_widget =
         wibox.widget {
         layout = wibox.layout.fixed.vertical,
-        visible = false,
         {
             {
                 {
                     {
                         header,
-                        left = dpi(12),
-                        top = dpi(15),
-                        bottom = dpi(15),
-                        right = dpi(12),
+                        left = dpi(25),
+                        right = dpi(25),
                         widget = wibox.container.margin
                     },
                     bg = header_bg,
                     widget = wibox.container.background
                 },
                 helpers.set_widget_block {
-                    widget = {
-                        layout = wibox.layout.fixed.horizontal,
-                        widget_1,
-                        widget_2,
-                        widget_3,
-                        widget_4
-                    },
-                    top = dpi(12),
-                    bottom = dpi(12),
-                    left = dpi(12),
-                    -- right = dpi(12),
+                    widget = fajr,
+                    left = dpi(25),
+                    right = dpi(20),
+                    id = "fajr_widget",
                     bg = beautiful.transparent
                 },
                 helpers.set_widget_block {
-                    widget = {
-                        layout = wibox.layout.fixed.horizontal,
-                        widget_5,
-                        widget_6,
-                        widget_7,
-                        widget_8
-                    },
-                    -- top = dpi(12),
-                    bottom = dpi(12),
-                    left = dpi(12),
-                    -- right = dpi(12),
+                    widget = dhuhr,
+                    left = dpi(25),
+                    right = dpi(20),
+                    id = "dhuhr_widget",
                     bg = beautiful.transparent
                 },
                 helpers.set_widget_block {
-                    widget = {
-                        layout = wibox.layout.fixed.horizontal,
-                        widget_9,
-                        widget_10,
-                        widget_11,
-                        widget_12
-                    },
-                    -- top = dpi(12),
-                    bottom = dpi(12),
-                    left = dpi(12),
-                    -- right = dpi(12),
+                    widget = asr,
+                    left = dpi(25),
+                    right = dpi(20),
+                    id = "asr_widget",
+                    bg = beautiful.transparent
+                },
+                helpers.set_widget_block {
+                    widget = maghrib,
+                    left = dpi(25),
+                    right = dpi(20),
+                    id = "maghrib_widget",
+                    bg = beautiful.transparent
+                },
+                helpers.set_widget_block {
+                    widget = isha,
+                    left = dpi(25),
+                    right = dpi(20),
+                    id = "isha_widget",
                     bg = beautiful.transparent
                 },
                 layout = wibox.layout.fixed.vertical
             },
             bg = bg,
             -- shape = shape,
+            forced_width = 180,
             widget = wibox.container.background
         }
     }
@@ -171,48 +216,13 @@ local function factory(args)
         awful.popup {
         ontop = true,
         visible = false,
-        id = "widget_4",
+        id = "prayer_pop_up",
         shape = popup_shape,
         border_width = border_width,
         border_color = border_color,
-        -- maximum_width = 600,
         offset = {y = 10, x = 100},
         widget = detailed_widget
     }
-
-    -- watch(
-    --     "curl 'https://api.aladhan.com/v1/timingsByCity?city=" ..
-    --         city .. "&country=" .. country .. "&method=" .. method .. "'",
-    --     3600,
-    --     function(_, stdout)
-    --         if stdout == "" then
-    --             number_text_widget.text = "غير متوفرة حاليا"
-    --             return
-    --         end
-
-    --         local json_object = json.parse(stdout)
-
-    --         local current_time = os.date("%H:%M")
-
-    --         if current_time > json_object.data.timings.Isha or current_time <= json_object.data.timings.Fajr then
-    --             number_text_widget.text = "الفجر (" .. json_object.data.timings.Fajr .. ")"
-    --         elseif current_time > json_object.data.timings.Maghrib then
-    --             local h, m = json_object.data.timings.Isha:match("^(%d%d):(%d%d)$")
-    --             h = (h - 12)
-    --             number_text_widget.text = "العشاء (0" .. h .. ":" .. m .. ")"
-    --         elseif current_time > json_object.data.timings.Asr then
-    --             local h, m = json_object.data.timings.Maghrib:match("^(%d%d):(%d%d)$")
-    --             h = (h - 12)
-    --             number_text_widget.text = "المغرب (0" .. h .. ":" .. m .. ")"
-    --         elseif current_time > json_object.data.timings.Dhuhr then
-    --             local h, m = json_object.data.timings.Asr:match("^(%d%d):(%d%d)$")
-    --             h = (h - 12)
-    --             number_text_widget.text = "العصر (0" .. h .. ":" .. m .. ")"
-    --         elseif current_time > json_object.data.timings.Fajr then
-    --             number_text_widget.text = "الظهر (" .. json_object.data.timings.Dhuhr .. ")"
-    --         end
-    --     end
-    -- )
 
     function set_timer(time)
         gears.timer {
@@ -244,22 +254,21 @@ local function factory(args)
         callback = function()
             play_athan_sound()
             number_text_widget.text = "صلاة " .. prayer .. " الان"
-
-            recalculate_timer:start()
         end
     }
 
     function play_athan_sound()
+        athan_timer:stop()
+        recalculate_timer:start()
         naughty.notification(
             {
                 icon = config_dir .. "widget/prayer-times/mosque.png",
                 app_name = "الاذان",
                 title = "صلاة" .. prayer,
-                message = "حان الان موعد صلاة" .. prayer,
+                message = "حان الان موعد صلاة " .. prayer,
                 urgency = "normal"
             }
         )
-        -- awful.spawn.with_shell("notify-send -a 'الاذان' 'حان الان وقت صلاة " .. prayer .. "'")
         local sound = beautiful.athan_sound or "widget/prayer-times/sounds/notification.ogg"
         awful.spawn.with_shell("paplay " .. config_dir .. sound, false)
     end
@@ -283,6 +292,14 @@ local function factory(args)
         }
 
         return os.difftime(prayer_time, os.time())
+    end
+
+    function set_detailed_time(fajr_time, dhuhr_time, asr_time, maghrib_time, isha_time)
+        fajr:get_children_by_id("icon_id")[1].text = fajr_time -- "صلاة الفجر " .. fajr_time
+        dhuhr:get_children_by_id("icon_id")[1].text = dhuhr_time -- "صلاة الظهر " .. dhuhr_time
+        asr:get_children_by_id("icon_id")[1].text = asr_time -- "صلاة العصر " .. asr_time
+        maghrib:get_children_by_id("icon_id")[1].text = maghrib_time -- "صلاة المغرب " .. maghrib_time
+        isha:get_children_by_id("icon_id")[1].text = isha_time -- "صلاة العشاء " .. isha_time
     end
 
     function calculate_prayer_times()
@@ -309,23 +326,49 @@ local function factory(args)
                     prayer = "الفجر"
                     number_text_widget.text = "الفجر (" .. json_object.data.timings.Fajr .. ")"
                     h, m = json_object.data.timings.Fajr:match("^(%d%d):(%d%d)$")
+                    
+                    detailed_widget:get_children_by_id("fajr_widget")[1].bg = beautiful.accent
+                    detailed_widget:get_children_by_id("fajr_widget")[1].fg = beautiful.widget_bg
                 elseif current_time >= json_object.data.timings.Maghrib and current_time < json_object.data.timings.Isha then
                     prayer = "العشاء"
                     h, m = json_object.data.timings.Isha:match("^(%d%d):(%d%d)$")
                     number_text_widget.text = "العشاء (0" .. (h - 12) .. ":" .. m .. ")"
+
+                    detailed_widget:get_children_by_id("isha_widget")[1].bg = beautiful.accent
+                    detailed_widget:get_children_by_id("isha_widget")[1].fg = beautiful.widget_bg
                 elseif current_time >= json_object.data.timings.Asr and current_time < json_object.data.timings.Maghrib then
                     prayer = "المغرب"
                     h, m = json_object.data.timings.Maghrib:match("^(%d%d):(%d%d)$")
                     number_text_widget.text = "المغرب (0" .. (h - 12) .. ":" .. m .. ")"
+
+                    detailed_widget:get_children_by_id("maghrib_widget")[1].bg = beautiful.accent
+                    detailed_widget:get_children_by_id("maghrib_widget")[1].fg = beautiful.widget_bg
                 elseif current_time >= json_object.data.timings.Dhuhr and current_time < json_object.data.timings.Asr then
                     prayer = "العصر"
                     h, m = json_object.data.timings.Asr:match("^(%d%d):(%d%d)$")
                     number_text_widget.text = "العصر (0" .. (h - 12) .. ":" .. m .. ")"
+
+                    detailed_widget:get_children_by_id("asr_widget")[1].bg = beautiful.accent
+                    detailed_widget:get_children_by_id("asr_widget")[1].fg = beautiful.widget_bg
                 elseif current_time >= json_object.data.timings.Fajr and current_time < json_object.data.timings.Dhuhr then
                     prayer = "الظهر"
                     number_text_widget.text = "الظهر (" .. json_object.data.timings.Dhuhr .. ")"
                     h, m = json_object.data.timings.Dhuhr:match("^(%d%d):(%d%d)$")
+
+                    detailed_widget:get_children_by_id("dhuhr_widget")[1].bg = beautiful.accent
+                    detailed_widget:get_children_by_id("dhuhr_widget")[1].fg = beautiful.widget_bg
                 end
+
+                set_detailed_time(
+                    json_object.data.timings.Fajr,
+                    json_object.data.timings.Dhuhr,
+                    json_object.data.timings.Asr,
+                    json_object.data.timings.Maghrib,
+                    json_object.data.timings.Isha
+                )
+
+                -- hijri_date.text = json_object.data.date.hijri.month.en
+                -- hijri_date.text = json_object.data.date.hijri.date
 
                 -- Set athan timer
                 athan_timer.timeout = get_difftime(h, m)
@@ -339,11 +382,11 @@ local function factory(args)
     number_text_widget:connect_signal(
         "button::press",
         function()
-            -- if popup.visible then
-            --     popup.visible = not popup.visible
-            -- else
-            --     popup:move_next_to(mouse.current_widget_geometry)
-            -- end
+            if popup.visible then
+                popup.visible = not popup.visible
+            else
+                popup:move_next_to(mouse.current_widget_geometry)
+            end
         end
     )
 
