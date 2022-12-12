@@ -7,7 +7,9 @@ local watch = require("awful").widget.watch
 local awful = require("awful")
 
 local function worker(args)
-	local forced_width = args.forced_width or beautiful.clock_forced_width
+	local forced_width = args.forced_width
+	
+	local clock_forced_width = args.clock_forced_width or dpi(280)
 
 	local day_text_font = args.day_text_font or "JF Flat 25"
 	local day_text_color = args.day_text_color or beautiful.accent
@@ -45,9 +47,9 @@ local function worker(args)
 		forced_width = forced_width,
 		{
 			layout = wibox.layout.fixed.horizontal,
-			----------------------------
-			-------- معلومات التاريخ --------
-			----------------------------
+			---------------------------
+			-------- معلومات الساعة --------
+			---------------------------
 			helpers.set_widget_block {
 				widget = {
 					layout = wibox.layout.fixed.vertical,
@@ -82,7 +84,7 @@ local function worker(args)
 						top = dpi(5)
 					}
 				},
-				forced_width = dpi(280),
+				forced_width = clock_forced_width,
 				bg = beautiful.transparent,
 				right = time_right,
 			},

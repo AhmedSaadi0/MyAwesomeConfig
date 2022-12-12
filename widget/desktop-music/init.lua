@@ -15,11 +15,13 @@ local function worker(args)
 	local widget_title_fg = args.widget_title_fg or beautiful.fg_normal
 
 	local forced_width = args.forced_width
+	local forced_height = args.forced_height
 
 	local final =
 		wibox.widget {
 		layout = wibox.layout.fixed.vertical,
 		forced_width = forced_width,
+		forced_height = forced_height,
 		helpers.set_widget_block {
 			widget = {
 				text = "",

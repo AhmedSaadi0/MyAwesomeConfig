@@ -140,18 +140,8 @@ theme.tooltip_fg = theme.fg_normal
 theme.tooltip_bg = theme.bg_normal
 theme.tooltip_font = theme.font
 
--- Desktop music widget
-theme.desktop_music_widget = true
-theme.desktop_music_widget_bg = "#00000000"
-theme.widget_artist_fg = "#ff006e"
-theme.widget_title_fg = theme.accent
-theme.desktop_music_widget_top = dpi(585)
-theme.desktop_music_widget_bottom = dpi(10)
-theme.desktop_music_widget_right = dpi(0)
-theme.desktop_music_widget_left = dpi(538)
-theme.desktop_music_widget_maximum_width = dpi(790)
-theme.desktop_music_widget_title_font = "JF Flat 16"
-theme.desktop_music_widget_artist_font = "JF Flat 14"
+-- Desktop widgets
+theme.light_theme_widgets = true
 
 --------------------------------
 ------------ Taglist -----------
