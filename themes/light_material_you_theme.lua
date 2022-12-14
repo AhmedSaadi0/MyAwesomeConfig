@@ -308,6 +308,8 @@ theme.qt_style_theme = "Lightly"
 theme.light_theme = "light_theme"
 theme.dark_theme = "dark_theme"
 
+theme.gtk_theme = "WhiteSur-Light-solid-alt-orange"
+
 theme.plasma_cursors = "GoogleDot-Black"
 -- theme.plasma_color = "NovaAmare.colors"
 theme.plasma_color = "MyMaterialYou.colors"

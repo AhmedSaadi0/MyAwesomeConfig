@@ -30,6 +30,7 @@ return {
 	},
 	-- List of apps to start once on start-up
 	run_on_start_up = {
+		"killall xsettingsd > /dev/null 2>&1",
 		"nm-applet -sm-disable",
 		"blueman-applet",
 		"xfce4-clipman",
@@ -52,15 +53,22 @@ return {
 		-- "picom --dbus --config " .. config_dir .. "/configuration/picom.conf",
 		-- kvantum theme
 		"kvantummanager --set " .. beautiful.kvantum_theme,
+		-- PLasma theme
 		config_dir .. "./bin/plasma-theme -c " .. config_dir .. "/themes/plasma-colors/" .. beautiful.plasma_color,
 		-- "kwriteconfig5 --file ~/.config/kcminputrc --group Mouse --key cursorTheme " .. beautiful.plasma_cursors,
 		"kcminit",
-		config_dir .. beautiful.conky_script,
-		-- Change Icons
+		config_dir .. beautiful.conky_script .. " > /dev/null 2>&1",
+		-- QT Icons
 		'sed -i "s/icon_theme=.*/icon_theme='.. beautiful.qt_icon_theme ..'/g" ~/.config/qt5ct/qt5ct.conf',
 		"sed -i 's/icon-theme:.*/icon-theme:\"" .. beautiful.qt_icon_theme .. "\"; /g' /home/ahmed/.config/rofi/config.rasi",
-		-- Change Style
-		'sed -i "s/style=.*/style='.. beautiful.qt_style_theme ..'/g" ~/.config/qt5ct/qt5ct.conf'
+		-- QT Style
+		'sed -i "s/style=.*/style='.. beautiful.qt_style_theme ..'/g" ~/.config/qt5ct/qt5ct.conf',
+		-- GTK Theme
+		[[sed -i 's/Net\/ThemeName.*/Net\/ThemeName "]] .. beautiful.gtk_theme .. [["/g' ~/.config/xsettingsd/xsettingsd.conf]],
+		'sed -i "s/gtk-theme-name=.*/gtk-theme-name='.. beautiful.gtk_theme ..'/g" ~/.config//gtk-3.0/settings.ini',
+		[[sed -i 's/Net\/IconThemeName.*/Net\/IconThemeName "]] .. beautiful.qt_icon_theme .. [["/g' ~/.config/xsettingsd/xsettingsd.conf]],
+		"sleep 5",
+		"xsettingsd",
 	},
 	-- List of binaries/shell scripts that will execute for a certain task
 	utils = {

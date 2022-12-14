@@ -51,7 +51,7 @@ local function worker(args)
         icon_font = icon_font,
         forced_width = dpi(72)
     }
-    
+
     local circles_theme =
         helpers.add_text_icon_widget {
         text = "دوائر",
@@ -79,10 +79,22 @@ local function worker(args)
         forced_width = dpi(72)
     }
 
+    local cosmic_theme =
+        helpers.add_text_icon_widget {
+        text = "فضائي",
+        icon = "",
+        text_font = text_font,
+        icon_font = icon_font,
+        forced_width = dpi(72),
+    }
+
     local detailed_widget =
         wibox.widget {
         layout = wibox.layout.manual,
-        forced_height = dpi(156),
+        forced_height = dpi(230),
+        -------------------------------------------
+        ----------------- الصف الاول -----------------
+        -------------------------------------------
         -- عربي
         {
             point = function(geo, args)
@@ -103,7 +115,6 @@ local function worker(args)
                     left = dpi(8)
                 },
                 top = dpi(8),
-                bottom = dpi(8),
                 right = dpi(8),
                 left = dpi(8)
             }
@@ -128,7 +139,6 @@ local function worker(args)
                     left = dpi(8)
                 },
                 top = dpi(8),
-                bottom = dpi(8),
                 right = dpi(8),
                 left = dpi(8)
             }
@@ -153,17 +163,21 @@ local function worker(args)
                     left = dpi(8)
                 },
                 top = dpi(8),
-                bottom = dpi(8),
                 right = dpi(8),
                 left = dpi(8)
             }
         },
-        -- جمالي
+        -------------------------------------------
+        ----------------- الصف الثاني -----------------
+        -------------------------------------------
+        ---------
+        -- جمالي --
+        ---------
         {
             point = function(geo, args)
                 return {
                     x = args.parent.width - geo.width,
-                    y = args.parent.height - geo.height
+                    y = (args.parent.height / 2 + (geo.height / 2)) - geo.height, --args.parent.height - geo.height
                 }
             end,
             layout = wibox.layout.fixed.vertical,
@@ -177,7 +191,6 @@ local function worker(args)
                     right = dpi(8),
                     left = dpi(8)
                 },
-                bottom = dpi(8),
                 right = dpi(8),
                 left = dpi(8)
             }
@@ -187,7 +200,7 @@ local function worker(args)
             point = function(geo, args)
                 return {
                     x = (args.parent.width / 2 + (geo.width / 2)) - geo.width,
-                    y = args.parent.height - geo.height
+                    y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
                 }
             end,
             layout = wibox.layout.fixed.vertical,
@@ -201,7 +214,6 @@ local function worker(args)
                     right = dpi(8),
                     left = dpi(8)
                 },
-                bottom = dpi(8),
                 right = dpi(8),
                 left = dpi(8)
             }
@@ -211,7 +223,7 @@ local function worker(args)
             point = function(geo, args)
                 return {
                     x = 0,
-                    y = args.parent.height - geo.height
+                    y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
                 }
             end,
             layout = wibox.layout.fixed.vertical,
@@ -219,6 +231,32 @@ local function worker(args)
                 widget = helpers.set_widget_block {
                     widget = light_material_you_theme,
                     id = "light_material_you_theme",
+                    shape = shape,
+                    top = dpi(8),
+                    bottom = dpi(8),
+                    right = dpi(8),
+                    left = dpi(8)
+                },
+                right = dpi(8),
+                left = dpi(8)
+            }
+        },
+        --------------------------------------------
+        ----------------- الصف الثالث -----------------
+        --------------------------------------------
+        -- فضائي
+        {
+            point = function(geo, args)
+                return {
+                    x = args.parent.width - geo.width,
+                    y = args.parent.height - geo.height
+                }
+            end,
+            layout = wibox.layout.fixed.vertical,
+            helpers.add_margin {
+                widget = helpers.set_widget_block {
+                    widget = cosmic_theme,
+                    id = "cosmic_theme",
                     shape = shape,
                     top = dpi(8),
                     bottom = dpi(8),
@@ -234,76 +272,105 @@ local function worker(args)
 
     local function set_arabic(on)
         if on then
-            islamic_theme:get_children_by_id("text_id")[1].markup  = helpers.colorize_text("عربي", selected_text_color, text_font)
-            islamic_theme:get_children_by_id("icon_id")[1].markup  = helpers.colorize_text("", selected_text_color, icon_font)
+            islamic_theme:get_children_by_id("text_id")[1].markup =
+                helpers.colorize_text("عربي", selected_text_color, text_font)
+            islamic_theme:get_children_by_id("icon_id")[1].markup =
+                helpers.colorize_text("", selected_text_color, icon_font)
             detailed_widget:get_children_by_id("arabic")[1].bg = selected_bg_color
         else
-            islamic_theme:get_children_by_id("text_id")[1].markup  = helpers.colorize_text("عربي", nil, text_font)
-            islamic_theme:get_children_by_id("icon_id")[1].markup  = helpers.colorize_text("", nil, icon_font)
+            islamic_theme:get_children_by_id("text_id")[1].markup = helpers.colorize_text("عربي", nil, text_font)
+            islamic_theme:get_children_by_id("icon_id")[1].markup = helpers.colorize_text("", nil, icon_font)
             detailed_widget:get_children_by_id("arabic")[1].bg = beautiful.bg_normal .. "88"
         end
     end
 
     local function set_dark(on)
         if on then
-            dark_theme:get_children_by_id("text_id")[1].markup  = helpers.colorize_text("مظلم", selected_text_color, text_font)
-            dark_theme:get_children_by_id("icon_id")[1].markup  = helpers.colorize_text("", selected_text_color, icon_font)
+            dark_theme:get_children_by_id("text_id")[1].markup =
+                helpers.colorize_text("مظلم", selected_text_color, text_font)
+            dark_theme:get_children_by_id("icon_id")[1].markup =
+                helpers.colorize_text("", selected_text_color, icon_font)
             detailed_widget:get_children_by_id("dark")[1].bg = selected_bg_color
         else
-            dark_theme:get_children_by_id("text_id")[1].markup  = helpers.colorize_text("مظلم", nil, text_font)
-            dark_theme:get_children_by_id("icon_id")[1].markup  = helpers.colorize_text("", nil, icon_font)
+            dark_theme:get_children_by_id("text_id")[1].markup = helpers.colorize_text("مظلم", nil, text_font)
+            dark_theme:get_children_by_id("icon_id")[1].markup = helpers.colorize_text("", nil, icon_font)
             detailed_widget:get_children_by_id("dark")[1].bg = beautiful.bg_normal .. "88"
         end
     end
 
     local function set_light(on)
         if on then
-            light_theme:get_children_by_id("text_id")[1].markup  = helpers.colorize_text("مضيء", selected_text_color, text_font)
-            light_theme:get_children_by_id("icon_id")[1].markup  = helpers.colorize_text("", selected_text_color, icon_font)
+            light_theme:get_children_by_id("text_id")[1].markup =
+                helpers.colorize_text("مضيء", selected_text_color, text_font)
+            light_theme:get_children_by_id("icon_id")[1].markup =
+                helpers.colorize_text("", selected_text_color, icon_font)
             detailed_widget:get_children_by_id("light")[1].bg = selected_bg_color
         else
-            light_theme:get_children_by_id("text_id")[1].markup  = helpers.colorize_text("مضيء", nil, text_font)
-            light_theme:get_children_by_id("icon_id")[1].markup  = helpers.colorize_text("", nil, icon_font)
+            light_theme:get_children_by_id("text_id")[1].markup = helpers.colorize_text("مضيء", nil, text_font)
+            light_theme:get_children_by_id("icon_id")[1].markup = helpers.colorize_text("", nil, icon_font)
             detailed_widget:get_children_by_id("light")[1].bg = beautiful.bg_normal .. "88"
         end
     end
 
     local function set_circle(on)
         if on then
-            circles_theme:get_children_by_id("text_id")[1].markup  = helpers.colorize_text("دوائر", selected_text_color, text_font)
-            circles_theme:get_children_by_id("icon_id")[1].markup  = helpers.colorize_text("", selected_text_color, icon_font)
+            circles_theme:get_children_by_id("text_id")[1].markup =
+                helpers.colorize_text("دوائر", selected_text_color, text_font)
+            circles_theme:get_children_by_id("icon_id")[1].markup =
+                helpers.colorize_text("", selected_text_color, icon_font)
             detailed_widget:get_children_by_id("circle")[1].bg = selected_bg_color
         else
-            circles_theme:get_children_by_id("text_id")[1].markup  = helpers.colorize_text("دوائر", nil, text_font)
-            circles_theme:get_children_by_id("icon_id")[1].markup  = helpers.colorize_text("", nil, icon_font)
+            circles_theme:get_children_by_id("text_id")[1].markup = helpers.colorize_text("دوائر", nil, text_font)
+            circles_theme:get_children_by_id("icon_id")[1].markup = helpers.colorize_text("", nil, icon_font)
             detailed_widget:get_children_by_id("circle")[1].bg = beautiful.bg_normal .. "88"
         end
     end
 
     local function set_colors(on)
         if on then
-            colors_theme:get_children_by_id("text_id")[1].markup  = helpers.colorize_text("جمالي", selected_text_color, text_font)
-            colors_theme:get_children_by_id("icon_id")[1].markup  = helpers.colorize_text("", selected_text_color, icon_font)
+            colors_theme:get_children_by_id("text_id")[1].markup =
+                helpers.colorize_text("جمالي", selected_text_color, text_font)
+            colors_theme:get_children_by_id("icon_id")[1].markup =
+                helpers.colorize_text("", selected_text_color, icon_font)
             detailed_widget:get_children_by_id("colors")[1].bg = selected_bg_color
         else
-            colors_theme:get_children_by_id("text_id")[1].markup  = helpers.colorize_text("جمالي", nil, text_font)
-            colors_theme:get_children_by_id("icon_id")[1].markup  = helpers.colorize_text("", nil, icon_font)
+            colors_theme:get_children_by_id("text_id")[1].markup = helpers.colorize_text("جمالي", nil, text_font)
+            colors_theme:get_children_by_id("icon_id")[1].markup = helpers.colorize_text("", nil, icon_font)
             detailed_widget:get_children_by_id("colors")[1].bg = beautiful.bg_normal .. "88"
         end
     end
 
     local function set_material_light(on)
         if on then
-            light_material_you_theme:get_children_by_id("text_id")[1].markup  = helpers.colorize_text("مادي", selected_text_color, text_font)
-            light_material_you_theme:get_children_by_id("icon_id")[1].markup  = helpers.colorize_text("", selected_text_color, icon_font)
+            light_material_you_theme:get_children_by_id("text_id")[1].markup =
+                helpers.colorize_text("مادي", selected_text_color, text_font)
+            light_material_you_theme:get_children_by_id("icon_id")[1].markup =
+                helpers.colorize_text("", selected_text_color, icon_font)
             detailed_widget:get_children_by_id("light_material_you_theme")[1].bg = selected_bg_color
         else
-            light_material_you_theme:get_children_by_id("text_id")[1].markup  = helpers.colorize_text("مادي", nil, text_font)
-            light_material_you_theme:get_children_by_id("icon_id")[1].markup  = helpers.colorize_text("", nil, icon_font)
+            light_material_you_theme:get_children_by_id("text_id")[1].markup =
+                helpers.colorize_text("مادي", nil, text_font)
+            light_material_you_theme:get_children_by_id("icon_id")[1].markup =
+                helpers.colorize_text("", nil, icon_font)
             detailed_widget:get_children_by_id("light_material_you_theme")[1].bg = beautiful.bg_normal .. "88"
         end
     end
 
+    local function set_cosmic(on)
+        if on then
+            cosmic_theme:get_children_by_id("text_id")[1].markup =
+                helpers.colorize_text("كوني", selected_text_color, text_font)
+            cosmic_theme:get_children_by_id("icon_id")[1].markup =
+                helpers.colorize_text("🪐", selected_text_color, icon_font)
+            detailed_widget:get_children_by_id("cosmic_theme")[1].bg = selected_bg_color
+        else
+            cosmic_theme:get_children_by_id("text_id")[1].markup =
+                helpers.colorize_text("كوني", nil, text_font)
+            cosmic_theme:get_children_by_id("icon_id")[1].markup =
+                helpers.colorize_text("🪐", nil, icon_font)
+            detailed_widget:get_children_by_id("cosmic_theme")[1].bg = beautiful.bg_normal .. "88"
+        end
+    end
 
     local check_status = function()
         awful.spawn.easy_async_with_shell(
@@ -316,6 +383,7 @@ local function worker(args)
                     set_circle(false)
                     set_colors(false)
                     set_material_light(false)
+                    set_cosmic(false)
                     selected_theme = "light_theme"
                 elseif string.find(stdout, "islamic_theme") then
                     set_light(false)
@@ -324,6 +392,7 @@ local function worker(args)
                     set_circle(false)
                     set_colors(false)
                     set_material_light(false)
+                    set_cosmic(false)
                     selected_theme = "islamic_theme"
                 elseif string.find(stdout, "dark_theme") then
                     set_light(false)
@@ -332,6 +401,7 @@ local function worker(args)
                     set_circle(false)
                     set_colors(false)
                     set_material_light(false)
+                    set_cosmic(false)
                     selected_theme = "dark_theme"
                 elseif string.find(stdout, "circles_theme") then
                     set_light(false)
@@ -340,6 +410,7 @@ local function worker(args)
                     set_circle(true)
                     set_colors(false)
                     set_material_light(false)
+                    set_cosmic(false)
                     selected_theme = "circles_theme"
                 elseif string.find(stdout, "colors_theme") then
                     set_light(false)
@@ -348,6 +419,7 @@ local function worker(args)
                     set_circle(false)
                     set_colors(true)
                     set_material_light(false)
+                    set_cosmic(false)
                     selected_theme = "colors_theme"
                 elseif string.find(stdout, "light_material_you_theme") then
                     set_light(false)
@@ -356,7 +428,17 @@ local function worker(args)
                     set_circle(false)
                     set_colors(false)
                     set_material_light(true)
+                    set_cosmic(false)
                     selected_theme = "light_material_you_theme"
+                elseif string.find(stdout, "cosmic_theme") then
+                    set_light(false)
+                    set_dark(false)
+                    set_arabic(false)
+                    set_circle(false)
+                    set_colors(false)
+                    set_material_light(false)
+                    set_cosmic(true)
+                    selected_theme = "cosmic_theme"
                 end
             end
         )
@@ -371,7 +453,7 @@ local function worker(args)
         awful.spawn.with_shell(theme_script)
         awful.spawn.with_shell("echo 'awesome.restart()' | awesome-client")
     end
-    
+
     islamic_theme:connect_signal(
         "button::press",
         function()
@@ -406,6 +488,12 @@ local function worker(args)
         "button::press",
         function()
             change_theme("light_material_you_theme")
+        end
+    )
+    cosmic_theme:connect_signal(
+        "button::press",
+        function()
+            change_theme("cosmic_theme")
         end
     )
 

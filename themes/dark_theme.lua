@@ -292,6 +292,8 @@ theme.qt_style_theme = "Lightly"
 theme.light_theme = "light_theme"
 theme.dark_theme = "dark_theme"
 
+theme.gtk_theme = "Tokyonight-Dark-B-LB"
+
 theme.plasma_cursors = "GoogleDot-Blue"
 theme.plasma_color = "SweetWithSweet.colors"
 

@@ -320,6 +320,8 @@ theme.konsole_profile = "--profile light"
 theme.qt_icon_theme = "Calm"
 theme.qt_style_theme = "Lightly"
 
+theme.gtk_theme = "WhiteSur-Light-solid-alt-orange"
+
 theme.light_theme = "light_theme"
 -- theme.dark_theme = "islamic_theme"
 -- theme.dark_theme = "pinky_theme"

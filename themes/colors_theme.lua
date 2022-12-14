@@ -378,6 +378,8 @@ theme.konsole_profile = "--profile Aesthetic"
 theme.qt_icon_theme = "NeonIcons"
 theme.qt_style_theme = "kvantum"
 
+theme.gtk_theme = "Kimi"
+
 theme.light_theme = "light_theme"
 theme.dark_theme = "dark_theme"
 

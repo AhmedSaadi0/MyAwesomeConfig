@@ -1,3 +1,3 @@
 #!/bin/bash
-killall conky &> x.log
+killall conky
 

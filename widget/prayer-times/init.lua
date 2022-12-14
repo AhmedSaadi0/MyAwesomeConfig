@@ -321,12 +321,27 @@ local function factory(args)
 
                 local h, m = "", ""
 
+                detailed_widget:get_children_by_id("fajr_widget")[1].bg = beautiful.transparent
+                detailed_widget:get_children_by_id("fajr_widget")[1].fg = beautiful.widget_fg
+
+                detailed_widget:get_children_by_id("dhuhr_widget")[1].bg = beautiful.transparent
+                detailed_widget:get_children_by_id("dhuhr_widget")[1].fg = beautiful.widget_fg
+
+                detailed_widget:get_children_by_id("asr_widget")[1].bg = beautiful.transparent
+                detailed_widget:get_children_by_id("asr_widget")[1].bg = beautiful.transparent
+                
+                detailed_widget:get_children_by_id("maghrib_widget")[1].fg = beautiful.widget_fg
+                detailed_widget:get_children_by_id("maghrib_widget")[1].fg = beautiful.widget_fg
+
+                detailed_widget:get_children_by_id("isha_widget")[1].fg = beautiful.widget_fg
+                detailed_widget:get_children_by_id("isha_widget")[1].fg = beautiful.widget_fg
+
                 -- Set name of prayer in panal
                 if current_time >= json_object.data.timings.Isha or current_time < json_object.data.timings.Fajr then
                     prayer = "الفجر"
                     number_text_widget.text = "الفجر (" .. json_object.data.timings.Fajr .. ")"
                     h, m = json_object.data.timings.Fajr:match("^(%d%d):(%d%d)$")
-                    
+
                     detailed_widget:get_children_by_id("fajr_widget")[1].bg = beautiful.accent
                     detailed_widget:get_children_by_id("fajr_widget")[1].fg = beautiful.widget_bg
                 elseif current_time >= json_object.data.timings.Maghrib and current_time < json_object.data.timings.Isha then

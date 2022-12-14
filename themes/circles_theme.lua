@@ -302,6 +302,8 @@ theme.konsole_profile = "--profile Circles"
 theme.qt_icon_theme = "FairyWren" --"Calm"
 theme.qt_style_theme = "kvantum"
 -- theme.qt_style_theme = "Lightly"
+-- theme.gtk_theme = "Flat-Remix-GTK-Blue-Dark-Solid"
+theme.gtk_theme = "Tokyonight-Dark-B-LB"
 
 theme.light_theme = "light_theme"
 theme.dark_theme = "dark_theme"

@@ -308,6 +308,8 @@ theme.dark_theme = "islamic_theme"
 theme.qt_icon_theme = "We10X"
 theme.qt_style_theme = "Lightly"
 
+theme.gtk_theme = "WhiteSur-Dark-solid-alt-orange"
+
 theme.kvantum_theme = "a-islamic"
 theme.konsole_profile = "--profile Islamic"
 
