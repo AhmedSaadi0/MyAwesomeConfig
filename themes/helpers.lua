@@ -2,6 +2,7 @@ local helpers = {}
 
 function helpers.create_gradient_color(args)
     local type = args.type or "linear"
+    
     local from = args.from or {0, 0}
     local to = args.to or {0, 200}
 

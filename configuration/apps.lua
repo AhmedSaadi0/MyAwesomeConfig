@@ -57,17 +57,16 @@ return {
 		config_dir .. "./bin/plasma-theme -c " .. config_dir .. "/themes/plasma-colors/" .. beautiful.plasma_color,
 		-- "kwriteconfig5 --file ~/.config/kcminputrc --group Mouse --key cursorTheme " .. beautiful.plasma_cursors,
 		"kcminit",
-		config_dir .. beautiful.conky_script .. " > /dev/null 2>&1",
+		config_dir .. beautiful.conky_script .." > /dev/null 2>&1",
 		-- QT Icons
 		'sed -i "s/icon_theme=.*/icon_theme='.. beautiful.qt_icon_theme ..'/g" ~/.config/qt5ct/qt5ct.conf',
-		"sed -i 's/icon-theme:.*/icon-theme:\"" .. beautiful.qt_icon_theme .. "\"; /g' /home/ahmed/.config/rofi/config.rasi",
+		"sed -i 's/icon-theme:.*/icon-theme:\"" .. beautiful.qt_icon_theme .. "\"; /g' ~/.config/rofi/config.rasi",
 		-- QT Style
 		'sed -i "s/style=.*/style='.. beautiful.qt_style_theme ..'/g" ~/.config/qt5ct/qt5ct.conf',
 		-- GTK Theme
 		[[sed -i 's/Net\/ThemeName.*/Net\/ThemeName "]] .. beautiful.gtk_theme .. [["/g' ~/.config/xsettingsd/xsettingsd.conf]],
 		'sed -i "s/gtk-theme-name=.*/gtk-theme-name='.. beautiful.gtk_theme ..'/g" ~/.config//gtk-3.0/settings.ini',
 		[[sed -i 's/Net\/IconThemeName.*/Net\/IconThemeName "]] .. beautiful.qt_icon_theme .. [["/g' ~/.config/xsettingsd/xsettingsd.conf]],
-		"sleep 5",
 		"xsettingsd",
 	},
 	-- List of binaries/shell scripts that will execute for a certain task

@@ -367,6 +367,20 @@ function helpers.create_slider_meter_widget(args)
     return cpu_meter
 end
 
+function helpers.to_12(time)
+    local h ,m = time:match("^(%d%d):(%d%d)$")
+    if tonumber(h) > 12 then
+        h = h - 12
+    end
+
+    if string.len(h) == 1 then
+        h = "0" .. h
+    end
+
+    return h .. ":" .. m
+end
+
+
 function helpers.create_gradient_color(args)
     local type = args.type or "linear"
 

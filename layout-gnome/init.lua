@@ -1,9 +1,19 @@
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
+local beautiful = require("beautiful")
 -- require("layout.top-bar")
 require("layout-gnome.top-bar")
-require("layout-gnome.desktop-widgets")
+
+if beautiful.color_theme then
+    require("layout-gnome.desktop-widgets.colors-theme")
+elseif beautiful.cosmic_theme then
+    require("layout-gnome.desktop-widgets.cosmic-theme")
+elseif beautiful.circle_theme then
+    require("layout-gnome.desktop-widgets.circles-theme")
+elseif beautiful.light_theme_widgets then
+    require("layout-gnome.desktop-widgets.light-theme")
+end
 
 require ("layout-gnome.control-center")
 

@@ -13,7 +13,7 @@ local blur_slider = require("widget.blur-slider")
 
 local blue_light = require("widget.blue-light")
 local airplane_mode = require("widget.airplane-mode")
-local bluetooth_toggle = require("widget.bluetooth-toggle")
+-- local bluetooth_toggle = require("widget.bluetooth-toggle")
 -- local nightmode_toggle = require("widget.night-mode")
 local blur_toggle = require("widget.blur-toggle")
 
@@ -123,7 +123,7 @@ local function factory(s, args)
                                 layout = wibox.layout.fixed.vertical,
                                 blue_light,
                                 airplane_mode,
-                                bluetooth_toggle,
+                                -- bluetooth_toggle,
                                 -- nightmode_toggle,
                                 blur_toggle
                             },

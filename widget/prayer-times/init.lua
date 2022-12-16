@@ -91,7 +91,7 @@ local function factory(args)
     --  POP UP Widget --
     --------------------
     local header =
-    helpers.add_text_icon_widget {
+        helpers.add_text_icon_widget {
         text = "اوقات الصلوات",
         icon = "",
         text_font = text_font,
@@ -295,11 +295,11 @@ local function factory(args)
     end
 
     function set_detailed_time(fajr_time, dhuhr_time, asr_time, maghrib_time, isha_time)
-        fajr:get_children_by_id("icon_id")[1].text = fajr_time -- "صلاة الفجر " .. fajr_time
-        dhuhr:get_children_by_id("icon_id")[1].text = dhuhr_time -- "صلاة الظهر " .. dhuhr_time
-        asr:get_children_by_id("icon_id")[1].text = asr_time -- "صلاة العصر " .. asr_time
-        maghrib:get_children_by_id("icon_id")[1].text = maghrib_time -- "صلاة المغرب " .. maghrib_time
-        isha:get_children_by_id("icon_id")[1].text = isha_time -- "صلاة العشاء " .. isha_time
+        fajr:get_children_by_id("icon_id")[1].text = helpers.to_12(fajr_time) -- "صلاة الفجر " .. fajr_time
+        dhuhr:get_children_by_id("icon_id")[1].text = helpers.to_12(dhuhr_time) -- "صلاة الظهر " .. dhuhr_time
+        asr:get_children_by_id("icon_id")[1].text = helpers.to_12(asr_time) -- "صلاة العصر " .. asr_time
+        maghrib:get_children_by_id("icon_id")[1].text = helpers.to_12(maghrib_time) -- "صلاة المغرب " .. maghrib_time
+        isha:get_children_by_id("icon_id")[1].text = helpers.to_12(isha_time)-- "صلاة العشاء " .. isha_time
     end
 
     function calculate_prayer_times()
@@ -328,12 +328,12 @@ local function factory(args)
                 detailed_widget:get_children_by_id("dhuhr_widget")[1].fg = beautiful.widget_fg
 
                 detailed_widget:get_children_by_id("asr_widget")[1].bg = beautiful.transparent
-                detailed_widget:get_children_by_id("asr_widget")[1].bg = beautiful.transparent
-                
-                detailed_widget:get_children_by_id("maghrib_widget")[1].fg = beautiful.widget_fg
+                detailed_widget:get_children_by_id("asr_widget")[1].fg = beautiful.widget_fg
+
+                detailed_widget:get_children_by_id("maghrib_widget")[1].bg = beautiful.transparent
                 detailed_widget:get_children_by_id("maghrib_widget")[1].fg = beautiful.widget_fg
 
-                detailed_widget:get_children_by_id("isha_widget")[1].fg = beautiful.widget_fg
+                detailed_widget:get_children_by_id("isha_widget")[1].bg = beautiful.transparent
                 detailed_widget:get_children_by_id("isha_widget")[1].fg = beautiful.widget_fg
 
                 -- Set name of prayer in panal
@@ -367,8 +367,9 @@ local function factory(args)
                     detailed_widget:get_children_by_id("asr_widget")[1].fg = beautiful.widget_bg
                 elseif current_time >= json_object.data.timings.Fajr and current_time < json_object.data.timings.Dhuhr then
                     prayer = "الظهر"
-                    number_text_widget.text = "الظهر (" .. json_object.data.timings.Dhuhr .. ")"
                     h, m = json_object.data.timings.Dhuhr:match("^(%d%d):(%d%d)$")
+
+                    number_text_widget.text = "الظهر (" .. h .. ":" .. m .. ")"
 
                     detailed_widget:get_children_by_id("dhuhr_widget")[1].bg = beautiful.accent
                     detailed_widget:get_children_by_id("dhuhr_widget")[1].fg = beautiful.widget_bg

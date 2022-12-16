@@ -43,7 +43,9 @@ theme.accent =
     color2 = "#ff4bde",
     color1 = "#0cdfff",
     from = {0, 0},
-    to = {100, 100}
+    to = {90, 90},
+    stops1 = 0,
+    stops2 = 0.9
 }
 local bar_color =
     helpers.create_gradient_color {
@@ -112,7 +114,12 @@ theme.net_speed_whole_color =
     from = {110, 10},
     to = {-100, 10}
 }
-theme.net_speed_icon_bg_color = theme.net_speed_color
+theme.net_speed_icon_bg_color = helpers.create_gradient_color {
+    color1 = "#55aaff",
+    color2 = "#366da3",
+    from = {80, 10},
+    to = {-30, 10}
+}
 -- theme.widget_bg
 theme.net_speed_icon_fg_color = theme.bg_normal
 theme.net_speed_text_color = theme.net_speed_icon_fg_color
@@ -197,7 +204,12 @@ theme.weather_text_color = theme.weather_icon_fg_color
 
 theme.clock_color = theme.accent
 theme.clock_whole_color = theme.clock_color
-theme.clock_icon_bg_color = "#9868e800"
+theme.clock_icon_bg_color = helpers.create_gradient_color {
+    color2 = "#d13db8",
+    color1 = "#ff4be1",
+    from = {50, 0},
+    to = {-10, 0}
+}
 theme.clock_icon_fg_color = theme.bg_normal
 theme.clock_text_color = theme.clock_icon_fg_color --"#f1dc6e"
 
@@ -366,7 +378,7 @@ theme.wallpaper = "~/.config/awesome/themes/wallpapers/zdtvq4gd6wc91.png"
 
 theme.music_back = "~/.config/awesome/themes/assets/no_music.png"
 
--- Define the icon theme for application icons. If not set then the icons
+-- Define the icon theme for application icons. If not set then theahmed/. icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 -- theme.icon_theme = nil
 theme.icons = require("themes.icons-colors")

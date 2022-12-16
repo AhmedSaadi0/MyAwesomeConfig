@@ -4,20 +4,6 @@ local dir = os.getenv('HOME') .. '/.config/awesome/themes/icons-light-red/'
 
 return {
 
-	-- Action Bar
-	web_browser 		= dir .. 'tag-list/' .. 'web-browser.svg',
-	text_editor			= dir .. 'tag-list/' .. 'text-editor.svg',
-	social				= dir .. 'tag-list/' .. 'social.svg',
-	file_manager 		= dir .. 'tag-list/' .. 'file-manager.svg',
-	multimedia 			= dir .. 'tag-list/' .. 'multimedia.svg',
-	games 				= dir .. 'tag-list/' .. 'games.svg',
-	development 		= dir .. 'tag-list/' .. 'development.svg',
-	sandbox 			= dir .. 'tag-list/' .. 'sandbox.svg',
-	terminal 			= dir .. 'tag-list/' .. 'terminal.svg',
-	graphics 			= dir .. 'tag-list/' .. 'graphics.svg',
-	menu 				= dir .. 'tag-list/' .. 'menu.svg',
-	close_small 		= dir .. 'tag-list/' .. 'close-small.svg',
-
 	-- Others/System UI
 	close 				= dir .. 'close.svg',
 	logout				= dir .. 'logout.svg',

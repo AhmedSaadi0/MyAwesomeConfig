@@ -310,7 +310,7 @@ theme.music_back = "~/.config/awesome/themes/assets/no_music.png"
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 theme.icon_theme = nil
 -- panal icons
-theme.icons = require("themes.icons-light-red")
+theme.icons = require("themes.icons-light-gradients")
 
 theme.dynamic_wallpaper_dir = "themes/light-wallpapers//"
 theme.conky_script = "/themes/conky/conky-light.sh"
@@ -320,7 +320,7 @@ theme.konsole_profile = "--profile light"
 theme.qt_icon_theme = "Calm"
 theme.qt_style_theme = "Lightly"
 
-theme.gtk_theme = "WhiteSur-Light-solid-alt-orange"
+theme.gtk_theme = "WhiteSur-Light-solid-alt-blue"
 
 theme.light_theme = "light_theme"
 -- theme.dark_theme = "islamic_theme"
