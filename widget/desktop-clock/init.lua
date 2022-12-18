@@ -8,7 +8,11 @@ local awful = require("awful")
 
 local function worker(args)
 	local forced_width = args.forced_width
-	
+
+	local line_margin_left = args.line_margin_left
+	local line_margin_right = args.line_margin_right
+	local line_forced_height = args.line_forced_height
+
 	local clock_forced_width = args.clock_forced_width or dpi(280)
 
 	local day_text_font = args.day_text_font or "JF Flat 25"
@@ -16,14 +20,15 @@ local function worker(args)
 
 	local time_now_text_font = args.day_text_font or "JF Flat 20"
 	local time_now_text_color = args.time_now_text_color or beautiful.accent
-	local time_right = args.time_right or dpi(15)
 
 	local month_name_text_font = args.month_name_text_font or "JF Flat 25"
 	local month_name_text_color = args.month_name_text_color or beautiful.accent
-	local month_left = args.month_left
 
 	local day_number_text_font = args.day_number_text_font or "JF Flat 50"
 	local day_number_text_color = args.day_number_text_color or beautiful.accent
+
+	local day_align = args.day_align or "center"
+	local day_valign = args.day_valign or "center"
 
 	local fuzzy_time_text_font = args.fuzzy_time_text_font or "JF Flat 18"
 	local fuzzy_time_icon_font = args.fuzzy_time_icon_font or "Font Awesome 5 Free Solid 12"
@@ -85,8 +90,7 @@ local function worker(args)
 					}
 				},
 				forced_width = clock_forced_width,
-				bg = beautiful.transparent,
-				right = time_right,
+				bg = beautiful.transparent
 			},
 			---------------
 			-- الفاصل الطولي --
@@ -99,7 +103,10 @@ local function worker(args)
 				shape = gears.shape.rectangle,
 				bg = beautiful.accent,
 				fg = beautiful.accent,
-				right = dpi(1)
+				right = dpi(1),
+				forced_height = line_forced_height,
+				margin_left = line_margin_left,
+				margin_right = line_margin_right
 			},
 			----------
 			-- التاريخ --
@@ -116,21 +123,19 @@ local function worker(args)
 						widget = wibox.widget.textbox
 					},
 					bg = beautiful.transparent,
-					fg = month_name_text_color,
-					left = dpi(10)
+					fg = month_name_text_color
 				},
 				helpers.set_widget_block {
 					widget = {
 						text = "",
 						font = day_number_text_font,
 						id = "day_number",
-						align = "center",
-						valign = "center",
+						align = day_align,
+						valign = day_valign,
 						widget = wibox.widget.textbox
 					},
 					bg = beautiful.transparent,
-					fg = day_number_text_color,
-					left = month_left,
+					fg = day_number_text_color
 				}
 			}
 		}
@@ -142,7 +147,6 @@ local function worker(args)
 		function(_, out)
 			-- day of week (1..7); 1 is Monday
 			local month, day, hours, minutes, week_number, month_name = out:match("^(%d%d)-(%d%d)--(%d%d):(%d%d)--(%d)(%S+)")
-			final:get_children_by_id("time_now")[1]:set_text("الساعة الان " .. hours .. ":" .. minutes)
 
 			final:get_children_by_id("day_number")[1]:set_text(day)
 
@@ -194,6 +198,11 @@ local function worker(args)
 				fuzzy_time:get_children_by_id("icon_id")[1].text = ""
 				final:get_children_by_id("date_margin_id")[1].left = dpi(120)
 			end
+
+			if tonumber(hours) > 12 then
+				hours = tonumber(hours - 12)
+			end
+			final:get_children_by_id("time_now")[1]:set_text("الساعة الان " .. hours .. ":" .. minutes)
 		end
 	)
 

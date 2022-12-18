@@ -15,7 +15,7 @@ local function worker(args)
 
 	local final =
 		wibox.widget {
-		text = "",
+		text = "`",
 		font = wisdom_text_font,
 		valign = valign,
 		align = align,
@@ -24,6 +24,13 @@ local function worker(args)
 		forced_height = forced_height,
 		widget = wibox.widget.textbox
 	}
+
+	final:connect_signal(
+		"button::press",
+		function()
+			final:set_text(words[math.random(#words)])
+		end
+	)
 
 	watch(
 		"echo 'hi'",

@@ -52,12 +52,20 @@ awful.screen.connect_for_each_screen(
             -----------
             s.music =
                 require("widget.desktop-music") {
-                widget_bg = "00000000",
+                widget_bg = "#00000000",
                 widget_title_fg = "#e06c75",
                 widget_artist_fg = "#e06c75",
                 forced_width = dpi(490),
+                title_forced_width = dpi(490),
+                artist_forced_width = dpi(490),
                 title_font = "JF Flat 20",
-                artist_font = "JF Flat 16"
+                artist_font = "JF Flat 16",
+                point = function(geo, args)
+                    return {
+                        x = args.parent.width - geo.width,
+                        y = args.parent.height - geo.height
+                    }
+                end
             }
 
             s.music_popup =
@@ -76,7 +84,7 @@ awful.screen.connect_for_each_screen(
                     margins = {
                         -- right = panel_margins,
                         top = dpi(0),
-                        bottom = dpi(240),
+                        bottom = dpi(187),
                         right = dpi(60),
                         left = dpi(0)
                     },
@@ -87,7 +95,13 @@ awful.screen.connect_for_each_screen(
             -----------
             -- Clock --
             -----------
-            s.clock = require("widget.desktop-clock") {}
+            s.clock = require("widget.desktop-clock") {
+                line_margin_right = dpi(13),
+                line_margin_left = dpi(15),
+                day_align = "left",
+                day_number_text_font = "Poiret One 46",
+
+            }
             s.clock_popup =
                 awful.popup {
                 ontop = false,

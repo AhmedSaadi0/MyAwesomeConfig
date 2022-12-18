@@ -17,33 +17,10 @@ awful.screen.connect_for_each_screen(
             s.saying =
                 require("widget.desktop-saying") {
                 wisdom_text_font = "JF Flat 15",
-                forced_width = dpi(790),
+                forced_width = dpi(500),
+                forced_height = dpi(350),
                 valign = "top"
             }
-
-            s.saying_popup =
-                awful.popup {
-                ontop = false,
-                visible = true,
-                bg = "#00000000",
-                type = "desktop",
-                forced_width = dpi(790),
-                offset = {y = 10},
-                fg = beautiful.accent,
-                widget = s.saying
-            }
-            awful.placement.top(
-                s.saying_popup,
-                {
-                    margins = {
-                        top = dpi(585),
-                        bottom = dpi(0),
-                        right = dpi(55),
-                        left = dpi(0)
-                    },
-                    parent = s
-                }
-            )
 
             -----------
             -- Music --
@@ -53,37 +30,86 @@ awful.screen.connect_for_each_screen(
                 widget_bg = "#00000000",
                 widget_title_fg = beautiful.accent,
                 widget_artist_fg = beautiful.accent,
-                forced_width = dpi(790),
-                title_forced_width = dpi(790),
-                artist_forced_width = dpi(790),
-                forced_height = dpi(200),
+                forced_width = dpi(500),
+                title_forced_width = dpi(550),
+                artist_forced_width = dpi(550),
+                forced_height = dpi(70),
                 title_font = "JF Flat 20",
                 artist_font = "JF Flat 16",
                 point = function(geo, args)
                     return {
-                        x = 0,
-                        y = args.parent.height - geo.height
+                        x = args.parent.width - geo.width,
+                        y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
                     }
                 end
             }
 
-            s.music_popup =
+            s.final =
+                wibox.widget {
+                layout = wibox.layout.fixed.vertical,
+                ----------------
+                -- الفاصل العرضي --
+                ----------------
+                helpers.set_widget_block {
+                    widget = {
+                        text = "",
+                        widget = wibox.widget.textbox
+                    },
+                    shape = gears.shape.rectangle,
+                    bg = beautiful.accent,
+                    fg = beautiful.accent,
+                    top = dpi(1)
+                },
+                ------------
+                -- الموسيقى --
+                ------------
+                helpers.set_widget_block {
+                    widget = s.music,
+                    bg = "#00000000",
+                    bottom = dpi(10),
+                    top = dpi(10)
+                },
+                ----------------
+                -- الفاصل العرضي --
+                ----------------
+                helpers.set_widget_block {
+                    widget = {
+                        text = "",
+                        widget = wibox.widget.textbox
+                    },
+                    shape = gears.shape.rectangle,
+                    bg = beautiful.accent,
+                    fg = beautiful.accent,
+                    top = dpi(1)
+                },
+                ----------
+                -- الحكم --
+                ----------
+                helpers.set_widget_block {
+                    widget = s.saying,
+                    bg = "#00000000",
+                    fg = beautiful.accent,
+                    top = dpi(10)
+                }
+            }
+
+            s.popup =
                 awful.popup {
                 ontop = false,
                 visible = true,
                 bg = beautiful.transparent,
                 type = "desktop",
                 offset = {y = 10},
-                widget = s.music
+                widget = s.final
             }
-            awful.placement.top(
-                s.music_popup,
+            awful.placement.bottom(
+                s.popup,
                 {
                     margins = {
                         -- right = panel_margins,
-                        top = dpi(370),
-                        bottom = dpi(0),
-                        right = dpi(55),
+                        top = dpi(0),
+                        bottom = 0,
+                        right = 0,
                         left = dpi(0)
                     },
                     parent = s
@@ -122,10 +148,10 @@ awful.screen.connect_for_each_screen(
                 {
                     margins = {
                         top = dpi(0),
-                        bottom = dpi(220),
+                        bottom = dpi(105),
                         right = dpi(0),
                         -- left = dpi(1000)
-                        left = dpi(0)
+                        left = dpi(160)
                     },
                     parent = s
                 }

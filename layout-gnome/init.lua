@@ -13,6 +13,8 @@ elseif beautiful.circle_theme then
     require("layout-gnome.desktop-widgets.circles-theme")
 elseif beautiful.light_theme_widgets then
     require("layout-gnome.desktop-widgets.light-theme")
+elseif beautiful.dark_theme_widgets then
+    require("layout-gnome.desktop-widgets.dark-theme")
 end
 
 require ("layout-gnome.control-center")

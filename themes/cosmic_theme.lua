@@ -281,7 +281,7 @@ theme.dark_theme = "islamic_theme"
 theme.qt_icon_theme = "We10X"
 theme.qt_style_theme = "Lightly"
 
-theme.gtk_theme = "WhiteSur-Dark-solid-alt-orange"
+theme.gtk_theme = "WhiteSur-Dark-solid-alt-yellow"
 
 theme.kvantum_theme = "Glorious-dark"
 theme.konsole_profile = "--profile Cosmic"

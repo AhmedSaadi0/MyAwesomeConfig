@@ -209,24 +209,24 @@ awful.screen.connect_for_each_screen(
                 widget = wibox.widget.systray
             }
 
-            s.bat = require("widget.battery.init")()
-
             s.temp =
                 require("widget.temp") {
                 tooltip_border_color = beautiful.cpu_temp_color
                 -- tooltip_bg = beautiful.cpu_temp_color,
                 -- tooltip_fg = beautiful.cpu_temp_icon_fg_color,
             }
+
+            s.prayer_times =
+                require("widget.prayer-times") {
+                widget_bg = beautiful.weather_widget_bg_color or beautiful.weather_color,
+                widget_fg = beautiful.weather_widget_text_color or beautiful.weather_text_color
+                -- city = "Cairo",
+            }
         end
 
         s.tray_toggler = require("widget.tray-toggle")
 
-        s.prayer_times =
-            require("widget.prayer-times") {
-            widget_bg = beautiful.weather_widget_bg_color or beautiful.weather_color,
-            widget_fg = beautiful.weather_widget_text_color or beautiful.weather_text_color
-            -- city = "Cairo",
-        }
+        s.bat = require("widget.battery.init")()
 
         s.cpu =
             require("widget.cpu")(

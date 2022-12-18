@@ -13,14 +13,15 @@ awful.screen.connect_for_each_screen(
             --------------------------------
             s.clock =
                 require("widget.desktop-clock") {
-                month_left = dpi(65),
-                time_right = dpi(10)
+                line_margin_right = dpi(40),
+                line_margin_left = dpi(10),
+                day_align = "right"
             }
 
             s.saying =
                 require("widget.desktop-saying") {
                 wisdom_text_font = "JF Flat 15",
-                forced_width = dpi(750)
+                forced_width = dpi(700)
             }
 
             s.music =
@@ -38,7 +39,8 @@ awful.screen.connect_for_each_screen(
                     from = {500, 20},
                     to = {0, 0}
                 },
-                forced_width = dpi(570),
+                forced_width = dpi(550),
+                forced_height = dpi(100),
                 title_font = "JF Flat 16",
                 artist_font = "JF Flat 14"
             }
@@ -75,7 +77,6 @@ awful.screen.connect_for_each_screen(
                     bg = beautiful.transparent,
                     left = dpi(35),
                     right = dpi(10),
-                    top = dpi(30)
                 },
                 ----------------
                 -- الفاصل العرضي --

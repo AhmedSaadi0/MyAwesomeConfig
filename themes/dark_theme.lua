@@ -111,7 +111,7 @@ theme.tooltip_fg = theme.fg_normal
 theme.tooltip_bg = theme.bg_normal
 
 -- Desktop music widget
-theme.desktop_music_widget = true
+theme.dark_theme_widgets = true
 theme.desktop_music_widget_bg = "#00000000"
 theme.widget_artist_fg = "#fedb41"
 theme.widget_title_fg = theme.accent
