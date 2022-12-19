@@ -78,8 +78,8 @@ awful.screen.connect_for_each_screen(
                         widget = wibox.widget.textbox
                     },
                     shape = gears.shape.rectangle,
-                    bg = beautiful.accent,
-                    fg = beautiful.accent,
+                    bg = "#edcc3d",
+                    fg = "#edcc3d",
                     top = dpi(1)
                 },
                 ----------
@@ -88,7 +88,7 @@ awful.screen.connect_for_each_screen(
                 helpers.set_widget_block {
                     widget = s.saying,
                     bg = "#00000000",
-                    fg = beautiful.accent,
+                    fg = "#edcc3d",
                     top = dpi(10)
                 }
             }

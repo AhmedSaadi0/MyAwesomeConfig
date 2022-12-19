@@ -13,7 +13,7 @@ local function worker(args)
 	local widget_bg = args.widget_bg or beautiful.widget_bg
 	local widget_artist_fg = args.widget_artist_fg or beautiful.fg_normal
 	local widget_title_fg = args.widget_title_fg or beautiful.fg_normal
-	
+
 	local forced_width = args.forced_width
 	local forced_height = args.forced_height or dpi(70)
 
@@ -55,7 +55,7 @@ local function worker(args)
 						font = title_font,
 						align = title_align,
 						valign = title_valign,
-						id = "title",
+						id = "music_title",
 						bg = widget_title_fg,
 						widget = wibox.widget.textbox
 					}
@@ -83,12 +83,12 @@ local function worker(args)
 	}
 
 	local function update_widget(title, artist)
-		final:get_children_by_id("title")[1].text = ""
-		final:get_children_by_id("title")[1].text = "لا يوجد عنوان"
+		final:get_children_by_id("music_title")[1].text = ""
+		final:get_children_by_id("music_title")[1].text = "لا يوجد عنوان"
 		if string.gsub(title, "^%s*(.-)%s*$", "%1") == nil or string.gsub(title, "^%s*(.-)%s*$", "%1") == "" then
-			final:get_children_by_id("title")[1].text = "لا يوجد عنوان"
+			final:get_children_by_id("music_title")[1].text = "لا يوجد عنوان"
 		else
-			final:get_children_by_id("title")[1].text = string.gsub(title, "^%s*(.-)%s*$", "%1")
+			final:get_children_by_id("music_title")[1].text = string.gsub(title, "^%s*(.-)%s*$", "%1")
 		end
 
 		if string.gsub(artist, "^%s*(.-)%s*$", "%1") == nil or string.gsub(artist, "^%s*(.-)%s*$", "%1") == "" then
@@ -97,6 +97,23 @@ local function worker(args)
 			final:get_children_by_id("artist")[1].text = string.gsub(artist, "^%s*(.-)%s*$", "%1")
 		end
 	end
+
+	final:connect_signal(
+		"button::press",
+		function()
+			awful.spawn.easy_async_with_shell(
+				"",
+				function(stdout)
+					if string.find(string.gsub(stdout, "^%s*(.-)%s*$", "%1"), "No player could handle this command") or stdout == "" then
+						update_widget("", "")
+					else
+						local result = helpers.split(stdout, ";;")
+						update_widget(result[1], result[2])
+					end
+				end
+			)
+		end
+	)
 
 	watch(
 		"playerctl metadata --format '{{title}} ;; {{artist}}'",

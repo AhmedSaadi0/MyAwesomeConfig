@@ -6,11 +6,13 @@ local watch = awful.widget.watch
 local gears = require("gears")
 local dpi = beautiful.xresources.apply_dpi
 local json = require("library.json")
+local naughty = require("naughty")
 
 local weather_json = ""
 
 local sun_icons = require("widget.wttr-weather.sun-icons")
 local moon_icons = require("widget.wttr-weather.moon-icons")
+local cold_weather_notified = false
 
 local function factory(args)
     local city = args.city or beautiful.city or "Sanaa"
@@ -529,7 +531,7 @@ local function factory(args)
     watch(
         "curl ar.wttr.in/'" .. city .. "?format=j1'",
         -- "cat w.txt",
-        900,
+        3600,
         function(_, stdout)
             if stdout == "" then
                 number_text_widget.text = "خدمة الطقس غير متوفرة"
@@ -588,11 +590,17 @@ local function factory(args)
             )
 
             if tonumber(weather_json.current_condition[1].temp_C) < 15 then
-                weather_widget:get_children_by_id("widget_id")[1].bg = beautiful.weather_cold_color or beautiful.volume_widget_whole_color or beautiful.transparent
-            elseif tonumber(weather_json.current_condition[1].temp_C) >= 15 and tonumber(weather_json.current_condition[1].temp_C) <= 25 then
-                weather_widget:get_children_by_id("widget_id")[1].bg = beautiful.weather_nice_color or beautiful.volume_widget_whole_color or beautiful.transparent
+                weather_widget:get_children_by_id("widget_id")[1].bg =
+                    beautiful.weather_cold_color or beautiful.volume_widget_whole_color or beautiful.transparent
+            elseif
+                tonumber(weather_json.current_condition[1].temp_C) >= 15 and
+                    tonumber(weather_json.current_condition[1].temp_C) <= 25
+            then
+                weather_widget:get_children_by_id("widget_id")[1].bg =
+                    beautiful.weather_nice_color or beautiful.volume_widget_whole_color or beautiful.transparent
             elseif tonumber(weather_json.current_condition[1].temp_C) > 25 then
-                weather_widget:get_children_by_id("widget_id")[1].bg = beautiful.weather_hot_color or beautiful.volume_widget_whole_color or beautiful.transparent
+                weather_widget:get_children_by_id("widget_id")[1].bg =
+                    beautiful.weather_hot_color or beautiful.volume_widget_whole_color or beautiful.transparent
             end
 
             -- mouse::enter
@@ -938,6 +946,20 @@ local function factory(args)
             after_tomorrow_4:get_children_by_id("h_l_temperature_id")[1]:set_text(
                 "°" .. weather_json.weather[3].maxtempC .. "/°" .. weather_json.weather[3].mintempC
             )
+
+            if tonumber(weather_json.weather[1].mintempC) < 7 and not cold_weather_notified then
+                naughty.notification(
+                    {
+                        app_name = "الطقس",
+                        title = "<span font='" .. beautiful.title_font .. "' > طقس بارد! 😓</span> ",
+                        font = beautiful.title_font,
+                        message = "درجة حرارة الطقس الصغرى اليوم " .. weather_json.weather[1].mintempC .. "°",
+                        timeout = 20,
+                        icon = os.getenv('HOME') .. "/.config/awesome/widget/wttr-weather/sunny.png"
+                    }
+                )
+                cold_weather_notified = true
+            end
         end
     )
 

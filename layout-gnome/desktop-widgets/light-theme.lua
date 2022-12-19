@@ -18,6 +18,7 @@ awful.screen.connect_for_each_screen(
                 require("widget.desktop-saying") {
                 wisdom_text_font = "JF Flat 15",
                 forced_width = dpi(790),
+                forced_height = dpi(350),
                 valign = "top"
             }
 
