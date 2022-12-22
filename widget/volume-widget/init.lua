@@ -25,7 +25,9 @@ local volume_slider =
 
 local music_widget = require("widget.music") {}
 
-local function worker(args)
+local worker = function (args)
+    local screen = args.screen or screen.primary
+
     local text_font = args.font or beautiful.uifont
     local icon_font = args.font or beautiful.iconfont
 
@@ -143,6 +145,7 @@ local function worker(args)
         ontop = true,
         visible = false,
         shape = shape,
+        screen = screen,
         border_width = border_width,
         border_color = border_color,
         maximum_width = 320,
@@ -150,16 +153,6 @@ local function worker(args)
         widget = detailed_widget
     }
 
-    awful.placement.top_left(
-        popup,
-        {
-            margins = {
-                -- right = panel_margins,
-                top = dpi(42),
-                left = dpi(100)
-            }
-        }
-    )
 
     sound_settings:connect_signal(
         "button::press",
@@ -179,11 +172,23 @@ local function worker(args)
     awesome.connect_signal(
         "widget::open_music",
         function(c)
-            if popup.visible then
-                popup.visible = not popup.visible
-            else
-                popup:move_next_to(mouse.current_widget_geometry)
-            end
+            popup.visible = not popup.visible
+
+            awful.placement.top_left(
+                popup,
+                {
+                    margins = {
+                        -- right = panel_margins,
+                        top = dpi(42),
+                        left = dpi(250)
+                    },
+                    parent = awful.screen.focused()
+                }
+            )
+            -- if popup.visible then
+            -- else
+            --     popup:move_next_to(mouse.current_widget_geometry)
+            -- end
         end
     )
 

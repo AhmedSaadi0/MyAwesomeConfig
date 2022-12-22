@@ -47,9 +47,10 @@ local function worker(args)
 				widget = {
 					layout = wibox.container.scroll.horizontal,
 					-- max_size = 100,
-					fps = 60,
+					-- fps = 60,
 					step_function = wibox.container.scroll.step_functions.waiting_nonlinear_back_and_forth,
 					speed = 100,
+					id = "title_scroll",
 					{
 						text = "",
 						font = title_font,
@@ -83,6 +84,8 @@ local function worker(args)
 	}
 
 	local function update_widget(title, artist)
+		final:get_children_by_id("title_scroll")[1]:pause()
+
 		final:get_children_by_id("music_title")[1].text = ""
 		final:get_children_by_id("music_title")[1].text = "لا يوجد عنوان"
 		if string.gsub(title, "^%s*(.-)%s*$", "%1") == nil or string.gsub(title, "^%s*(.-)%s*$", "%1") == "" then
@@ -96,14 +99,19 @@ local function worker(args)
 		else
 			final:get_children_by_id("artist")[1].text = string.gsub(artist, "^%s*(.-)%s*$", "%1")
 		end
+
+		final:get_children_by_id("title_scroll")[1]:continue()
 	end
 
 	final:connect_signal(
 		"button::press",
 		function()
 			awful.spawn.easy_async_with_shell(
-				"",
+				"playerctl metadata --format '{{title}} ;; {{artist}}'",
 				function(stdout)
+					final:get_children_by_id("title_scroll")[1]:pause()
+					final:get_children_by_id("music_title")[1].text = ""
+					final:get_children_by_id("music_title")[1].text = "لا يوجد عنوان"
 					if string.find(string.gsub(stdout, "^%s*(.-)%s*$", "%1"), "No player could handle this command") or stdout == "" then
 						update_widget("", "")
 					else

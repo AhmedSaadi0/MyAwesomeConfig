@@ -9,12 +9,18 @@ local watch = awful.widget.watch
 local function worker(args)
 	local full_shape = args.shape or helpers.rrect(beautiful.groups_radius)
 
-	local text_font = args.font or beautiful.uifont
-	local icon_font = args.font or beautiful.iconfont
+	local text_font = args.text_font or beautiful.uifont
+	local artist_font = args.artist_font
+	local icon_font = args.icon_font or beautiful.iconfont
 	local widget_bg = args.widget_bg or beautiful.widget_bg
 	local widget_fg = args.widget_fg or beautiful.fg_normal
 	local icon_bg = args.icon_bg
 	local icon_fg = args.icon_fg
+
+	local forced_width = args.forced_width
+	local forced_height = args.forced_height or dpi(150)
+
+	local margin_top = args.margin_top
 
 	local bar_color = args.bar_color or beautiful.vol_bar_color
 	local bar_active_color = args.bar_active_color or beautiful.vol_bar_active_color
@@ -31,9 +37,11 @@ local function worker(args)
 		widget_bg = widget_bg,
 		widget_fg = widget_fg,
 		icon_bg = icon_bg,
+		artist_font = artist_font,
 		icon_fg = icon_fg,
-		bar_color=bar_color,
-		bar_active_color=bar_active_color,
+		margin_top = margin_top,
+		bar_color = bar_color,
+		bar_active_color = bar_active_color,
 		inner_image_shape = inner_image_shape,
 		buttons_group_shape = buttons_group_shape,
 		buttons_group_bg_color = buttons_group_bg_color,
@@ -45,7 +53,9 @@ local function worker(args)
 		helpers.set_widget_block {
 		widget = music,
 		shape = full_shape,
-		forced_height = dpi(150)
+		bg = widget_bg,
+		forced_height = forced_height,
+		forced_width = forced_width
 	}
 
 	local function set_no_playing()
@@ -92,7 +102,10 @@ local function worker(args)
 	)
 
 	local function update_music_widget(title, artist, status, position, length, art_url)
-		local image_url =  string.gsub(art_url:gsub("file://", ""), "^%s*(.-)%s*$", "%1")
+		music:get_children_by_id("title_scroll_id")[1]:pause()
+		music:get_children_by_id("artist_scroll_id")[1]:pause()
+
+		local image_url = string.gsub(art_url:gsub("file://", ""), "^%s*(.-)%s*$", "%1")
 
 		if string.gsub(title, "^%s*(.-)%s*$", "%1") == nil or string.gsub(title, "^%s*(.-)%s*$", "%1") == "" then
 			music:get_children_by_id("title_id")[1].text = "لا يوجد عنوان"
@@ -108,7 +121,7 @@ local function worker(args)
 
 		music:get_children_by_id("progress")[1].maximum = tonumber(length)
 		music:get_children_by_id("progress")[1].value = tonumber(position)
-		
+
 		if image_url == "" then
 			music:get_children_by_id("image_id")[1].image = beautiful.music_back
 		else
@@ -116,6 +129,9 @@ local function worker(args)
 		end
 
 		update_status(status)
+
+		music:get_children_by_id("title_scroll_id")[1]:continue()
+		music:get_children_by_id("artist_scroll_id")[1]:continue()
 	end
 
 	music:get_children_by_id("play_button_id")[1]:connect_signal(

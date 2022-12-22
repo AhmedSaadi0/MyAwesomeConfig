@@ -286,8 +286,8 @@ theme.conky_script = "/themes/conky/conky-dark.sh"
 
 theme.kvantum_theme = "a-dark"
 theme.konsole_profile = "--profile Sweet"
-theme.qt_icon_theme = "neon-icons-master"
-theme.qt_style_theme = "Lightly"
+theme.qt_icon_theme = "Oxy L3 loki" --"neon-icons-master"
+theme.qt_style_theme = "kvantum"--"Lightly"
 
 theme.light_theme = "light_theme"
 theme.dark_theme = "dark_theme"

@@ -50,6 +50,19 @@ awful.screen.connect_for_each_screen(
             -- Music --
             -----------
             s.music =
+                require("widget.music") {
+                widget_fg = beautiful.accent,
+                text_font = "JF Flat 15",
+                artist_font = "JF Flat 12",
+                widget_bg = "#50407800",
+                bar_active_color = "#717bf0",
+                margin_top=dpi(20),
+                forced_width = dpi(816),
+                forced_height = dpi(160),
+                bar_color = "#cbc1f0"
+            }
+
+            s.music2 =
                 require("widget.desktop-music") {
                 widget_bg = "#00000000",
                 widget_title_fg = beautiful.accent,
@@ -82,7 +95,7 @@ awful.screen.connect_for_each_screen(
                 {
                     margins = {
                         -- right = panel_margins,
-                        top = dpi(370),
+                        top = dpi(426),
                         bottom = dpi(0),
                         right = dpi(55),
                         left = dpi(0)

@@ -246,7 +246,7 @@ awful.screen.connect_for_each_screen(
         s.brightness = require("widget.brightness-widget") {}
         s.volume = require("widget.volume-widget.init") {}
 
-        s.left_menu = require("layout-gnome.left_menu")(s, {})
+        s.left_menu = require("layout-gnome.left_menu") {}
 
         s.mywibox:setup {
             layout = wibox.layout.manual,

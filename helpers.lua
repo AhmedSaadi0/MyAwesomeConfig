@@ -595,8 +595,11 @@ function helpers.create_weather_detailed(args)
 end
 
 function helpers.create_music_widget(args)
-    local text_font = args.font or beautiful.uifont
-    local icon_font = args.font or beautiful.iconfont
+    local text_font = args.text_font or beautiful.uifont
+    local artist_font = args.artist_font or text_font:sub(1, -3) .. " 9"
+    local icon_font = args.icon_font or beautiful.iconfont
+
+    local margin_top = args.margin_top or dpi(0)
 
     local widget_bg = args.widget_bg or beautiful.widget_bg
     local widget_fg = args.widget_fg or beautiful.fg_normal
@@ -680,9 +683,10 @@ function helpers.create_music_widget(args)
                         widget = {
                             layout = wibox.container.scroll.horizontal,
                             -- max_size = 100,
-                            -- fps = 60,
+                            fps = 60,
                             step_function = wibox.container.scroll.step_functions.waiting_nonlinear_back_and_forth,
                             speed = 100,
+                            id = "title_scroll_id",
                             {
                                 id = "title_id",
                                 text = "لا توجد موسيقى قيد التشغيل",
@@ -701,13 +705,14 @@ function helpers.create_music_widget(args)
                             layout = wibox.container.scroll.horizontal,
                             -- max_size = 100,
                             -- forced_height = dpi(5),
-                            -- fps = 60,
+                            fps = 60,
                             step_function = wibox.container.scroll.step_functions.waiting_nonlinear_back_and_forth,
                             speed = 100,
+                            id = "artist_scroll_id",
                             {
                                 id = "artist_id",
                                 text = "لا يوجد فنان",
-                                font = text_font:sub(1, -3) .. " 9", --"JF Flat 9",
+                                font = artist_font, --"JF Flat 9",
                                 align = "left",
                                 valign = "left",
                                 widget = wibox.widget.textbox
@@ -826,7 +831,8 @@ function helpers.create_music_widget(args)
             bg = widget_bg,
             left = dpi(12),
             right = dpi(12),
-            bottom = dpi(6)
+            bottom = dpi(6),
+            top = margin_top,
         }
     }
 

@@ -19,7 +19,9 @@ local blur_toggle = require("widget.blur-toggle")
 
 local theme_switcher = require("widget.theme-switcher.init") {}
 
-local function factory(s, args)
+local function factory(args)
+    local screen = args.screen or screen.primary
+
     local text_font = args.font or beautiful.uifont
     local icon_font = args.font or beautiful.iconfont
 
@@ -221,6 +223,7 @@ local function factory(s, args)
         ontop = true,
         visible = false,
         shape = shape,
+        screen = screen,
         border_width = border_width,
         border_color = border_color,
         maximum_width = 320,
@@ -229,20 +232,19 @@ local function factory(s, args)
         widget = detailed_widget
     }
 
-    awful.placement.top_left(
-        popup,
-        {
-            margins = {
-                top = dpi(42),
-                left = dpi(10)
-            },
-            parent = s
-        }
-    )
-
     local show_popup = function()
-        popup:move_next_to()
         icon.text = ""
+        awful.placement.top_left(
+            popup,
+            {
+                margins = {
+                    top = dpi(42),
+                    left = dpi(10)
+                },
+                parent = awful.screen.focused()
+            }
+        )
+        popup.visible = true
     end
 
     local hide_popup = function()

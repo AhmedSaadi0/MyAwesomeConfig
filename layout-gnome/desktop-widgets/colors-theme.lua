@@ -25,6 +25,21 @@ awful.screen.connect_for_each_screen(
             }
 
             s.music =
+                require("widget.music") {
+                widget_fg = helpers.create_gradient_color {
+                    color2 = "#ff4bde",
+                    color1 = "#0cdfff",
+                    from = {500, 20},
+                    to = {0, 0}
+                },
+                text_font = "JF Flat 15",
+                artist_font = "JF Flat 12",
+                widget_bg = "#50407800",
+                bar_active_color = "#10ddff",
+                margin_top=dpi(10),
+                bar_color = "#10ddff55"
+            }
+            s.music2 =
                 require("widget.desktop-music") {
                 widget_bg = "00000000",
                 widget_artist_fg = helpers.create_gradient_color {
@@ -77,6 +92,7 @@ awful.screen.connect_for_each_screen(
                     bg = beautiful.transparent,
                     left = dpi(35),
                     right = dpi(10),
+                    forced_width = dpi(550),
                 },
                 ----------------
                 -- الفاصل العرضي --

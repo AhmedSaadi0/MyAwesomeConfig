@@ -560,7 +560,7 @@ local function factory(args)
 
             icon.markup = helpers.colorize_text(w_icon, beautiful.weather_icon_fg_color, icon_font)
 
-            number_text_widget.text = weather_json.current_condition[1].temp_C .. "°C - " .. lang_ar
+            number_text_widget.text = "(" .. weather_json.weather[1].avgtempC .. ") " .. weather_json.current_condition[1].temp_C .. "°C - ".. lang_ar
 
             -------------------------------------
             -- Today Weather 4 defferent times --
@@ -569,38 +569,19 @@ local function factory(args)
             today_1:get_children_by_id("temperature_id")[1]:set_text("°" .. weather_json.current_condition[1].temp_C)
             today_1:get_children_by_id("sky_status_id")[1]:set_text(weather_json.current_condition[1].lang_ar[1].value)
             today_1:get_children_by_id("weather_icon_id")[1]:set_text(w_icon)
-            today_1:get_children_by_id("temperature_time_id")[1]:set_text(
-                weather_json.current_condition[1].observation_time
-            )
-            today_1:get_children_by_id("moonrise_id")[1]:set_text(
-                " " ..
-                    weather_json.weather[1].astronomy[1].moonrise ..
-                        " - " .. weather_json.weather[1].astronomy[1].moonset
-            )
-            today_1:get_children_by_id("sunrise_id")[1]:set_text(
-                " " ..
-                    weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset
-            )
-            today_1:get_children_by_id("temperature_date_id")[1]:set_text(
-                " " .. os.date("%A", os.time {year = year, month = month, day = day}) .. " | " .. month .. "/" .. day
-            )
+            today_1:get_children_by_id("temperature_time_id")[1]:set_text(weather_json.current_condition[1].observation_time)
+            today_1:get_children_by_id("moonrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].moonrise .. " - " .. weather_json.weather[1].astronomy[1].moonset)
+            today_1:get_children_by_id("sunrise_id")[1]:set_text(" " .. weather_json.weather[1].astronomy[1].sunrise .. " - " .. weather_json.weather[1].astronomy[1].sunset)
+            today_1:get_children_by_id("temperature_date_id")[1]:set_text(" " .. os.date("%A", os.time {year = year, month = month, day = day}) .. " | " .. month .. "/" .. day)
             today_1:get_children_by_id("temperature_city_id")[1]:set_text(city)
-            today_1:get_children_by_id("h_l_temperature_id")[1]:set_text(
-                "°" .. weather_json.weather[1].maxtempC .. "/°" .. weather_json.weather[1].mintempC
-            )
+            today_1:get_children_by_id("h_l_temperature_id")[1]:set_text("°" .. weather_json.weather[1].maxtempC .. "/°" .. weather_json.weather[1].mintempC)
 
-            if tonumber(weather_json.current_condition[1].temp_C) < 15 then
-                weather_widget:get_children_by_id("widget_id")[1].bg =
-                    beautiful.weather_cold_color or beautiful.volume_widget_whole_color or beautiful.transparent
-            elseif
-                tonumber(weather_json.current_condition[1].temp_C) >= 15 and
-                    tonumber(weather_json.current_condition[1].temp_C) <= 25
-            then
-                weather_widget:get_children_by_id("widget_id")[1].bg =
-                    beautiful.weather_nice_color or beautiful.volume_widget_whole_color or beautiful.transparent
-            elseif tonumber(weather_json.current_condition[1].temp_C) > 25 then
-                weather_widget:get_children_by_id("widget_id")[1].bg =
-                    beautiful.weather_hot_color or beautiful.volume_widget_whole_color or beautiful.transparent
+            if tonumber(weather_json.weather[1].avgtempC) < 15 then
+                weather_widget:get_children_by_id("widget_id")[1].bg = beautiful.weather_cold_color or beautiful.volume_widget_whole_color or beautiful.transparent
+            elseif tonumber(weather_json.weather[1].avgtempC) >= 15 and tonumber(weather_json.weather[1].avgtempC) <= 25 then
+                weather_widget:get_children_by_id("widget_id")[1].bg = beautiful.weather_nice_color or beautiful.volume_widget_whole_color or beautiful.transparent
+            elseif tonumber(weather_json.weather[1].avgtempC) > 25 then
+                weather_widget:get_children_by_id("widget_id")[1].bg = beautiful.weather_hot_color or beautiful.volume_widget_whole_color or beautiful.transparent
             end
 
             -- mouse::enter

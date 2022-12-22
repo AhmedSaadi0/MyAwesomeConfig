@@ -1,5 +1,5 @@
 [%General]
-author=Ahmed Alsaadi, based on Eliver Lara
+author=Eliver Lara
 comment=A dark and modern theme for Kvantum. 
 x11drag=menubar_and_primary_toolbar
 alt_mnemonic=true
@@ -84,8 +84,8 @@ light.color=#0C0E15
 mid.light.color=#0C0E15
 dark.color=#0C0E15
 mid.color=#0C0E15
-highlight.color=#c50ed2
-inactive.highlight.color=#654ea3
+highlight.color=#f9d740
+inactive.highlight.color=#79671f
 text.color=#aaaaac
 window.text.color=#aaaaac
 button.text.color=#aaaaac

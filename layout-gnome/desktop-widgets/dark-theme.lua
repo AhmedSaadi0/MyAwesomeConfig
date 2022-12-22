@@ -18,13 +18,24 @@ awful.screen.connect_for_each_screen(
                 require("widget.desktop-saying") {
                 wisdom_text_font = "JF Flat 15",
                 forced_width = dpi(500),
-                forced_height = dpi(350),
+                forced_height = dpi(300),
                 valign = "top"
             }
 
             -----------
             -- Music --
             -----------
+            s.music2 =
+                require("widget.music") {
+                widget_fg = beautiful.accent,
+                widget_bg = "#1c1d29",
+                text_font = "JF Flat 15",
+                artist_font = "JF Flat 12",
+                margin_top=dpi(15),
+                forced_height = dpi(160),
+                bar_active_color = "#edcc3d",
+                bar_color = "#edcc3d55"
+            }
             s.music =
                 require("widget.desktop-music") {
                 widget_bg = "#00000000",
@@ -34,7 +45,7 @@ awful.screen.connect_for_each_screen(
                 title_forced_width = dpi(550),
                 artist_forced_width = dpi(550),
                 forced_height = dpi(70),
-                title_font = "JF Flat 20",
+                title_font = "VIP Rawy Regular 20",
                 artist_font = "JF Flat 16",
                 point = function(geo, args)
                     return {
@@ -47,28 +58,7 @@ awful.screen.connect_for_each_screen(
             s.final =
                 wibox.widget {
                 layout = wibox.layout.fixed.vertical,
-                ----------------
-                -- الفاصل العرضي --
-                ----------------
-                helpers.set_widget_block {
-                    widget = {
-                        text = "",
-                        widget = wibox.widget.textbox
-                    },
-                    shape = gears.shape.rectangle,
-                    bg = beautiful.accent,
-                    fg = beautiful.accent,
-                    top = dpi(1)
-                },
-                ------------
-                -- الموسيقى --
-                ------------
-                helpers.set_widget_block {
-                    widget = s.music,
-                    bg = "#00000000",
-                    bottom = dpi(10),
-                    top = dpi(10)
-                },
+                forced_width = dpi(500),
                 ----------------
                 -- الفاصل العرضي --
                 ----------------
@@ -80,7 +70,19 @@ awful.screen.connect_for_each_screen(
                     shape = gears.shape.rectangle,
                     bg = "#edcc3d",
                     fg = "#edcc3d",
-                    top = dpi(1)
+                    top = dpi(2),
+                    margin_top = dpi(10),
+                    margin_left = dpi(13),
+                    margin_right = dpi(13),
+                },
+                ------------
+                -- الموسيقى --
+                ------------
+                helpers.set_widget_block {
+                    widget = s.music2,
+                    bg = "#00000000",
+                    bottom = dpi(10),
+                    top = dpi(10)
                 },
                 ----------
                 -- الحكم --
@@ -88,8 +90,10 @@ awful.screen.connect_for_each_screen(
                 helpers.set_widget_block {
                     widget = s.saying,
                     bg = "#00000000",
-                    fg = "#edcc3d",
-                    top = dpi(10)
+                    fg = beautiful.accent,
+                    top = dpi(0),
+                    right = dpi(13),
+                    left = dpi(13),
                 }
             }
 
@@ -121,7 +125,7 @@ awful.screen.connect_for_each_screen(
             -----------
             s.clock =
                 require("widget.desktop-clock") {
-                fuzzy_time_text_font = "JF Flat 14",
+                fuzzy_time_text_font = "Kufam 14",
                 fuzzy_time_icon_font = "Font Awesome 5 Free Solid 12",
                 day_number_text_font = "Poiret One 46",
                 month_name_text_font = "JF Flat 21",
@@ -130,7 +134,8 @@ awful.screen.connect_for_each_screen(
                 line_margin_right = dpi(10),
                 line_margin_left = dpi(10),
                 day_align = "left",
-                clock_forced_width = dpi(250)
+                clock_forced_width = dpi(250),
+                fuzzy_time_fg_color = "#f8d63f"
             }
 
             s.clock_popup =
@@ -151,7 +156,7 @@ awful.screen.connect_for_each_screen(
                         bottom = dpi(105),
                         right = dpi(0),
                         -- left = dpi(1000)
-                        left = dpi(160)
+                        left = dpi(140)
                     },
                     parent = s
                 }
