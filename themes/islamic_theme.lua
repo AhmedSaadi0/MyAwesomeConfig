@@ -118,7 +118,7 @@ theme.weather_text_color = theme.weather_icon_fg_color
 
 theme.clock_color = theme.accent
 theme.clock_whole_color = theme.clock_color
-theme.clock_icon_bg_color = "#9868e800"
+theme.clock_icon_bg_color = "#d3731a"
 theme.clock_icon_fg_color = theme.bg_normal
 theme.clock_text_color = theme.clock_icon_fg_color --"#f1dc6e"
 
@@ -132,16 +132,12 @@ theme.tooltip_bg = theme.bg_normal
 
 
 -- Allow desktop music widget
-theme.desktop_music_widget = true
-theme.desktop_music_widget_bg = "#00000000"
-theme.desktop_music_widget_fg = theme.accent
+theme.islamic_theme_widgets = true
 theme.desktop_music_widget_top = dpi(540)
 theme.desktop_music_widget_bottom = dpi(0)
 theme.desktop_music_widget_right = dpi(0)
 theme.desktop_music_widget_left = dpi(130)
 theme.desktop_music_widget_maximum_width = dpi(458)
-theme.desktop_music_widget_title_font = "JF Flat 16"
-theme.desktop_music_widget_artist_font = "JF Flat 14"
 --------------------------------
 ------------ Taglist -----------
 --------------------------------
@@ -305,8 +301,8 @@ theme.conky_script = "/themes/conky/conky-islamic.sh"
 
 theme.light_theme = "light_theme"
 theme.dark_theme = "islamic_theme"
-theme.qt_icon_theme = "We10X"
-theme.qt_style_theme = "Lightly"
+theme.qt_icon_theme = "oomox-aesthetic-dark"--"We10X"
+theme.qt_style_theme = "kvantum"--"Lightly"
 
 theme.gtk_theme = "WhiteSur-Dark-solid-alt-orange"
 
