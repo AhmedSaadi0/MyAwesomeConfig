@@ -314,11 +314,11 @@ theme.icons = require("themes.icons-light-gradients")
 
 theme.dynamic_wallpaper_dir = "themes/light-wallpapers//"
 theme.conky_script = "/themes/conky/conky-light.sh"
-theme.kvantum_theme = "Orchis"
+theme.kvantum_theme = "a-light"--"Orchis"
 theme.konsole_profile = "--profile light"
 
 theme.qt_icon_theme = "Calm"
-theme.qt_style_theme = "Lightly"
+theme.qt_style_theme = "kvantum"--"Lightly"
 
 theme.gtk_theme = "WhiteSur-Light-solid-alt-blue"
 

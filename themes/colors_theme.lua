@@ -57,9 +57,9 @@ local bar_color =
 
 local bar_active_color = theme.accent
 
-theme.bg_normal = "#1e2233"
-theme.widget_bg = "#141723"
-theme.bg_focus = "#141723"
+theme.bg_normal = "#352558"
+theme.widget_bg = "#1f1635"
+theme.bg_focus = "#1f1635"
 theme.bg_urgent = "#ff0000"
 theme.bg_minimize = "#444444"
 
@@ -396,6 +396,6 @@ theme.light_theme = "light_theme"
 theme.dark_theme = "dark_theme"
 
 theme.plasma_cursors = "GoogleDot-Blue"
-theme.plasma_color = "Aesthetic.colors"
+theme.plasma_color = "AColors.colors"
 
 return theme

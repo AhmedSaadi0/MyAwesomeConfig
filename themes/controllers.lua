@@ -10,7 +10,7 @@ local theme = {}
 local panal_stuff_border = dpi(1)
 
 -- Bars --
-local bar_height = dpi(2)
+local bar_height = dpi(1)
 local bar_handle_width = dpi(15)
 local bar_handle_border_width = dpi(0)
 
@@ -23,8 +23,8 @@ theme.panal_hight = dpi(32)
 theme.panal_border_width = dpi(0)
 
 -- درجة دوران حواف بعض الاشياء مثل الاشعارات واشعار الصوت والسطوع --
-theme.groups_radius = dpi(15)
-theme.windows_radius = dpi(15)
+theme.groups_radius = dpi(12)
+theme.windows_radius = dpi(0)
 
 -- Control Panal --
 -- theme.control_panal_hight = dpi(750) -- normal layout

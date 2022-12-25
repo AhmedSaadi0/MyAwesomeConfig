@@ -24,7 +24,7 @@ awful.screen.connect_for_each_screen(
                 forced_width = dpi(700)
             }
 
-            s.music =
+            s.music2 =
                 require("widget.music") {
                 widget_fg = helpers.create_gradient_color {
                     color2 = "#ff4bde",
@@ -39,7 +39,7 @@ awful.screen.connect_for_each_screen(
                 margin_top=dpi(10),
                 bar_color = "#10ddff55"
             }
-            s.music2 =
+            s.music =
                 require("widget.desktop-music") {
                 widget_bg = "00000000",
                 widget_artist_fg = helpers.create_gradient_color {

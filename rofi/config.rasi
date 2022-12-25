@@ -3,22 +3,23 @@ configuration
 	display-drun:					"Activate";
 	// display-run:					"Execute";
 	show-icons:						true;
-    icon-theme:"NeonIcons"; 
+    icon-theme:"We10X"; 
     drun-display-format:            "{name}";
 
 }
 
-@import "~/.config/awesome/rofi/colors_theme.rasi"
+@import "~/.config/awesome/rofi/cosmic_theme.rasi"
 
 window
 {
 	location:						center;
 	anchor:							center;
-	height:							48%;
-	width:							50%;
+	height:							49%;
+	width:							45%;
 	background-color:				@background-alt;
 	text-color:						@foreground-alt;
 	children:						[ mainbox ];
+	border-radius: 					15;
 }
 
 mainbox
@@ -48,6 +49,9 @@ inputbar
 	background-color:				@background;
 	text-color:						@foreground-alt;
 	children:						[ entry ];
+	border-radius: 					15;
+	margin:						5px 5px 5px 5px;
+
 }
 
 entry
@@ -65,6 +69,7 @@ element
 	text-color:						@foreground-alt;
     orientation:					vertical;
 	padding:						25px 25px 25px 25px;
+	border-radius: 					15;
 }
 
 element-icon

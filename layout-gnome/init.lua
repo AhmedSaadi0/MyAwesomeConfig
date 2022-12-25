@@ -17,6 +17,8 @@ elseif beautiful.dark_theme_widgets then
     require("layout-gnome.desktop-widgets.dark-theme")
 elseif beautiful.islamic_theme_widgets then
     require("layout-gnome.desktop-widgets.islamic-theme")
+elseif beautiful.win20_theme_widgets then
+    require("layout-gnome.desktop-widgets.win20-theme-widgets")
 end
 
 require ("layout-gnome.control-center")

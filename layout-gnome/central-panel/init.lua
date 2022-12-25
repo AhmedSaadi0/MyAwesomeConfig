@@ -100,7 +100,7 @@ local central_panel = function(s)
 			widget = wibox.container.background
 		},
 		screen = s,
-		type = "dock",
+		-- type = "dock",
 		visible = false,
 		ontop = true,
 		width = panel_width,

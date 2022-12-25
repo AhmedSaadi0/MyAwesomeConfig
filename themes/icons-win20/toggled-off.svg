@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="512"
+   height="512"
+   viewBox="0 0 135.46666 135.46667"
+   version="1.1"
+   id="svg881"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14, custom)"
+   sodipodi:docname="toggled-off.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs875">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient9566">
+      <stop
+         style="stop-color:#ff4bde;stop-opacity:1;"
+         offset="0"
+         id="stop9562" />
+      <stop
+         style="stop-color:#0cdfff;stop-opacity:1;"
+         offset="1"
+         id="stop9564" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient9566"
+       id="linearGradient9568"
+       x1="2.7333346"
+       y1="237.73332"
+       x2="132.73333"
+       y2="237.73332"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#252525"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="1"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="288.92857"
+     inkscape:cy="241.42857"
+     inkscape:document-units="mm"
+     inkscape:current-layer="g11"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1918"
+     inkscape:window-height="1046"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="0"
+     inkscape:pagecheckerboard="0"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:showpageshadow="0"
+     inkscape:deskcolor="#252525" />
+  <metadata
+     id="metadata878">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-161.53332)">
+    <g
+       id="g11"
+       transform="translate(1.0333333e-6,-8.4666667)">
+      <ellipse
+         ry="22.234945"
+         rx="21.681999"
+         cy="237.58347"
+         cx="102.25294"
+         id="path1490"
+         style="opacity:0.95;fill:#ffffff;fill-opacity:1;stroke-width:0.596877" />
+      <path
+         style="opacity:0.95;fill:url(#linearGradient9568);fill-opacity:1;stroke-width:2.2001276"
+         d="M 102.39996,206.45586 H 33.066612 c -16.726639,0 -30.3332774,14.03015 -30.3332774,31.27751 0,17.24725 13.6066384,31.27741 30.3332774,31.27741 h 69.333348 c 16.72664,0 30.33337,-14.03016 30.33337,-31.27741 0,-17.24736 -13.60673,-31.27751 -30.33337,-31.27751 z m 0,58.08676 H 33.066612 c -14.336849,0 -26.0000004,-12.02625 -26.0000004,-26.80925 0,-14.78309 11.6631514,-26.80928 26.0000004,-26.80928 h 69.333348 c 14.33685,0 26,12.02619 26,26.80928 0,14.783 -11.66315,26.80925 -26,26.80925 z"
+         id="path4"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+</svg>

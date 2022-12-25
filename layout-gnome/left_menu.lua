@@ -228,7 +228,6 @@ local function factory(args)
         border_color = border_color,
         maximum_width = 320,
         offset = {y = 10},
-        type = "notification",
         widget = detailed_widget
     }
 

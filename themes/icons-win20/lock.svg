@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   width="240"
+   height="240"
+   viewBox="0 0 240 240"
+   id="svg4"
+   sodipodi:docname="lock.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <metadata
+     id="metadata10">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs8">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient5610">
+      <stop
+         style="stop-color:#f7c7a0;stop-opacity:1;"
+         offset="0"
+         id="stop5606" />
+      <stop
+         style="stop-color:#0cdfff;stop-opacity:1;"
+         offset="1"
+         id="stop5608" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient5602">
+      <stop
+         style="stop-color:#ff4bde;stop-opacity:1;"
+         offset="0"
+         id="stop5598" />
+      <stop
+         style="stop-color:#0cdfff;stop-opacity:1;"
+         offset="1"
+         id="stop5600" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5602"
+       id="linearGradient5604"
+       x1="43.809526"
+       y1="120"
+       x2="196.19047"
+       y2="120"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5610"
+       id="linearGradient5612"
+       x1="107.02171"
+       y1="153.10718"
+       x2="133.06568"
+       y2="153.10718"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1325"
+     inkscape:window-height="1026"
+     id="namedview6"
+     showgrid="false"
+     inkscape:pagecheckerboard="true"
+     inkscape:zoom="1.3906433"
+     inkscape:cx="102.83011"
+     inkscape:cy="141.66106"
+     inkscape:window-x="10"
+     inkscape:window-y="42"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg4"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1" />
+  <path
+     d="m 120,172.38095 a 19.047619,19.047619 0 0 0 19.04762,-19.04762 c 0,-10.57143 -8.57143,-19.04762 -19.04762,-19.04762 A 19.047619,19.047619 0 0 0 100.95238,153.33333 19.047619,19.047619 0 0 0 120,172.38095 m 57.14285,-85.71428 a 19.047619,19.047619 0 0 1 19.04762,19.04762 v 95.23809 A 19.047619,19.047619 0 0 1 177.14285,220 H 62.857146 a 19.047619,19.047619 0 0 1 -19.04762,-19.04762 v -95.23809 c 0,-10.57143 8.57143,-19.04762 19.04762,-19.04762 h 9.52381 V 67.61905 A 47.619048,47.619048 0 0 1 120,20 47.619048,47.619048 0 0 1 167.61904,67.61905 v 19.04762 h 9.52381 M 120,39.04762 A 28.571429,28.571429 0 0 0 91.428575,67.61905 V 86.66667 H 148.57142 V 67.61905 A 28.571429,28.571429 0 0 0 120,39.04762 Z"
+     id="path2"
+     inkscape:connector-curvature="0"
+     style="fill:url(#linearGradient5604);stroke-width:9.52380943;fill-opacity:1" />
+  <ellipse
+     style="opacity:1;fill:url(#linearGradient5612);fill-opacity:1;stroke:#f7c7a0;stroke-width:0.179153;paint-order:stroke fill markers"
+     id="path911"
+     cx="120.04369"
+     cy="153.10718"
+     rx="12.932405"
+     ry="12.442251" />
+  <ellipse
+     style="opacity:0;fill:#f7c7a0;fill-opacity:1;stroke:#f7c7a0;stroke-width:0.133;paint-order:stroke fill markers"
+     id="path1216"
+     cx="205.03375"
+     cy="164.89159"
+     rx="68.891197"
+     ry="54.031803" />
+</svg>

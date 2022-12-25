@@ -133,11 +133,7 @@ theme.tooltip_bg = theme.bg_normal
 
 -- Allow desktop music widget
 theme.islamic_theme_widgets = true
-theme.desktop_music_widget_top = dpi(540)
-theme.desktop_music_widget_bottom = dpi(0)
-theme.desktop_music_widget_right = dpi(0)
-theme.desktop_music_widget_left = dpi(130)
-theme.desktop_music_widget_maximum_width = dpi(458)
+
 --------------------------------
 ------------ Taglist -----------
 --------------------------------

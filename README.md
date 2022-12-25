@@ -112,3 +112,9 @@
 <p align='center'>
 	<img alt='screenshot 13' src='https://github.com/AhmedSaadi0/MyAwesomeConfig/blob/master/screenshots/13.png'/>
 </p>
+<p align='center'>
+	<img alt='screenshot 14' src='https://github.com/AhmedSaadi0/MyAwesomeConfig/blob/master/screenshots/14.png'/>
+</p>
+<p align='center'>
+	<img alt='screenshot 16' src='https://github.com/AhmedSaadi0/MyAwesomeConfig/blob/master/screenshots/16.png'/>
+</p>
