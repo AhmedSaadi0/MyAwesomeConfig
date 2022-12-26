@@ -71,7 +71,7 @@ theme.client_shape_rounded = function(cr, width, height)
 end
 
 theme.power_button_shape = function(cr, width, height)
-    gears.shape.rounded_rect(cr, width, height, theme.windows_radius)
+    gears.shape.rounded_rect(cr, width, height, theme.groups_radius)
 end
 
 -- Variables set for theming notifications: --
