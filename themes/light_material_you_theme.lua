@@ -114,17 +114,7 @@ theme.tooltip_bg = theme.bg_normal
 theme.tooltip_font = theme.font
 
 -- Desktop music widget
-theme.desktop_music_widget = true
-theme.desktop_music_widget_bg = "#00000000"
-theme.widget_artist_fg = "#747db2"
-theme.widget_title_fg = theme.accent
-theme.desktop_music_widget_top = dpi(285)
-theme.desktop_music_widget_bottom = dpi(10)
-theme.desktop_music_widget_right = dpi(0)
-theme.desktop_music_widget_left = dpi(338)
-theme.desktop_music_widget_maximum_width = dpi(790)
-theme.desktop_music_widget_title_font = "JF Flat 16"
-theme.desktop_music_widget_artist_font = "JF Flat 14"
+theme.light_my3_theme_widgets = true
 
 --------------------------------
 ------------ Taglist -----------
@@ -308,7 +298,7 @@ theme.qt_style_theme = "Lightly"
 theme.light_theme = "light_theme"
 theme.dark_theme = "dark_theme"
 
-theme.gtk_theme = "WhiteSur-Light-solid-alt-orange"
+theme.gtk_theme = "WhiteSur-Light-red"
 
 theme.plasma_cursors = "GoogleDot-Black"
 -- theme.plasma_color = "NovaAmare.colors"

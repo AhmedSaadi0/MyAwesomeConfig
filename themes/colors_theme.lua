@@ -388,7 +388,7 @@ theme.conky_script = "/themes/conky/conky-colors.sh"
 theme.kvantum_theme = "a-color"
 theme.konsole_profile = "--profile Aesthetic"
 theme.qt_icon_theme = "NeonIcons"
-theme.qt_style_theme = "kvantum"
+theme.qt_style_theme = "Lightly"--"kvantum"
 
 theme.gtk_theme = "Kimi-dark" --"Kimi"
 

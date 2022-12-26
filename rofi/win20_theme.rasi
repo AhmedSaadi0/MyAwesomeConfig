@@ -7,7 +7,7 @@
 	active-background:				linear-gradient(to left, #ff4bde, #0cdfff);
 	urgent-background:				#ff2222aa;
     
-	foreground-selected:			#1d0838aa;
+	foreground-selected:			#1d0838;
 	
 	selected-background:			@active-background;
 	selected-urgent-background:		@urgent-background;

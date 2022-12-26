@@ -142,9 +142,11 @@ awful.screen.connect_for_each_screen(
                 line_margin_left = dpi(10),
                 day_align = "left",
                 clock_forced_width = dpi(250),
-                fuzzy_time_fg_color = "#f6db6e",
-                day_number_text_color = "#f6db6e",
-                month_name_text_color = "#f6db6e",
+                fuzzy_time_offset = 15,
+                tim_now_top = dpi(7),
+                fuzzy_time_fg_color = "#fb8a1c",
+                day_number_text_color = "#fb8a1c",
+                month_name_text_color = "#fb8a1c",
             }
 
             s.clock_popup =
@@ -157,19 +159,32 @@ awful.screen.connect_for_each_screen(
                 widget = s.clock
             }
 
-            awful.placement.bottom(
+            awful.placement.top_right(
                 s.clock_popup,
                 {
                     margins = {
-                        top = dpi(0),
-                        bottom = dpi(325),
-                        right = dpi(0),
+                        top = dpi(90),
+                        bottom = dpi(0),
+                        right = dpi(200),
                         -- left = dpi(1000)
                         left = dpi(0)
                     },
                     parent = s
                 }
             )
+            -- awful.placement.bottom(
+            --     s.clock_popup,
+            --     {
+            --         margins = {
+            --             top = dpi(0),
+            --             bottom = dpi(355),
+            --             right = dpi(0),
+            --             -- left = dpi(1000)
+            --             left = dpi(0)
+            --         },
+            --         parent = s
+            --     }
+            -- )
         end
     end
 )
