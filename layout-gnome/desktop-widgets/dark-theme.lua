@@ -135,7 +135,7 @@ awful.screen.connect_for_each_screen(
                 line_margin_left = dpi(10),
                 day_align = "left",
                 fuzzy_time_offset = 15,
-                tim_now_top = dpi(7),
+                time_now_top = dpi(7),
                 clock_forced_width = dpi(250),
                 fuzzy_time_fg_color = "#f8d63f"
             }

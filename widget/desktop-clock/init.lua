@@ -28,7 +28,7 @@ local function worker(args)
 
 	local time_now_text_font = args.day_text_font or "JF Flat 20"
 	local time_now_text_color = args.time_now_text_color or beautiful.accent
-	local tim_now_top  = args.tim_now_top  or dpi(15)
+	local time_now_top  = args.time_now_top  or dpi(15)
 
 	local month_name_text_font = args.month_name_text_font or "JF Flat 25"
 	local month_name_text_color = args.month_name_text_color or beautiful.accent
@@ -111,8 +111,8 @@ local function worker(args)
 								widget = wibox.widget.textbox
 							},
 							bg = beautiful.transparent,
-							top = tim_now_top,
-							fg = day_text_color
+							top = time_now_top,
+							fg = time_now_text_color
 						}
 					},
 					{
@@ -126,7 +126,7 @@ local function worker(args)
 						helpers.set_widget_block {
 							widget = fuzzy_time,
 							bg = beautiful.transparent,
-							fg = day_text_color
+							fg = fuzzy_time_fg_color
 						}
 					}
 				},

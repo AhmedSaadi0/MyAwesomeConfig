@@ -143,7 +143,7 @@ awful.screen.connect_for_each_screen(
                 day_align = "left",
                 clock_forced_width = dpi(250),
                 fuzzy_time_offset = 15,
-                tim_now_top = dpi(7),
+                time_now_top = dpi(7),
                 fuzzy_time_fg_color = "#fb8a1c",
                 day_number_text_color = "#fb8a1c",
                 month_name_text_color = "#fb8a1c",

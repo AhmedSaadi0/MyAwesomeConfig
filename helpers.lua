@@ -383,14 +383,17 @@ end
 
 function helpers.create_gradient_color(args)
     local type = args.type or "linear"
-
-    local from_color = args.from_color or "#fe67a9"
-    local to_color = args.to_color or "#7766fb"
-
+    
     local from = args.from or {0, 0}
-    local to = args.to or {200, 200}
+    local to = args.to or {0, 200}
 
-    local stops = args.stops or {{0.3, from_color}, {1, to_color}}
+    local color1 = args.color1 or "#7766fb"
+    local color2 = args.color2 or "#fe67a9"
+
+    local stops1 = args.stops1 or 0
+    local stops2 = args.stops2 or 1
+
+    local stops = args.stops or {{stops1, color1}, {stops2, color2}}
 
     return {
         type = type,

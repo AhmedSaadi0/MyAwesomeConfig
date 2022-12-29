@@ -18,7 +18,7 @@ awful.screen.connect_for_each_screen(
                 require("widget.desktop-saying") {
                 wisdom_text_font = "JF Flat 15",
                 forced_width = dpi(490),
-                forced_height = dpi(170),
+                forced_height = dpi(105),
                 valign = "top"
             }
 
@@ -84,7 +84,7 @@ awful.screen.connect_for_each_screen(
                     margins = {
                         -- right = panel_margins,
                         top = dpi(0),
-                        bottom = dpi(187),
+                        bottom = dpi(135),
                         right = dpi(60),
                         left = dpi(0)
                     },
@@ -98,6 +98,30 @@ awful.screen.connect_for_each_screen(
             s.clock = require("widget.desktop-clock") {
                 line_margin_right = dpi(13),
                 line_margin_left = dpi(15),
+                day_text_color = helpers.create_gradient_color {
+                    color2 = "#61afef",
+                    color1 = "#0cdfff",
+                    from = {500, 0},
+                    to = {10, 10}
+                },
+                time_now_text_color = helpers.create_gradient_color {
+                    color1 = "#a1ffce",
+                    color2 = "#79bf9b",
+                    from = {500, 0},
+                    to = {10, 10}
+                },
+                fuzzy_time_fg_color = helpers.create_gradient_color {
+                    color2 = "#ff7b86",
+                    color1 = "#ff63d5",
+                    from = {200, 0},
+                    to = {10, 10}
+                },
+                month_name_text_color = helpers.create_gradient_color {
+                    color2 = "#c8ccd4",
+                    color1 = "#f1f6ff",
+                    from = {200, 0},
+                    to = {10, 10}
+                },
                 day_align = "left",
                 day_number_text_font = "Poiret One 46",
 

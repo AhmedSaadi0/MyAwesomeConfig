@@ -30,7 +30,7 @@ return {
 	},
 	-- List of apps to start once on start-up
 	run_on_start_up = {
-		"killall xsettingsd > /dev/null 2>&1",
+		"killall xsettingsd glava conky > /dev/null 2>&1",
 		"nm-applet -sm-disable",
 		"blueman-applet",
 		"xfce4-clipman",

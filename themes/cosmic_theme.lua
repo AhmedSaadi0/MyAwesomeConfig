@@ -266,7 +266,7 @@ theme.layout_cornerse = "~/.config/awesome/themes/layouts/cornersew.png"
 
 -- Generate Awesome icon:
 theme.awesome_icon = theme_assets.awesome_icon(theme.menu_height, theme.bg_focus, theme.fg_focus)
-theme.wallpaper = "~/.config/awesome/themes/wallpapers/gruvb_solarsys.png"
+theme.wallpaper = "~/.config/awesome/themes/wallpapers/gruvb_solarsys_music.png"
 
 -- theme.icon_theme = nil
 

@@ -20,11 +20,13 @@ awful.screen.connect_for_each_screen(
                 fuzzy_time_fg_color = "#ffdad9",
                 month_name_text_color = "#ffdad9",
                 day_number_text_color = "#ffdad9",
+                day_text_font = "JF Flat 20",
+                time_now_top = dpi(8),
                 clock_bg = "#4b5569",
                 clock_shape = helpers.rrect(100),
-                clock_right = dpi(30),
+                clock_right = dpi(40),
                 clock_top = dpi(10),
-                clock_bottom = dpi(10),
+                clock_bottom = dpi(20),
                 separate_line = 0,
                 date_bg = "#775653",
                 date_shape = helpers.rrect(100),
@@ -48,9 +50,9 @@ awful.screen.connect_for_each_screen(
                 text_font = "JF Flat 15",
                 artist_font = "JF Flat 12",
                 widget_bg = "#00000000",
-                bar_active_color = "#ffdad9",
+                bar_active_color = "#ffdad900",
                 margin_top = dpi(15),
-                bar_color = "#ffdad955"
+                bar_color = "#ffdad900"
             }
 
             s.final =
@@ -75,8 +77,8 @@ awful.screen.connect_for_each_screen(
                     right = dpi(30),
                     margin_right = dpi(0),
                     left = dpi(30),
-                    bottom = dpi(10),
-                    top = dpi(10),
+                    bottom = -5,
+                    top = dpi(11),
                     forced_width = dpi(0)
                 },
                 ----------

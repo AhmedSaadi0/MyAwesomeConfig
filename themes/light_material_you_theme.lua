@@ -288,7 +288,7 @@ theme.icon_theme = nil
 theme.icons = require("themes.icons-material-you")
 
 theme.dynamic_wallpaper_dir = "themes/light-wallpapers//"
-theme.conky_script = "/themes/conky/conky-colors.sh"
+theme.conky_script = "/themes/conky/m3.sh"
 
 theme.kvantum_theme = "a-m-you"
 theme.konsole_profile = "--profile material-you"

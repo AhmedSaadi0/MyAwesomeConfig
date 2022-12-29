@@ -67,6 +67,9 @@
 	tar xvf ~/.config/awesome/themes/sys-icons/NeonIcons.tar.gz -C ~/.local/share/icons
 	tar xvf ~/.config/awesome/themes/sys-icons/Oreo-black-circle.tar.gz -C ~/.local/share/icons
 	tar xvf ~/.config/awesome/themes/sys-icons/We10X.tar.gz -C ~/.local/share/icons
+	glava --copy-config
+	cp -r ~/.config/awesome/themes/glava/* ~/.config/glava/
+
 
 # Screenshots - لقطات
 
