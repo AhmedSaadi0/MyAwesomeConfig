@@ -215,6 +215,7 @@ ruled.client.connect_signal(
 			rule_any = {
 				class = {
 					"dolphin",
+					"pcmanfm-qt",
 					"ark",
 					"Nemo",
 					"File-roller"

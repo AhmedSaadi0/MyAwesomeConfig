@@ -286,7 +286,7 @@ theme.layout_cornerse = "~/.config/awesome/themes/layouts/cornersew.png"
 -- Generate Awesome icon:
 theme.awesome_icon = theme_assets.awesome_icon(theme.menu_height, theme.bg_focus, theme.fg_focus)
 -- theme.wallpaper = "~/.config/awesome/themes/wallpapers/circles-wallpaper.png"
-theme.wallpaper = "~/.config/awesome/themes/wallpapers/wall.png"
+theme.wallpaper = "~/.config/awesome/themes/wallpapers/wall_arch.png"
 
 theme.music_back = "~/.config/awesome/themes/assets/no_music.png"
 
@@ -300,9 +300,11 @@ theme.conky_script = "/themes/conky/conky-circles.sh"
 
 theme.kvantum_theme = "a-circles"
 theme.konsole_profile = "--profile Circles"
-theme.qt_icon_theme = "FairyWren" --"Calm"
-theme.qt_style_theme = "kvantum"
--- theme.qt_style_theme = "Lightly"
+-- theme.qt_icon_theme = "FairyWren" --"Calm"
+theme.qt_icon_theme = "oomox-aesthetic-dark"
+
+-- theme.qt_style_theme = "kvantum"
+theme.qt_style_theme = "Lightly"
 -- theme.gtk_theme = "Flat-Remix-GTK-Blue-Dark-Solid"
 theme.gtk_theme = "Tokyonight-Dark-B-LB"
 

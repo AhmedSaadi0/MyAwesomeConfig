@@ -98,6 +98,7 @@ progress.indicator.text.color=white
 [Hacks]
 transparent_ktitle_label=true
 transparent_dolphin_view=true
+transparent_pcmanfm-qt_view=true
 transparent_pcmanfm_sidepane=true
 blur_translucent=true
 transparent_menutitle=true

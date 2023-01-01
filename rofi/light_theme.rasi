@@ -1,9 +1,9 @@
 *{
 	font:							"JF Flat 11";
 	foreground:						#3d4453;
-	background:						#f2f2f2;
+	background:						#ebebeb;
 	foreground-alt:					#3d4453;
-	background-alt:					#b4b4b4;
+	background-alt:					#ffffff;
 	active-background:				linear-gradient(to left, #00a1ff, #ff4bde);
 	urgent-background:				#ff5a5faa;
 

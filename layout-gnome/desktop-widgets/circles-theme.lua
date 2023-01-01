@@ -58,7 +58,8 @@ awful.screen.connect_for_each_screen(
                 forced_width = dpi(490),
                 title_forced_width = dpi(490),
                 artist_forced_width = dpi(490),
-                title_font = "JF Flat 20",
+                title_font = "VIP Hakm 20",
+                -- title_font = "JF Flat 20",
                 artist_font = "JF Flat 16",
                 point = function(geo, args)
                     return {

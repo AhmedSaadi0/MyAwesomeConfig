@@ -1,15 +1,15 @@
 /* center radius (pixels) */
-#define C_RADIUS 380
+#define C_RADIUS 133
 /* center line thickness (pixels) */
-#define C_LINE 0.5
+#define C_LINE 1
 /* outline color */
-#define OUTLINE #00efd1
+#define OUTLINE #5784f4
 /* Amplify magnitude of the results each bar displays */
-#define AMPLIFY 200
+#define AMPLIFY 50
 /* Angle (in radians) for how much to rotate the visualizer */
 #define ROTATE (PI / 2)
 /* Whether to switch left/right audio buffers */
-#define INVERT 0
+#define INVERT 1
 /* Whether to fill in the space between the line and inner circle */
 #define C_FILL 1
 /* Whether to apply a post-processing image smoothing effect
@@ -18,7 +18,7 @@
 #define C_SMOOTH 0
 
 /* Gravity step, overrude frin `smooth_parameters.glsl` */
-#request setgravitystep 0.6
+#request setgravitystep 6.6
 
 /* Smoothing factor, override from `smooth_parameters.glsl` */
 #request setsmoothfactor 0.01
