@@ -19,19 +19,19 @@ return awful.util.table.join(
 		{modkey},
 		3,
 		awful.mouse.client.resize
-	),
-	awful.button(
-		{modkey},
-		4,
-		function()
-			awful.layout.inc(1)
-		end
-	),
-	awful.button(
-		{modkey},
-		5,
-		function()
-			awful.layout.inc(-1)
-		end
 	)
+	-- awful.button(
+	-- 	{modkey},
+	-- 	4,
+	-- 	function()
+	-- 		awful.layout.inc(1)
+	-- 	end
+	-- ),
+	-- awful.button(
+	-- 	{modkey},
+	-- 	5,
+	-- 	function()
+	-- 		awful.layout.inc(-1)
+	-- 	end
+	-- )
 )

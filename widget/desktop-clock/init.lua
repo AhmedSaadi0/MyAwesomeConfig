@@ -28,7 +28,7 @@ local function worker(args)
 
 	local time_now_text_font = args.day_text_font or "JF Flat 20"
 	local time_now_text_color = args.time_now_text_color or beautiful.accent
-	local time_now_top  = args.time_now_top  or dpi(15)
+	local time_now_top = args.time_now_top or dpi(15)
 
 	local month_name_text_font = args.month_name_text_font or "JF Flat 25"
 	local month_name_text_color = args.month_name_text_color or beautiful.accent
@@ -39,12 +39,15 @@ local function worker(args)
 	local date_left = args.date_left
 	local date_top = args.date_top
 	local date_bottom = args.date_bottom
+	local date_width = args.date_width
 
 	local day_number_text_font = args.day_number_text_font or "JF Flat 50"
 	local day_number_text_color = args.day_number_text_color or beautiful.accent
 
 	local day_align = args.day_align or "center"
 	local day_valign = args.day_valign or "center"
+	local month_align = args.month_align or "center"
+
 
 	local fuzzy_time_text_font = args.fuzzy_time_text_font or "JF Flat 18"
 	local fuzzy_time_icon_font = args.fuzzy_time_icon_font or "Font Awesome 5 Free Solid 12"
@@ -165,8 +168,8 @@ local function worker(args)
 							text = "",
 							font = month_name_text_font,
 							id = "month_name",
-							-- align = "right",
-							-- valign = "right",
+							align = month_align,
+							valign = day_valign,
 							widget = wibox.widget.textbox
 						},
 						bg = beautiful.transparent,
@@ -190,6 +193,7 @@ local function worker(args)
 				top = date_top,
 				bottom = date_bottom,
 				shape = date_shape,
+				forced_width = date_width,
 				bg = date_bg
 			}
 		}
@@ -257,6 +261,10 @@ local function worker(args)
 				hours = tonumber(hours - 12)
 			end
 			final:get_children_by_id("time_now")[1]:set_text("الساعة الان " .. hours .. ":" .. minutes)
+
+			-- final:get_children_by_id("day_number")[1]:set_text("30")
+
+			-- final:get_children_by_id("month_name")[1]:set_text("ديسمبر")
 		end
 	)
 

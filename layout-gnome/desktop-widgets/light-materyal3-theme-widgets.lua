@@ -21,6 +21,7 @@ awful.screen.connect_for_each_screen(
                 month_name_text_color = "#ffdad9",
                 day_number_text_color = "#ffdad9",
                 day_text_font = "JF Flat 20",
+                date_width=dpi(300),
                 time_now_top = dpi(8),
                 clock_bg = "#4b5569",
                 clock_shape = helpers.rrect(100),
