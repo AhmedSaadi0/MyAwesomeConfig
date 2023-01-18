@@ -14,7 +14,6 @@ local blur_slider = require("widget.blur-slider")
 local blue_light = require("widget.blue-light")
 local airplane_mode = require("widget.airplane-mode")
 -- local bluetooth_toggle = require("widget.bluetooth-toggle")
--- local nightmode_toggle = require("widget.night-mode")
 local blur_toggle = require("widget.blur-toggle")
 
 local theme_switcher = require("widget.theme-switcher.init") {}

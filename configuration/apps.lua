@@ -14,8 +14,8 @@ return {
 		text_editor = "codium",
 		-- text_editor = "code",
 		-- Default file manager
-		-- file_manager = "dolphin -reverse",
-		file_manager = "pcmanfm-qt",
+		file_manager = "dolphin -reverse",
+		-- file_manager = "pcmanfm-qt",
 		-- Default media player
 		multimedia = "clementine",
 		-- Default chat app

@@ -151,7 +151,7 @@ local toggle_action = function()
 			redshift -x && pkill redshift && killall redshift
 			echo 'OFF'
 		else
-			redshift -l 0:0 -t 4500:4500 -r &>/dev/null &
+			redshift -l 0:0 -t 3500:3500 -r &>/dev/null &
 			echo 'ON'
 		fi
 		]],

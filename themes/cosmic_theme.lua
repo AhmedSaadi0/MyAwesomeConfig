@@ -48,10 +48,10 @@ theme.fg_urgent = "#ffffff"
 theme.fg_minimize = "#ffffff"
 
 theme.useless_gap = dpi(5)
-theme.border_width = dpi(1)
-theme.border_normal = "#666666"
+theme.border_width = controllers.border_width
+theme.border_normal = "#00000000"
 theme.border_focus = theme.accent
-theme.border_marked = "#7ec7a2"
+theme.border_marked = "#00000000"
 
 -- colors
 theme.power_button_color = "#fedb41"
@@ -276,8 +276,6 @@ theme.icons = require("themes.icons-islamic")
 theme.dynamic_wallpaper_dir = "themes/wallpapers//"
 theme.conky_script = "/themes/conky/conky-cosmic.sh"
 
-theme.light_theme = "light_theme"
-theme.dark_theme = "islamic_theme"
 theme.qt_icon_theme = "We10X"
 theme.qt_style_theme = "Lightly"
 

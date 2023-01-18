@@ -48,10 +48,10 @@ theme.fg_urgent = "#ffffff"
 theme.fg_minimize = "#ffffff"
 
 theme.useless_gap = dpi(5)
-theme.border_width = dpi(1)
-theme.border_normal = "#666666"
+theme.border_width = controllers.border_width
+theme.border_normal = "#00000000"
 theme.border_focus = "#00efd1"
-theme.border_marked = "#7ec7a2"
+theme.border_marked = "#00000000"
 
 -- colors
 theme.power_button_color = "#fedb41"
@@ -288,9 +288,6 @@ theme.kvantum_theme = "a-dark"
 theme.konsole_profile = "--profile Sweet"
 theme.qt_icon_theme = "Oxy L3 loki" --"neon-icons-master"
 theme.qt_style_theme = "kvantum"--"Lightly"
-
-theme.light_theme = "light_theme"
-theme.dark_theme = "dark_theme"
 
 theme.gtk_theme = "Tokyonight-Dark-B-LB"
 

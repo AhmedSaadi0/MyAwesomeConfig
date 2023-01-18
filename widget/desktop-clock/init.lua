@@ -25,6 +25,8 @@ local function worker(args)
 
 	local day_text_font = args.day_text_font or "JF Flat 25"
 	local day_text_color = args.day_text_color or beautiful.accent
+	
+	local line_color = args.line_color or beautiful.accent
 
 	local time_now_text_font = args.day_text_font or "JF Flat 20"
 	local time_now_text_color = args.time_now_text_color or beautiful.accent
@@ -150,7 +152,7 @@ local function worker(args)
 					widget = wibox.widget.textbox
 				},
 				shape = gears.shape.rectangle,
-				bg = beautiful.accent,
+				bg = line_color,
 				fg = beautiful.accent,
 				right = separate_line,
 				forced_height = line_forced_height,

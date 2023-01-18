@@ -147,6 +147,7 @@ awful.screen.connect_for_each_screen(
                 fuzzy_time_fg_color = "#fb8a1c",
                 day_number_text_color = "#fb8a1c",
                 month_name_text_color = "#fb8a1c",
+                line_color = "#fb8a1c",
             }
 
             s.clock_popup =

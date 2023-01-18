@@ -49,10 +49,10 @@ theme.fg_urgent = "#fef6e1"
 theme.fg_minimize = "#fef6e1"
 
 theme.useless_gap = dpi(5)
-theme.border_width = dpi(1)
-theme.border_normal = "#e6c5c4"
-theme.border_focus = "#3f4859"
-theme.border_marked = "#e6c5c4"
+theme.border_width = controllers.border_width
+theme.border_normal = "#00000000"
+theme.border_focus = "#e6c5c4"
+theme.border_marked = "#00000000"
 
 -- bar widgets colors
 theme.taglist_color = "#4c566a" -- "#dddddd"
@@ -294,9 +294,6 @@ theme.kvantum_theme = "a-m-you"
 theme.konsole_profile = "--profile material-you"
 theme.qt_icon_theme = "Oreo-black-circle"
 theme.qt_style_theme = "Lightly"
-
-theme.light_theme = "light_theme"
-theme.dark_theme = "dark_theme"
 
 theme.gtk_theme = "WhiteSur-Light-red"
 

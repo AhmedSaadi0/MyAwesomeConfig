@@ -257,6 +257,7 @@ local global_keys =
 			awful.spawn.easy_async_with_shell(
 				[[amixer -D pulse sset Master 5%+]],
 				function(stdout)
+					awful.spawn("amixer -D pulse sset Master 1+ on", false)
 					local volume = string.match(stdout, "(%d?%d?%d)%%")
 					awesome.emit_signal("widget::volume:update", volume)
 					awesome.emit_signal("module::volume_osd:show", true)
@@ -272,6 +273,7 @@ local global_keys =
 			awful.spawn.easy_async_with_shell(
 				[[amixer -D pulse sset Master 5%-]],
 				function(stdout)
+					awful.spawn("amixer -D pulse sset Master 1+ on", false)
 					local volume = string.match(stdout, "(%d?%d?%d)%%")
 					awesome.emit_signal("widget::volume:update", volume)
 					awesome.emit_signal("module::volume_osd:show", true)

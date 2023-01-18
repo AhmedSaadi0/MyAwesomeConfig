@@ -67,10 +67,10 @@ theme.fg_urgent = "#ffffff"
 theme.fg_minimize = "#ffffff"
 
 theme.useless_gap = dpi(5)
-theme.border_width = dpi(1)
-theme.border_normal = "#666666"
+theme.border_width = controllers.border_width
+theme.border_normal = "#00000000"
 theme.border_focus = "#00a1ff"
-theme.border_marked = "#7ec7a2"
+theme.border_marked = "#00000000"
 
 -- bar widgets colors
 theme.taglist_color = "#4c566a" -- "#dddddd"
@@ -322,11 +322,6 @@ theme.qt_icon_theme = "Calm"
 theme.qt_style_theme = "kvantum"--"Lightly"
 
 theme.gtk_theme = "WhiteSur-Light-solid-alt-blue"
-
-theme.light_theme = "light_theme"
--- theme.dark_theme = "islamic_theme"
--- theme.dark_theme = "pinky_theme"
-theme.dark_theme = "dark_theme"
 
 theme.plasma_cursors = "GoogleDot-Black"
 -- theme.plasma_color = "NovaAmare.colors"

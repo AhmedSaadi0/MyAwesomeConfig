@@ -18,6 +18,7 @@
 - ttf-font-awesome-5
 - xfce4-clipman
 - qt5ct
+- bandwhich
 
 ### Optional dependencies - برامج اختيارية
 
@@ -43,6 +44,10 @@
 <b>Arch users - مستخدمي ارش </b>
 
     yay -S base-devel clementine brightnessctl light gimp network-manager-applet telegram-desktop awesome-git rofi xorg-xbacklight xorg-xrandr redshift qt5-gsettings lxappearance konsole xfce4-power-manager xfce4-screensaver blueman xorg-setxkbmap picom-git ark dolphin ffmpegthumbs playerctl lightly-qt kvantum polkit-kde-agent ttf-font-awesome-5 conky-lua jq xcolor light-git xclip gufw qt5ct xfce4-clipman tar
+
+<b>Setting bandwhich to run without root - السماح لباند ويتش بالعمل بدون روت </b>
+
+	sudo setcap cap_sys_ptrace,cap_dac_read_search,cap_net_raw,cap_net_admin+ep /usr/bin/bandwhich
 
 <b>For animation use <a href="https://github.com/pijulius/picom"> pijulius picom fork </a></b>
 

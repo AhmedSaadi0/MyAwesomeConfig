@@ -69,10 +69,10 @@ theme.fg_urgent = "#ffffff"
 theme.fg_minimize = "#ffffff"
 
 theme.useless_gap = dpi(5)
-theme.border_width = dpi(1)
-theme.border_normal = "#666666"
-theme.border_focus = "#8a348f"
-theme.border_marked = "#7ec7a2"
+theme.border_width = controllers.border_width
+theme.border_normal = "#00000000"
+theme.border_focus = "#1ed4fd"
+theme.border_marked = "#00000000"
 
 -- colors
 theme.power_button_color = "#fedb41"
@@ -391,9 +391,6 @@ theme.qt_icon_theme = "NeonIcons"
 theme.qt_style_theme = "Lightly"--"kvantum"
 
 theme.gtk_theme = "Kimi-dark" --"Kimi"
-
-theme.light_theme = "light_theme"
-theme.dark_theme = "dark_theme"
 
 theme.plasma_cursors = "GoogleDot-Blue"
 theme.plasma_color = "AColors.colors"

@@ -158,7 +158,7 @@ awful.screen.connect_for_each_screen(
                         bottom = dpi(130),
                         right = dpi(0),
                         -- left = dpi(1000)
-                        left = dpi(140)
+                        left = dpi(125)
                     },
                     parent = s
                 }

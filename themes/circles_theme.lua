@@ -69,9 +69,9 @@ theme.fg_urgent = "#ffffff"
 theme.fg_minimize = "#ffffff"
 
 theme.useless_gap = dpi(5)
-theme.border_width = dpi(1)
-theme.border_normal = "#666666"
-theme.border_focus = "#61afef"
+theme.border_width = controllers.border_width
+theme.border_normal = "#00000000"
+theme.border_focus = "#a9b1d6"
 theme.border_marked = "#7ec7a2"
 
 -- colors
@@ -303,13 +303,10 @@ theme.konsole_profile = "--profile Circles"
 -- theme.qt_icon_theme = "FairyWren" --"Calm"
 theme.qt_icon_theme = "oomox-aesthetic-dark"
 
--- theme.qt_style_theme = "kvantum"
-theme.qt_style_theme = "Lightly"
+theme.qt_style_theme = "kvantum"
+-- theme.qt_style_theme = "Lightly"
 -- theme.gtk_theme = "Flat-Remix-GTK-Blue-Dark-Solid"
 theme.gtk_theme = "Tokyonight-Dark-B-LB"
-
-theme.light_theme = "light_theme"
-theme.dark_theme = "dark_theme"
 
 theme.plasma_cursors = "GoogleDot-Blue"
 theme.plasma_color = "Circles.colors"
