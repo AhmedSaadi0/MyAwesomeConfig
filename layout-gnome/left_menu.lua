@@ -236,7 +236,7 @@ local function factory(args)
             popup,
             {
                 margins = {
-                    top = dpi(42),
+                    top = dpi(44),
                     left = dpi(10)
                 },
                 parent = awful.screen.focused()

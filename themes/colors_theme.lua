@@ -223,6 +223,8 @@ theme.tooltip_bg = theme.bg_normal
 
 -- Allow desktop music widget --
 theme.color_theme = true
+-- theme.win20_theme_widgets = true
+
 
 --------------------------------
 ------------ Taglist -----------

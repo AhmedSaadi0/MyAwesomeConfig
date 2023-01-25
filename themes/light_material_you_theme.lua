@@ -51,7 +51,7 @@ theme.fg_minimize = "#fef6e1"
 theme.useless_gap = dpi(5)
 theme.border_width = controllers.border_width
 theme.border_normal = "#00000000"
-theme.border_focus = "#e6c5c4"
+theme.border_focus = "#775653"
 theme.border_marked = "#00000000"
 
 -- bar widgets colors

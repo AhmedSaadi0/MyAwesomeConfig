@@ -20,7 +20,7 @@ controller.systray_max_rows = dpi(1)
 
 -- Panal --
 controller.panal_hight = dpi(32)
-controller.panal_border_width = dpi(0)
+controller.panal_border_width = dpi(1)
 
 controller.border_width = dpi(2)
 

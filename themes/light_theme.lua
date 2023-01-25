@@ -318,7 +318,7 @@ theme.conky_script = "/themes/conky/conky-light.sh"
 theme.kvantum_theme = "a-light"--"Orchis"
 theme.konsole_profile = "--profile light"
 
-theme.qt_icon_theme = "Calm"
+theme.qt_icon_theme = "kora-light-panel"
 theme.qt_style_theme = "kvantum"--"Lightly"
 
 theme.gtk_theme = "WhiteSur-Light-solid-alt-blue"

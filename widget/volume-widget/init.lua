@@ -179,7 +179,7 @@ local worker = function (args)
                 {
                     margins = {
                         -- right = panel_margins,
-                        top = dpi(42),
+                        top = dpi(44),
                         left = dpi(250)
                     },
                     parent = awful.screen.focused()

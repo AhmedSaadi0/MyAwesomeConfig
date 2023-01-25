@@ -316,7 +316,7 @@ awful.screen.connect_for_each_screen(
                     margin_top = 3,
                     margin_bottom = 3
                 },
-                helpers.set_space(7),
+                helpers.set_space(6),
                 ---------------
                 -- Net speed --
                 ---------------
@@ -345,7 +345,7 @@ awful.screen.connect_for_each_screen(
                     margin_top = 3,
                     margin_bottom = 3
                 },
-                helpers.set_space(7),
+                helpers.set_space(6),
                 ------------
                 -- Volume --
                 ------------
@@ -375,7 +375,7 @@ awful.screen.connect_for_each_screen(
                     margin_top = 3,
                     margin_bottom = 3
                 },
-                helpers.set_space(7),
+                helpers.set_space(6),
                 ----------------
                 -- Brightness --
                 ----------------
@@ -405,7 +405,7 @@ awful.screen.connect_for_each_screen(
                     margin_top = 3,
                     margin_bottom = 3
                 },
-                helpers.set_space(7),
+                helpers.set_space(6),
                 -------------
                 -- Weather --
                 -------------
@@ -483,7 +483,7 @@ awful.screen.connect_for_each_screen(
                     margin_top = 3,
                     margin_bottom = 3
                 },
-                helpers.set_space(7),
+                helpers.set_space(6),
                 -------------
                 -- Battery --
                 -------------
@@ -495,7 +495,7 @@ awful.screen.connect_for_each_screen(
                     margin_top = 3,
                     margin_bottom = 3
                 },
-                helpers.set_space(7),
+                helpers.set_space(6),
                 --------------
                 -- CPU TEMP --
                 --------------
@@ -507,7 +507,7 @@ awful.screen.connect_for_each_screen(
                     margin_top = 3,
                     margin_bottom = 3
                 },
-                helpers.set_space(7),
+                helpers.set_space(6),
                 ---------
                 -- CPU --
                 ---------
@@ -533,7 +533,7 @@ awful.screen.connect_for_each_screen(
                     top = 3,
                     bottom = 3
                 },
-                helpers.set_space(7),
+                helpers.set_space(6),
                 helpers.set_widget_block {
                     widget = helpers.set_widget_block {
                         widget = s.mytaglist,
@@ -544,7 +544,7 @@ awful.screen.connect_for_each_screen(
                     bg = beautiful.transparent
                 },
                 -- s.mypromptbox,
-                helpers.set_space(7),
+                helpers.set_space(6),
                 helpers.set_widget_block {
                     widget = s.mylayoutbox,
                     top = 3,
