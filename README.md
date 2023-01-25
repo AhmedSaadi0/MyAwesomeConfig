@@ -19,10 +19,11 @@
 - xfce4-clipman
 - qt5ct
 - bandwhich
-
-### Optional dependencies - برامج اختيارية
-
+- jq
 - Dolphin
+- xorg-setxkbmap
+- lightly-qt
+- kvantum
 - clementine
 - qt5-gsettings
 - lxappearance
@@ -30,12 +31,7 @@
 - gimp
 - telegram-desktop
 - blueman
-- xorg-setxkbmap
 - conky
-- lightly-qt
-- kvantum
-- conky
-- jq
 - xcolor
 - gufw
 
