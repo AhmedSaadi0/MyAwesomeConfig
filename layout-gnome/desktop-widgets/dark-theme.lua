@@ -28,7 +28,7 @@ awful.screen.connect_for_each_screen(
             s.music2 =
                 require("widget.music") {
                 widget_fg = beautiful.accent,
-                widget_bg = "#1c1d29",
+                widget_bg = "#1c1d2900",
                 text_font = "JF Flat 15",
                 artist_font = "JF Flat 12",
                 margin_top=dpi(15),

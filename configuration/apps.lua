@@ -39,17 +39,12 @@ return {
 		-- "xrandr --output eDP-1",
 		-- "kded5",
 		-- "/usr/lib/org_kde_powerdevil",
+		-- "lxqt-powermanagement",
 		"xfce4-power-manager",
 		"xfce4-screensaver &> x.log",
-		-- [[
-		-- 	xidlehook --not-when-fullscreen --not-when-audio --timer 600 \
-		-- 	'xfce4-screensaver-command --lock' ""
-		-- ]],
 		"balooctl enable",
 		'setxkbmap -layout "us,ar" -option "grp:win_space_toggle"',
 		"/usr/lib/polkit-kde-authentication-agent-1",
-		-- "/usr/lib/kactivitymanagerd",
-		-- 		"xrandr --output HDMI-1-0 --mode 1440x900 --rate 61 --noprimary --left-of eDP-1",
 		-- "picom -b --experimental-backends  --dbus --config " .. config_dir .. "/configuration/picom.conf",
 		"picom --dbus --config " .. config_dir .. "/configuration/picom.conf",
 		-- kvantum theme

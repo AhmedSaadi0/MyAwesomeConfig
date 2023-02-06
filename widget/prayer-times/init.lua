@@ -299,7 +299,8 @@ local function factory(args)
         dhuhr:get_children_by_id("icon_id")[1].text = helpers.to_12(dhuhr_time) -- "صلاة الظهر " .. dhuhr_time
         asr:get_children_by_id("icon_id")[1].text = helpers.to_12(asr_time) -- "صلاة العصر " .. asr_time
         maghrib:get_children_by_id("icon_id")[1].text = helpers.to_12(maghrib_time) -- "صلاة المغرب " .. maghrib_time
-        isha:get_children_by_id("icon_id")[1].text = helpers.to_12(isha_time)-- "صلاة العشاء " .. isha_time
+        isha:get_children_by_id("icon_id")[1].text = helpers.to_12(isha_time)
+     -- "صلاة العشاء " .. isha_time
     end
 
     function calculate_prayer_times()
@@ -309,6 +310,9 @@ local function factory(args)
             function(stdout)
                 if stdout == "" then
                     number_text_widget.text = "غير متوفرة حاليا"
+                    athan_timer:stop()
+                    recalculate_timer:stop()
+                    recalculate_timer:start()
                     return
                 end
 
@@ -394,6 +398,14 @@ local function factory(args)
     end
 
     calculate_prayer_times()
+
+    awesome.connect_signal(
+        "system::resume",
+        function()
+            awesome.spawn("notify-send عدنا", false)
+            calculate_prayer_times()
+        end
+    )
 
     number_text_widget:connect_signal(
         "button::press",
