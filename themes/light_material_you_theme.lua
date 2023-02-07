@@ -34,7 +34,7 @@ theme.hotkeys_font = theme.uifont
 -------------------------------
 ------------ Colors -----------
 -------------------------------
-theme.accent = "#775653"
+theme.accent = "#5d484c"
 
 
 theme.bg_normal = "#ffdad9"
@@ -51,34 +51,34 @@ theme.fg_minimize = "#fef6e1"
 theme.useless_gap = dpi(5)
 theme.border_width = controllers.border_width
 theme.border_normal = "#00000000"
-theme.border_focus = "#775653"
+theme.border_focus = "#5d484c"
 theme.border_marked = "#00000000"
 
 -- bar widgets colors
 theme.taglist_color = "#4c566a" -- "#dddddd"
 theme.power_button_color = "#4c566a" -- "#fedb41"
 
-theme.keyboard_layout_color = theme.widget_bg -- "#aaaaff"
-theme.keyboard_icon_bg_color = theme.widget_bg -- "#aaaaff"
-theme.keyboard_icon_fg_color = theme.fg_normal -- "#aaaaff"
-theme.keyboard_text_color = theme.fg_normal -- "#aaaaff"
+theme.keyboard_layout_color = "#dfdce7" 
+theme.keyboard_icon_bg_color = "#dfdce7" 
+theme.keyboard_icon_fg_color = theme.fg_normal 
+theme.keyboard_text_color = theme.fg_normal 
 
 theme.cpu_color = theme.fg_normal --"#ff79c6"
 theme.cpu_icon_color = theme.fg_normal --"#ff79c6"
 
-theme.cpu_temp_color = theme.widget_bg
-theme.cpu_temp_icon_bg_color = theme.widget_bg
+theme.cpu_temp_color = "#92b9b8"
+theme.cpu_temp_icon_bg_color = "#92b9b8"
 theme.cpu_temp_icon_fg_color = theme.fg_normal
 theme.cpu_temp_icon_high_bg_color = theme.fg_normal
 theme.cpu_temp_text_color = theme.fg_normal
 
-theme.net_speed_color = theme.widget_bg
-theme.net_speed_icon_bg_color = theme.widget_bg
+theme.net_speed_color = "#75afb1"
+theme.net_speed_icon_bg_color = "#75afb1"
 theme.net_speed_icon_fg_color = theme.fg_normal
 theme.net_speed_text_color = theme.fg_normal
 
-theme.brightness_cr_color = theme.widget_bg
-theme.brightness_icon_bg_color = theme.widget_bg
+theme.brightness_cr_color = "#eca3ac"
+theme.brightness_icon_bg_color = "#eca3ac"
 theme.brightness_icon_fg_color = theme.fg_normal
 theme.brightness_cr_text_color = theme.brightness_icon_fg_color
 
@@ -87,22 +87,22 @@ theme.volume_icon_bg_color = theme.widget_bg
 theme.volume_icon_fg_color = theme.fg_normal
 theme.volume_widget_text_color = theme.fg_normal
 
-theme.battery_color = theme.widget_bg
-theme.battery_icon_bg_color = theme.widget_bg
-theme.battery_icon_fg_color = theme.fg_normal
+theme.battery_color = "#595380"
+theme.battery_icon_bg_color = "#595380"
+theme.battery_icon_fg_color = "#fdf5e0"
 theme.battery_text_color = theme.battery_icon_fg_color
-theme.battery_hover_color = theme.battery_icon_bg_color
+theme.battery_hover_color = "#00000000"
 
-theme.weather_color = theme.widget_bg
-theme.weather_icon_bg_color = theme.widget_bg
+theme.weather_color = "#fec2a6"
+theme.weather_icon_bg_color = "#fec2a6"
 theme.weather_icon_fg_color = theme.fg_normal
 theme.weather_text_color = theme.weather_icon_fg_color
 
-theme.clock_color = theme.widget_bg
+theme.clock_color = theme.accent
 theme.clock_whole_color = theme.clock_color
-theme.clock_icon_bg_color = theme.widget_bg
-theme.clock_icon_fg_color = theme.fg_normal
-theme.clock_text_color = theme.fg_normal
+theme.clock_icon_bg_color = theme.accent
+theme.clock_icon_fg_color = theme.fg_focus
+theme.clock_text_color = theme.fg_focus
 
 theme.dashboard_box_bg = theme.widget_bg
 theme.dashboard_box_fg = theme.fg_normal
