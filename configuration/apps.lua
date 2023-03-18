@@ -23,6 +23,8 @@ return {
 		-- Default IDE  
 		-- LC_ALL=C prime-run studio
 		development = "studio",
+		-- Games
+		games = "retroarch",
 		-- Default locker
 		-- lock = "/usr/lib/kscreenlocker_greet",
 		lock = "xfce4-screensaver-command --lock",
@@ -42,7 +44,7 @@ return {
 		-- "lxqt-powermanagement",
 		"xfce4-power-manager",
 		"xfce4-screensaver &> x.log",
-		"balooctl enable",
+		-- "balooctl enable",
 		'setxkbmap -layout "us,ar" -option "grp:win_space_toggle"',
 		"/usr/lib/polkit-kde-authentication-agent-1",
 		-- "picom -b --experimental-backends  --dbus --config " .. config_dir .. "/configuration/picom.conf",

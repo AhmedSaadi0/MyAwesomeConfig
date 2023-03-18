@@ -264,8 +264,8 @@ local return_button = function()
 			bg = beautiful.battery_color,
 			fg = beautiful.battery_text_color,
 			shape = helpers.left_rounded_rect(beautiful.widgets_corner_radius),
-			left = 4,
-			right = 4
+			left = 3,
+			right = 0
 		},
 		helpers.set_widget_block {
 			widget = charging_icon,

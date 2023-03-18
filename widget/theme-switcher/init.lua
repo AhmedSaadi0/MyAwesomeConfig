@@ -85,7 +85,7 @@ local function worker(args)
         icon = "",
         text_font = text_font,
         icon_font = icon_font,
-        forced_width = dpi(72),
+        forced_width = dpi(72)
     }
 
     local win20_theme =
@@ -94,7 +94,16 @@ local function worker(args)
         icon = "",
         text_font = text_font,
         icon_font = icon_font,
-        forced_width = dpi(72),
+        forced_width = dpi(72)
+    }
+
+    local blue_theme =
+        helpers.add_text_icon_widget {
+        text = "ازرق",
+        icon = "",
+        text_font = text_font,
+        icon_font = icon_font,
+        forced_width = dpi(72)
     }
 
     local detailed_widget =
@@ -186,7 +195,7 @@ local function worker(args)
             point = function(geo, args)
                 return {
                     x = args.parent.width - geo.width,
-                    y = (args.parent.height / 2 + (geo.height / 2)) - geo.height, --args.parent.height - geo.height
+                    y = (args.parent.height / 2 + (geo.height / 2)) - geo.height --args.parent.height - geo.height
                 }
             end,
             layout = wibox.layout.fixed.vertical,
@@ -300,13 +309,39 @@ local function worker(args)
                 right = dpi(8),
                 left = dpi(8)
             }
+        },
+        -- Blue
+        {
+            point = function(geo, args)
+                return {
+                    x = 0,
+                    y = args.parent.height - geo.height
+                }
+            end,
+            layout = wibox.layout.fixed.vertical,
+            helpers.add_margin {
+                widget = helpers.set_widget_block {
+                    widget = blue_theme,
+                    id = "blue_theme",
+                    shape = shape,
+                    top = dpi(8),
+                    bottom = dpi(8),
+                    right = dpi(8),
+                    left = dpi(8)
+                },
+                bottom = dpi(8),
+                right = dpi(8),
+                left = dpi(8)
+            }
         }
     }
 
     local function set_arabic(on)
         if on then
-            islamic_theme:get_children_by_id("text_id")[1].markup = helpers.colorize_text("عربي", selected_text_color, text_font)
-            islamic_theme:get_children_by_id("icon_id")[1].markup =helpers.colorize_text("", selected_text_color, icon_font)
+            islamic_theme:get_children_by_id("text_id")[1].markup =
+                helpers.colorize_text("عربي", selected_text_color, text_font)
+            islamic_theme:get_children_by_id("icon_id")[1].markup =
+                helpers.colorize_text("", selected_text_color, icon_font)
             detailed_widget:get_children_by_id("arabic")[1].bg = selected_bg_color
         else
             islamic_theme:get_children_by_id("text_id")[1].markup = helpers.colorize_text("عربي", nil, text_font)
@@ -317,8 +352,10 @@ local function worker(args)
 
     local function set_dark(on)
         if on then
-            dark_theme:get_children_by_id("text_id")[1].markup = helpers.colorize_text("مظلم", selected_text_color, text_font)
-            dark_theme:get_children_by_id("icon_id")[1].markup = helpers.colorize_text("", selected_text_color, icon_font)
+            dark_theme:get_children_by_id("text_id")[1].markup =
+                helpers.colorize_text("مظلم", selected_text_color, text_font)
+            dark_theme:get_children_by_id("icon_id")[1].markup =
+                helpers.colorize_text("", selected_text_color, icon_font)
             detailed_widget:get_children_by_id("dark")[1].bg = selected_bg_color
         else
             dark_theme:get_children_by_id("text_id")[1].markup = helpers.colorize_text("مظلم", nil, text_font)
@@ -329,8 +366,10 @@ local function worker(args)
 
     local function set_light(on)
         if on then
-            light_theme:get_children_by_id("text_id")[1].markup = helpers.colorize_text("مضيء", selected_text_color, text_font)
-            light_theme:get_children_by_id("icon_id")[1].markup = helpers.colorize_text("", selected_text_color, icon_font)
+            light_theme:get_children_by_id("text_id")[1].markup =
+                helpers.colorize_text("مضيء", selected_text_color, text_font)
+            light_theme:get_children_by_id("icon_id")[1].markup =
+                helpers.colorize_text("", selected_text_color, icon_font)
             detailed_widget:get_children_by_id("light")[1].bg = selected_bg_color
         else
             light_theme:get_children_by_id("text_id")[1].markup = helpers.colorize_text("مضيء", nil, text_font)
@@ -341,8 +380,10 @@ local function worker(args)
 
     local function set_circle(on)
         if on then
-            circles_theme:get_children_by_id("text_id")[1].markup = helpers.colorize_text("دوائر", selected_text_color, text_font)
-            circles_theme:get_children_by_id("icon_id")[1].markup = helpers.colorize_text("", selected_text_color, icon_font)
+            circles_theme:get_children_by_id("text_id")[1].markup =
+                helpers.colorize_text("دوائر", selected_text_color, text_font)
+            circles_theme:get_children_by_id("icon_id")[1].markup =
+                helpers.colorize_text("", selected_text_color, icon_font)
             detailed_widget:get_children_by_id("circle")[1].bg = selected_bg_color
         else
             circles_theme:get_children_by_id("text_id")[1].markup = helpers.colorize_text("دوائر", nil, text_font)
@@ -389,23 +430,37 @@ local function worker(args)
                 helpers.colorize_text("🪐", selected_text_color, icon_font)
             detailed_widget:get_children_by_id("cosmic_theme")[1].bg = selected_bg_color
         else
-            cosmic_theme:get_children_by_id("text_id")[1].markup =
-                helpers.colorize_text("كوني", nil, text_font)
-            cosmic_theme:get_children_by_id("icon_id")[1].markup =
-                helpers.colorize_text("🪐", nil, icon_font)
+            cosmic_theme:get_children_by_id("text_id")[1].markup = helpers.colorize_text("كوني", nil, text_font)
+            cosmic_theme:get_children_by_id("icon_id")[1].markup = helpers.colorize_text("🪐", nil, icon_font)
             detailed_widget:get_children_by_id("cosmic_theme")[1].bg = beautiful.bg_normal .. "88"
         end
     end
 
     local function set_win20(on)
         if on then
-            win20_theme:get_children_by_id("text_id")[1].markup = helpers.colorize_text("ويندوز", selected_text_color, text_font)
-            win20_theme:get_children_by_id("icon_id")[1].markup = helpers.colorize_text("", selected_text_color, icon_font)
+            win20_theme:get_children_by_id("text_id")[1].markup =
+                helpers.colorize_text("ويندوز", selected_text_color, text_font)
+            win20_theme:get_children_by_id("icon_id")[1].markup =
+                helpers.colorize_text("", selected_text_color, icon_font)
             detailed_widget:get_children_by_id("win20_theme")[1].bg = selected_bg_color
         else
             win20_theme:get_children_by_id("text_id")[1].markup = helpers.colorize_text("ويندوز", nil, text_font)
             win20_theme:get_children_by_id("icon_id")[1].markup = helpers.colorize_text("", nil, icon_font)
             detailed_widget:get_children_by_id("win20_theme")[1].bg = beautiful.bg_normal .. "88"
+        end
+    end
+
+    local function set_blue(on)
+        if on then
+            blue_theme:get_children_by_id("text_id")[1].markup =
+                helpers.colorize_text("ازرق", selected_text_color, text_font)
+            blue_theme:get_children_by_id("icon_id")[1].markup =
+                helpers.colorize_text("", selected_text_color, icon_font)
+            detailed_widget:get_children_by_id("blue_theme")[1].bg = selected_bg_color
+        else
+            blue_theme:get_children_by_id("text_id")[1].markup = helpers.colorize_text("ازرق", nil, text_font)
+            blue_theme:get_children_by_id("icon_id")[1].markup = helpers.colorize_text("", nil, icon_font)
+            detailed_widget:get_children_by_id("blue_theme")[1].bg = beautiful.bg_normal .. "88"
         end
     end
 
@@ -422,6 +477,7 @@ local function worker(args)
                     set_material_light(false)
                     set_cosmic(false)
                     set_win20(false)
+                    set_blue(false)
                     selected_theme = "light_theme"
                 elseif string.find(stdout, "islamic_theme") then
                     set_light(false)
@@ -432,6 +488,7 @@ local function worker(args)
                     set_material_light(false)
                     set_cosmic(false)
                     set_win20(false)
+                    set_blue(false)
                     selected_theme = "islamic_theme"
                 elseif string.find(stdout, "dark_theme") then
                     set_light(false)
@@ -442,6 +499,7 @@ local function worker(args)
                     set_material_light(false)
                     set_cosmic(false)
                     set_win20(false)
+                    set_blue(false)
                     selected_theme = "dark_theme"
                 elseif string.find(stdout, "circles_theme") then
                     set_light(false)
@@ -452,6 +510,7 @@ local function worker(args)
                     set_material_light(false)
                     set_cosmic(false)
                     set_win20(false)
+                    set_blue(false)
                     selected_theme = "circles_theme"
                 elseif string.find(stdout, "colors_theme") then
                     set_light(false)
@@ -462,6 +521,7 @@ local function worker(args)
                     set_material_light(false)
                     set_cosmic(false)
                     set_win20(false)
+                    set_blue(false)
                     selected_theme = "colors_theme"
                 elseif string.find(stdout, "light_material_you_theme") then
                     set_light(false)
@@ -472,6 +532,7 @@ local function worker(args)
                     set_material_light(true)
                     set_cosmic(false)
                     set_win20(false)
+                    set_blue(false)
                     selected_theme = "light_material_you_theme"
                 elseif string.find(stdout, "cosmic_theme") then
                     set_light(false)
@@ -482,6 +543,7 @@ local function worker(args)
                     set_material_light(false)
                     set_cosmic(true)
                     set_win20(false)
+                    set_blue(false)
                     selected_theme = "cosmic_theme"
                 elseif string.find(stdout, "win20_theme") then
                     set_light(false)
@@ -492,7 +554,19 @@ local function worker(args)
                     set_material_light(false)
                     set_cosmic(false)
                     set_win20(true)
+                    set_blue(false)
                     selected_theme = "win20_theme"
+                elseif string.find(stdout, "blue_theme") then
+                    set_light(false)
+                    set_dark(false)
+                    set_arabic(false)
+                    set_circle(false)
+                    set_colors(false)
+                    set_material_light(false)
+                    set_cosmic(false)
+                    set_win20(false)
+                    set_blue(true)
+                    selected_theme = "blue_theme"
                 end
             end
         )
@@ -554,6 +628,12 @@ local function worker(args)
         "button::press",
         function()
             change_theme("win20_theme")
+        end
+    )
+    blue_theme:connect_signal(
+        "button::press",
+        function()
+            change_theme("blue_theme")
         end
     )
 

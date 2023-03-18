@@ -299,19 +299,18 @@ local function factory(args)
         dhuhr:get_children_by_id("icon_id")[1].text = helpers.to_12(dhuhr_time) -- "صلاة الظهر " .. dhuhr_time
         asr:get_children_by_id("icon_id")[1].text = helpers.to_12(asr_time) -- "صلاة العصر " .. asr_time
         maghrib:get_children_by_id("icon_id")[1].text = helpers.to_12(maghrib_time) -- "صلاة المغرب " .. maghrib_time
-        isha:get_children_by_id("icon_id")[1].text = helpers.to_12(isha_time)
-     -- "صلاة العشاء " .. isha_time
+        isha:get_children_by_id("icon_id")[1].text = helpers.to_12(isha_time) -- "صلاة العشاء " .. isha_time
     end
 
     function calculate_prayer_times()
         awful.spawn.easy_async_with_shell(
-            "curl 'https://api.aladhan.com/v1/timingsByCity?city=" ..
-                city .. "&country=" .. country .. "&method=" .. method .. "'",
+            "curl 'https://api.aladhan.com/v1/timingsByCity/".. os.date("%d-%m-%Y") .."?city=" .. city .. "&country=" .. country .. "&method=" .. method .. "'",
             function(stdout)
                 if stdout == "" then
                     number_text_widget.text = "غير متوفرة حاليا"
                     athan_timer:stop()
                     recalculate_timer:stop()
+                    recalculate_timer.timeout = 60
                     recalculate_timer:start()
                     return
                 end

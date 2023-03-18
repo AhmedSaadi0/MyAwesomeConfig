@@ -448,6 +448,33 @@ local global_keys =
 			awful.spawn("rofi -show windowcd", false)
 		end,
 		{description = "اخر تطبيقات", group = "تطبيقات"}
+	),
+	-----------
+	-- GAMES --
+	-----------
+	awful.key(
+		{modkey, altkey},
+		"r",
+		function()
+			awful.spawn("prime-run retroarch", false)
+		end,
+		{description = "retroarch تشغيل", group = "العاب"}
+	),
+	awful.key(
+		{modkey, altkey},
+		"p",
+		function()
+			awful.spawn("prime-run pcsx2-qt", false)
+		end,
+		{description = "مشغل PS2", group = "العاب"}
+	),
+	awful.key(
+		{modkey, altkey},
+		"o",
+		function()
+			awful.spawn("prime-run PPSSPPQt", false)
+		end,
+		{description = "مشغل PSP", group = "العاب"}
 	)
 )
 

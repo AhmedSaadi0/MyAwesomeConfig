@@ -6,6 +6,12 @@ local apps = require("configuration.apps")
 
 local tags = {
 	{
+		type = "games",
+		default_app = apps.default.games,
+		layout = awful.layout.suit.tile.left,
+		gap = beautiful.useless_gap
+	},
+	{
 		type = "multimedia",
 		-- icon = icons.multimedia,
 		default_app = apps.default.multimedia,

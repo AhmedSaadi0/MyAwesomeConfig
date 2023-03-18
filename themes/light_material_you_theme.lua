@@ -119,16 +119,16 @@ theme.light_my3_theme_widgets = true
 --------------------------------
 ------------ Taglist -----------
 --------------------------------
-theme.taglist_fg_focus = theme.accent
+theme.taglist_fg_focus = "#5d484c"
 theme.taglist_bg_focus = theme.widget_bg
 
-theme.taglist_fg_urgent = "#ffaa00"
+theme.taglist_fg_urgent = "#d3929a"
 theme.taglist_bg_urgent = theme.widget_bg
 
-theme.taglist_fg_occupied = "#7376a9"
+theme.taglist_fg_occupied = "#598587"
 theme.taglist_bg_occupied = theme.widget_bg
 
-theme.taglist_fg_empty = "#545862"
+theme.taglist_fg_empty = "#bfa3a3"
 theme.taglist_bg_empty = theme.widget_bg
 
 -- theme.taglist_shape = shape.rectangle -- rounded_bar
@@ -293,7 +293,8 @@ theme.conky_script = "/themes/conky/m3.sh"
 
 theme.kvantum_theme = "a-m-you"
 theme.konsole_profile = "--profile material-you"
-theme.qt_icon_theme = "Oreo-black-circle"
+-- theme.qt_icon_theme = "Oreo-black-circle"
+theme.qt_icon_theme = "kora-grey-light-panel"
 theme.qt_style_theme = "Lightly"
 
 theme.gtk_theme = "WhiteSur-Light-red"

@@ -148,7 +148,7 @@ ruled.client.connect_signal(
 			}
 		}
 
-		-- Terminal emulators
+		-- Home & Terminals
 		ruled.client.append_rule {
 			id = "terminals",
 			rule_any = {
@@ -159,11 +159,13 @@ ruled.client.connect_signal(
 					"kitty",
 					"K3rmit",
 					"gnome-terminal",
-					"konsole"
+					"konsole",
+					"systemsettings"
+
 				}
 			},
 			properties = {
-				tag = tag_names[7],
+				tag = tag_names[8],
 				switch_to_tags = true,
 				size_hints_honor = false,
 				titlebars_enabled = false
@@ -182,7 +184,7 @@ ruled.client.connect_signal(
 				}
 			},
 			properties = {
-				tag = tag_names[6]
+				tag = tag_names[7]
 			}
 		}
 
@@ -205,7 +207,7 @@ ruled.client.connect_signal(
 				}
 			},
 			properties = {
-				tag = tag_names[5]
+				tag = tag_names[6]
 			}
 		}
 
@@ -222,30 +224,8 @@ ruled.client.connect_signal(
 				}
 			},
 			properties = {
-				tag = tag_names[4],
+				tag = tag_names[5],
 				switch_to_tags = false
-			}
-		}
-
-		-- Multimedia
-		ruled.client.append_rule {
-			id = "multimedia",
-			rule_any = {
-				class = {
-					"vlc",
-					"pragha",
-					"Clementine",
-					"Pulseeffects",
-					"easyeffects",
-					"mpv",
-					"Genymotion",
-					"systemsettings"
-				}
-			},
-			properties = {
-				tag = tag_names[1],
-				switch_to_tags = false,
-				placement = awful.placement.centered
 			}
 		}
 
@@ -264,7 +244,7 @@ ruled.client.connect_signal(
 				}
 			},
 			properties = {
-				tag = tag_names[3],
+				tag = tag_names[4],
 				skip_decoration = true
 			}
 		}
@@ -275,13 +255,55 @@ ruled.client.connect_signal(
 			rule_any = {
 				class = {
 					"TelegramDesktop",
+					"thunderbird",
 					"discord"
 				}
 			},
 			properties = {
-				tag = tag_names[2]
+				tag = tag_names[3]
 			}
 		}
+
+		-- Multimedia
+		ruled.client.append_rule {
+			id = "multimedia",
+			rule_any = {
+				class = {
+					"vlc",
+					"pragha",
+					"Clementine",
+					"Pulseeffects",
+					"easyeffects",
+					"mpv",
+					"Genymotion",
+				}
+			},
+			properties = {
+				tag = tag_names[2],
+				switch_to_tags = false,
+				placement = awful.placement.centered
+			}
+		}
+
+		-- Games
+		ruled.client.append_rule {
+			id = "games",
+			rule_any = {
+				class = {
+					"retroarch",
+					"pcsx2-qt",
+					"PPSSPPQt",
+					"PlayOnLinux",
+					"megamanx8.exe",
+				}
+			},
+			properties = {
+				tag = tag_names[1],
+				switch_to_tags = false,
+   				placement = awful.placement.centered
+			}
+		}
+
 
 		-- Multimedia Editing
 		-- ruled.client.append_rule {
