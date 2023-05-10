@@ -5,7 +5,7 @@ local gears = require("gears")
 -- require("init")
 
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init("~/.config/awesome/themes/blue_theme.lua")
+beautiful.init("~/.config/awesome/themes/batman_theme.lua")
 
 
 -- require("layout.init")

@@ -38,9 +38,8 @@ function helpers.set_widget_block(args)
     local screen = args.screen
 
     local id = args.id
-    
-    local margin_id = args.margin_id
 
+    local margin_id = args.margin_id
 
     local block =
         helpers.add_margin {
@@ -84,35 +83,38 @@ function helpers.add_text_icon_widget(args)
     local icon = args.icon or ""
     local icon_font = args.icon_font
     local icon_bg = args.icon_bg
+    local icon_forced_width = args.icon_forced_width
+    
+    local icon_position_x = args.icon_position_x or 0
 
     local forced_width = args.forced_width
     local forced_height = args.forced_height or dpi(50)
 
     local ltr = args.ltr or false
 
-    local left = function(geo, args)
+    local text_position = function(geo, args)
         return {
             x = args.parent.width - geo.width,
             y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
         }
     end
 
-    local right = function(geo, args)
+    local icon_position = function(geo, args)
         return {
-            x = 0,
+            x = icon_position_x,
             y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
         }
     end
 
     if ltr then
-        left = function(geo, args)
+        text_position = function(geo, args)
             return {
                 x = 0,
                 y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
             }
         end
 
-        right = function(geo, args)
+        icon_position = function(geo, args)
             return {
                 x = args.parent.width - geo.width,
                 y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
@@ -126,7 +128,7 @@ function helpers.add_text_icon_widget(args)
         forced_height = forced_height,
         forced_width = forced_width,
         {
-            point = left,
+            point = text_position,
             {
                 text = text,
                 align = "center",
@@ -140,7 +142,7 @@ function helpers.add_text_icon_widget(args)
             layout = wibox.layout.fixed.vertical
         },
         {
-            point = right,
+            point = icon_position,
             id = "right",
             {
                 text = icon,
@@ -149,6 +151,7 @@ function helpers.add_text_icon_widget(args)
                 id = "icon_id",
                 font = icon_font,
                 bg = icon_bg,
+                forced_width = icon_forced_width,
                 widget = wibox.widget.textbox
             },
             -- helpers.add_text(icon, icon_bg, icon_font),
@@ -368,7 +371,7 @@ function helpers.create_slider_meter_widget(args)
 end
 
 function helpers.to_12(time)
-    local h ,m = time:match("^(%d%d):(%d%d)$")
+    local h, m = time:match("^(%d%d):(%d%d)$")
     if tonumber(h) > 12 then
         h = h - 12
     end
@@ -380,10 +383,9 @@ function helpers.to_12(time)
     return h .. ":" .. m
 end
 
-
 function helpers.create_gradient_color(args)
     local type = args.type or "linear"
-    
+
     local from = args.from or {0, 0}
     local to = args.to or {0, 200}
 
@@ -835,7 +837,7 @@ function helpers.create_music_widget(args)
             left = dpi(12),
             right = dpi(12),
             bottom = dpi(6),
-            top = margin_top,
+            top = margin_top
         }
     }
 

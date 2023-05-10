@@ -304,7 +304,8 @@ local function factory(args)
 
     function calculate_prayer_times()
         awful.spawn.easy_async_with_shell(
-            "curl 'https://api.aladhan.com/v1/timingsByCity/".. os.date("%d-%m-%Y") .."?city=" .. city .. "&country=" .. country .. "&method=" .. method .. "'",
+            "curl 'https://api.aladhan.com/v1/timingsByCity/" ..
+                os.date("%d-%m-%Y") .. "?city=" .. city .. "&country=" .. country .. "&method=" .. method .. "'",
             function(stdout)
                 if stdout == "" then
                     number_text_widget.text = "غير متوفرة حاليا"
@@ -397,6 +398,15 @@ local function factory(args)
     end
 
     calculate_prayer_times()
+
+    -- awesome.connect_signal(
+    --     "org.freedesktop.login1.Manager",
+    --     "Resuming",
+    --     function()
+    --         -- awful.spawn.with_shell("notify-send 'HI'")
+    --         calculate_prayer_times()
+    --     end
+    -- )
 
     awesome.connect_signal(
         "system::resume",

@@ -299,7 +299,7 @@ theme.icons = require("themes.icons-colors")
 -- theme.dynamic_wallpaper_dir = "themes/wallpapers//"
 theme.conky_script = ""
 
-theme.qt_icon_theme = "oomox-aesthetic-dark"
+theme.qt_icon_theme = "FairyWren"
  --"We10X"
 theme.qt_style_theme = "kvantum"
  --"Lightly"

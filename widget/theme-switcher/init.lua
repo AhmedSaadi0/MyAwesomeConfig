@@ -43,6 +43,15 @@ local function worker(args)
         forced_width = dpi(72)
     }
 
+    local batman_theme =
+        helpers.add_text_icon_widget {
+        text = "باتمان",
+        icon = "",
+        text_font = text_font,
+        icon_font = icon_font,
+        forced_width = dpi(72)
+    }
+
     local light_theme =
         helpers.add_text_icon_widget {
         text = "مضيء",
@@ -55,7 +64,9 @@ local function worker(args)
     local circles_theme =
         helpers.add_text_icon_widget {
         text = "دوائر",
-        icon = "",
+        icon = "",
+        icon_forced_width = dpi(25),
+        icon_position_x = dpi(-9),
         text_font = text_font,
         icon_font = icon_font,
         forced_width = dpi(72)
@@ -109,7 +120,7 @@ local function worker(args)
     local detailed_widget =
         wibox.widget {
         layout = wibox.layout.manual,
-        forced_height = dpi(230),
+        forced_height = dpi(301),
         -------------------------------------------
         ----------------- الصف الاول -----------------
         -------------------------------------------
@@ -127,7 +138,7 @@ local function worker(args)
                     widget = islamic_theme,
                     id = "arabic",
                     shape = shape,
-                    top = dpi(8),
+                    top = dpi(7),
                     bottom = dpi(8),
                     right = dpi(8),
                     left = dpi(8)
@@ -151,7 +162,7 @@ local function worker(args)
                     widget = dark_theme,
                     id = "dark",
                     shape = shape,
-                    top = dpi(8),
+                    top = dpi(7),
                     bottom = dpi(8),
                     right = dpi(8),
                     left = dpi(8)
@@ -175,7 +186,7 @@ local function worker(args)
                     widget = light_theme,
                     id = "light",
                     shape = shape,
-                    top = dpi(8),
+                    top = dpi(7),
                     bottom = dpi(8),
                     right = dpi(8),
                     left = dpi(8)
@@ -195,7 +206,7 @@ local function worker(args)
             point = function(geo, args)
                 return {
                     x = args.parent.width - geo.width,
-                    y = (args.parent.height / 2 + (geo.height / 2)) - geo.height --args.parent.height - geo.height
+                    y = dpi(81)
                 }
             end,
             layout = wibox.layout.fixed.vertical,
@@ -218,7 +229,7 @@ local function worker(args)
             point = function(geo, args)
                 return {
                     x = (args.parent.width / 2 + (geo.width / 2)) - geo.width,
-                    y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
+                    y = dpi(81)
                 }
             end,
             layout = wibox.layout.fixed.vertical,
@@ -227,7 +238,7 @@ local function worker(args)
                     widget = circles_theme,
                     id = "circle",
                     shape = shape,
-                    top = dpi(8),
+                    top = dpi(7),
                     bottom = dpi(8),
                     right = dpi(8),
                     left = dpi(8)
@@ -241,7 +252,7 @@ local function worker(args)
             point = function(geo, args)
                 return {
                     x = 0,
-                    y = (args.parent.height / 2 + (geo.height / 2)) - geo.height
+                    y = dpi(81)
                 }
             end,
             layout = wibox.layout.fixed.vertical,
@@ -250,7 +261,7 @@ local function worker(args)
                     widget = light_material_you_theme,
                     id = "light_material_you_theme",
                     shape = shape,
-                    top = dpi(8),
+                    top = dpi(7),
                     bottom = dpi(8),
                     right = dpi(8),
                     left = dpi(8)
@@ -267,7 +278,7 @@ local function worker(args)
             point = function(geo, args)
                 return {
                     x = args.parent.width - geo.width,
-                    y = args.parent.height - geo.height
+                    y = dpi(155)
                 }
             end,
             layout = wibox.layout.fixed.vertical,
@@ -276,7 +287,7 @@ local function worker(args)
                     widget = cosmic_theme,
                     id = "cosmic_theme",
                     shape = shape,
-                    top = dpi(8),
+                    top = dpi(7),
                     bottom = dpi(8),
                     right = dpi(8),
                     left = dpi(8)
@@ -291,7 +302,7 @@ local function worker(args)
             point = function(geo, args)
                 return {
                     x = (args.parent.width / 2 + (geo.width / 2)) - geo.width,
-                    y = args.parent.height - geo.height
+                    y = dpi(155)
                 }
             end,
             layout = wibox.layout.fixed.vertical,
@@ -300,7 +311,7 @@ local function worker(args)
                     widget = win20_theme,
                     id = "win20_theme",
                     shape = shape,
-                    top = dpi(8),
+                    top = dpi(7),
                     bottom = dpi(8),
                     right = dpi(8),
                     left = dpi(8)
@@ -315,7 +326,7 @@ local function worker(args)
             point = function(geo, args)
                 return {
                     x = 0,
-                    y = args.parent.height - geo.height
+                    y = dpi(155)
                 }
             end,
             layout = wibox.layout.fixed.vertical,
@@ -324,7 +335,35 @@ local function worker(args)
                     widget = blue_theme,
                     id = "blue_theme",
                     shape = shape,
-                    top = dpi(8),
+                    top = dpi(7),
+                    bottom = dpi(8),
+                    right = dpi(8),
+                    left = dpi(8)
+                },
+                bottom = dpi(8),
+                right = dpi(8),
+                left = dpi(8)
+            }
+        },
+        --------------------------------------------
+        ----------------- الصف الرابع -----------------
+        --------------------------------------------
+
+        -- Batman
+        {
+            point = function(geo, args)
+                return {
+                    x = args.parent.width - geo.width,
+                    y = args.parent.height - geo.height
+                }
+            end,
+            layout = wibox.layout.fixed.vertical,
+            helpers.add_margin {
+                widget = helpers.set_widget_block {
+                    widget = batman_theme,
+                    id = "batman_theme",
+                    shape = shape,
+                    top = dpi(7),
                     bottom = dpi(8),
                     right = dpi(8),
                     left = dpi(8)
@@ -383,11 +422,11 @@ local function worker(args)
             circles_theme:get_children_by_id("text_id")[1].markup =
                 helpers.colorize_text("دوائر", selected_text_color, text_font)
             circles_theme:get_children_by_id("icon_id")[1].markup =
-                helpers.colorize_text("", selected_text_color, icon_font)
+                helpers.colorize_text("", selected_text_color, icon_font)
             detailed_widget:get_children_by_id("circle")[1].bg = selected_bg_color
         else
             circles_theme:get_children_by_id("text_id")[1].markup = helpers.colorize_text("دوائر", nil, text_font)
-            circles_theme:get_children_by_id("icon_id")[1].markup = helpers.colorize_text("", nil, icon_font)
+            circles_theme:get_children_by_id("icon_id")[1].markup = helpers.colorize_text("", nil, icon_font)
             detailed_widget:get_children_by_id("circle")[1].bg = beautiful.bg_normal .. "88"
         end
     end
@@ -464,6 +503,20 @@ local function worker(args)
         end
     end
 
+    local function set_batman(on)
+        if on then
+            batman_theme:get_children_by_id("text_id")[1].markup =
+                helpers.colorize_text("باتمان", selected_text_color, text_font)
+                batman_theme:get_children_by_id("icon_id")[1].markup =
+                helpers.colorize_text("", selected_text_color, icon_font)
+            detailed_widget:get_children_by_id("batman_theme")[1].bg = selected_bg_color
+        else
+            batman_theme:get_children_by_id("text_id")[1].markup = helpers.colorize_text("باتمان", nil, text_font)
+            batman_theme:get_children_by_id("icon_id")[1].markup = helpers.colorize_text("", nil, icon_font)
+            detailed_widget:get_children_by_id("batman_theme")[1].bg = beautiful.bg_normal .. "88"
+        end
+    end
+
     local check_status = function()
         awful.spawn.easy_async_with_shell(
             [[bash -c "grep -F '_theme' ]] .. config_dir .. [[rc.lua | tr -d '[\"\;\=\ ]'"]],
@@ -478,6 +531,7 @@ local function worker(args)
                     set_cosmic(false)
                     set_win20(false)
                     set_blue(false)
+                    set_batman(false)
                     selected_theme = "light_theme"
                 elseif string.find(stdout, "islamic_theme") then
                     set_light(false)
@@ -489,6 +543,7 @@ local function worker(args)
                     set_cosmic(false)
                     set_win20(false)
                     set_blue(false)
+                    set_batman(false)
                     selected_theme = "islamic_theme"
                 elseif string.find(stdout, "dark_theme") then
                     set_light(false)
@@ -500,6 +555,7 @@ local function worker(args)
                     set_cosmic(false)
                     set_win20(false)
                     set_blue(false)
+                    set_batman(false)
                     selected_theme = "dark_theme"
                 elseif string.find(stdout, "circles_theme") then
                     set_light(false)
@@ -511,6 +567,7 @@ local function worker(args)
                     set_cosmic(false)
                     set_win20(false)
                     set_blue(false)
+                    set_batman(false)
                     selected_theme = "circles_theme"
                 elseif string.find(stdout, "colors_theme") then
                     set_light(false)
@@ -522,6 +579,7 @@ local function worker(args)
                     set_cosmic(false)
                     set_win20(false)
                     set_blue(false)
+                    set_batman(false)
                     selected_theme = "colors_theme"
                 elseif string.find(stdout, "light_material_you_theme") then
                     set_light(false)
@@ -533,6 +591,7 @@ local function worker(args)
                     set_cosmic(false)
                     set_win20(false)
                     set_blue(false)
+                    set_batman(false)
                     selected_theme = "light_material_you_theme"
                 elseif string.find(stdout, "cosmic_theme") then
                     set_light(false)
@@ -544,6 +603,7 @@ local function worker(args)
                     set_cosmic(true)
                     set_win20(false)
                     set_blue(false)
+                    set_batman(false)
                     selected_theme = "cosmic_theme"
                 elseif string.find(stdout, "win20_theme") then
                     set_light(false)
@@ -555,6 +615,7 @@ local function worker(args)
                     set_cosmic(false)
                     set_win20(true)
                     set_blue(false)
+                    set_batman(false)
                     selected_theme = "win20_theme"
                 elseif string.find(stdout, "blue_theme") then
                     set_light(false)
@@ -566,7 +627,20 @@ local function worker(args)
                     set_cosmic(false)
                     set_win20(false)
                     set_blue(true)
+                    set_batman(false)
                     selected_theme = "blue_theme"
+                elseif string.find(stdout, "batman_theme") then
+                    set_light(false)
+                    set_dark(false)
+                    set_arabic(false)
+                    set_circle(false)
+                    set_colors(false)
+                    set_material_light(false)
+                    set_cosmic(false)
+                    set_win20(false)
+                    set_blue(false)
+                    set_batman(true)
+                    selected_theme = "batman_theme"
                 end
             end
         )
@@ -634,6 +708,12 @@ local function worker(args)
         "button::press",
         function()
             change_theme("blue_theme")
+        end
+    )
+    batman_theme:connect_signal(
+        "button::press",
+        function()
+            change_theme("batman_theme")
         end
     )
 

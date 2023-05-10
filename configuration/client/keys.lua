@@ -9,15 +9,6 @@ local client_keys =
 	awful.util.table.join(
 	awful.key(
 		{modkey},
-		"m",
-		function(c)
-			c.fullscreen = not c.fullscreen
-			c:raise()
-		end,
-		{description = "تبديل ملئ الشاشة", group = "عمليات الشاشة"}
-	),
-	awful.key(
-		{modkey},
 		"q",
 		function(c)
 			c:kill()
@@ -67,6 +58,15 @@ local client_keys =
 	),
 	awful.key(
 		{modkey, "Shift"},
+		"m",
+		function(c)
+			c.fullscreen = not c.fullscreen
+			c:raise()
+		end,
+		{description = "تبديل ملئ الشاشة", group = "عمليات الشاشة"}
+	),
+	awful.key(
+		{modkey},
 		"m",
 		function(c)
 			c.maximized = not c.maximized
