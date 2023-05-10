@@ -71,8 +71,8 @@ theme.cpu_temp_icon_high_bg_color = "#f9ab5d" -- theme.widget_bg
 theme.cpu_temp_icon_fg_color = theme.widget_bg
 theme.cpu_temp_text_color = theme.widget_bg
 
-theme.net_speed_color = "#cba882"
-theme.net_speed_icon_bg_color = "#cba882" -- theme.widget_bg
+theme.net_speed_color = "#50a285"
+theme.net_speed_icon_bg_color = "#50a285" -- theme.widget_bg
 theme.net_speed_icon_fg_color = theme.widget_bg
 theme.net_speed_text_color = theme.widget_bg
 
@@ -87,9 +87,9 @@ theme.volume_icon_fg_color = theme.widget_bg
 theme.volume_widget_text_color = theme.widget_bg
 
 theme.battery_color = theme.widget_bg
-theme.battery_icon_bg_color = "#ffaf5f" -- theme.widget_bg
+theme.battery_icon_bg_color = "#4b5263" -- theme.widget_bg
 theme.battery_icon_fg_color = theme.battery_color
-theme.battery_text_color = theme.battery_icon_bg_color
+theme.battery_text_color = "#92a0bd"
 theme.battery_hover_color = theme.battery_color
 
 theme.weather_color = "#cba882"
@@ -273,7 +273,7 @@ theme.dynamic_wallpaper_dir = "themes/wallpapers//"
 theme.conky_script = ""
 
 theme.kvantum_theme = "a-dark"
-theme.konsole_profile = "--profile Sweet"
+theme.konsole_profile = "--profile Batman"
 theme.qt_icon_theme = "dracula-icons-main" --"neon-icons-master"
 -- theme.qt_style_theme = "kvantum"--"Lightly"
 theme.qt_style_theme = "Lightly"

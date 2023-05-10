@@ -58,6 +58,7 @@
     cp ~/.config/awesome/rofi/config.rasi ~/.config/rofi/config.rasi
     cp ~/.config/awesome/themes/qt5/* ~/.config/qt5ct/
     cp -r ~/.config/awesome/themes/plasma-colors/* ~/.local/share/color-schemes
+    cp -r ~/.config/awesome/themes/konsole/* ~/.local/share/konsole
     cp -r ~/.config/awesome/themes/kvantum-themes/* ~/.config/Kvantum
     cp -r ~/.config/awesome/.fonts ~/
 	sudo cp /etc/environment /etc/environmentOLD
