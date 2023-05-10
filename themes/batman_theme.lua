@@ -55,21 +55,21 @@ theme.border_marked = "#00000000"
 
 -- colors
 theme.power_button_color = "#fedb41"
-theme.taglist_color = "#a4dfff"
+theme.taglist_color = "#739db3"
 
-theme.keyboard_layout_color = theme.widget_bg
-theme.keyboard_icon_bg_color = "#a4dfff"
-theme.keyboard_icon_fg_color = theme.keyboard_layout_color
-theme.keyboard_text_color = theme.keyboard_icon_bg_color
+theme.keyboard_layout_color = "#739db3"
+theme.keyboard_icon_bg_color = "#739db3"
+theme.keyboard_icon_fg_color = theme.widget_bg
+theme.keyboard_text_color = theme.widget_bg
 
 theme.cpu_color = "#434343"
 theme.cpu_icon_bg_color = "#434343"
 
-theme.cpu_temp_color = theme.widget_bg
-theme.cpu_temp_icon_bg_color = "#61afef" -- theme.widget_bg
+theme.cpu_temp_color = "#457eac"
+theme.cpu_temp_icon_bg_color = "#457eac" -- theme.widget_bg
 theme.cpu_temp_icon_high_bg_color = "#f9ab5d" -- theme.widget_bg
-theme.cpu_temp_icon_fg_color = theme.cpu_temp_color
-theme.cpu_temp_text_color = theme.cpu_temp_icon_bg_color
+theme.cpu_temp_icon_fg_color = theme.widget_bg
+theme.cpu_temp_text_color = theme.widget_bg
 
 theme.net_speed_color = "#cba882"
 theme.net_speed_icon_bg_color = "#cba882" -- theme.widget_bg
