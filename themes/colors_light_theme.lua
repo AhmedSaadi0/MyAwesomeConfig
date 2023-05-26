@@ -185,6 +185,20 @@ theme.clock_icon_bg_color = "#9868e800"
 theme.clock_icon_fg_color = theme.bg_normal
 theme.clock_text_color = theme.clock_icon_fg_color --"#f1dc6e"
 
+theme.prayer_times_color = helpers.create_gradient_color {
+    color1 = "#ff4bde",
+    color2 = "#198bee",
+    from = {0, 0},
+    to = {90, 90},
+    stops1 = 0,
+    stops2 = 0.9
+}
+theme.prayer_times_icon_bg_color = "#5579e8"
+theme.prayer_times_icon_fg_color = theme.widget_bg
+theme.prayer_times_text_color = theme.widget_bg
+theme.prayer_times_inner_bg_color = theme.accent
+theme.prayer_times_inner_text_color = theme.widget_bg
+
 theme.dashboard_box_bg = theme.widget_bg
 theme.dashboard_box_fg = theme.fg_normal
 theme.xcolor2 = theme.fg_normal

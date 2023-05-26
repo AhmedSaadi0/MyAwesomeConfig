@@ -21,6 +21,8 @@ elseif beautiful.win20_theme_widgets then
     require("layout-gnome.desktop-widgets.win20-theme-widgets")
 elseif beautiful.light_my3_theme_widgets then
     require("layout-gnome.desktop-widgets.light-materyal3-theme-widgets")
+elseif beautiful.batman_theme_widgets then
+    require("layout-gnome.desktop-widgets.batman-theme")
 end
 
 require ("layout-gnome.control-center")

@@ -24,13 +24,13 @@ local function factory(args)
 
     local bg = args.bg or beautiful.bg_normal
 
-    local widget_bg = args.widget_bg or beautiful.widget_bg
+    local prayer_times_inner_text_color = args.prayer_times_inner_text_color or beautiful.prayer_times_inner_text_color
     local widget_fg = args.widget_fg or beautiful.fg_normal
 
     local border_width = args.border_width or beautiful.control_border_width
     local border_color = args.border_color or beautiful.border_focus
 
-    local whole_bg_color = beautiful.weather_color_whole_color or beautiful.transparent
+    local whole_bg_color = beautiful.prayer_times_color_whole_color or beautiful.transparent
 
     local popup_shape = args.popup_shape or function(cr, width, height)
             gears.shape.rounded_rect(cr, width, height, beautiful.groups_radius)
@@ -52,7 +52,7 @@ local function factory(args)
 
     local icon =
         wibox.widget {
-        markup = helpers.colorize_text("", beautiful.weather_icon_fg_color, icon_font),
+        markup = helpers.colorize_text("", beautiful.prayer_times_icon_fg_color, icon_font),
         align = "center",
         valign = "center",
         widget = wibox.widget.textbox
@@ -65,15 +65,15 @@ local function factory(args)
                 layout = wibox.layout.fixed.horizontal,
                 helpers.set_widget_block {
                     widget = number_text_widget,
-                    bg = beautiful.weather_color,
-                    fg = beautiful.weather_text_color,
+                    bg = beautiful.prayer_times_color,
+                    fg = beautiful.prayer_times_text_color,
                     shape = helpers.left_rounded_rect(beautiful.widgets_corner_radius),
                     left = 8,
                     right = 5
                 },
                 helpers.set_widget_block {
                     widget = icon,
-                    bg = beautiful.weather_icon_bg_color,
+                    bg = beautiful.prayer_times_icon_bg_color,
                     shape = helpers.right_rounded_rect(beautiful.widgets_corner_radius),
                     right = 8,
                     left = 4
@@ -264,7 +264,7 @@ local function factory(args)
             {
                 icon = config_dir .. "widget/prayer-times/mosque.png",
                 app_name = "الاذان",
-                title = "صلاة" .. prayer,
+                title = "صلاة " .. prayer,
                 message = "حان الان موعد صلاة " .. prayer,
                 urgency = "normal"
             }
@@ -346,37 +346,37 @@ local function factory(args)
                     number_text_widget.text = "الفجر (" .. json_object.data.timings.Fajr .. ")"
                     h, m = json_object.data.timings.Fajr:match("^(%d%d):(%d%d)$")
 
-                    detailed_widget:get_children_by_id("fajr_widget")[1].bg = beautiful.accent
-                    detailed_widget:get_children_by_id("fajr_widget")[1].fg = beautiful.widget_bg
+                    detailed_widget:get_children_by_id("fajr_widget")[1].bg = beautiful.prayer_times_inner_bg_color or beautiful.prayer_times_icon_bg_color
+                    detailed_widget:get_children_by_id("fajr_widget")[1].fg = beautiful.prayer_times_inner_text_color
                 elseif current_time >= json_object.data.timings.Maghrib and current_time < json_object.data.timings.Isha then
                     prayer = "العشاء"
                     h, m = json_object.data.timings.Isha:match("^(%d%d):(%d%d)$")
                     number_text_widget.text = "العشاء (0" .. (h - 12) .. ":" .. m .. ")"
 
-                    detailed_widget:get_children_by_id("isha_widget")[1].bg = beautiful.accent
-                    detailed_widget:get_children_by_id("isha_widget")[1].fg = beautiful.widget_bg
+                    detailed_widget:get_children_by_id("isha_widget")[1].bg = beautiful.prayer_times_inner_bg_color or beautiful.prayer_times_icon_bg_color
+                    detailed_widget:get_children_by_id("isha_widget")[1].fg = beautiful.prayer_times_inner_text_color
                 elseif current_time >= json_object.data.timings.Asr and current_time < json_object.data.timings.Maghrib then
                     prayer = "المغرب"
                     h, m = json_object.data.timings.Maghrib:match("^(%d%d):(%d%d)$")
                     number_text_widget.text = "المغرب (0" .. (h - 12) .. ":" .. m .. ")"
 
-                    detailed_widget:get_children_by_id("maghrib_widget")[1].bg = beautiful.accent
-                    detailed_widget:get_children_by_id("maghrib_widget")[1].fg = beautiful.widget_bg
+                    detailed_widget:get_children_by_id("maghrib_widget")[1].bg = beautiful.prayer_times_inner_bg_color or beautiful.prayer_times_icon_bg_color
+                    detailed_widget:get_children_by_id("maghrib_widget")[1].fg = beautiful.prayer_times_inner_text_color
                 elseif current_time >= json_object.data.timings.Dhuhr and current_time < json_object.data.timings.Asr then
                     prayer = "العصر"
                     h, m = json_object.data.timings.Asr:match("^(%d%d):(%d%d)$")
                     number_text_widget.text = "العصر (0" .. (h - 12) .. ":" .. m .. ")"
 
-                    detailed_widget:get_children_by_id("asr_widget")[1].bg = beautiful.accent
-                    detailed_widget:get_children_by_id("asr_widget")[1].fg = beautiful.widget_bg
+                    detailed_widget:get_children_by_id("asr_widget")[1].bg = beautiful.prayer_times_inner_bg_color or beautiful.prayer_times_icon_bg_color
+                    detailed_widget:get_children_by_id("asr_widget")[1].fg = beautiful.prayer_times_inner_text_color
                 elseif current_time >= json_object.data.timings.Fajr and current_time < json_object.data.timings.Dhuhr then
                     prayer = "الظهر"
                     h, m = json_object.data.timings.Dhuhr:match("^(%d%d):(%d%d)$")
 
                     number_text_widget.text = "الظهر (" .. h .. ":" .. m .. ")"
 
-                    detailed_widget:get_children_by_id("dhuhr_widget")[1].bg = beautiful.accent
-                    detailed_widget:get_children_by_id("dhuhr_widget")[1].fg = beautiful.widget_bg
+                    detailed_widget:get_children_by_id("dhuhr_widget")[1].bg = beautiful.prayer_times_inner_bg_color or beautiful.prayer_times_icon_bg_color
+                    detailed_widget:get_children_by_id("dhuhr_widget")[1].fg = beautiful.prayer_times_inner_text_color
                 end
 
                 set_detailed_time(

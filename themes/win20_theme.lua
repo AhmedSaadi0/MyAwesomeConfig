@@ -73,6 +73,7 @@ theme.border_width = controllers.border_width
 theme.border_normal = "#110046"
 theme.border_focus = "#7ec7a2"
 theme.border_marked = "#7ec7a2"
+theme.border_maximized = "#00000000"
 
 -- colors
 theme.power_button_color = "#fedb41"
@@ -201,6 +202,20 @@ theme.weather_widget_text_color = theme.bg_normal
 theme.weather_icon_bg_color = theme.weather_color
 theme.weather_icon_fg_color = theme.bg_normal
 theme.weather_text_color = theme.weather_icon_fg_color
+
+theme.prayer_times_color = helpers.create_gradient_color {
+    color1 = "#ff4bde",
+    color2 = "#198bee",
+    from = {0, 0},
+    to = {90, 90},
+    stops1 = 0,
+    stops2 = 0.9
+}
+theme.prayer_times_icon_bg_color = "#5579e8"
+theme.prayer_times_icon_fg_color = theme.widget_bg
+theme.prayer_times_text_color = theme.widget_bg
+theme.prayer_times_inner_bg_color = theme.accent
+theme.prayer_times_inner_text_color = theme.widget_bg
 
 theme.clock_color = theme.accent
 theme.clock_whole_color = theme.clock_color

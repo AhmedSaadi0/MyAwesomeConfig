@@ -71,6 +71,7 @@
 	tar xvf ~/.config/awesome/themes/sys-icons/We10X.tar.gz -C ~/.local/share/icons
 	glava --copy-config
 	cp -r ~/.config/awesome/themes/glava/* ~/.config/glava/
+	cp -r ~/.config/awesome/qt5ct.conf ~/.config/qt5ct/qt5ct.conf
 
 
 # Screenshots - لقطات

@@ -48,7 +48,7 @@ return {
 		'setxkbmap -layout "us,ar" -option "grp:win_space_toggle"',
 		"/usr/lib/polkit-kde-authentication-agent-1",
 		-- "picom -b --experimental-backends  --dbus --config " .. config_dir .. "/configuration/picom.conf",
-		"picom --dbus --config " .. config_dir .. "/configuration/picom.conf",
+		"picom -b --dbus --config " .. config_dir .. "/configuration/picom.conf",
 		-- kvantum theme
 		"kvantummanager --set " .. beautiful.kvantum_theme,
 		-- PLasma theme

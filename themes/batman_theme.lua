@@ -1,6 +1,6 @@
-------------------------
--- Dark awesome theme --
-------------------------
+--------------------------
+-- Batman awesome theme --
+--------------------------
 
 local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
@@ -82,7 +82,7 @@ theme.brightness_icon_fg_color = theme.widget_bg
 theme.brightness_cr_text_color = theme.widget_bg
 
 theme.volume_widget_color = "#a24e55"
-theme.volume_icon_bg_color = "#a24e55" 
+theme.volume_icon_bg_color = "#a24e55"
 theme.volume_icon_fg_color = theme.widget_bg
 theme.volume_widget_text_color = theme.widget_bg
 
@@ -97,6 +97,12 @@ theme.weather_icon_bg_color = "#cba882"
 theme.weather_icon_fg_color = theme.widget_bg
 theme.weather_text_color = theme.widget_bg
 
+theme.prayer_times_color = "#50a285"
+theme.prayer_times_icon_bg_color = "#50a285"
+theme.prayer_times_icon_fg_color = theme.widget_bg
+theme.prayer_times_text_color = theme.widget_bg
+theme.prayer_times_inner_text_color = theme.widget_bg
+
 theme.clock_whole_color = "#92a0bd"
 theme.clock_color = "#92a0bd"
 theme.clock_icon_bg_color = "#77839a"
@@ -110,6 +116,8 @@ theme.xforeground = theme.fg_normal
 
 theme.tooltip_fg = theme.fg_normal
 theme.tooltip_bg = theme.bg_normal
+
+theme.batman_theme_widgets = true
 
 --------------------------------
 ------------ Taglist -----------
@@ -270,7 +278,7 @@ theme.music_back = "~/.config/awesome/themes/assets/no_music.png"
 -- theme.icon_theme = nil
 theme.icons = require("themes.icons-batman")
 theme.dynamic_wallpaper_dir = "themes/wallpapers//"
-theme.conky_script = ""
+theme.conky_script = "/themes/conky/conky-batman.sh"
 
 theme.kvantum_theme = "a-dark"
 theme.konsole_profile = "--profile Batman"

@@ -12,8 +12,18 @@ local config_dir = gears.filesystem.get_configuration_dir()
 local widget_icon_dir = config_dir .. "widget/battery/icons/"
 
 local helpers = require("helpers")
-local charging_battery_health_viewded = false
-local not_charging_battery_health_viewded = false
+local charging_battery_health_viewed = false
+local not_charging_battery_health_viewed = false
+
+local warning_40_battery_health_viewed = false
+local warning_30_battery_health_viewed = false
+local warning_20_battery_health_viewed = false
+local warning_10_battery_health_viewed = false
+
+local warning_80_battery_health_viewed = false
+local warning_85_battery_health_viewed = false
+local warning_90_battery_health_viewed = false
+local warning_100_battery_health_viewed = false
 
 local return_button = function()
 	local battery_imagebox =
@@ -132,8 +142,10 @@ local return_button = function()
 			icon = "battery-discharging-30.svg"
 			title = "قم بتوصيل الشاحن"
 		end
-		message = 
-			"نسبة شحت البطارية وصل الى (" .. battery_persentage .. "%) للحفاظ على بطارية تدوم لوقت اكثر يفضل اتبارع قاعدة 40 - 80.\nالقاعدة 40 80 هي محاولة الحفاظ على بطارية الجهاز بين 40% إلى 80٪ لتقليل دورات الشحن وإطالة عمر البطارية"
+		message =
+			"نسبة شحت البطارية وصل الى (" ..
+			battery_persentage ..
+				"%) للحفاظ على بطارية تدوم لوقت اكثر يفضل اتبارع قاعدة 40 - 80.\nالقاعدة 40 80 هي محاولة الحفاظ على بطارية الجهاز بين 40% إلى 80٪ لتقليل دورات الشحن وإطالة عمر البطارية"
 		naughty.notification(
 			{
 				icon = widget_icon_dir .. icon,
@@ -212,23 +224,65 @@ local return_button = function()
 					icon_name = icon_name .. "-" .. status .. "-" .. "90"
 				end
 
-				if status == "discharging" and battery_percentage > 40 and charging_battery_health_viewded then
-					charging_battery_health_viewded = false
+				if status == "discharging" then
+					if battery_percentage > 40 then
+						warning_80_battery_health_viewed = false
+						warning_85_battery_health_viewed = false
+						warning_90_battery_health_viewed = false
+						warning_100_battery_health_viewed = false
+					end
+					if battery_percentage <= 40 and battery_percentage > 30 and not warning_40_battery_health_viewed then
+						warning_40_battery_health_viewed = true
+						health_battery_warning(battery_percentage)
+					elseif battery_percentage <= 30 and battery_percentage > 20 and not warning_30_battery_health_viewed then
+						warning_30_battery_health_viewed = true
+						health_battery_warning(battery_percentage)
+					elseif battery_percentage <= 20 and battery_percentage > 10 and not warning_20_battery_health_viewed then
+						warning_20_battery_health_viewed = true
+						health_battery_warning(battery_percentage)
+					elseif battery_percentage <= 10 and not warning_10_battery_health_viewed then
+						warning_10_battery_health_viewed = true
+						health_battery_warning(battery_percentage)
+					end
+				elseif status == "charging" then
+					if battery_percentage < 40 then
+						warning_40_battery_health_viewed = false
+						warning_30_battery_health_viewed = false
+						warning_20_battery_health_viewed = false
+						warning_10_battery_health_viewed = false
+					end
+					if battery_percentage >= 80 and battery_percentage < 85 and not warning_80_battery_health_viewed then
+						warning_80_battery_health_viewed = true
+						health_battery_warning(battery_percentage)
+					elseif battery_percentage >= 85 and battery_percentage < 90 and not warning_85_battery_health_viewed then
+						warning_85_battery_health_viewed = true
+						health_battery_warning(battery_percentage)
+					elseif battery_percentage >= 90 and battery_percentage < 100 and not warning_90_battery_health_viewed then
+						warning_90_battery_health_viewed = true
+						health_battery_warning(battery_percentage)
+					elseif battery_percentage == 100 and not warning_100_battery_health_viewed then
+						warning_100_battery_health_viewed = true
+						health_battery_warning(battery_percentage)
+					end
 				end
 
-				if status == "charging" and not charging_battery_health_viewded and battery_percentage >= 80 then
-					charging_battery_health_viewded = true
-					health_battery_warning(battery_percentage)
-				end
+				-- if status == "discharging" and battery_percentage > 40 and charging_battery_health_viewed then
+				-- 	charging_battery_health_viewed = false
+				-- end
 
-				if status == "charging" and battery_percentage < 80 and not_charging_battery_health_viewded then
-					not_charging_battery_health_viewded = false
-				end
+				-- if status == "charging" and not charging_battery_health_viewed and battery_percentage >= 80 then
+				-- 	charging_battery_health_viewed = true
+				-- 	health_battery_warning(battery_percentage)
+				-- end
 
-				if status == "discharging" and not not_charging_battery_health_viewded and battery_percentage <= 40 then
-					not_charging_battery_health_viewded = true
-					health_battery_warning(battery_percentage)
-				end
+				-- if status == "charging" and battery_percentage < 80 and not_charging_battery_health_viewed then
+				-- 	not_charging_battery_health_viewed = false
+				-- end
+
+				-- if status == "discharging" and not not_charging_battery_health_viewed and battery_percentage <= 40 then
+				-- 	not_charging_battery_health_viewed = true
+				-- 	health_battery_warning(battery_percentage)
+				-- end
 
 				battery_imagebox.icon:set_image(gears.surface.load_uncached(widget_icon_dir .. icon_name .. ".svg"))
 			end

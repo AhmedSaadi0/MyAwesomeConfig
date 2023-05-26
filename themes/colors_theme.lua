@@ -202,6 +202,20 @@ theme.weather_icon_bg_color = theme.weather_color
 theme.weather_icon_fg_color = theme.bg_normal
 theme.weather_text_color = theme.weather_icon_fg_color
 
+theme.prayer_times_color = helpers.create_gradient_color {
+    color1 = "#1ad6fd",
+    color2 = "#a938a6",
+    from = {100, 0},
+    to = {-100, 00},
+    -- stops1 = 0.9,
+    -- stops2 = 0.9
+}
+theme.prayer_times_icon_bg_color = "#1ad6fd"
+theme.prayer_times_icon_fg_color = theme.widget_bg
+theme.prayer_times_text_color = theme.widget_bg
+theme.prayer_times_inner_bg_color = theme.prayer_times_color
+theme.prayer_times_inner_text_color = theme.widget_bg
+
 theme.clock_color = theme.accent
 theme.clock_whole_color = theme.clock_color
 theme.clock_icon_bg_color = helpers.create_gradient_color {

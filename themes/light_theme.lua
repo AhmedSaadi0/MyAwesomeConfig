@@ -124,6 +124,14 @@ theme.weather_icon_fg_color = theme.fg_normal
 theme.weather_text_color = theme.weather_icon_fg_color
 
 
+theme.prayer_times_color = theme.widget_bg
+theme.prayer_times_icon_bg_color = "#c7c7c7"
+theme.prayer_times_text_color = theme.fg_normal
+theme.prayer_times_icon_fg_color = theme.fg_normal
+theme.prayer_times_inner_text_color = theme.fg_normal
+theme.prayer_times_inner_bg_color = "#c7c7c7"
+
+
 -- theme.clock_color = "#00a1ff"
 theme.clock_color = theme.accent
 theme.clock_whole_color = theme.clock_color
