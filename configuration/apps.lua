@@ -22,7 +22,7 @@ return {
 		social = "telegram-desktop",
 		-- Default IDE  
 		-- LC_ALL=C prime-run studio
-		development = "studio",
+		development = "export LANG=en_US.UTF-8 && prime-run studio",
 		-- Games
 		games = "retroarch",
 		-- Default locker
@@ -43,12 +43,12 @@ return {
 		-- "/usr/lib/org_kde_powerdevil",
 		-- "lxqt-powermanagement",
 		"xfce4-power-manager",
-		"xfce4-screensaver &> x.log",
+		"xfce4-screensaver > /dev/null 2>&1",
 		-- "balooctl enable",
 		'setxkbmap -layout "us,ar" -option "grp:win_space_toggle"',
 		"/usr/lib/polkit-kde-authentication-agent-1",
-		-- "picom -b --experimental-backends  --dbus --config " .. config_dir .. "/configuration/picom.conf",
 		"picom -b --dbus --config " .. config_dir .. "/configuration/picom.conf",
+		-- "picom -b --dbus --config " .. config_dir .. "/configuration/picom.conf",
 		-- kvantum theme
 		"kvantummanager --set " .. beautiful.kvantum_theme,
 		-- PLasma theme

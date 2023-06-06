@@ -323,6 +323,8 @@ local function factory(args)
 
                 local current_time = os.date("%H:%M")
 
+                header:get_children_by_id("text_id")[1].text = json_object.data.date.hijri.date
+
                 local h, m = "", ""
 
                 detailed_widget:get_children_by_id("fajr_widget")[1].bg = beautiful.transparent

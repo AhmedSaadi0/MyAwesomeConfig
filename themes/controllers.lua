@@ -26,7 +26,7 @@ controller.border_width = dpi(2)
 
 -- درجة دوران حواف بعض الاشياء مثل الاشعارات واشعار الصوت والسطوع --
 controller.groups_radius = dpi(8)
-controller.windows_radius = dpi(8)
+controller.windows_radius = dpi(6)
 
 -- Control Panal --
 -- theme.control_panal_hight = dpi(750) -- normal layout
