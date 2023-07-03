@@ -84,7 +84,7 @@ function helpers.add_text_icon_widget(args)
     local icon_font = args.icon_font
     local icon_bg = args.icon_bg
     local icon_forced_width = args.icon_forced_width
-    
+
     local icon_position_x = args.icon_position_x or 0
 
     local forced_width = args.forced_width
@@ -203,11 +203,13 @@ function helpers.colorize_text(txt, fg, font)
     return "<span foreground='" .. fg .. "' font='" .. font .. "'>" .. txt .. "</span>"
 end
 
-function helpers.add_text(txt, bg, font)
+function helpers.add_text(txt, bg, font, align, valign)
+    local in_valign = valign or "center"
+    local in_align = align or "center"
     return wibox.widget {
         markup = helpers.colorize_text(txt, bg, font),
-        align = "center",
-        valign = "center",
+        align = in_align,
+        valign = in_valign,
         id = "text_id",
         widget = wibox.widget.textbox
     }

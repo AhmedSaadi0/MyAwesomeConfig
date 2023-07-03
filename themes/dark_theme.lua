@@ -22,8 +22,9 @@ theme.font = "JF Flat 11"
 theme.uifont = "JF Flat 11"
 theme.font_n = "Google Sana "
 -- notifications
-theme.appname_font = "Google Sana 10"
-theme.title_font = "Google Sana 11"
+theme.appname_font = "JF Flat Bold 12"
+theme.title_font = "JF Flat Bold 12"
+
 theme.message_font = theme.uifont
 theme.hotkeys_font = theme.uifont
 
@@ -297,7 +298,7 @@ theme.qt_style_theme = "kvantum"--"Lightly"
 
 theme.gtk_theme = "Tokyonight-Dark-B-LB"
 
-theme.plasma_cursors = "GoogleDot-Blue"
+theme.plasma_cursors = "GoogleDot-Black"
 theme.plasma_color = "SweetWithSweet.colors"
 
 return theme

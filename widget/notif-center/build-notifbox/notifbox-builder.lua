@@ -96,7 +96,14 @@ notifbox_box = function(notif, icon, title, message, app, bgcolor)
 					layout = wibox.layout.fixed.vertical,
 					spacing = dpi(5),
 					{
-						builder.notifbox_title(title),
+						{
+							top = dpi(0),
+							left = dpi(0),
+							right = dpi(0),
+							bottom = dpi(8),
+							widget = wibox.container.margin,
+							builder.notifbox_title(title)
+						},
 						builder.notifbox_message(message),
 						layout = wibox.layout.fixed.vertical
 					},

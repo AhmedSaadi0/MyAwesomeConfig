@@ -125,7 +125,6 @@ local function worker(user_args)
     local handle_border_color = args.handle_border_color or beautiful.vol_handle_border_color
     local handle_border_width = args.handle_border_width or beautiful.vol_handle_border_width
 
-
     local hardware_header =
         wibox.widget {
         text = "استخدام المعالج",
@@ -235,7 +234,6 @@ local function worker(user_args)
                         create_textbox {text = math.floor(diff_usage) .. "%"},
                         {
                             max_value = 100,
-
                             bar_shape = bar_shape,
                             bar_height = bar_height,
                             bar_color = bar_color,
@@ -245,8 +243,7 @@ local function worker(user_args)
                             handle_shape = handle_shape,
                             handle_border_color = handle_border_color,
                             handle_width = handle_width,
-                            handle_border_width = handle_border_width,            
-
+                            handle_border_width = handle_border_width,
                             value = diff_usage,
                             -- forced_height = 20,
                             forced_width = 150,

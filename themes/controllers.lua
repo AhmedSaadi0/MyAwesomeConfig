@@ -25,8 +25,8 @@ controller.panal_border_width = dpi(1)
 controller.border_width = dpi(2)
 
 -- درجة دوران حواف بعض الاشياء مثل الاشعارات واشعار الصوت والسطوع --
-controller.groups_radius = dpi(8)
-controller.windows_radius = dpi(6)
+controller.groups_radius = dpi(0)
+controller.windows_radius = dpi(0)
 
 -- Control Panal --
 -- theme.control_panal_hight = dpi(750) -- normal layout
@@ -78,10 +78,10 @@ end
 
 -- Variables set for theming notifications: --
 controller.notification_title_margin = dpi(6)
-controller.notification_body_left_margin = dpi(7)
-controller.notification_body_right_margin = dpi(7)
+controller.notification_body_left_margin = dpi(10)
+controller.notification_body_right_margin = dpi(10)
 controller.notification_body_top_margin = dpi(8)
-controller.notification_body_bottom_margin = dpi(6)
+controller.notification_body_bottom_margin = dpi(8)
 controller.notification_body_margins = dpi(6)
 -- theme.notification_margins = dpi(60)
 

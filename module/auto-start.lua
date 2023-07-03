@@ -16,7 +16,7 @@ local run_once = function(cmd)
         findme = cmd:sub(0, firstspace - 1)
     end
     awful.spawn.easy_async_with_shell(
-        string.format("pgrep -u $USER -x %s > /dev/null || (%s)", findme, cmd),
+        string.format("pgrep -f -u $USER -x %s > /dev/null || (%s)", findme, cmd),
         function(stdout, stderr)
             -- Debugger
             if not stderr or stderr == "" or not debug_mode then
@@ -24,10 +24,11 @@ local run_once = function(cmd)
             end
             naughty.notification(
                 {
-                    app_name = "بدء تشغيل البرامج",
-                    title = "<span font='" .. beautiful.title_font .. "' > عذرا! حدث خطأ اثناء بدء تشغيل البرنامج! </span>",
-                    font = beautiful.title_font,
-                    message = stderr:gsub("%\n", ""),
+                    app_name = "<span font='" .. beautiful.appname_font .. "' >بدء تشغيل البرامج</span>",
+                    title = "<span font='" ..
+                        beautiful.title_font .. "' > عذرا! حدث خطأ اثناء بدء تشغيل البرنامج! </span>",
+                    font = beautiful.uifont,
+                    message = "-----------------------------------------\n البرنامج المحتمل : " .. findme .. "\n-----------------------------------------\n" .. stderr:gsub("%\n", ""),
                     timeout = 20,
                     icon = require("beautiful").awesome_icon
                 }

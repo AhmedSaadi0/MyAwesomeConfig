@@ -24,8 +24,8 @@ theme.font = "JF Flat 11"
 theme.uifont = "JF Flat 11"
 theme.font_n = "Google Sana "
 -- notifications
-theme.appname_font = "Google Sana 10"
-theme.title_font = "Google Sana 11"
+theme.appname_font = "JF Flat Bold 12"
+theme.title_font = "JF Flat Bold 12"
 theme.message_font = theme.uifont
 theme.hotkeys_font = theme.uifont
 
@@ -43,14 +43,16 @@ theme.accent =
     from = {100, 0},
     to = {10, 10}
 }
-local bar_color = helpers.create_gradient_color {
+local bar_color =
+    helpers.create_gradient_color {
     color2 = "#2a4e6a",
     color1 = "#2a4235",
     from = {0, 0},
     to = {100, 100}
 }
 
-local bar_active_color = helpers.create_gradient_color {
+local bar_active_color =
+    helpers.create_gradient_color {
     color2 = "#61afef",
     color1 = "#a1fdcd",
     from = {0, 0},
@@ -139,7 +141,6 @@ theme.tooltip_bg = theme.bg_normal
 
 -- Allow desktop widgets
 theme.circle_theme = true
-
 
 --------------------------------
 ------------ Taglist -----------
@@ -309,12 +310,12 @@ theme.konsole_profile = "--profile Circles"
 -- theme.qt_icon_theme = "FairyWren" --"Calm"
 theme.qt_icon_theme = "oomox-aesthetic-dark"
 
-theme.qt_style_theme = "kvantum"
--- theme.qt_style_theme = "Lightly"
+-- theme.qt_style_theme = "kvantum"
+theme.qt_style_theme = "Lightly"
 -- theme.gtk_theme = "Flat-Remix-GTK-Blue-Dark-Solid"
 theme.gtk_theme = "Tokyonight-Dark-B-LB"
 
-theme.plasma_cursors = "GoogleDot-Blue"
+theme.plasma_cursors = "GoogleDot-Black"
 theme.plasma_color = "Circles.colors"
 
 return theme

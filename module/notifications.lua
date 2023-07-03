@@ -7,6 +7,7 @@ local menubar = require("menubar")
 local beautiful = require("beautiful")
 local dpi = beautiful.xresources.apply_dpi
 local clickable_container = require("widget.clickable-container")
+local helper = require("helpers")
 
 -- Defaults
 naughty.config.defaults.ontop = true
@@ -89,12 +90,14 @@ ruled.notification.connect_signal(
 naughty.connect_signal(
 	"request::display_error",
 	function(message, startup)
+		local error_message = "عذرا. حدث خطأ" .. (startup and " اثناء بدء التشغيل!" or "!")
 		naughty.notification {
 			urgency = "critical",
-			title = "عذرا. حدث خطأ" .. (startup and " اثناء بدء التشغيل!" or "!"),
+			-- title = "عذرا. حدث خطأ" .. (startup and " اثناء بدء التشغيل!" or "!"),
+			title = "<span font='" .. beautiful.title_font .. "' >" .. error_message .. "</span>",
 			font = beautiful.title_font,
 			message = message,
-			app_name = "اعدادات النظام",
+			app_name = "<span font='" .. beautiful.appname_font .. "' >اعدادات النظام</span>",
 			icon = beautiful.awesome_icon
 		}
 	end
@@ -198,13 +201,13 @@ naughty.connect_signal(
 															widget = wibox.container.margin
 														},
 														{
-															markup = "<span weight='bold'>" .. n.app_name .. "</span>",
+															markup = "<span font='" .. beautiful.appname_font .. "' >" .. n.app_name .. "</span>",
 															align = "left",
 															font = beautiful.font,
 															widget = wibox.widget.textbox
 														},
 														{
-															markup = "<span weight='bold'>   " .. time .. "</span>",
+															markup = "<span font='" .. beautiful.appname_font .. "' >" .. time .. "</span>",
 															align = "right",
 															font = beautiful.font,
 															widget = wibox.widget.textbox
@@ -231,14 +234,19 @@ naughty.connect_signal(
 														{
 															{
 																-- Message title
-																align = "left",
-																widget = naughty.widget.title
+																top = dpi(0),
+																left = dpi(0),
+																right = dpi(0),
+																bottom = dpi(8),
+																widget = wibox.container.margin,
+																helper.add_text(n.title, beautiful.fg_normal, beautiful.title_font, "left")
 															},
-															{
-																-- Message text
-																align = "left",
-																widget = naughty.widget.message
-															},
+															helper.add_text(n.message, beautiful.fg_normal, beautiful.uifont, "left"),
+															-- {
+															-- 	-- -- Message text
+															-- 	-- align = "left",
+															-- 	-- widget = naughty.widget.message
+															-- },
 															layout = wibox.layout.fixed.vertical
 														},
 														nil

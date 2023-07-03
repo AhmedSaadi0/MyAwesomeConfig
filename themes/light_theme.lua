@@ -24,8 +24,9 @@ theme.font = "JF Flat 11"
 theme.uifont = "JF Flat 11"
 theme.font_n = "Google Sana "
 -- notifications
-theme.appname_font = "Google Sana 10"
-theme.title_font = "Google Sana 11"
+theme.appname_font = "JF Flat Bold 12"
+theme.title_font = "JF Flat Bold 12"
+
 theme.message_font = theme.uifont
 
 -- theme.widget_font = "Font Awesome 5 Free Solid 11"

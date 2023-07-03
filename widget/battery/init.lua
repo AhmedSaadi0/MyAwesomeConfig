@@ -125,7 +125,8 @@ local return_button = function()
 		naughty.notification(
 			{
 				icon = widget_icon_dir .. "battery-alert.svg",
-				app_name = "النظام",
+				app_name = "<span font='" .. beautiful.title_font .. "' >النظام</span>",
+				font = beautiful.title_font,
 				title = "البطارية منخفظة جداً!",
 				message = "صديقي, بطارية جهازك اوشكت على الانتهاء. لا تنسى ان تحفظ عملك قبل ان ينظفئ الجهاز.",
 				-- message = 'Hey, I think we have a problem here. Save your work before reaching the oblivion.',
@@ -149,7 +150,8 @@ local return_button = function()
 		naughty.notification(
 			{
 				icon = widget_icon_dir .. icon,
-				app_name = "النظام",
+				app_name = "<span font='" .. beautiful.title_font .. "' >النظام</span>",
+				font = beautiful.title_font,
 				title = title,
 				message = message,
 				urgency = "normal"

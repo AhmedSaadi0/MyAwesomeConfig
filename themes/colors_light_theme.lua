@@ -24,8 +24,9 @@ theme.font = "JF Flat 11"
 theme.uifont = "JF Flat 11"
 theme.font_n = "Google Sana "
 -- notifications
-theme.appname_font = "Google Sana 10"
-theme.title_font = "Google Sana 11"
+theme.appname_font = "JF Flat Bold 12"
+theme.title_font = "JF Flat Bold 12"
+
 theme.message_font = theme.uifont
 theme.hotkeys_font = theme.uifont
 
@@ -376,7 +377,7 @@ theme.conky_script = "/themes/conky/conky-colors.sh"
 theme.kvantum_theme = "Sweet-transparent-toolbar"
 theme.konsole_profile = "--profile Aesthetic"
 
-theme.plasma_cursors = "ArcStarry-cursors"
+theme.plasma_cursors = "GoogleDot-Black"
 theme.plasma_color = "Aesthetic.colors"
 
 return theme

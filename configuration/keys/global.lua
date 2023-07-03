@@ -384,6 +384,28 @@ local global_keys =
 	),
 	awful.key(
 		{modkey, "Shift"},
+		"b",
+		function()
+			awful.spawn("microsoft-edge-stable")
+		end,
+		{
+			description = "افتح ايدج",
+			group = "تطبيقات"
+		}
+	),
+	awful.key(
+		{modkey, "Shift"},
+		"n",
+		function()
+			awful.spawn("notion-app-enhanced")
+		end,
+		{
+			description = "افتح نوشن",
+			group = "تطبيقات"
+		}
+	),
+	awful.key(
+		{modkey, "Shift"},
 		"a",
 		function()
 			awful.spawn.with_shell("LC_ALL=C " .. apps.default.development)
@@ -408,6 +430,14 @@ local global_keys =
 			awful.spawn("telegram-desktop")
 		end,
 		{description = "افتح تلقرام", group = "تطبيقات"}
+	),
+	awful.key(
+		{modkey, "Shift"},
+		"d",
+		function()
+			awful.spawn("discord")
+		end,
+		{description = "افتح ديسكورد", group = "تطبيقات"}
 	),
 	awful.key(
 		{modkey},
