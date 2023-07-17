@@ -302,15 +302,17 @@ local global_keys =
 		{},
 		"XF86AudioPlay",
 		function()
-			awful.spawn("clementine -t", false)
+-- 			awful.spawn("clementine -t", false)
+			awful.spawn.with_shell("playerctl play-pause", false)
 		end,
-		{description = "Play Clementine", group = "ميديا"}
+		{description = "Play", group = "ميديا"}
 	),
 	awful.key(
 		{},
 		"XF86AudioNext",
 		function()
-			awful.spawn("clementine -f", false)
+-- 			awful.spawn("clementine -f", false)
+			awful.spawn.with_shell("playerctl next", false)
 		end,
 		{description = "Next Song", group = "ميديا"}
 	),
@@ -318,7 +320,8 @@ local global_keys =
 		{},
 		"XF86AudioPrev",
 		function()
-			awful.spawn("clementine -r", false)
+-- 			awful.spawn("clementine -r", false)
+			awful.spawn.with_shell("playerctl previous", false)
 		end,
 		{description = "Previous Song", group = "ميديا"}
 	),
@@ -326,9 +329,10 @@ local global_keys =
 		{},
 		"XF86AudioStop",
 		function()
-			awful.spawn("clementine -s", false)
+-- 			awful.spawn("clementine -s", false)
+			awful.spawn.with_shell("playerctl stop", false)
 		end,
-		{description = "Stop Clementine", group = "ميديا"}
+		{description = "Stop", group = "ميديا"}
 	),
 	-- الاضاءة
 	awful.key(

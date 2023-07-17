@@ -276,6 +276,8 @@ ruled.client.connect_signal(
 					"easyeffects",
 					"mpv",
 					"Genymotion",
+					"elisa",
+					"strawberry",
 				}
 			},
 			properties = {

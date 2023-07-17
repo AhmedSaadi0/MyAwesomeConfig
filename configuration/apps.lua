@@ -11,13 +11,13 @@ return {
 		-- Default web browser
 		web_browser = "firefox",
 		-- Default text editor
-		text_editor = "codium",
+		text_editor = "code",
 		-- text_editor = "code",
 		-- Default file manager
 		file_manager = "dolphin -reverse",
 		-- file_manager = "pcmanfm-qt",
 		-- Default media player
-		multimedia = "clementine",
+		multimedia = "strawberry",
 		-- Default chat app
 		social = "telegram-desktop",
 		-- Default IDE  
