@@ -17,8 +17,7 @@ local dpi = beautiful.xresources.apply_dpi
 local helpers = require("helpers")
 
 local CMD =
-    [[sh -c "grep '^cpu.' /proc/stat; ps -eo '%p|%c|%C|' -o "%mem" -o '|%a' --sort=-%cpu ]] ..
-    [[| head -11 | tail -n +2"]]
+    [[sh -c "grep '^cpu.' /proc/stat; ps -eo pid,comm,%cpu,%mem,cmd --sort=-%cpu | awk -v OFS='::' '{ print \$1, \$2, \$3, \$4, \$5 }' | head -11 | tail -n +2"]]
 
 local HOME_DIR = os.getenv("HOME")
 local WIDGET_DIR = HOME_DIR .. "/.config/awesome/awesome-wm-widgets/cpu-widget"
@@ -66,16 +65,16 @@ end
 local function create_process_header(params)
     local res =
         wibox.widget {
-        create_textbox {markup = "<b>PID</b>"},
-        create_textbox {markup = "<b>Name</b>"},
-        {
-            create_textbox {markup = "<b>%CPU</b>"},
-            create_textbox {markup = "<b>%MEM</b>"},
-            params.with_action_column and create_textbox {forced_width = 20} or nil,
-            layout = wibox.layout.align.horizontal
-        },
-        layout = wibox.layout.ratio.horizontal
-    }
+            create_textbox { markup = "<b>PID</b>" },
+            create_textbox { markup = "<b>Name</b>" },
+            {
+                create_textbox { markup = "<b>%CPU</b>" },
+                create_textbox { markup = "<b>%MEM</b>" },
+                params.with_action_column and create_textbox { forced_width = 20 } or nil,
+                layout = wibox.layout.align.horizontal
+            },
+            layout = wibox.layout.ratio.horizontal
+        }
     res:ajust_ratio(2, 0.2, 0.47, 0.33)
 
     return res
@@ -112,8 +111,8 @@ local function worker(user_args)
     local font = args.font or beautiful.uifont
 
     local shape = args.shape or function(cr, width, height)
-            gears.shape.rounded_rect(cr, width, height, beautiful.groups_radius)
-        end
+        gears.shape.rounded_rect(cr, width, height, beautiful.groups_radius)
+    end
 
     local handle_shape = args.handle_shape or helpers.rrect(dpi(100))
     local bar_shape = args.handle_shape or beautiful.vol_bar_shape or helpers.rrect(dpi(11))
@@ -127,35 +126,35 @@ local function worker(user_args)
 
     local hardware_header =
         wibox.widget {
-        text = "استخدام المعالج",
-        font = font,
-        align = "center",
-        valign = "center",
-        widget = wibox.widget.textbox
-    }
+            text = "استخدام المعالج",
+            font = font,
+            align = "center",
+            valign = "center",
+            widget = wibox.widget.textbox
+        }
 
     local cpugraph_widget =
         wibox.widget {
-        max_value = 100,
-        background_color = "#00000000",
-        forced_width = width,
-        step_width = step_width,
-        step_spacing = step_spacing,
-        widget = wibox.widget.graph,
-        color = "linear:0,0:0,20:0,#FF0000:0.3,#FFFF00:0.6," .. color
-    }
+            max_value = 100,
+            background_color = "#00000000",
+            forced_width = width,
+            step_width = step_width,
+            step_spacing = step_spacing,
+            widget = wibox.widget.graph,
+            color = "linear:0,0:0,20:0,#FF0000:0.3,#FFFF00:0.6," .. color
+        }
 
     local popup =
         awful.popup {
-        ontop = true,
-        visible = false,
-        shape = shape,
-        border_width = border_width,
-        border_color = border_color,
-        maximum_width = 300,
-        offset = {y = 10},
-        widget = {}
-    }
+            ontop = true,
+            visible = false,
+            shape = shape,
+            border_width = border_width,
+            border_color = border_color,
+            maximum_width = 300,
+            offset = { y = 10 },
+            widget = {}
+        }
 
     -- Do not update process rows when mouse cursor is over the widget
     popup:connect_signal(
@@ -190,14 +189,14 @@ local function worker(user_args)
     --- By default graph widget goes from left to right, so we mirror it and push up a bit
     cpu_widget =
         wibox.widget {
-        {
-            cpugraph_widget,
-            reflection = {horizontal = true},
-            layout = wibox.container.mirror
-        },
-        bottom = 2,
-        widget = wibox.container.margin
-    }
+            {
+                cpugraph_widget,
+                reflection = { horizontal = true },
+                layout = wibox.container.mirror
+            },
+            bottom = 2,
+            widget = wibox.container.margin
+        }
 
     local cpus = {}
     watch(
@@ -212,8 +211,9 @@ local function worker(user_args)
                         cpus[i] = {}
                     end
 
-                    local name, user, nice, system, idle, iowait, irq, softirq, steal, _, _ =
-                        line:match("(%w+)%s+(%d+)%s(%d+)%s(%d+)%s(%d+)%s(%d+)%s(%d+)%s(%d+)%s(%d+)%s(%d+)%s(%d+)")
+                    local name, user, nice, system, idle, iowait, irq, softirq, steal, _, _ = line:match(
+                        "(%w+)%s+(%d+)%s(%d+)%s(%d+)%s(%d+)%s(%d+)%s(%d+)%s(%d+)%s(%d+)%s(%d+)%s(%d+)"
+                    )
 
                     local total = user + nice + system + idle + iowait + irq + softirq + steal
 
@@ -230,38 +230,39 @@ local function worker(user_args)
 
                     local row =
                         wibox.widget {
-                        create_textbox {text = name},
-                        create_textbox {text = math.floor(diff_usage) .. "%"},
-                        {
-                            max_value = 100,
-                            bar_shape = bar_shape,
-                            bar_height = bar_height,
-                            bar_color = bar_color,
-                            bar_active_color = bar_active_color,
-                            bar_active_shape = bar_shape,
-                            handle_color = handle_color,
-                            handle_shape = handle_shape,
-                            handle_border_color = handle_border_color,
-                            handle_width = handle_width,
-                            handle_border_width = handle_border_width,
-                            value = diff_usage,
-                            -- forced_height = 20,
-                            forced_width = 150,
-                            margins = dpi(3),
-                            forced_height = beautiful.slider_forced_height,
-                            color = beautiful.slider_color,
-                            background_color = beautiful.slider_background_color,
-                            shape = gears.shape.rounded_rect,
-                            widget = wibox.widget.progressbar
-                        },
-                        layout = wibox.layout.ratio.horizontal
-                    }
+                            create_textbox { text = name },
+                            create_textbox { text = math.floor(diff_usage) .. "%" },
+                            {
+                                max_value = 100,
+                                bar_shape = bar_shape,
+                                bar_height = bar_height,
+                                bar_color = bar_color,
+                                bar_active_color = bar_active_color,
+                                bar_active_shape = bar_shape,
+                                handle_color = handle_color,
+                                handle_shape = handle_shape,
+                                handle_border_color = handle_border_color,
+                                handle_width = handle_width,
+                                handle_border_width = handle_border_width,
+                                value = diff_usage,
+                                -- forced_height = 20,
+                                forced_width = 150,
+                                margins = dpi(3),
+                                forced_height = beautiful.slider_forced_height,
+                                color = beautiful.slider_color,
+                                background_color = beautiful.slider_background_color,
+                                shape = gears.shape.rounded_rect,
+                                widget = wibox.widget.progressbar
+                            },
+                            layout = wibox.layout.ratio.horizontal
+                        }
                     row:ajust_ratio(2, 0.15, 0.15, 0.7)
                     cpu_rows[i] = row
+
                     i = i + 1
                 else
                     if is_update == true then
-                        local columns = split(line, "|")
+                        local columns = split(line, "::")
 
                         local pid = columns[1]
                         local comm = columns[2]
@@ -273,28 +274,28 @@ local function worker(user_args)
 
                         local pid_name_rest =
                             wibox.widget {
-                            create_textbox {text = pid},
-                            create_textbox {text = comm},
-                            {
-                                create_textbox {text = cpu, align = "center"},
-                                create_textbox {text = mem, align = "center"},
-                                kill_proccess_button,
-                                layout = wibox.layout.fixed.horizontal
-                            },
-                            layout = wibox.layout.ratio.horizontal
-                        }
+                                create_textbox { text = pid },
+                                create_textbox { text = comm },
+                                {
+                                    create_textbox { text = cpu, align = "center" },
+                                    create_textbox { text = mem, align = "center" },
+                                    kill_proccess_button,
+                                    layout = wibox.layout.fixed.horizontal
+                                },
+                                layout = wibox.layout.ratio.horizontal
+                            }
                         pid_name_rest:ajust_ratio(2, 0.2, 0.47, 0.33)
 
                         local row =
                             wibox.widget {
-                            {
-                                pid_name_rest,
-                                top = 4,
-                                bottom = 4,
-                                widget = wibox.container.margin
-                            },
-                            widget = wibox.container.background
-                        }
+                                {
+                                    pid_name_rest,
+                                    top = 4,
+                                    bottom = 4,
+                                    widget = wibox.container.margin
+                                },
+                                widget = wibox.container.background
+                            }
 
                         row:connect_signal(
                             "mouse::enter",
@@ -338,9 +339,9 @@ local function worker(user_args)
                         end
 
                         awful.tooltip {
-                            objects = {row},
+                            objects = { row },
                             mode = "outside",
-                            preferred_positions = {"bottom"},
+                            preferred_positions = { "bottom" },
                             timer_function = function()
                                 local text = cmd
                                 if process_info_max_length > 0 and text:len() > process_info_max_length then
@@ -380,7 +381,7 @@ local function worker(user_args)
                             color = beautiful.bg_focus,
                             widget = wibox.widget.separator
                         },
-                        create_process_header {with_action_column = enable_kill_button},
+                        create_process_header { with_action_column = enable_kill_button },
                         process_rows,
                         layout = wibox.layout.fixed.vertical
                     },
