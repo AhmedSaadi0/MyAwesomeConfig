@@ -278,6 +278,7 @@ ruled.client.connect_signal(
 					"Genymotion",
 					"elisa",
 					"strawberry",
+					"amarok",
 				}
 			},
 			properties = {

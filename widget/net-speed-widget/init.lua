@@ -14,7 +14,7 @@ local awful = require("awful")
 
 local HOME_DIR = os.getenv("HOME")
 local WIDGET_DIR = HOME_DIR .. "/.config/awesome/widget/net-speed-widget/"
-local ICONS_DIR = WIDGET_DIR .. "icons/"
+-- local ICONS_DIR = WIDGET_DIR .. "icons/"
 
 local net_speed_widget = {}
 

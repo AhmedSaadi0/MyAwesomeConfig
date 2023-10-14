@@ -92,7 +92,6 @@ client.connect_signal(
 		local current_layout = awful.tag.getproperty(c.first_tag, "layout")
 		if c.maximized then
 			c.shape = beautiful.client_shape_rectangle
-			c.border_width = 0
 		else
 			update_client(c)
 		end

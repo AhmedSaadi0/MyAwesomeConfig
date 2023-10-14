@@ -9,7 +9,8 @@ return {
 		-- Default terminal emulator
 		terminal = "konsole " .. beautiful.konsole_profile,
 		-- Default web browser
-		web_browser = "firefox",
+		-- web_browser = "firefox",
+		web_browser = "brave",
 		-- Default text editor
 		text_editor = "code",
 		-- text_editor = "code",
@@ -18,6 +19,7 @@ return {
 		-- file_manager = "pcmanfm-qt",
 		-- Default media player
 		multimedia = "strawberry",
+		-- multimedia = "amarok -reverse",
 		-- Default chat app
 		social = "telegram-desktop",
 		-- Default IDE  
