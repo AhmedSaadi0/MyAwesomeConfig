@@ -83,15 +83,15 @@ theme.power_button_color = "#cae1ff"
 theme.taglist_color = "#a4dfff"
 
 theme.keyboard_layout_color = "#cae1ff"
-theme.keyboard_icon_bg_color = "#cae1ff" -- "#aaaaff"
+theme.keyboard_icon_bg_color = "#cae1ff"       -- "#aaaaff"
 theme.keyboard_icon_fg_color = theme.widget_bg -- "#aaaaff"
-theme.keyboard_text_color = theme.widget_bg -- "#aaaaff"
+theme.keyboard_text_color = theme.widget_bg    -- "#aaaaff"
 
 theme.cpu_color = "#cae1ff"
 theme.cpu_icon_color = "#cae1ff"
 
 theme.cpu_temp_color = "#cae1ff"
-theme.cpu_temp_icon_bg_color = "#cae1ff" -- "#00efd1"
+theme.cpu_temp_icon_bg_color = "#cae1ff"      -- "#00efd1"
 theme.cpu_temp_icon_high_bg_color = "#e2ce67" -- theme.widget_bg
 theme.cpu_temp_icon_fg_color = theme.widget_bg
 theme.cpu_temp_text_color = theme.cpu_temp_icon_fg_color
@@ -307,9 +307,9 @@ theme.icons = require("themes.icons-colors")
 theme.conky_script = ""
 
 theme.qt_icon_theme = "FairyWren"
- --"We10X"
-theme.qt_style_theme = "kvantum"
- --"Lightly"
+--"We10X"
+theme.qt_style_theme = "Breeze"
+--"Lightly"
 
 theme.gtk_theme = "WhiteSur-Dark-solid-alt-orange"
 
@@ -317,6 +317,6 @@ theme.kvantum_theme = "a-islamic"
 theme.konsole_profile = "--profile Islamic"
 
 theme.plasma_cursors = "GoogleDot-Black"
-theme.plasma_color = "Tellgo.colors"
+theme.plasma_color = "Tellgo"
 
 return theme

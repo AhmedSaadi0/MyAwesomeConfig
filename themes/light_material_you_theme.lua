@@ -303,12 +303,12 @@ theme.kvantum_theme = "a-m-you"
 theme.konsole_profile = "--profile material-you"
 -- theme.qt_icon_theme = "Oreo-black-circle"
 theme.qt_icon_theme = "kora-grey-light-panel"
-theme.qt_style_theme = "Lightly"
+theme.qt_style_theme = "Breeze"
 
 theme.gtk_theme = "WhiteSur-Light-red"
 
 theme.plasma_cursors = "GoogleDot-Black"
 -- theme.plasma_color = "NovaAmare.colors"
-theme.plasma_color = "MyMaterialYou.colors"
+theme.plasma_color = "MyMaterialYou"
 
 return theme

@@ -284,12 +284,13 @@ theme.conky_script = "/themes/conky/conky-batman.sh"
 theme.kvantum_theme = "a-dark"
 theme.konsole_profile = "--profile Batman"
 theme.qt_icon_theme = "dracula-icons-main" --"neon-icons-master"
--- theme.qt_style_theme = "kvantum"--"Lightly"
-theme.qt_style_theme = "Lightly"
+-- theme.qt_style_theme = "Breeze"--"Lightly"
+-- theme.qt_style_theme = "Breeze"
+theme.qt_style_theme = "Breeze"
 
 theme.gtk_theme = "Tokyonight-Dark-B-LB"
 
 theme.plasma_cursors = "GoogleDot-Black"
-theme.plasma_color = "ABatman.colors"
+theme.plasma_color = "ABatman"
 
 return theme

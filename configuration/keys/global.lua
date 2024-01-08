@@ -511,10 +511,11 @@ local global_keys =
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it work on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
-for i = 1, 9 do
+local workspaces = 9
+for i = 1, workspaces do
 	-- Hack to only show tags 1 and 9 in the shortcut window (mod+s)
 	local descr_view, descr_toggle, descr_move, descr_toggle_focus
-	if i == 1 or i == 9 then
+	if i == 1 or i == workspaces then
 		descr_view = {description = "عرض سطح المكتب #", group = "سطح المكتب"}
 		descr_toggle = {description = "تبديل سطح المكتب #", group = "سطح المكتب"}
 		descr_move = {description = "تحريك تطبيق الى سطح المكتب #", group = "سطح المكتب"}
@@ -526,7 +527,7 @@ for i = 1, 9 do
 		-- View tag only.
 		awful.key(
 			{modkey},
-			"#" .. i + 9,
+			"#" .. i + workspaces,
 			function()
 				local focused = awful.screen.focused()
 				-- #focused.tags + 1 - i to revers array to support RTL layout
@@ -540,7 +541,7 @@ for i = 1, 9 do
 		-- Toggle tag display.
 		awful.key(
 			{modkey, "Control"},
-			"#" .. i + 9,
+			"#" .. i + workspaces,
 			function()
 				local focused = awful.screen.focused()
 				local tag = focused.tags[#focused.tags + 1 - i]
@@ -553,7 +554,7 @@ for i = 1, 9 do
 		-- Move client to tag.
 		awful.key(
 			{modkey, "Shift"},
-			"#" .. i + 9,
+			"#" .. i + workspaces,
 			function()
 				if client.focus then
 					local tag = client.focus.screen.tags[#client.focus.screen.tags + 1 - i]
@@ -567,7 +568,7 @@ for i = 1, 9 do
 		-- Toggle tag on focused client.
 		awful.key(
 			{modkey, "Control", "Shift"},
-			"#" .. i + 9,
+			"#" .. i + workspaces,
 			function()
 				if client.focus then
 					local tag = client.focus.screen.tags[#client.focus.screen.tags + 1 - i]

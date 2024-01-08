@@ -328,12 +328,12 @@ theme.kvantum_theme = "a-light"--"Orchis"
 theme.konsole_profile = "--profile light"
 
 theme.qt_icon_theme = "kora-light-panel"
-theme.qt_style_theme = "kvantum"--"Lightly"
+theme.qt_style_theme = "Breeze"--"Lightly"
 
 theme.gtk_theme = "WhiteSur-Light-solid-alt-blue"
 
 theme.plasma_cursors = "GoogleDot-Black"
 -- theme.plasma_color = "NovaAmare.colors"
-theme.plasma_color = "GenomeLight21.colors"
+theme.plasma_color = "GenomeLight21"
 
 return theme

@@ -285,7 +285,7 @@ theme.dynamic_wallpaper_dir = "themes/wallpapers//"
 theme.conky_script = "/themes/conky/conky-cosmic.sh"
 
 theme.qt_icon_theme = "We10X"
-theme.qt_style_theme = "Lightly"
+theme.qt_style_theme = "Breeze"
 
 theme.gtk_theme = "WhiteSur-Dark-solid-alt-yellow"
 
@@ -293,6 +293,6 @@ theme.kvantum_theme = "Glorious-dark"
 theme.konsole_profile = "--profile Cosmic"
 
 theme.plasma_cursors = "GoogleDot-Black"
-theme.plasma_color = "Cosmic.colors"
+theme.plasma_color = "Cosmic"
 
 return theme

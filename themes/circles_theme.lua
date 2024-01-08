@@ -310,13 +310,13 @@ theme.konsole_profile = "--profile Circles"
 -- theme.qt_icon_theme = "FairyWren" --"Calm"
 theme.qt_icon_theme = "oomox-aesthetic-dark"
 
--- theme.qt_style_theme = "kvantum"
-theme.qt_style_theme = "Lightly"
+-- theme.qt_style_theme = "Breeze"
+theme.qt_style_theme = "Breeze"
 -- theme.gtk_theme = "Flat-Remix-GTK-Blue-Dark-Solid"
 theme.gtk_theme = "Tokyonight-Dark-B-LB"
 
 theme.plasma_cursors = "GoogleDot-Black"
-theme.plasma_color = "Circles.colors"
+theme.plasma_color = "Circles"
 
 return theme
 

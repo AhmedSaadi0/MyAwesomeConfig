@@ -9,8 +9,8 @@ return {
 		-- Default terminal emulator
 		terminal = "konsole " .. beautiful.konsole_profile,
 		-- Default web browser
-		-- web_browser = "firefox",
-		web_browser = "brave",
+		web_browser = "firefox",
+		-- web_browser = "brave",
 		-- Default text editor
 		text_editor = "code",
 		-- text_editor = "code",
@@ -24,7 +24,7 @@ return {
 		social = "telegram-desktop",
 		-- Default IDE  
 		-- LC_ALL=C prime-run studio
-		development = "export LANG=en_US.UTF-8 && prime-run studio",
+		development = "export LANG=en_US.UTF-8 && studio",
 		-- Games
 		games = "retroarch",
 		-- Default locker
@@ -35,7 +35,7 @@ return {
 	},
 	-- List of apps to start once on start-up
 	run_on_start_up = {
-		"killall xsettingsd glava conky > /dev/null 2>&1",
+		"killall xfce4-notifyd xsettingsd glava conky > /dev/null 2>&1",
 		"nm-applet -sm-disable",
 		"blueman-applet",
 		"xfce4-clipman",
@@ -55,7 +55,7 @@ return {
 		-- kvantum theme
 		"kvantummanager --set " .. beautiful.kvantum_theme,
 		-- PLasma theme
-		config_dir .. "./bin/plasma-theme -c " .. config_dir .. "/themes/plasma-colors/" .. beautiful.plasma_color,
+		"plasma-apply-colorscheme " .. beautiful.plasma_color,
 		-- "kwriteconfig5 --file ~/.config/kcminputrc --group Mouse --key cursorTheme " .. beautiful.plasma_cursors,
 		"kcminit",
 		config_dir .. beautiful.conky_script .." > /dev/null 2>&1",

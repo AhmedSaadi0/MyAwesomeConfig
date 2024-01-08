@@ -303,8 +303,8 @@ theme.icons = require("themes.icons-islamic")
 theme.dynamic_wallpaper_dir = "themes/wallpapers//"
 theme.conky_script = "/themes/conky/conky-islamic.sh"
 
-theme.qt_icon_theme = "oomox-aesthetic-dark"--"We10X"
-theme.qt_style_theme = "kvantum"--"Lightly"
+theme.qt_icon_theme = "Vivid-Dark-Icons" -- "oomox-aesthetic-dark"--"We10X"
+theme.qt_style_theme = "Breeze"--"Lightly"
 
 theme.gtk_theme = "WhiteSur-Dark-solid-alt-orange"
 
@@ -312,6 +312,6 @@ theme.kvantum_theme = "a-islamic"
 theme.konsole_profile = "--profile Islamic"
 
 theme.plasma_cursors = "GoogleDot-Black"
-theme.plasma_color = "Tellgo.colors"
+theme.plasma_color = "Tellgo"
 
 return theme

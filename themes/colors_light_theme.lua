@@ -378,7 +378,7 @@ theme.kvantum_theme = "Sweet-transparent-toolbar"
 theme.konsole_profile = "--profile Aesthetic"
 
 theme.plasma_cursors = "GoogleDot-Black"
-theme.plasma_color = "Aesthetic.colors"
+theme.plasma_color = "Aesthetic"
 
 return theme
 
